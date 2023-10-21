@@ -220,7 +220,7 @@ better_basileus_invite_varangians.0001 = {
 
 		# Promote third varangian
 		option = {
-			name = better_basileus_invite_varangians.0001.b
+			name = better_basileus_invite_varangians.0001.c
 			hidden_effect = {
 				scope:target1 = {		
 						death = {
