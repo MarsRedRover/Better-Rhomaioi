@@ -1,0 +1,71 @@
+﻿RHOMAIOI_raise_tagmatic_troops = {
+	picture = "gfx/interface/illustrations/decisions/RHOMAIOI_decision_raise_tagmata.dds"
+
+	desc = RHOMAIOI_raise_tagmatic_troops_desc
+	selection_tooltip = RHOMAIOI_raise_tagmatic_troops_tooltip
+
+	cooldown = { days = 3600 }
+
+	ai_check_interval = 60
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		OR = {
+			vassal_contract_has_flag = RHOMAIOI_has_exarch_contract
+			primary_title.tier >= tier_empire
+		}
+		# OR = { # Makes sure the player is able to use the GUI to raise troops without seeing this decision.
+		# 	is_ai = yes
+		# 	has_character_flag = RHOMAIOI_raising_troops
+		# }
+		NOT = { has_character_flag = RHOMAIOI_already_raised_troops }
+		has_government = RHOMAIOI_imperial_government
+	}
+
+	is_valid = {
+		is_in_civil_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		OR = {
+			primary_title = title:e_byzantium
+			primary_title = title:e_roman_empire
+			vassal_contract_has_flag = RHOMAIOI_has_exarch_contract
+		}
+	}
+
+	cost = {
+		gold = RHOMAIOI_tagmata_cost
+		prestige = RHOMAIOI_tagmata_cost
+	}
+
+	effect = {
+		add_character_flag = RHOMAIOI_already_raised_troops
+		spawn_army = {
+			levies = 150
+			men_at_arms = {
+				type = cataphract
+				stacks = {
+					every_vassal_or_below = {
+						add = 0.5
+					}
+				}
+			}
+			inheritable = no
+			uses_supply = yes
+			location = capital_province
+			name = "Tagmata"
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}

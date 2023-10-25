@@ -1,0 +1,264 @@
+﻿
+namespace = better_basileus_invite_varangians
+
+# Invite Varangian Veteran Commander
+better_basileus_invite_varangians.0001 = {
+	type = character_event
+	title = better_basileus_invite_varangians.0001.title
+	desc = better_basileus_invite_varangians.0001.desc
+	
+	theme = realm
+	
+	left_portrait = {
+		character = scope:target1
+		animation = throne_room_one_handed_passive_2
+	}
+	right_portrait = {
+		character = scope:target2
+		animation = marshal
+	}
+	lower_center_portrait = {
+		character = scope:target3
+		animation = idle
+	}
+
+	trigger = { exists = capital_province } #If I lost it before I got this event, I shouldn't get a physician
+
+	immediate = {
+		# Create random varangian commander
+		create_character = {	
+			employer = root
+			location = root.location
+			age = { 25 40 }
+			gender = male
+			random_traits = yes
+			faith = root.faith
+			culture = culture:norse
+			dynasty = none
+			martial = { 10 25 }
+			trait = varangian
+			random_traits_list = {	
+				count = {1 2}
+				education_martial_1 = { 
+					weight = { base = 10 }
+				}
+				education_martial_2 = { 
+					weight = { base = 25 }
+				}
+				education_martial_3 = { 
+					weight = { base = 35 }
+				}
+				education_martial_4 = { 
+					weight = { base = 25 }
+				}
+				education_martial_5 = { 
+					weight = { base = 5 }
+				}
+				loyal = {
+					weight = { base = 25 }
+				}
+				berserker = {
+					weight = { base = 25 }
+				}
+				adventurer = {
+					weight = { base = 25 }
+				}
+				strong = {
+					weight = { base = 25 }
+				}
+				scarred = {
+					weight = { base = 25 }
+				}
+			}
+			save_scope_as = target1
+		}
+	}
+
+	immediate = {
+		# Create random varangian commander
+		create_character = {	
+			employer = root
+			location = root.location
+			age = { 25 40 }
+			gender = male
+			random_traits = yes
+			faith = root.faith
+			culture = culture:norse
+			dynasty = none
+			martial = { 10 25 }
+			trait = varangian
+			random_traits_list = {	
+				count = {1 2}
+				education_martial_1 = { 
+					weight = { base = 10 }
+				}
+				education_martial_2 = { 
+					weight = { base = 25 }
+				}
+				education_martial_3 = { 
+					weight = { base = 35 }
+				}
+				education_martial_4 = { 
+					weight = { base = 25 }
+				}
+				education_martial_5 = { 
+					weight = { base = 5 }
+				}
+				loyal = {
+					weight = { base = 25 }
+				}
+				berserker = {
+					weight = { base = 25 }
+				}
+				adventurer = {
+					weight = { base = 25 }
+				}
+				strong = {
+					weight = { base = 25 }
+				}
+				scarred = {
+					weight = { base = 25 }
+				}
+			}
+			save_scope_as = target2
+		}
+	}
+
+	immediate = {
+		# Create random varangian commander
+		create_character = {	
+			employer = root
+			location = root.location
+			age = { 25 40 }
+			gender = male
+			random_traits = yes
+			faith = root.faith
+			culture = culture:norse
+			dynasty = none
+			martial = { 10 25 }
+			trait = varangian
+			random_traits_list = {	
+				count = {1 2}
+				education_martial_1 = { 
+					weight = { base = 10 }
+				}
+				education_martial_2 = { 
+					weight = { base = 25 }
+				}
+				education_martial_3 = { 
+					weight = { base = 35 }
+				}
+				education_martial_4 = { 
+					weight = { base = 25 }
+				}
+				education_martial_5 = { 
+					weight = { base = 5 }
+				}
+				loyal = {
+					weight = { base = 25 }
+				}
+				berserker = {
+					weight = { base = 25 }
+				}
+				adventurer = {
+					weight = { base = 25 }
+				}
+				strong = {
+					weight = { base = 25 }
+				}
+				scarred = {
+					weight = { base = 25 }
+				}
+			}
+			save_scope_as = target3
+		}
+	}
+
+	# Promote first varangian
+	option = {
+		name = better_basileus_invite_varangians.0001.a
+		hidden_effect = {
+			# scope:target1 = {		
+			# 		death = {
+			# 		death_reason = death_disappearance
+			# 	}
+			# }
+			scope:target2 = {		
+					death = {
+					death_reason = death_disappearance
+				}
+			}
+			scope:target3 = {		
+					death = {
+					death_reason = death_disappearance
+				}
+			}
+		}
+	}
+
+	# Promote second varangian
+	option = {
+		name = better_basileus_invite_varangians.0001.b
+		hidden_effect = {
+			scope:target1 = {		
+					death = {
+					death_reason = death_disappearance
+				}
+			}
+			# scope:target2 = {		
+			# 		death = {
+			# 		death_reason = death_disappearance
+			# 	}
+			# }
+			scope:target3 = {		
+					death = {
+					death_reason = death_disappearance
+				}
+			}
+		}
+	}
+
+		# Promote third varangian
+		option = {
+			name = better_basileus_invite_varangians.0001.c
+			hidden_effect = {
+				scope:target1 = {		
+						death = {
+						death_reason = death_disappearance
+					}
+				}
+				scope:target2 = {		
+						death = {
+						death_reason = death_disappearance
+					}
+				}
+				# scope:target3 = {		
+				# 		death = {
+				# 		death_reason = death_disappearance
+				# 	}
+				# }
+			}
+		}
+
+	# Don't promote them
+	option = {
+		name = better_basileus_invite_varangians.0001.d
+		hidden_effect = {
+			scope:target1 = {		
+					death = {
+					death_reason = death_disappearance
+				}
+			}
+			scope:target2 = {		
+					death = {
+					death_reason = death_disappearance
+				}
+			}
+			scope:target3 = {		
+					death = {
+					death_reason = death_disappearance
+				}
+			}
+		}
+	}
+}

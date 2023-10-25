@@ -1,0 +1,129 @@
+﻿RHOMAIOI_claim_title_interaction = {
+	category = interaction_category_RHOMAIOI
+	desc =  RHOMAIOI_claim_title_interaction_desc
+	target_type = title
+	target_filter = recipient_domain_titles
+	ignores_pending_interaction_block = yes
+
+	is_shown = {
+		NOT = { scope:recipient = scope:actor }
+
+		scope:actor = {
+			OR = {
+				has_title = title:e_byzantium
+				has_title = title:e_roman_empire
+			}
+			has_government = RHOMAIOI_imperial_government
+		}
+
+		scope:recipient = {
+			is_landed = yes
+			target_is_liege_or_above = scope:actor
+			has_government = RHOMAIOI_imperial_government
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		NOT = { scope:actor = { is_at_war_with = scope:recipient } }
+		scope:actor = {
+			prestige >= medium_prestige_value
+		}
+		scope:recipient = {
+			is_diplomatically_available = yes
+			NOT = { has_strong_hook = scope:actor }
+		}
+
+		trigger_if = {
+			limit = {
+				scope:recipient = {
+					vassal_contract_has_flag = vassal_contract_cannot_revoke_titles
+				}
+			}
+			custom_description = {
+				text = vassal_contract_forbids_revocation
+				scope:recipient = {
+					NOT = { vassal_contract_has_flag = vassal_contract_cannot_revoke_titles }
+				}
+			}
+		}
+
+		trigger_if = { # Not enough Senate Support
+			limit = {
+				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
+				NOT = {  # Has dismantled the senate
+					is_target_in_global_variable_list = {
+						name = unavailable_unique_decisions
+						target = flag:flag_RHOMAIOI_dissolved_senate
+					}
+				}
+			}
+			custom_description = {
+				text = RHOMAIOI_senate_need_more_support
+				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
+			}
+		}
+	}
+
+	can_send = {
+		scope:actor = {
+			custom_description = {
+				text = "character_interactions_hostile_actions_disabled_delay"
+				NOT = { has_character_flag = flag_hostile_actions_disabled_delay }
+			}
+		}
+	}
+
+	can_be_picked = {
+		AND =  {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+ 			scope:recipient = {
+				is_vassal_or_below_of = scope:actor
+			}
+		}
+	}
+
+	has_valid_target_showing_failures_only = {
+		scope:target = {
+			tier = 2
+			is_contested = no
+			NOT = {
+				recent_history = {
+					type = granted
+					years = 1
+				}
+			}
+			custom_description = {
+				text = "character_interactions_not_rel_head_title"
+				NOT = { exists = controlled_faith }
+			}
+		}
+	}
+
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = RHOMAIOI_interaction.0001
+		}
+	}
+
+	on_accept = {
+		RHOMAIOI_claim_title_effect = yes
+		scope:actor = {
+			hidden_effect = {
+				send_interface_toast = {
+					title = RHOMAIOI_claim_title_interaction_notification
+
+					left_icon = scope:actor
+					right_icon = scope:recipient
+
+					show_as_tooltip = {
+						RHOMAIOI_claim_title_effect = yes
+					}
+				}
+			}
+		}
+	}
+
+	auto_accept = yes
+}

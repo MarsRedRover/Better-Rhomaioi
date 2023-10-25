@@ -1,0 +1,169 @@
+﻿#Interactions relating to the head of the dynasty
+
+RHOMAIOI_adoption_interaction = {
+	category = interaction_category_RHOMAIOI
+	interface_priority = 100
+
+	desc = RHOMAIOI_adoption_interaction_desc
+
+	is_shown = {
+		NOT = { scope:recipient = scope:actor }
+		scope:actor.faith = scope:recipient.faith
+		scope:actor.culture = scope:recipient.culture
+
+		scope:actor = {
+			is_dynast = yes
+			OR = {
+				has_title = title:e_byzantium
+				has_title = title:e_roman_empire
+			}
+			any_child = {
+				is_female = yes
+				is_spouse_of = scope:recipient
+			}
+		}
+		scope:recipient = {
+			matrilinear_marriage = yes
+			is_male = yes
+			NOT = {
+				dynasty = scope:actor.dynasty
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor.dynasty = {
+			dynasty_prestige >= medium_dynasty_prestige_value
+		}
+		scope:recipient = { is_diplomatically_available = yes }
+		custom_description = {
+			scope:recipient.top_liege = scope:actor.top_liege
+			text = "same_realm_as"
+		}
+
+		trigger_if = { # Not enough Senate Support
+			limit = {
+				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
+				NOT = {  # Has dismantled the senate
+					is_target_in_global_variable_list = {
+						name = unavailable_unique_decisions
+						target = flag:flag_RHOMAIOI_dissolved_senate
+					}
+				}
+			}
+			custom_description = {
+				text = RHOMAIOI_senate_need_more_support
+				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
+			}
+		}
+	}
+
+	#on_auto_accept = {
+	#	scope:recipient = {
+	#		trigger_event = char_interaction.0020 ###FIX THIS BRO
+	#	}
+	#}
+
+	on_accept = {
+		scope:actor = {
+			stress_impact = {
+				forgiving = minor_stress_impact_gain
+				compassionate = minor_stress_impact_gain
+			}
+		}
+
+		scope:recipient = {
+			set_house = scope:actor.house
+		}
+	}
+
+	cost = {
+		renown = {
+			value = {
+				add = major_dynasty_prestige_value
+				if = {
+					limit = {
+						scope:recipient = {
+							is_landed = yes
+						}
+					}
+					add = massive_dynasty_prestige_value
+				}
+				if = {
+					limit = {
+						scope:recipient = {
+							is_landed = no
+							is_lowborn = no
+						}
+					}
+					add = major_dynasty_prestige_value
+				}
+			}
+		}
+		prestige = {
+			value = {
+				add = massive_dynasty_prestige_value
+				if = {
+					limit = {
+						scope:recipient = {
+							is_landed = yes
+						}
+					}
+					add = massive_prestige_value
+				}
+				if = {
+					limit = {
+						scope:recipient = {
+							is_landed = no
+							is_lowborn = no
+						}
+					}
+					add = major_dynasty_prestige_value
+				}
+			}
+		}
+	}
+
+	auto_accept = yes
+
+	ai_potential = {
+		is_at_war = no
+		NOT = {
+			has_trait = forgiving
+		}
+	}
+
+	ai_targets = {
+		ai_recipients = dynasty
+		max = 20
+	}
+
+	ai_frequency = 96
+
+	ai_will_do = {
+		base = 0
+
+		modifier = {
+			add = 100
+			scope:recipient = {
+				NOT = {
+					OR = {
+						has_relation_rival = scope:actor
+						has_relation_nemesis = scope:actor
+					}
+				}
+			}
+		}
+
+		modifier = {
+			add = -1000
+			scope:recipient = {
+				OR = {
+					has_trait = inbred
+					has_trait = intellect_bad_3
+					has_trait = incapable
+				}
+			}
+		}
+	}
+}

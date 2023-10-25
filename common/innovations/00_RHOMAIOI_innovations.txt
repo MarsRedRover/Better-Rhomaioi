@@ -1,0 +1,84 @@
+﻿@RHOMAIOI_innovation_theme = "gfx/interface/icons/culture_innovations/innovation_RHOMAIOI_theme_system.dds"
+@RHOMAIOI_innovation_pronoia = "gfx/interface/icons/culture_innovations/innovation_RHOMAIOI_pronoia_system.dds"
+@RHOMAIOI_innovation_komnenian = "gfx/interface/icons/culture_innovations/innovation_RHOMAIOI_komnenian_army.dds"
+
+innovation_RHOMAIOI_theme_system = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	region = custom_k_thessalonika
+	icon = @RHOMAIOI_innovation_theme
+
+	potential = {
+		OR = {
+			#Greek or Roman
+			this = culture:greek
+			this = culture:roman
+		}
+	}
+
+	custom = RHOMAIOI_unlock_theme_contract
+
+	modifier = {
+		direct_vassal_opinion = 5
+	}
+
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_RHOMAIOI_pronoia_system = {
+	group = culture_group_regional
+	culture_era = culture_era_late_medieval
+	region = custom_k_thessalonika
+	icon = @RHOMAIOI_innovation_pronoia
+
+	potential = {
+		OR = {
+			#Greek or Roman
+			this = culture:greek
+			this = culture:roman
+		}
+	}
+
+	custom = RHOMAIOI_unlock_pronoia_contract
+
+	modifier = {
+		direct_vassal_opinion = 5
+	}
+
+	flag = global_regional
+	flag = late_medieval_era_regional
+}
+
+innovation_RHOMAIOI_komnenian_army = {
+	group = culture_group_regional
+	culture_era = culture_era_high_medieval
+	region = custom_k_thessalonika
+	icon = @RHOMAIOI_innovation_komnenian
+
+	potential = {
+		OR = {
+			#Greek or Roman
+			this = culture:greek
+			this = culture:roman
+		}
+	}
+
+	modifier = {
+		levy_size = -1.50
+		tax_mult = -0.25
+	}
+
+	unlock_maa = cataphract
+	unlock_maa = RHOMAIOI_peltast
+	unlock_maa = RHOMAIOI_psiloi
+	unlock_maa = RHOMAIOI_koursores
+	unlock_maa = RHOMAIOI_hippotoxotai
+	unlock_maa = RHOMAIOI_hoplitai
+	unlock_maa = RHOMAIOI_skoutatoi
+	unlock_maa = RHOMAIOI_cheirosiphon
+	custom = RHOMAIOI_disables_normal_maa_komnenian
+
+	flag = global_regional
+	flag = high_medieval_era_regional
+}

@@ -1,0 +1,250 @@
+﻿# Faction demand events
+
+namespace = RHOMAIOI_faction_demand
+
+# Claimant Faction Demand
+# by Ismael Serrano
+RHOMAIOI_faction_demand.2001 = {
+	type = letter_event
+	sender = scope:faction_leader
+	opening = {
+		desc = "FACTION_DEMAND_RHOMAIOI_USURPERS"
+	}
+	desc = "FACTION_DEMAND_RHOMAIOI_USURPERS_DESC"
+
+	trigger = {
+		exists = scope:faction
+	}
+
+	option = {
+		name = "FACTION_DEMAND_ACCEPT"
+
+		add_dread = medium_dread_loss
+
+		scope:faction = {
+			ordered_faction_member = {
+				order_by = {
+					add = prestige
+					multiply = highest_held_title_tier
+					add = max_military_strength
+				}
+				position = 0
+				save_scope_as = rhomaioi_usurper
+			}
+		}
+
+		######### Changes Title #########
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = change
+			add_claim_on_loss = yes
+		}
+
+		every_held_title = {
+			if = {
+				limit = {
+					tier = scope:faction_target.primary_title.tier
+				}
+				change_title_holder = {
+					holder = scope:rhomaioi_usurper
+					change = scope:change
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						NOT = { exists = scope:secondary_title }
+						tier > scope:secondary_title.tier
+					}
+				}
+				save_temporary_scope_as = secondary_title
+			}
+		}
+
+		if = {
+			limit = {
+				exists = scope:secondary_title
+			}
+			every_vassal = {
+				limit = {
+					primary_title.tier >= scope:secondary_title.tier
+					NOT = {
+						this = scope:rhomaioi_usurper
+						primary_title.tier = tier_barony
+					}
+				}
+				change_liege = {
+					liege = scope:rhomaioi_usurper
+					change = scope:change
+				}
+			}
+		}
+
+		change_liege = {
+			liege = scope:rhomaioi_usurper
+			change = scope:change
+		}
+
+		scope:faction = {
+			every_faction_member = {
+				trigger_event = RHOMAIOI_faction_demand.2002
+			}
+			if = {
+				limit = { exists = scope:rhomaioi_usurper }
+				scope:rhomaioi_usurper = {
+					add_character_modifier = {
+						modifier = RHOMAIOI_usurper_emperor_modifier
+						days = 5400
+					}
+				}
+			}
+		}
+
+		resolve_title_and_vassal_change = scope:change
+
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 50
+				scope:faction = { faction_power >= 125 }
+			}
+			modifier = {
+				add = 50
+				scope:faction = { faction_power >= 150 }
+			}
+			modifier = {
+				add = 50
+				scope:faction = { faction_power >= 200 }
+			}
+			modifier = {
+				factor = 0
+				any_ally = {
+					NOT = {
+						is_vassal_or_below_of = root
+					}
+					max_military_strength > root.max_military_strength
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "FACTION_DEMAND_REFUSE"
+
+		root = {
+			save_scope_as = faction_target
+		}
+
+		show_as_tooltip = {
+			scope:faction = {
+				faction_start_war = {
+				}
+			}
+		}
+
+		scope:faction_leader = {
+			trigger_event = RHOMAIOI_faction_demand.2003
+		}
+
+		ai_chance = {
+			base = 100
+			compare_modifier = {
+				trigger = {
+					ai_boldness > 0
+				}
+				value = ai_boldness
+				multiplier = 3
+			}
+			compare_modifier = {
+				trigger = {
+					ai_boldness < 0
+				}
+				value = ai_boldness
+			}
+			modifier = {
+				add = 50
+				scope:faction = { faction_power < 80 }
+			}
+			modifier = {
+				add = 100
+				scope:faction = { faction_power < 60 }
+			}
+			modifier = {
+				add = 1000
+				scope:faction = { faction_power < 40 }
+			}
+		}
+	}
+}
+
+# Claimant Faction Demand Accepted
+# by Ismael Serrano
+RHOMAIOI_faction_demand.2002 = {
+	type = letter_event
+	sender = scope:faction_target
+	opening = {
+		desc = "FACTION_DEMAND_RHOMAIOI_USURPERS_ACCEPTED"
+	}
+	desc = "FACTION_DEMAND_RHOMAIOI_USURPERS_ACCEPTED_DESC"
+
+	option = {
+		name = "FACTION_DEMAND_ACCEPTED_OPT"
+	}
+}
+
+# Claimant Faction Demand Refused
+# by Ismael Serrano
+RHOMAIOI_faction_demand.2003 = {
+	type = letter_event
+	sender = scope:faction_target
+	opening = {
+		desc = "FACTION_DEMAND_RHOMAIOI_USURPERS_REFUSED"
+	}
+	desc = "FACTION_DEMAND_RHOMAIOI_USURPERS_REFUSED_DESC"
+
+	option = {
+		name = "FACTION_DEMAND_REFUSED_OPT"
+		scope:faction = {
+			every_faction_member = {
+				limit = {
+					NOT = { this = root } # i.e. not faction leader, even when the war disbands the faction
+				}
+				trigger_event = RHOMAIOI_faction_demand.2004
+			}
+
+			faction_start_war = {
+			}
+		}
+	}
+}
+
+# Claimant Faction Demand Refused Member Notice
+# by Ismael Serrano
+RHOMAIOI_faction_demand.2004 = {
+	type = letter_event
+	sender = scope:faction_target
+	opening = {
+		desc = "FACTION_DEMAND_RHOMAIOI_USURPERS_REFUSED"
+	}
+	desc = "FACTION_DEMAND_RHOMAIOI_USURPERS_REFUSED_DESC"
+
+	option = {
+		name = "FACTION_DEMAND_REFUSED_OPT"
+		custom_tooltip = RHOMAIOI_faction_demand.2004.opt_tt
+	}
+}
+
+# Claimant Faction Demand Send Notice
+# by Ismael Serrano
+RHOMAIOI_faction_demand.2005 = {
+	type = letter_event
+	sender = scope:faction_leader
+	opening = {
+		desc = "FACTION_DEMAND_RHOMAIOI_USURPERS_SEND_DEMAND_NOTIFICATION"
+	}
+	desc = "FACTION_DEMAND_RHOMAIOI_USURPERS_SEND_DEMAND_NOTIFICATION_DESC"
+
+	option = {
+		name = "FACTION_DEMAND_SEND_DEMAND_NOTIFICATION_OPT"
+	}
+}
