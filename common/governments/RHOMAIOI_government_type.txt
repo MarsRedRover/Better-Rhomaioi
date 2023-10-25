@@ -1,0 +1,43 @@
+﻿RHOMAIOI_imperial_government = {
+	create_cadet_branches = yes
+	rulers_should_have_dynasty = yes
+	dynasty_named_realms = yes
+	royal_court = yes
+
+	primary_holding = castle_holding
+	valid_holdings = { city_holding cow_metropolis_holding }
+
+	required_county_holdings = { castle_holding city_holding church_holding }
+
+	can_get_government = {
+		OR = {
+			top_liege = { has_title = title:e_byzantium }
+			top_liege = { has_title = title:e_roman_empire }
+			has_title = title:e_byzantium
+			has_title = title:e_roman_empire
+		}
+	}
+
+	vassal_contract = {
+		feudal_government_taxes
+		feudal_government_levies
+		RHOMAIOI_special_contract
+		religious_rights
+		fortification_rights
+		coinage_rights
+		succession_rights
+		war_declaration_rights
+		council_rights
+		title_revocation_rights
+	}
+
+	character_modifier = {
+		levy_reinforcement_rate = -1.00
+		men_at_arms_maintenance = -0.25
+		men_at_arms_limit = 5
+	}
+
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	flag = government_is_imperial_autocracy
+	color = hsv{ 0.95 0.96 1.00 }
+}

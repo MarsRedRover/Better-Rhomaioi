@@ -38,6 +38,9 @@
  RHOMAIOI_reinstate_the_imperial_autocracy_tooltip:0 "The Imperial Autocracy government shall be reinstituted"
  RHOMAIOI_reinstate_the_imperial_autocracy_desc:0 "No land shall belong to any man. It is only by integrating our territory into the domains of the Empire itself that we will achieve stability."
  RHOMAIOI_reinstate_the_imperial_autocracy_effect_tooltip:0 "The Imperial Autocracy will be restored and all de jure vassals will be forced to accept it."
+ RHOMAIOI_reinstate_autocracy.0001.title:0 "The Imperial Autocracy government shall be reinstituted"
+ RHOMAIOI_reinstate_autocracy.0001.desc:0 "No land shall belong to any man. It is only by integrating our territory into the domains of the Empire itself that we will achieve stability. A significant and visionary step in the history of the Roman Empire, the restoration of the Imperial Autocracy promises to revive the glories of Rome and usher in a new period of stability, prosperity, and cultural renaissance.\n\nA distinguishing feature of the Roman Empire was the autocracy, whose origins can be traced to the reign of Emperor Augustus and which developed over many centuries to make the Empire a powerful force in the Mediterranean region. The emperor had significant influence both politically and spiritually under this form of government, which was distinguished by a highly centralized authority. This autocracy's restoration will allow the Rome to reclaim its old power and majesty."
+ RHOMAIOI_reinstate_autocracy.0001.a:0 "Gloria Romae!"
 
  RHOMAIOI_raise_tagmatic_troops:0 "Raise the Imperial Army"
  RHOMAIOI_raise_tagmatic_troops_confirm:0 "En Touto Nika!"
@@ -218,6 +221,7 @@
  RHOMAIOI_seized_domain:0 "Basileus seized my title"
  RHOMAIOI_usurper_emperor_modifier:1 "Rightfully Seized the Empire"
  RHOMAIOI_defeated_usurpers_modifier:1 "Secured Empire from Usurpers"
+ 
 
  #Effect Localization
  THEY_GET_A_CAESAR:0 "[CHARACTER.GetShortUIName|U] appoints [TARGET_CHARACTER.GetShortUIName] as a Co-Emperor"

@@ -1,0 +1,60 @@
+﻿RHOMAIOI_coemperor = {
+	parent = ruler
+	texture = "gfx/interface/icons/icon_vassal.dds"
+}
+
+RHOMAIOI_imperial_election = {
+	texture = "gfx/interface/icons/title_status/icon_title_law.dds"
+}
+
+RHOMAIOI_eparch = {
+	texture = "gfx/interface/icons/icon_commander_trait.dds"
+}
+
+RHOMAIOI_patrikia = {
+	texture = "gfx/interface/icons/icon_commander_trait.dds"
+}
+
+RHOMAIOI_quaestor= {
+	texture = "gfx/interface/icons/icon_commander_trait.dds"
+}
+
+RHOMAIOI_hetaeriarch = {
+	texture = "gfx/interface/icons/icon_commander_trait.dds"
+}
+
+RHOMAIOI_proedros = {
+	texture = "gfx/interface/icons/icon_commander_trait.dds"
+}
+
+RHOMAIOI_provincial_senator = {
+	texture = "gfx/interface/icons/message_feed/RHOMAIOI_senate.dds"
+}
+
+RHOMAIOI_senate_loyalists = {
+	texture = "gfx/interface/icons/icon_dread.dds"
+}
+
+RHOMAIOI_senate_populists = {
+	texture = "gfx/interface/icons/icon_banner.dds"
+}
+
+RHOMAIOI_senate_republicanists = {
+	texture = "gfx/interface/icons/icon_culture.dds"
+}
+
+RHOMAIOI_imperial_prerogative = {
+	texture = "gfx/interface/icons/icon_liege.dds"
+}
+
+RHOMAIOI_the_senate = {
+	texture = "gfx/interface/icons/message_feed/RHOMAIOI_senate.dds"
+}
+
+RHOMAIOI_consistorium = {
+	texture = "gfx/interface/icons/message_feed/RHOMAIOI_senate.dds"
+}
+
+RHOMAIOI_senate_approval = {
+	texture = "gfx/interface/icons/title_status/icon_title_law.dds"
+}

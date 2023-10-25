@@ -1,0 +1,9 @@
+﻿RHOMAIOI_senate_need_more_support = {
+	global_not = RHOMAIOI_senate_need_more_support
+	first_not = RHOMAIOI_senate_need_more_support
+}
+
+liege_or_court_owner_equal = {
+	global_not = RHOMAIOI_must_be_vassal_or_court_member
+	first_not = RHOMAIOI_must_be_vassal_or_court_member
+}

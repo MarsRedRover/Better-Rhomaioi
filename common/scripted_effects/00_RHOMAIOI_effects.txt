@@ -1,0 +1,133 @@
+﻿RHOMAIOI_claim_title_effect = {
+	scope:actor = {
+		stress_impact = {
+			content = minor_stress_impact_gain
+			generous = minor_stress_impact_gain
+		}
+		if = { limit = { scope:target.tier = tier_barony } add_prestige = minor_prestige_loss }
+		if = { limit = { scope:target.tier = tier_county } add_prestige = medium_prestige_loss }
+		if = { limit = { scope:target.tier = tier_duchy } add_prestige = major_prestige_loss }
+		if = { limit = { scope:target.tier = tier_kingdom } add_prestige = massive_prestige_loss}
+		if = { limit = { scope:target.tier = tier_empire } add_prestige = massive_prestige_loss }
+	}
+	scope:recipient = {
+		add_opinion = {
+			target = scope:actor
+			modifier = RHOMAIOI_seized_domain
+		}
+		if = {
+			limit = { is_a_faction_member = yes }
+			add_joined_faction_discontent = 25
+		}
+	}
+
+	create_title_and_vassal_change = {
+		type = revoked
+		save_scope_as = change
+		add_claim_on_loss = yes
+	}
+
+	scope:target = {
+		change_title_holder = {
+			holder = scope:actor
+			change = scope:change
+		}
+	}
+	resolve_title_and_vassal_change = scope:change
+}
+
+RHOMAIOI_embrace_roman_culture_effect_main = {
+	# Scopes saves for localization
+	root = {
+		save_scope_as = embracer
+	}
+
+	# Prestige Bonus
+	add_prestige = high_prestige_gain
+
+	#Convert your, and your whole family's, culture
+	set_culture = culture:roman
+	if = {
+		limit = { any_spouse = { is_landed = no } }
+		every_spouse = {
+			limit = {
+				is_landed = no
+			}
+			set_culture = culture:roman
+		}
+	}
+	if = {
+		limit = {
+			any_close_family_member = {
+				is_landed = no
+				NOT = { is_spouse_of = root }
+			}
+		}
+		every_close_family_member = {
+			limit = {
+				is_landed = no
+				NOT = { is_spouse_of = root }
+			}
+			custom = all_unlanded_family_members
+			set_culture = culture:roman
+		}
+	}
+
+	#Flip Counties
+	every_county_in_region = {
+		region = world_europe_south_italy
+		custom = embrace_roman_culture_counties_custom
+		limit = {
+			target_is_de_facto_liege_or_above = root.primary_title
+		}
+		random = {
+			chance = 75
+			set_county_culture = culture:roman
+		}
+	}
+
+	culture:roman = {
+		custom_tooltip = decision_embrace_roman_culture_get_innovations
+		hidden_effect = {
+			get_all_innovations_from = root.culture
+		}
+	}
+}
+
+RHOMAIOI_embrace_roman_culture_effect_sub = {
+	# Scopes saves for localization
+	root = {
+		save_scope_as = embracer
+	}
+	#Convert your, and your whole family's, culture
+	set_culture = culture:roman
+	if = {
+		limit = { any_spouse = { is_landed = no } }
+		every_spouse = {
+			limit = {
+				is_landed = no
+			}
+			set_culture = culture:roman
+		}
+	}
+	if = {
+		limit = {
+			any_close_family_member = {
+				is_landed = no
+				NOT = { is_spouse_of = root }
+			}
+		}
+		every_close_family_member = {
+			limit = {
+				is_landed = no
+				NOT = { is_spouse_of = root }
+			}
+			custom = all_unlanded_family_members
+			set_culture = culture:roman
+		}
+	}
+}
+
+
+####################
+#LOCALIZATIONS AND EFFECTS FOR ROMAN CULTURE

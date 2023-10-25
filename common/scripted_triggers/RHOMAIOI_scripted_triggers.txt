@@ -1,0 +1,305 @@
+﻿# Requires local_var:<obligation_type> to be set for feudal obligations
+# WHO = Who's contract levels are being checked
+RHOMAIOI_has_changed_contract_obligation_trigger = {
+	$WHO$ = { save_temporary_scope_as = obligation_check }
+	custom_description = {
+		text = "modify_vassal_contract_select_different_obligation_level"
+		OR = {
+			local_var:feudal_government_taxes != scope:obligation_check.vassal_contract_obligation_level:feudal_government_taxes
+			local_var:feudal_government_levies != scope:obligation_check.vassal_contract_obligation_level:feudal_government_levies
+			local_var:RHOMAIOI_special_contract != scope:obligation_check.vassal_contract_obligation_level:RHOMAIOI_special_contract
+			local_var:religious_rights != scope:obligation_check.vassal_contract_obligation_level:religious_rights
+			local_var:fortification_rights != scope:obligation_check.vassal_contract_obligation_level:fortification_rights
+			local_var:coinage_rights != scope:obligation_check.vassal_contract_obligation_level:coinage_rights
+			local_var:succession_rights != scope:obligation_check.vassal_contract_obligation_level:succession_rights
+			local_var:war_declaration_rights != scope:obligation_check.vassal_contract_obligation_level:war_declaration_rights
+			local_var:council_rights != scope:obligation_check.vassal_contract_obligation_level:council_rights
+			local_var:title_revocation_rights != scope:obligation_check.vassal_contract_obligation_level:title_revocation_rights
+		}
+	}
+}
+
+RHOMAIOI_can_be_caesar_councillor_trigger = {
+	save_temporary_scope_as = caesar_councillor_check
+	can_be_councillor_basics_trigger = yes
+	any_relation = {
+		type = RHOMAIOI_caesar
+		OR = {
+			has_title = title:e_byzantium
+			has_title = title:e_roman_empire
+		}
+	}
+}
+
+RHOMAIOI_senator_is_populist_trigger = {
+	save_temporary_scope_as = senator_check
+
+	scope:senator_check = {
+		save_temporary_scope_value_as = { 
+			name = boldness
+			value = {
+				add = ai_boldness
+				if = { limit = { ai_boldness < 0 } multiply = -1 }
+			}
+		}
+		save_temporary_scope_value_as = { 
+			name = compassion
+			value = {
+				add = ai_compassion
+				if = { limit = { ai_compassion < 0 } multiply = -1 }
+			}
+		}
+		save_temporary_scope_value_as = { 
+			name = greed
+			value = {
+				add = ai_greed
+				if = { limit = { ai_greed < 0 } multiply = -1 }
+			}
+		}
+		save_temporary_scope_value_as = { 
+			name = honor
+			value = {
+				add = ai_honor
+				if = { limit = { ai_honor < 0 } multiply = -1 }
+			}
+		}
+		save_temporary_scope_value_as = { 
+			name = rationality
+			value = {
+				add = ai_rationality
+				if = { limit = { ai_rationality < 0 } multiply = -1 }
+			}
+		}
+		save_temporary_scope_value_as = { 
+			name = vengefulness
+			value = {
+				add = ai_vengefulness
+				if = { limit = { ai_vengefulness < 0 } multiply = -1 }
+			}
+		}
+		save_temporary_scope_value_as = { 
+			name = zeal
+			value = {
+				add = ai_zeal
+				if = { limit = { ai_zeal < 0 } multiply = -1 }
+			}
+		}
+	}
+
+	OR = {
+		AND = { # Boldness is greater than all other stats
+			scope:boldness = { scope:boldness > scope:greed }
+			scope:boldness = { scope:boldness > scope:compassion }
+			scope:boldness = { scope:boldness > scope:honor }
+			scope:boldness = { scope:boldness > scope:rationality }
+			scope:boldness = { scope:boldness > scope:vengefulness }
+			scope:boldness = { scope:boldness > scope:zeal }
+		}
+		AND = { # Compassion is greater than all other stats
+			scope:compassion = { scope:compassion > scope:boldness }
+			scope:compassion = { scope:compassion > scope:rationality }
+			scope:compassion = { scope:compassion > scope:honor }
+			scope:compassion = { scope:compassion > scope:greed }
+			scope:compassion = { scope:compassion > scope:vengefulness }
+			scope:compassion = { scope:compassion > scope:zeal }
+		}
+		AND = { # Honor is greater than all other stats
+			scope:honor = { scope:honor > scope:boldness }
+			scope:honor = { scope:honor > scope:compassion }
+			scope:honor = { scope:honor > scope:vengefulness }
+			scope:honor = { scope:honor > scope:greed }
+			scope:honor = { scope:honor > scope:rationality }
+			scope:honor = { scope:honor > scope:zeal }
+		}
+		AND = { # Rationality is lesser than all other stats
+			scope:rationality = { scope:rationality < scope:boldness }
+			scope:rationality = { scope:rationality < scope:vengefulness }
+			scope:rationality = { scope:rationality < scope:honor }
+			scope:rationality = { scope:rationality < scope:greed }
+			scope:rationality = { scope:rationality < scope:compassion }
+			scope:rationality = { scope:rationality < scope:zeal }
+		}
+		AND = { # Vengefulness is lesser than all other stats
+			scope:vengefulness = { scope:vengefulness < scope:boldness }
+			scope:vengefulness = { scope:vengefulness < scope:honor }
+			scope:vengefulness = { scope:vengefulness < scope:compassion }
+			scope:vengefulness = { scope:vengefulness < scope:greed }
+			scope:vengefulness = { scope:vengefulness < scope:rationality }
+			scope:vengefulness = { scope:vengefulness < scope:zeal }
+		}
+	}
+}
+
+RHOMAIOI_senator_is_republicanist_trigger = {
+	save_temporary_scope_as = senator_check
+
+	# Saves the Value as positive numbers to be compared
+	scope:senator_check = {
+		save_temporary_scope_value_as = {
+			name = boldness
+			value = {
+				add = ai_boldness
+				if = { limit = { ai_boldness < 0 } multiply = -1 }
+			}
+		}
+		save_temporary_scope_value_as = {
+			name = compassion
+			value = {
+				add = ai_compassion
+				if = { limit = { ai_compassion < 0 } multiply = -1 }
+			}
+		}
+		save_temporary_scope_value_as = {
+			name = greed
+			value = {
+				add = ai_greed
+				if = { limit = { ai_greed < 0 } multiply = -1 }
+			}
+		}
+		save_temporary_scope_value_as = {
+			name = honor
+			value = {
+				add = ai_honor
+				if = { limit = { ai_honor < 0 } multiply = -1 }
+			}
+		}
+		save_temporary_scope_value_as = {
+			name = rationality
+			value = {
+				add = ai_rationality
+				if = { limit = { ai_rationality < 0 } multiply = -1 }
+			}
+		}
+		save_temporary_scope_value_as = {
+			name = vengefulness
+			value = {
+				add = ai_vengefulness
+				if = { limit = { ai_vengefulness < 0 } multiply = -1 }
+			}
+		}
+		save_temporary_scope_value_as = {
+			name = zeal
+			value = {
+				add = ai_zeal
+				if = { limit = { ai_zeal < 0 } multiply = -1 }
+			}
+		}
+	}
+
+	OR = {
+		AND = { # Greed is greater than all other stats
+			scope:greed = { scope:greed > scope:boldness }
+			scope:greed = { scope:greed > scope:compassion }
+			scope:greed = { scope:greed > scope:honor }
+			scope:greed = { scope:greed > scope:rationality }
+			scope:greed = { scope:greed > scope:vengefulness }
+			scope:greed = { scope:greed > scope:zeal }
+		}
+		AND = { # Rationality is greater than all other stats
+			scope:rationality = { scope:rationality > scope:boldness }
+			scope:rationality = { scope:rationality > scope:compassion }
+			scope:rationality = { scope:rationality > scope:honor }
+			scope:rationality = { scope:rationality > scope:greed }
+			scope:rationality = { scope:rationality > scope:vengefulness }
+			scope:rationality = { scope:rationality > scope:zeal }
+		}
+		AND = { # vengefulness is greater than all other stats
+			scope:vengefulness = { scope:vengefulness > scope:boldness }
+			scope:vengefulness = { scope:vengefulness > scope:compassion }
+			scope:vengefulness = { scope:vengefulness > scope:honor }
+			scope:vengefulness = { scope:vengefulness > scope:greed }
+			scope:vengefulness = { scope:vengefulness > scope:rationality }
+			scope:vengefulness = { scope:vengefulness > scope:zeal }
+		}
+		AND = { # Compassion is lesser than all other stats
+			scope:compassion = { scope:compassion < scope:boldness }
+			scope:compassion = { scope:compassion < scope:vengefulness }
+			scope:compassion = { scope:compassion < scope:honor }
+			scope:compassion = { scope:compassion < scope:greed }
+			scope:compassion = { scope:compassion < scope:rationality }
+			scope:compassion = { scope:compassion < scope:zeal }
+		}
+		AND = { # Honor is lesser than all other stats
+			scope:honor = { scope:honor < scope:boldness }
+			scope:honor = { scope:honor < scope:vengefulness }
+			scope:honor = { scope:honor < scope:compassion }
+			scope:honor = { scope:honor < scope:greed }
+			scope:honor = { scope:honor < scope:rationality }
+			scope:honor = { scope:honor < scope:zeal }
+		}
+	}
+}
+
+RHOMAIOI_is_valid_senator_trigger = {
+	save_temporary_scope_as = senator_check
+	AND = {
+		has_trait = RHOMAIOI_senator
+		is_landed = yes
+		is_special_councillor = yes
+		is_alive = yes
+	}
+}
+
+RHOMAIOI_senator_support_check_trigger = {
+	save_temporary_scope_as = all_senator_check
+	AND = {
+		any_living_character = {
+			count = all
+			trigger_if = {
+				limit = { RHOMAIOI_is_valid_senator_trigger = yes }
+				add_to_temporary_list = senator_total_senator_for_support_check
+			}
+		}
+		any_in_list = {
+			count = all
+			list = senator_total_senator_for_support_check
+			trigger_if = {
+				limit = {
+					OR = {
+						AND = { # Loyalists will always support for now
+							NOT = { RHOMAIOI_senator_is_republicanist_trigger = yes }
+							NOT = { RHOMAIOI_senator_is_populist_trigger = yes }
+						}
+						AND = { # Republicans will hardly support if you have high tyranny
+							RHOMAIOI_senator_is_republicanist_trigger = yes
+							OR = {
+								AND = {
+									scope:all_senator_check.tyranny <= 0
+									opinion = {
+										target = scope:all_senator_check
+										value >= 0
+									}
+								}
+								opinion = {
+									target = scope:all_senator_check
+									value >= 90
+								}
+							}
+						}
+						AND = {  # Populists will support if your capital has a positive opinion of you
+							RHOMAIOI_senator_is_populist_trigger = yes
+							OR = {
+								AND = {
+									scope:all_senator_check.capital_province.county = { county_holder_opinion >= 10 }
+									opinion = {
+										target = scope:all_senator_check
+										value >= 0
+									}
+								}
+								opinion = {
+									target = scope:all_senator_check
+									value >= 50
+								}
+							}
+						} # Picks up all approving senators
+					}
+				}
+				add_to_temporary_list = senator_total_supporters_for_support_check
+			}
+		}
+		list_size = {
+			name = senator_total_supporters_for_support_check
+			value > RHOMAIOI_senate_needed_support_value_for_interactions
+		}
+	}
+}
