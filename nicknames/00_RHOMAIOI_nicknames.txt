@@ -1,2 +1,0 @@
-﻿nick_RHOMAIOI_autokrator = {}
-nick_RHOMAIOI_the_roman = {}
