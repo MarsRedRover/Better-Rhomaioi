@@ -1,9 +1,0 @@
-﻿RHOMAIOI_revoked_co-emperorship = {
-	opinion = -80
-	years = 10
-}
-
-RHOMAIOI_seized_domain = {
-	opinion = -30
-	years = 10
-}
