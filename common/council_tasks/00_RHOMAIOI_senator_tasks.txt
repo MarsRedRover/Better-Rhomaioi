@@ -1,0 +1,32 @@
+﻿RHOMAIOI_task_senator_default = {
+	default_task = yes
+	position = RHOMAIOI_councillor_provincial_senator
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	effect_desc = RHOMAIOI_councillor_provincial_senator_effect_desc
+
+	on_monthly = {
+		liege = {
+			if = {
+				limit = {
+					NOT = { has_variable = RHOMAIOI_had_senator_task_side_effect }
+					NOT = {  #Can only do it once.
+						is_target_in_global_variable_list = {
+							name = unavailable_unique_decisions
+							target = flag:flag_RHOMAIOI_dissolved_senate
+						}
+					}
+				}
+				trigger_event = {
+					id = RHOMAIOI_senator_task.0001
+					days = { 1 90 }
+				}
+			}
+		}
+	}
+
+	ai_will_do = {
+		value = 1 # Always a good backup
+	}
+}

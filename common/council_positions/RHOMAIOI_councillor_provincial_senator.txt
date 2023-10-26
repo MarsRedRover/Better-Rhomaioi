@@ -1,0 +1,67 @@
+﻿RHOMAIOI_councillor_provincial_senator = {
+	special_council_position = yes
+	auto_fill = yes
+	can_fire = no
+	can_reassign = no
+
+	name = RHOMAIOI_councillor_provincial_senator
+
+	tooltip = game_concept_RHOMAIOI_councillor_provincial_senator_desc
+
+	valid_position = {
+		has_government = RHOMAIOI_imperial_government
+		NOT = {  # Has dismantled the senate
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_RHOMAIOI_dissolved_senate
+			}
+		}
+		OR = {
+			has_title = title:e_byzantium
+			has_title = title:e_roman_empire
+			top_liege = {
+				has_title = title:e_byzantium
+				primary_title = { is_de_jure_liege_or_above_target = root.primary_title }
+			}
+			top_liege = {
+				has_title = title:e_roman_empire
+				primary_title = { is_de_jure_liege_or_above_target = root.primary_title }
+			}
+		}
+	}
+
+	valid_character = {
+		exists = root.liege_or_court_owner
+		highest_held_title_tier = tier_barony
+		is_adult = yes
+		is_male = yes
+		NOT = { any_directly_owned_province = { has_holding_type = church_holding } }
+	}
+
+	on_get_position = {
+		add_trait = RHOMAIOI_senator
+
+		# Consistorium update
+		every_living_character = {
+			limit = { has_character_flag = RHOMAIOI_is_member_of_consistorium }
+			remove_character_flag = RHOMAIOI_is_member_of_consistorium
+		}
+		ordered_living_character = {
+			limit = { RHOMAIOI_is_valid_senator_trigger = yes }
+			order_by = age
+			max = 7
+			check_range_bounds = no
+			add_character_flag = RHOMAIOI_is_member_of_consistorium
+		}
+	}
+
+	on_lose_position = {
+		remove_trait = RHOMAIOI_senator
+	}
+
+	on_fired_from_position = {
+		remove_trait = RHOMAIOI_senator
+	}
+
+	portrait_animation = chancellor
+}

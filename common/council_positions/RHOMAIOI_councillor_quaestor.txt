@@ -1,0 +1,47 @@
+﻿RHOMAIOI_councillor_quaestor = {
+	special_council_position = yes
+	auto_fill = yes
+	can_fire = no
+	can_reassign = no
+
+	name = RHOMAIOI_councillor_quaestor
+
+	tooltip = game_concept_RHOMAIOI_quaestor_desc
+
+	modifier = {
+		name = RHOMAIOI_quaestor_council
+		monthly_prestige = 4
+		diplomatic_range_mult = 1
+		tyranny_gain_mult = -0.5
+		fellow_vassal_opinion = 15
+	}
+
+	council_owner_modifier = {
+		name = RHOMAIOI_quaestor_council
+		vassal_limit = 1
+		scale = RHOMAIOI_quaestor_job_scale
+	}
+
+	valid_position = {
+		has_government = RHOMAIOI_imperial_government
+		OR = {
+			has_title = title:e_byzantium
+			has_title = title:e_roman_empire
+		}
+	}
+
+	valid_character = {
+		exists = root.liege_or_court_owner
+		root.liege_or_court_owner = { has_relation_RHOMAIOI_relquaestor = root }
+	}
+
+	on_get_position = {
+		got_council_position_effect = yes
+	}
+
+	on_fired_from_position = {
+		fired_from_council_position_effect = yes
+	}
+
+	portrait_animation = chancellor
+}

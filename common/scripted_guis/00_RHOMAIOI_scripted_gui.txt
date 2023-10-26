@@ -1,0 +1,232 @@
+﻿RHOMAIOI_create_army_gui = {
+	scope = character
+
+	effect = {
+		add_character_flag = RHOMAIOI_raising_troops
+		execute_decision = RHOMAIOI_raise_tagmatic_troops
+		remove_decision_cooldown = RHOMAIOI_raise_tagmatic_troops
+		remove_character_flag = RHOMAIOI_raising_troops
+	}
+}
+
+RHOMAIOI_has_reformed_army = {
+	scope = character.culture
+
+	is_valid = {
+		has_innovation = innovation_RHOMAIOI_komnenian_army
+	}
+
+	effect = {
+	}
+}
+
+RHOMAIOI_senator_is_supportive = {
+	scope = character
+
+	is_valid = {
+		OR = {
+			AND = { # Loyalists will always support for now
+				NOT = { RHOMAIOI_senator_is_republicanist_trigger = yes }
+				NOT = { RHOMAIOI_senator_is_populist_trigger = yes }
+			}
+			AND = { # Republicans will hardly support if you have high tyranny
+				RHOMAIOI_senator_is_republicanist_trigger = yes
+				OR = {
+					AND = {
+						scope:senatorruler.tyranny <= 0
+						opinion = {
+							target = scope:senatorruler
+							value >= 0
+						}
+					}
+					opinion = {
+						target = scope:senatorruler
+						value >= 90
+					}
+				}
+			}
+			AND = {  # Populists will support if your capital has a positive opinion of you
+				RHOMAIOI_senator_is_populist_trigger = yes
+				OR = {
+					AND = {
+						scope:senatorruler.capital_province.county = { county_holder_opinion >= 10 }
+						opinion = {
+							target = scope:senatorruler
+							value >= 0
+						}
+					}
+					opinion = {
+						target = scope:senatorruler
+						value >= 50
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+	}
+}
+
+RHOMAIOI_update_senator_list = {
+	scope = character
+
+	is_valid = {
+		NOT = {  # Has dismantled the senate
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_RHOMAIOI_dissolved_senate
+			}
+		}
+	}
+
+	effect = {
+		# Clears lists
+		clear_variable_list = RHOMAIOI_senate_list_of_supporters
+		clear_variable_list = RHOMAIOI_senate_list_of_all_current_senators
+		clear_variable_list = RHOMAIOI_senate_populists
+		clear_variable_list = RHOMAIOI_senate_republicanists
+		clear_variable_list = RHOMAIOI_senate_loyalists
+
+		# Basically creates the senatorial list
+		every_living_character = {
+			limit = { RHOMAIOI_is_valid_senator_trigger = yes }
+			# Adds to a general senator list
+			root = {
+				add_to_variable_list = {
+					name = RHOMAIOI_senate_list_of_all_current_senators
+					target = prev
+				}
+			}
+
+			# Adds to a list of supporters
+			if = {
+				limit = {
+					OR = {
+						AND = { # Loyalists will always support for now
+							NOT = { RHOMAIOI_senator_is_republicanist_trigger = yes }
+							NOT = { RHOMAIOI_senator_is_populist_trigger = yes }
+						}
+						AND = { # Republicans will hardly support if you have high tyranny
+							RHOMAIOI_senator_is_republicanist_trigger = yes
+							OR = {
+								AND = {
+									root.tyranny <= 0
+									opinion = {
+										target = root
+										value >= 0
+									}
+								}
+								opinion = {
+									target = root
+									value >= 90
+								}
+							}
+						}
+						AND = {  # Populists will support if your capital has a positive opinion of you
+							RHOMAIOI_senator_is_populist_trigger = yes
+							OR = {
+								AND = {
+									root.capital_province.county = { county_holder_opinion >= 10 }
+									opinion = {
+										target = root
+										value >= 0
+									}
+								}
+								opinion = {
+									target = root
+									value >= 50
+								}
+							}
+						}
+					}
+				}
+				root = {
+					add_to_variable_list = {
+						name = RHOMAIOI_senate_list_of_supporters
+						target = prev
+					}
+				}
+			}
+			else_if {
+				limit = { is_in_list = RHOMAIOI_senate_list_of_supporters }
+				root = {
+					remove_list_variable = {
+						name = RHOMAIOI_senate_list_of_supporters
+						target = prev
+					}
+				}
+			}
+
+			# Adds senators based on faction
+			if = {
+				limit = { RHOMAIOI_senator_is_populist_trigger = yes }
+				root = {
+					add_to_variable_list = {
+						name = RHOMAIOI_senate_populists
+						target = prev
+					}
+				}
+			}
+			else_if = {
+				limit = { RHOMAIOI_senator_is_republicanist_trigger = yes }
+				root = {
+					add_to_variable_list = {
+						name = RHOMAIOI_senate_republicanists
+						target = prev
+					}
+				}
+			}
+			else = {
+				root = {
+					add_to_variable_list = {
+						name = RHOMAIOI_senate_loyalists
+						target = prev
+					}
+				}
+			}
+		}
+
+		# Removes senators who became invalid from the lists
+		every_in_list = {
+			list = RHOMAIOI_senate_list_of_all_current_senators
+			limit = { RHOMAIOI_is_valid_senator_trigger = no }
+			root = {
+				remove_list_variable = {
+					name = RHOMAIOI_senate_list_of_supporters
+					target = prev
+				}
+				remove_list_variable = {
+					name = RHOMAIOI_senate_list_of_all_current_senators
+					target = prev
+				}
+				remove_list_variable = {
+					name = RHOMAIOI_senate_populists
+					target = prev
+				}
+				remove_list_variable = {
+					name = RHOMAIOI_senate_republicanists
+					target = prev
+				}
+				remove_list_variable = {
+					name = RHOMAIOI_senate_loyalists
+					target = prev
+				}
+			}
+		}
+
+		# Updates Consistorium for GUI purposes
+		clear_variable_list = RHOMAIOI_senate_consistorium_list
+		ordered_living_character = {
+			limit = { has_character_flag = RHOMAIOI_is_member_of_consistorium }
+			order_by = age
+			max = 7
+			root = {
+				add_to_variable_list = {
+					name = RHOMAIOI_senate_consistorium_list
+					target = prev
+				}
+			}
+		}
+	}
+}

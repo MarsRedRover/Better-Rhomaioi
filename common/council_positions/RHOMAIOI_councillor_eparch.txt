@@ -1,0 +1,46 @@
+﻿RHOMAIOI_councillor_eparch = {
+	special_council_position = yes
+	auto_fill = yes
+	can_fire = no
+	can_reassign = no
+
+	name = RHOMAIOI_councillor_eparch
+
+	tooltip = game_concept_RHOMAIOI_eparch_desc
+
+	modifier = {
+		name = RHOMAIOI_eparch_council
+		monthly_income = 2
+		monthly_prestige = 2
+		fellow_vassal_opinion = 15
+	}
+
+	council_owner_modifier = {
+		name = RHOMAIOI_eparch_council
+		domain_limit = 1
+		scale = RHOMAIOI_eparch_job_scale
+	}
+
+	valid_position = {
+		has_government = RHOMAIOI_imperial_government
+		OR = {
+			has_title = title:e_byzantium
+			has_title = title:e_roman_empire
+		}
+	}
+
+	valid_character = {
+		exists = root.liege_or_court_owner
+		root.liege_or_court_owner = { has_relation_RHOMAIOI_releparch = root }
+	}
+
+	on_get_position = {
+		got_council_position_effect = yes
+	}
+
+	on_fired_from_position = {
+		fired_from_council_position_effect = yes
+	}
+
+	portrait_animation = chancellor
+}

@@ -1,0 +1,97 @@
+﻿#Byzantine
+count_feudal_male_greek = { #Komes
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 300
+	top_liege = no
+	governments = { RHOMAIOI_imperial_government }
+	culture_groups = { byzantine_group }
+}
+count_feudal_female_greek = { #Komitissa
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 300
+	top_liege = no
+	governments = { RHOMAIOI_imperial_government }
+	culture_groups = { byzantine_group }
+}
+duke_viceroyalty_male_byzantine_group = { #Strategos
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 300
+	top_liege = no
+	governments = { RHOMAIOI_imperial_government }
+	culture_groups = { byzantine_group }
+}
+duke_viceroyalty_female_byzantine_group = { #Strategitissa
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 300
+	top_liege = no
+	governments = { RHOMAIOI_imperial_government }
+	culture_groups = { byzantine_group }
+}
+duchy_viceroyalty_byzantine_group = { #Thema
+	type = title
+	tier = duchy
+	priority = 300
+	top_liege = no
+	governments = { RHOMAIOI_imperial_government }
+	culture_groups = { byzantine_group }
+}
+king_viceroyalty_male_byzantine_group = { #Exarch
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 300
+	top_liege = no
+	governments = { RHOMAIOI_imperial_government }
+	culture_groups = { byzantine_group }
+}
+king_viceroyalty_female_byzantine_group = { #Exarchessa
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 300
+	top_liege = no
+	governments = { RHOMAIOI_imperial_government }
+	culture_groups = { byzantine_group }
+}
+king_viceroyalty_byzantine_group = { #Exarchate
+	type = title
+	tier = kingdom
+	priority = 300
+	top_liege = no
+	governments = { RHOMAIOI_imperial_government }
+	culture_groups = { byzantine_group }
+}
+RHOMAIOI_basileus = { #Basileus
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 300
+	top_liege = no
+	governments = { RHOMAIOI_imperial_government }
+	culture_groups = { byzantine_group }
+}
+RHOMAIOI_basilissa = { #Basilissa
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 300
+	top_liege = no
+	governments = { RHOMAIOI_imperial_government }
+	culture_groups = { byzantine_group }
+}

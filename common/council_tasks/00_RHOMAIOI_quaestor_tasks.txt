@@ -1,0 +1,9 @@
+﻿RHOMAIOI_task_quaestor_default = {
+	default_task = yes
+	position = RHOMAIOI_councillor_quaestor
+
+	effect_desc = RHOMAIOI_councillor_quaestor_effect_desc
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+}

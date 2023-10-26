@@ -1,0 +1,63 @@
+﻿RHOMAIOI_councillor_caesar = {
+	special_council_position = yes
+	auto_fill = yes
+	can_fire = no
+	can_reassign = no
+
+	name = RHOMAIOI_councillor_coemperor
+
+	tooltip = game_concept_RHOMAIOI_coemperor_desc
+
+	council_owner_modifier = {
+		name = RHOMAIOI_caesar_council
+		diplomacy = 1
+		scale = RHOMAIOI_caesar_job_scale_diplomacy
+	}
+
+	council_owner_modifier = {
+		name = RHOMAIOI_caesar_council
+		martial = 1
+		scale = RHOMAIOI_caesar_job_scale_martial
+	}
+
+	council_owner_modifier = {
+		name = RHOMAIOI_caesar_council
+		stewardship = 1
+		scale = RHOMAIOI_caesar_job_scale_stewardship
+	}
+
+	council_owner_modifier = {
+		name = RHOMAIOI_caesar_council
+		intrigue = 1
+		scale = RHOMAIOI_caesar_job_scale_intrigue
+	}
+
+	council_owner_modifier = {
+		name = RHOMAIOI_caesar_council
+		learning = 1
+		scale = RHOMAIOI_caesar_job_scale_learning
+	}
+
+	valid_position = {
+		has_government = RHOMAIOI_imperial_government
+		OR = {
+			has_title = title:e_byzantium
+			has_title = title:e_roman_empire
+		}
+	}
+
+	valid_character = {
+		exists = root.liege_or_court_owner
+		has_relation_RHOMAIOI_caesar = root.liege_or_court_owner
+	}
+
+	on_get_position = {
+		got_council_position_effect = yes
+	}
+
+	on_fired_from_position = {
+		fired_from_council_position_effect = yes
+	}
+
+	portrait_animation = chancellor
+}

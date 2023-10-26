@@ -1,0 +1,9 @@
+﻿RHOMAIOI_task_patrikia_default = {
+	default_task = yes
+	position = RHOMAIOI_councillor_patrikia
+
+	effect_desc = RHOMAIOI_councillor_patrikia_effect_desc
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+}
