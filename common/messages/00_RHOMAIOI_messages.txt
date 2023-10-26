@@ -1,0 +1,11 @@
+﻿@msg_neutral_soundeffect = "event:/SFX/UI/Notifications/Messages/sfx_ui_message_theme_neutral"
+
+#Councillors
+RHOMAIOI_event_senate = {
+	icon = "RHOMAIOI_senate.dds"
+	title = event_message_title
+	desc = event_message_effect_and_text
+	tooltip = send_interface_message_tooltip
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}

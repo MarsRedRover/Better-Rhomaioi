@@ -412,7 +412,6 @@ on_game_start = {
 		  	title:e_byzantium = { add_title_law = RHOMAIOI_elective_succession_law }
 		}
 
-		# NEED TO FIX CRASH
 		#Set up Themata and Royal Prerogative.
 		culture:greek = { add_innovation = innovation_RHOMAIOI_theme_system }
 		if = {
