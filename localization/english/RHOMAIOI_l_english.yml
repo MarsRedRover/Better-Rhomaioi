@@ -201,7 +201,8 @@
  RHOMAIOI_councillor_patrikia:0 "[RHOMAIOI_patrikia|E]"
  RHOMAIOI_councillor_quaestor:0 "[RHOMAIOI_quaestor|E]"
  RHOMAIOI_councillor_hetaeriarch:0 "[RHOMAIOI_hetaeriarch|E]"
- RHOMAIOI_councillor_proedros:0 "[RHOMAIOI_proedros|E]"
+ RHOMAIOI_councillor_proedros:0 "[RHOMAIOI_proedros|E
+ RHOMAIOI_councillor_provincial_senator:0 "[RHOMAIOI_provincial_senator|E]"
  RHOMAIOI_eparch_council:0 "Our Eparch"
  RHOMAIOI_patrikia_council:0 "Our Lady of the Circle"
  RHOMAIOI_quaestor_council:0 "Our Quaestor"
