@@ -19,17 +19,17 @@ RHOMAIOI_has_changed_contract_obligation_trigger = {
 	}
 }
 
-RHOMAIOI_can_be_caesar_councillor_trigger = {
-	save_temporary_scope_as = caesar_councillor_check
-	can_be_councillor_basics_trigger = yes
-	any_relation = {
-		type = RHOMAIOI_caesar
-		OR = {
-			has_title = title:e_byzantium
-			has_title = title:e_roman_empire
-		}
-	}
-}
+# RHOMAIOI_can_be_caesar_councillor_trigger = {
+# 	save_temporary_scope_as = caesar_councillor_check
+# 	can_be_councillor_basics_trigger = yes
+# 	any_relation = {
+# 		type = RHOMAIOI_caesar
+# 		OR = {
+# 			has_title = title:e_byzantium
+# 			has_title = title:e_roman_empire
+# 		}
+# 	}
+# }
 
 RHOMAIOI_senator_is_populist_trigger = {
 	save_temporary_scope_as = senator_check

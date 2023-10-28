@@ -1,145 +1,145 @@
 ﻿#Interactions relating to the head of the dynasty
 
-RHOMAIOI_make_co-emperor_interaction = {
-	category = interaction_category_RHOMAIOI
-	interface_priority = 60
+# RHOMAIOI_make_co-emperor_interaction = {
+# 	category = interaction_category_RHOMAIOI
+# 	interface_priority = 60
 
-	desc = RHOMAIOI_make_co-emperor_interaction_desc
+# 	desc = RHOMAIOI_make_co-emperor_interaction_desc
 
-	is_shown = {
-		NOT = { scope:recipient = scope:actor }
-		scope:actor.faith = scope:recipient.faith
-		scope:actor.culture = scope:recipient.culture
+# 	is_shown = {
+# 		NOT = { scope:recipient = scope:actor }
+# 		scope:actor.faith = scope:recipient.faith
+# 		scope:actor.culture = scope:recipient.culture
 
-		scope:actor = {
-			OR = {
-				has_title = title:e_byzantium
-				has_title = title:e_roman_empire
-			}
-			NOT = { has_relation_RHOMAIOI_caesar = scope:recipient }
-		}
+# 		scope:actor = {
+# 			OR = {
+# 				has_title = title:e_byzantium
+# 				has_title = title:e_roman_empire
+# 			}
+# 			NOT = { has_relation_RHOMAIOI_caesar = scope:recipient }
+# 		}
 
-		scope:recipient = {
-			is_adult = yes
-		}
-	}
+# 		scope:recipient = {
+# 			is_adult = yes
+# 		}
+# 	}
 
-	is_valid_showing_failures_only = {
-		scope:actor = {
-			prestige >= 500
-		}
-		scope:recipient = {
-			is_diplomatically_available = yes
-		}
-		custom_description = {
-			OR = {
-				title:e_byzantium = {
-					any_election_candidate = {
-						this = scope:recipient
-					}
-				}
-				title:e_roman_empire = {
-					any_election_candidate = {
-						this = scope:recipient
-					}
-				}
-			}
-			text = "RHOMAIOI_must_be_a_candidate"
-		}
-		custom_description = {
-			scope:recipient.top_liege = scope:actor.top_liege
-			text = "same_realm_as"
-		}
+# 	is_valid_showing_failures_only = {
+# 		scope:actor = {
+# 			prestige >= 500
+# 		}
+# 		scope:recipient = {
+# 			is_diplomatically_available = yes
+# 		}
+# 		custom_description = {
+# 			OR = {
+# 				title:e_byzantium = {
+# 					any_election_candidate = {
+# 						this = scope:recipient
+# 					}
+# 				}
+# 				title:e_roman_empire = {
+# 					any_election_candidate = {
+# 						this = scope:recipient
+# 					}
+# 				}
+# 			}
+# 			text = "RHOMAIOI_must_be_a_candidate"
+# 		}
+# 		custom_description = {
+# 			scope:recipient.top_liege = scope:actor.top_liege
+# 			text = "same_realm_as"
+# 		}
 
-		trigger_if = { # Not enough Senate Support
-			limit = {
-				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
-				NOT = {  # Has dismantled the senate
-					is_target_in_global_variable_list = {
-						name = unavailable_unique_decisions
-						target = flag:flag_RHOMAIOI_dissolved_senate
-					}
-				}
-			}
-			custom_description = {
-				text = RHOMAIOI_senate_need_more_support
-				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
-			}
-		}
-	}
+# 		trigger_if = { # Not enough Senate Support
+# 			limit = {
+# 				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
+# 				NOT = {  # Has dismantled the senate
+# 					is_target_in_global_variable_list = {
+# 						name = unavailable_unique_decisions
+# 						target = flag:flag_RHOMAIOI_dissolved_senate
+# 					}
+# 				}
+# 			}
+# 			custom_description = {
+# 				text = RHOMAIOI_senate_need_more_support
+# 				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
+# 			}
+# 		}
+# 	}
 
-	on_accept = {
-		scope:actor = {
-			every_relation = {
-				type = RHOMAIOI_caesar
-				remove_relation_RHOMAIOI_caesar = scope:actor
-				hidden_effect = { scope:actor = { remove_relation_RHOMAIOI_caesar = prev } }
-				add_opinion = {
-					target = scope:actor
-					modifier = RHOMAIOI_revoked_co-emperorship
-				}
-			}
-		}
+# 	on_accept = {
+# 		scope:actor = {
+# 			every_relation = {
+# 				type = RHOMAIOI_caesar
+# 				remove_relation_RHOMAIOI_caesar = scope:actor
+# 				hidden_effect = { scope:actor = { remove_relation_RHOMAIOI_caesar = prev } }
+# 				add_opinion = {
+# 					target = scope:actor
+# 					modifier = RHOMAIOI_revoked_co-emperorship
+# 				}
+# 			}
+# 		}
 
-		scope:recipient = {
-			set_relation_RHOMAIOI_caesar = scope:actor
-		}
-	}
+# 		scope:recipient = {
+# 			set_relation_RHOMAIOI_caesar = scope:actor
+# 		}
+# 	}
 
-	cost = {
-		prestige = {
-			value = {
-				add = 500
-				if = {
-					limit = {
-						scope:actor = { exists = cp:RHOMAIOI_councillor_caesar } # Costs more to demote an existing Co-Emperor
-					}
-					add = 1000
-				}
-			}
-		}
-	}
+# 	cost = {
+# 		prestige = {
+# 			value = {
+# 				add = 500
+# 				if = {
+# 					limit = {
+# 						scope:actor = { exists = cp:RHOMAIOI_councillor_caesar } # Costs more to demote an existing Co-Emperor
+# 					}
+# 					add = 1000
+# 				}
+# 			}
+# 		}
+# 	}
 
-	auto_accept = yes
+# 	auto_accept = yes
 
-	ai_potential = {
-		is_at_war = no
-		NOT = {
-			has_trait = forgiving
-		}
-	}
+# 	ai_potential = {
+# 		is_at_war = no
+# 		NOT = {
+# 			has_trait = forgiving
+# 		}
+# 	}
 
-	ai_targets = {
-		ai_recipients = dynasty
-		max = 20
-	}
+# 	ai_targets = {
+# 		ai_recipients = dynasty
+# 		max = 20
+# 	}
 
-	ai_frequency = 96
+# 	ai_frequency = 96
 
-	ai_will_do = {
-		base = 0
+# 	ai_will_do = {
+# 		base = 0
 
-		modifier = {
-			add = 100
-			scope:recipient = {
-				NOT = {
-					OR = {
-						has_relation_rival = scope:actor
-						has_relation_nemesis = scope:actor
-					}
-				}
-			}
-		}
+# 		modifier = {
+# 			add = 100
+# 			scope:recipient = {
+# 				NOT = {
+# 					OR = {
+# 						has_relation_rival = scope:actor
+# 						has_relation_nemesis = scope:actor
+# 					}
+# 				}
+# 			}
+# 		}
 
-		modifier = {
-			add = -1000
-			scope:recipient = {
-				OR = {
-					has_trait = inbred
-					has_trait = intellect_bad_3
-					has_trait = incapable
-				}
-			}
-		}
-	}
-}
+# 		modifier = {
+# 			add = -1000
+# 			scope:recipient = {
+# 				OR = {
+# 					has_trait = inbred
+# 					has_trait = intellect_bad_3
+# 					has_trait = incapable
+# 				}
+# 			}
+# 		}
+# 	}
+# }

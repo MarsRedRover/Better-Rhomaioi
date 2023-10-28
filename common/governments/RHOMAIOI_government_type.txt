@@ -29,6 +29,8 @@
 		war_declaration_rights
 		council_rights
 		title_revocation_rights
+		# Test
+		marriage_favor_rights
 	}
 
 	character_modifier = {

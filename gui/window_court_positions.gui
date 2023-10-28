@@ -1,7 +1,9 @@
 types CourtPositionTypes
 {
 	type vbox_court_positions = vbox {
-		margin_bottom = 15
+		# margin_bottom = 15
+		margin_bottom = 5
+		margin_top = 5
 
 		state = {
 			name = _show
@@ -11,14 +13,17 @@ types CourtPositionTypes
 		hbox = {
 			datamodel = "[GetAllCourtPositionCategories]"
 			visible = "[CourtPositionsWindow.CanShowCategoryTabs]"
+			# visible = "[CourtPositionsWindow.SetCategoryFilter(CourtPositionCategory.GetName == 'Common')]"
 
 			spacing = 5
 			margin = { 10 5 }
+			# margin = { 10 30 }
 
 			button_position_category = {
 				onclick = "[CourtPositionsWindow.ClearCategoryFilter]"
 				down ="[Not(CourtPositionsWindow.HasCategoryFilter)]"
 				size = { 110 33 }
+				# size = { 75 33 }
 
 				hbox = {
 					text_single = {
@@ -147,46 +152,67 @@ types CourtPositionTypes
 
 				# TODO: Variable for council_window_l_english.yml
 				text_label_center = {
-					text = "Imperial Positions"
+					text = "RHOMAIOI_COUNCIL_WINDOW_IMPERIAL_COUNCIL"
 				}
 
 				## Co-Emperor
-				hbox = {
-				  visible = "[And(GetPlayer.GetGovernment.IsType('RHOMAIOI_imperial_government'), EqualTo_int32(GetPlayer.GetPrimaryTitle.GetTierFrame, '(int32)6'))]"
+				# hbox = {
+				#   	visible = "[And(GetPlayer.GetGovernment.IsType('RHOMAIOI_imperial_government'), EqualTo_int32(GetPlayer.GetPrimaryTitle.GetTierFrame, '(int32)6'))]"
 
-				  layoutpolicy_horizontal = expanding
+				#   	layoutpolicy_horizontal = expanding
 
-				  background = {
-					texture = "gfx/interface/illustrations/event_scenes/throneroom_west.dds"
-					fittype = centercrop
-					alpha = 0.5
+				#   	background = {
+				# 		texture = "gfx/interface/illustrations/event_scenes/throneroom_west.dds"
+				# 		fittype = centercrop
+				# 		alpha = 0.5
 
-					using = Mask_Rough_Edges
-				  }
+				# 		using = Mask_Rough_Edges
+				#   	}
 
-				  portrait_shoulders = {
-					datacontext = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_caesar' ).GetCouncillor]"
-					background = {
-					  using = Background_Area
-					}
-				  }
+				#   	portrait_shoulders = {
+				# 		datacontext = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_caesar' ).GetCouncillor]"
+				# 		background = {
+				# 	  		using = Background_Area
+				# 		}
+				#   	}
 
-				  vbox = {
-					layoutpolicy_horizontal = expanding
+				#   	vbox = {
+				# 		layoutpolicy_horizontal = expanding
 
-					text_single = {
-					  layoutpolicy_horizontal = expanding
-					  text = "[RHOMAIOI_coemperor|E]"
-					}
+				# 		text_single = {
+				# 	  		layoutpolicy_horizontal = expanding
+				# 	  		text = "[RHOMAIOI_coemperor|E]"
+				# 		}
 
-					text_single = {
-					  layoutpolicy_horizontal = expanding
-					  visible = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_caesar' ).GetCouncillor.IsValid]"
-					  text = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_caesar' ).GetCouncillor.GetFullName]"
-					  autoresize = no
-					}
-				  }
-				}
+				# 		text_single = {
+				# 	  		layoutpolicy_horizontal = expanding
+				# 	  		visible = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_caesar' ).GetCouncillor.IsValid]"
+				# 	  		text = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_caesar' ).GetCouncillor.GetFullName]"
+				# 	  		autoresize = no
+				# 		}
+				#   	}
+
+				# 	# text_label_center = {
+				# 	# 	parentanchor = bottom|hcenter
+				# 	# 	position = { 0 -10 }
+				# 	# 	# text = "COUNCILLOR_CLICK_TO_HIRE"
+				# 	# 	default_format = "#low;italic"
+				# 	# 	max_width = 235
+				# 	# }
+
+				# 	blockoverride "onclick" {
+				# 		onclick = "[GuiCouncilPosition.SelectCouncillor]"
+				# 		# onclick = "[EmptyCourtPosition.Appoint]"
+
+				# 		button_icon = {
+				# 			parentanchor = center
+				# 			alwaystransparent = yes
+				# 			size = { 40 40 }
+				# 			position = { -5 -10 }
+				# 			texture = "gfx/interface/icons/flat_icons/plus.dds"
+				# 		}
+				# 	}
+				# }
 
 				## Provincial Senator
 				hbox = {
@@ -246,194 +272,194 @@ types CourtPositionTypes
 					}
 
 					## Eparch
-					hbox = {
-					visible = "[And(GetPlayer.GetGovernment.IsType('RHOMAIOI_imperial_government'), EqualTo_int32(GetPlayer.GetPrimaryTitle.GetTierFrame, '(int32)6'))]"
+					# hbox = {
+					# visible = "[And(GetPlayer.GetGovernment.IsType('RHOMAIOI_imperial_government'), EqualTo_int32(GetPlayer.GetPrimaryTitle.GetTierFrame, '(int32)6'))]"
 
-					layoutpolicy_horizontal = expanding
+					# layoutpolicy_horizontal = expanding
 
-					background = {
-						texture = "gfx/interface/illustrations/event_scenes/study.dds"
-						fittype = centercrop
-						alpha = 0.5
+					# background = {
+					# 	texture = "gfx/interface/illustrations/event_scenes/study.dds"
+					# 	fittype = centercrop
+					# 	alpha = 0.5
 
-						using = Mask_Rough_Edges
-					}
+					# 	using = Mask_Rough_Edges
+					# }
 
-					portrait_shoulders = {
-						datacontext = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_eparch' ).GetCouncillor]"
-						background = {
-						using = Background_Area
-						}
-					}
+					# portrait_shoulders = {
+					# 	datacontext = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_eparch' ).GetCouncillor]"
+					# 	background = {
+					# 	using = Background_Area
+					# 	}
+					# }
 
-					vbox = {
-						layoutpolicy_horizontal = expanding
+					# vbox = {
+					# 	layoutpolicy_horizontal = expanding
 
-						text_single = {
-						layoutpolicy_horizontal = expanding
-						text = "[RHOMAIOI_eparch|E]"
-						}
+					# 	text_single = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	text = "[RHOMAIOI_eparch|E]"
+					# 	}
 
-						text_single = {
-						layoutpolicy_horizontal = expanding
-						visible = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_eparch' ).GetCouncillor.IsValid]"
-						text = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_eparch' ).GetCouncillor.GetFullName]"
-						autoresize = no
-						}
-					}
-					}
+					# 	text_single = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	visible = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_eparch' ).GetCouncillor.IsValid]"
+					# 	text = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_eparch' ).GetCouncillor.GetFullName]"
+					# 	autoresize = no
+					# 	}
+					# }
+					# }
 
 					## Zoste Patrikia
-					hbox = {
-					visible = "[And(GetPlayer.GetGovernment.IsType('RHOMAIOI_imperial_government'), EqualTo_int32(GetPlayer.GetPrimaryTitle.GetTierFrame, '(int32)6'))]"
+					# hbox = {
+					# visible = "[And(GetPlayer.GetGovernment.IsType('RHOMAIOI_imperial_government'), EqualTo_int32(GetPlayer.GetPrimaryTitle.GetTierFrame, '(int32)6'))]"
 
-					layoutpolicy_horizontal = expanding
+					# layoutpolicy_horizontal = expanding
 
-					background = {
-						texture = "gfx/interface/illustrations/event_scenes/corridor_day.dds"
-						fittype = centercrop
-						alpha = 0.5
+					# background = {
+					# 	texture = "gfx/interface/illustrations/event_scenes/corridor_day.dds"
+					# 	fittype = centercrop
+					# 	alpha = 0.5
 
-						using = Mask_Rough_Edges
-					}
+					# 	using = Mask_Rough_Edges
+					# }
 
-					portrait_shoulders = {
-						datacontext = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_patrikia' ).GetCouncillor]"
-						background = {
-						using = Background_Area
-						}
-					}
+					# portrait_shoulders = {
+					# 	datacontext = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_patrikia' ).GetCouncillor]"
+					# 	background = {
+					# 	using = Background_Area
+					# 	}
+					# }
 
-					vbox = {
-						layoutpolicy_horizontal = expanding
+					# vbox = {
+					# 	layoutpolicy_horizontal = expanding
 
-						text_single = {
-						layoutpolicy_horizontal = expanding
-						text = "[RHOMAIOI_patrikia|E]"
-						}
+					# 	text_single = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	text = "[RHOMAIOI_patrikia|E]"
+					# 	}
 
-						text_single = {
-						layoutpolicy_horizontal = expanding
-						visible = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_patrikia' ).GetCouncillor.IsValid]"
-						text = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_patrikia' ).GetCouncillor.GetFullName]"
-						autoresize = no
-						}
-					}
-					}
+					# 	text_single = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	visible = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_patrikia' ).GetCouncillor.IsValid]"
+					# 	text = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_patrikia' ).GetCouncillor.GetFullName]"
+					# 	autoresize = no
+					# 	}
+					# }
+					# }
 
 					## Quaestor
-					hbox = {
-					visible = "[And(GetPlayer.GetGovernment.IsType('RHOMAIOI_imperial_government'), EqualTo_int32(GetPlayer.GetPrimaryTitle.GetTierFrame, '(int32)6'))]"
+					# hbox = {
+					# visible = "[And(GetPlayer.GetGovernment.IsType('RHOMAIOI_imperial_government'), EqualTo_int32(GetPlayer.GetPrimaryTitle.GetTierFrame, '(int32)6'))]"
 
-					layoutpolicy_horizontal = expanding
+					# layoutpolicy_horizontal = expanding
 
-					background = {
-						texture = "gfx/interface/illustrations/event_scenes/sittingroom.dds"
-						fittype = centercrop
-						alpha = 0.5
+					# background = {
+					# 	texture = "gfx/interface/illustrations/event_scenes/sittingroom.dds"
+					# 	fittype = centercrop
+					# 	alpha = 0.5
 
-						using = Mask_Rough_Edges
-					}
+					# 	using = Mask_Rough_Edges
+					# }
 
-					portrait_shoulders = {
-						datacontext = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_quaestor' ).GetCouncillor]"
-						background = {
-						using = Background_Area
-						}
-					}
+					# portrait_shoulders = {
+					# 	datacontext = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_quaestor' ).GetCouncillor]"
+					# 	background = {
+					# 	using = Background_Area
+					# 	}
+					# }
 
-					vbox = {
-						layoutpolicy_horizontal = expanding
+					# vbox = {
+					# 	layoutpolicy_horizontal = expanding
 
-						text_single = {
-						layoutpolicy_horizontal = expanding
-						text = "[RHOMAIOI_quaestor|E]"
-						}
+					# 	text_single = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	text = "[RHOMAIOI_quaestor|E]"
+					# 	}
 
-						text_single = {
-						layoutpolicy_horizontal = expanding
-						visible = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_quaestor' ).GetCouncillor.IsValid]"
-						text = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_quaestor' ).GetCouncillor.GetFullName]"
-						autoresize = no
-						}
-					}
-					}
+					# 	text_single = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	visible = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_quaestor' ).GetCouncillor.IsValid]"
+					# 	text = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_quaestor' ).GetCouncillor.GetFullName]"
+					# 	autoresize = no
+					# 	}
+					# }
+					# }
 
 					## Great Hetaeriarch
-					hbox = {
-					visible = "[And(GetPlayer.GetGovernment.IsType('RHOMAIOI_imperial_government'), EqualTo_int32(GetPlayer.GetPrimaryTitle.GetTierFrame, '(int32)6'))]"
+					# hbox = {
+					# visible = "[And(GetPlayer.GetGovernment.IsType('RHOMAIOI_imperial_government'), EqualTo_int32(GetPlayer.GetPrimaryTitle.GetTierFrame, '(int32)6'))]"
 
-					layoutpolicy_horizontal = expanding
+					# layoutpolicy_horizontal = expanding
 
-					background = {
-						texture = "gfx/interface/illustrations/event_scenes/armory.dds"
-						fittype = centercrop
-						alpha = 0.5
+					# background = {
+					# 	texture = "gfx/interface/illustrations/event_scenes/armory.dds"
+					# 	fittype = centercrop
+					# 	alpha = 0.5
 
-						using = Mask_Rough_Edges
-					}
+					# 	using = Mask_Rough_Edges
+					# }
 
-					portrait_shoulders = {
-						datacontext = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_hetaeriarch' ).GetCouncillor]"
-						background = {
-						using = Background_Area
-						}
-					}
+					# portrait_shoulders = {
+					# 	datacontext = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_hetaeriarch' ).GetCouncillor]"
+					# 	background = {
+					# 	using = Background_Area
+					# 	}
+					# }
 
-					vbox = {
-						layoutpolicy_horizontal = expanding
+					# vbox = {
+					# 	layoutpolicy_horizontal = expanding
 
-						text_single = {
-						layoutpolicy_horizontal = expanding
-						text = "[RHOMAIOI_hetaeriarch|E]"
-						}
+					# 	text_single = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	text = "[RHOMAIOI_hetaeriarch|E]"
+					# 	}
 
-						text_single = {
-						layoutpolicy_horizontal = expanding
-						visible = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_hetaeriarch' ).GetCouncillor.IsValid]"
-						text = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_hetaeriarch' ).GetCouncillor.GetFullName]"
-						autoresize = no
-						}
-					}
-					}
+					# 	text_single = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	visible = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_hetaeriarch' ).GetCouncillor.IsValid]"
+					# 	text = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_hetaeriarch' ).GetCouncillor.GetFullName]"
+					# 	autoresize = no
+					# 	}
+					# }
+					# }
 
 					## Proedros
-					hbox = {
-					visible = "[And(GetPlayer.GetGovernment.IsType('RHOMAIOI_imperial_government'), EqualTo_int32(GetPlayer.GetPrimaryTitle.GetTierFrame, '(int32)6'))]"
+					# hbox = {
+					# visible = "[And(GetPlayer.GetGovernment.IsType('RHOMAIOI_imperial_government'), EqualTo_int32(GetPlayer.GetPrimaryTitle.GetTierFrame, '(int32)6'))]"
 
-					layoutpolicy_horizontal = expanding
+					# layoutpolicy_horizontal = expanding
 
-					background = {
-						texture = "gfx/interface/illustrations/event_scenes/temple.dds"
-						fittype = centercrop
-						alpha = 0.5
+					# background = {
+					# 	texture = "gfx/interface/illustrations/event_scenes/temple.dds"
+					# 	fittype = centercrop
+					# 	alpha = 0.5
 
-						using = Mask_Rough_Edges
-					}
+					# 	using = Mask_Rough_Edges
+					# }
 
-					portrait_shoulders = {
-						datacontext = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_proedros' ).GetCouncillor]"
-						background = {
-						using = Background_Area
-						}
-					}
+					# portrait_shoulders = {
+					# 	datacontext = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_proedros' ).GetCouncillor]"
+					# 	background = {
+					# 	using = Background_Area
+					# 	}
+					# }
 
-					vbox = {
-						layoutpolicy_horizontal = expanding
+					# vbox = {
+					# 	layoutpolicy_horizontal = expanding
 
-						text_single = {
-						layoutpolicy_horizontal = expanding
-						text = "[RHOMAIOI_proedros|E]"
-						}
+					# 	text_single = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	text = "[RHOMAIOI_proedros|E]"
+					# 	}
 
-						text_single = {
-						layoutpolicy_horizontal = expanding
-						visible = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_proedros' ).GetCouncillor.IsValid]"
-						text = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_proedros' ).GetCouncillor.GetFullName]"
-						autoresize = no
-						}
-					}
-					}
+					# 	text_single = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	visible = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_proedros' ).GetCouncillor.IsValid]"
+					# 	text = "[GetPlayer.GetCouncillorPosition( 'RHOMAIOI_councillor_proedros' ).GetCouncillor.GetFullName]"
+					# 	autoresize = no
+					# 	}
+					# }
+					# }
 
 				vbox = {
 					name = "your_court_positions"

@@ -1,672 +1,672 @@
 ﻿# Currently, there are FOUR administration titles.
 
-RHOMAIOI_make_eparch_interaction = {
-	category = interaction_category_RHOMAIOI
-	interface_priority = 60
-
-	desc = RHOMAIOI_make_eparch_interaction_desc
-
-	is_shown = {
-		NOT = { scope:recipient = scope:actor }
-		scope:actor.faith = scope:recipient.faith
-		scope:actor.culture = scope:recipient.culture
-
-		scope:actor = {
-			OR = {
-				has_title = title:e_byzantium
-				has_title = title:e_roman_empire
-			}
-			NOT = { has_relation_RHOMAIOI_releparch = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relpatrikia = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relquaestor = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relhetaeriarch = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relproedros = scope:recipient }
-		}
-
-		scope:recipient = {
-			is_adult = yes
-			OR = {
-				scope:actor.faith = { NOT = { has_doctrine = doctrine_gender_male_dominated } }
-				is_male = yes
-			}
-		}
-	}
-
-	is_valid_showing_failures_only = {
-		scope:actor = {
-			gold >= 50
-		}
-		scope:recipient = {
-			is_diplomatically_available = yes
-			liege_or_court_owner = scope:actor
-		}
-
-		custom_description = {
-			scope:recipient.top_liege = scope:actor.top_liege
-			text = "same_realm_as"
-		}
-
-		trigger_if = { # Not enough Senate Support
-			limit = {
-				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
-				NOT = {  # Has dismantled the senate
-					is_target_in_global_variable_list = {
-						name = unavailable_unique_decisions
-						target = flag:flag_RHOMAIOI_dissolved_senate
-					}
-				}
-			}
-			custom_description = {
-				text = RHOMAIOI_senate_need_more_support
-				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
-			}
-		}
-	}
-
-	on_accept = {
-		scope:actor = {
-			every_relation = {
-				type = RHOMAIOI_releparch
-				remove_relation_RHOMAIOI_releparch = scope:actor
-				hidden_effect = { scope:actor = { remove_relation_RHOMAIOI_releparch = prev } }
-				add_opinion = {
-					target = scope:actor
-					modifier = fired_from_council_opinion
-				}
-			}
-			set_relation_RHOMAIOI_releparch = scope:recipient
-		}
-	}
-
-	cost = {
-		gold = {
-			value = {
-				add = 50
-				if = {
-					limit = {
-						scope:actor = { exists = cp:RHOMAIOI_councillor_eparch } # Costs more to demote an existing Eparch
-					}
-					add = 100
-				}
-			}
-		}
-	}
-
-	auto_accept = yes
-
-	ai_potential = {
-		is_at_war = no
-		NOT = {
-			has_trait = forgiving
-		}
-	}
-
-	ai_targets = {
-		ai_recipients = dynasty
-		max = 20
-	}
-
-	ai_frequency = 96
-
-	ai_will_do = {
-		base = 0
-
-		modifier = {
-			add = 100
-			scope:recipient = {
-				NOT = {
-					OR = {
-						has_relation_rival = scope:actor
-						has_relation_nemesis = scope:actor
-					}
-				}
-			}
-		}
-
-		modifier = {
-			add = -1000
-			scope:recipient = {
-				OR = {
-					has_trait = inbred
-					has_trait = intellect_bad_3
-					has_trait = incapable
-				}
-			}
-		}
-	}
-}
-
-RHOMAIOI_make_patrikia_interaction = {
-	category = interaction_category_RHOMAIOI
-	interface_priority = 60
-
-	desc = RHOMAIOI_make_patrikia_interaction_desc
-
-	is_shown = {
-		NOT = { scope:recipient = scope:actor }
-		scope:actor.faith = scope:recipient.faith
-		scope:actor.culture = scope:recipient.culture
-
-		scope:actor = {
-			OR = {
-				has_title = title:e_byzantium
-				has_title = title:e_roman_empire
-			}
-			NOT = { has_relation_RHOMAIOI_releparch = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relpatrikia = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relquaestor = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relhetaeriarch = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relproedros = scope:recipient }
-		}
-
-		scope:recipient = {
-			is_adult = yes
-			is_female = yes
-		}
-	}
-
-	is_valid_showing_failures_only = {
-		scope:actor = {
-			gold >= 50
-		}
-		scope:recipient = {
-			is_diplomatically_available = yes
-			liege_or_court_owner = scope:actor
-			NOT = { is_spouse_of = scope:actor }
-		}
-
-		custom_description = {
-			scope:recipient.top_liege = scope:actor.top_liege
-			text = "same_realm_as"
-		}
-
-		trigger_if = { # Not enough Senate Support
-			limit = {
-				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
-				NOT = {  # Has dismantled the senate
-					is_target_in_global_variable_list = {
-						name = unavailable_unique_decisions
-						target = flag:flag_RHOMAIOI_dissolved_senate
-					}
-				}
-			}
-			custom_description = {
-				text = RHOMAIOI_senate_need_more_support
-				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
-			}
-		}
-	}
-
-	on_accept = {
-		scope:actor = {
-			every_relation = {
-				type = RHOMAIOI_relpatrikia
-				remove_relation_RHOMAIOI_relpatrikia = scope:actor
-				hidden_effect = { scope:actor = { remove_relation_RHOMAIOI_relpatrikia = prev } }
-				add_opinion = {
-					target = scope:actor
-					modifier = fired_from_council_opinion
-				}
-			}
-			set_relation_RHOMAIOI_relpatrikia = scope:recipient
-		}
-	}
-
-	cost = {
-		gold = {
-			value = {
-				add = 50
-				if = {
-					limit = {
-						scope:actor = { exists = cp:RHOMAIOI_councillor_patrikia } # Costs more to demote an existing Eparch
-					}
-					add = 100
-				}
-			}
-		}
-	}
-
-	auto_accept = yes
-
-	ai_potential = {
-		is_at_war = no
-		NOT = {
-			has_trait = forgiving
-		}
-	}
-
-	ai_targets = {
-		ai_recipients = dynasty
-		max = 20
-	}
-
-	ai_frequency = 96
-
-	ai_will_do = {
-		base = 0
-
-		modifier = {
-			add = 100
-			scope:recipient = {
-				NOT = {
-					OR = {
-						has_relation_rival = scope:actor
-						has_relation_nemesis = scope:actor
-					}
-				}
-			}
-		}
-
-		modifier = {
-			add = -1000
-			scope:recipient = {
-				OR = {
-					has_trait = inbred
-					has_trait = intellect_bad_3
-					has_trait = incapable
-				}
-			}
-		}
-	}
-}
-
-RHOMAIOI_make_quaestor_interaction = {
-	category = interaction_category_RHOMAIOI
-	interface_priority = 60
-
-	desc = RHOMAIOI_make_quaestor_interaction_desc
-
-	is_shown = {
-		NOT = { scope:recipient = scope:actor }
-		scope:actor.faith = scope:recipient.faith
-		scope:actor.culture = scope:recipient.culture
-
-		scope:actor = {
-			OR = {
-				has_title = title:e_byzantium
-				has_title = title:e_roman_empire
-			}
-			NOT = { has_relation_RHOMAIOI_releparch = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relpatrikia = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relquaestor = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relhetaeriarch = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relproedros = scope:recipient }
-		}
-
-		scope:recipient = {
-			is_adult = yes
-			OR = {
-				scope:actor.faith = { NOT = { has_doctrine = doctrine_gender_male_dominated } }
-				is_male = yes
-			}
-		}
-	}
-
-	is_valid_showing_failures_only = {
-		scope:actor = {
-			gold >= 50
-		}
-		scope:recipient = {
-			is_diplomatically_available = yes
-			liege_or_court_owner = scope:actor
-			NOT = { has_trait = eunuch }
-		}
-
-		custom_description = {
-			scope:recipient.top_liege = scope:actor.top_liege
-			text = "same_realm_as"
-		}
-
-		trigger_if = { # Not enough Senate Support
-			limit = {
-				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
-				NOT = {  # Has dismantled the senate
-					is_target_in_global_variable_list = {
-						name = unavailable_unique_decisions
-						target = flag:flag_RHOMAIOI_dissolved_senate
-					}
-				}
-			}
-			custom_description = {
-				text = RHOMAIOI_senate_need_more_support
-				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
-			}
-		}
-	}
-
-	on_accept = {
-		scope:actor = {
-			every_relation = {
-				type = RHOMAIOI_relquaestor
-				remove_relation_RHOMAIOI_relquaestor = scope:actor
-				hidden_effect = { scope:actor = { remove_relation_RHOMAIOI_relquaestor = prev } }
-				add_opinion = {
-					target = scope:actor
-					modifier = fired_from_council_opinion
-				}
-			}
-			set_relation_RHOMAIOI_relquaestor = scope:recipient
-		}
-	}
-
-	cost = {
-		gold = {
-			value = {
-				add = 50
-				if = {
-					limit = {
-						scope:actor = { exists = cp:RHOMAIOI_councillor_quaestor } # Costs more to demote an existing Eparch
-					}
-					add = 100
-				}
-			}
-		}
-	}
-
-	auto_accept = yes
-
-	ai_potential = {
-		is_at_war = no
-		NOT = {
-			has_trait = forgiving
-		}
-	}
-
-	ai_targets = {
-		ai_recipients = dynasty
-		max = 20
-	}
-
-	ai_frequency = 96
-
-	ai_will_do = {
-		base = 0
-
-		modifier = {
-			add = 100
-			scope:recipient = {
-				NOT = {
-					OR = {
-						has_relation_rival = scope:actor
-						has_relation_nemesis = scope:actor
-					}
-				}
-			}
-		}
-
-		modifier = {
-			add = -1000
-			scope:recipient = {
-				OR = {
-					has_trait = inbred
-					has_trait = intellect_bad_3
-					has_trait = incapable
-				}
-			}
-		}
-	}
-}
-
-RHOMAIOI_make_hetaeriarch_interaction = {
-	category = interaction_category_RHOMAIOI
-	interface_priority = 60
-
-	desc = RHOMAIOI_make_hetaeriarch_interaction_desc
-
-	is_shown = {
-		NOT = { scope:recipient = scope:actor }
-
-		scope:actor = {
-			OR = {
-				has_title = title:e_byzantium
-				has_title = title:e_roman_empire
-			}
-			NOT = { has_relation_RHOMAIOI_releparch = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relpatrikia = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relquaestor = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relhetaeriarch = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relproedros = scope:recipient }
-		}
-
-		scope:recipient = {
-			is_adult = yes
-			can_be_knight_trigger = { ARMY_OWNER = scope:actor }
-		}
-	}
-
-	is_valid_showing_failures_only = {
-		NOT = { scope:recipient.culture_group = scope:actor.culture_group }
-		scope:actor = {
-			gold >= 50
-		}
-		scope:recipient = {
-			is_diplomatically_available = yes
-			liege_or_court_owner = scope:actor
-		}
-
-		custom_description = {
-			scope:recipient.top_liege = scope:actor.top_liege
-			text = "same_realm_as"
-		}
-
-		trigger_if = { # Not enough Senate Support
-			limit = {
-				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
-				NOT = {  # Has dismantled the senate
-					is_target_in_global_variable_list = {
-						name = unavailable_unique_decisions
-						target = flag:flag_RHOMAIOI_dissolved_senate
-					}
-				}
-			}
-			custom_description = {
-				text = RHOMAIOI_senate_need_more_support
-				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
-			}
-		}
-	}
-
-	on_accept = {
-		scope:actor = {
-			every_relation = {
-				type = RHOMAIOI_relhetaeriarch
-				remove_relation_RHOMAIOI_relhetaeriarch = scope:actor
-				hidden_effect = { scope:actor = { remove_relation_RHOMAIOI_relhetaeriarch = prev } }
-				add_opinion = {
-					target = scope:actor
-					modifier = fired_from_council_opinion
-				}
-			}
-			set_relation_RHOMAIOI_relhetaeriarch = scope:recipient
-		}
-	}
-
-	cost = {
-		gold = {
-			value = {
-				add = 50
-				if = {
-					limit = {
-						scope:actor = { exists = cp:RHOMAIOI_councillor_hetaeriarch } # Costs more to demote an existing Eparch
-					}
-					add = 100
-				}
-			}
-		}
-	}
-
-	auto_accept = yes
-
-	ai_potential = {
-		is_at_war = no
-		NOT = {
-			has_trait = forgiving
-		}
-	}
-
-	ai_targets = {
-		ai_recipients = dynasty
-		max = 20
-	}
-
-	ai_frequency = 96
-
-	ai_will_do = {
-		base = 0
-
-		modifier = {
-			add = 100
-			scope:recipient = {
-				NOT = {
-					OR = {
-						has_relation_rival = scope:actor
-						has_relation_nemesis = scope:actor
-					}
-				}
-			}
-		}
-
-		modifier = {
-			add = -1000
-			scope:recipient = {
-				OR = {
-					has_trait = inbred
-					has_trait = intellect_bad_3
-					has_trait = incapable
-				}
-			}
-		}
-	}
-}
-
-RHOMAIOI_make_proedros_interaction = {
-	category = interaction_category_RHOMAIOI
-	interface_priority = 60
-
-	desc = RHOMAIOI_make_proedros_interaction_desc
-
-	is_shown = {
-		NOT = { scope:recipient = scope:actor }
-
-		scope:actor = {
-			OR = {
-				has_title = title:e_byzantium
-				has_title = title:e_roman_empire
-			}
-			NOT = { has_relation_RHOMAIOI_releparch = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relpatrikia = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relquaestor = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relhetaeriarch = scope:recipient }
-			NOT = { has_relation_RHOMAIOI_relproedros = scope:recipient }
-		}
-
-		scope:recipient = {
-			is_adult = yes
-			has_trait = eunuch
-		}
-	}
-
-	is_valid_showing_failures_only = {
-		scope:actor = {
-			gold >= 50
-		}
-		scope:recipient = {
-			is_diplomatically_available = yes
-			liege_or_court_owner = scope:actor
-			is_landed = no
-		}
-
-		custom_description = {
-			scope:recipient.top_liege = scope:actor.top_liege
-			text = "same_realm_as"
-		}
-
-		trigger_if = { # Not enough Senate Support
-			limit = {
-				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
-				NOT = {  # Has dismantled the senate
-					is_target_in_global_variable_list = {
-						name = unavailable_unique_decisions
-						target = flag:flag_RHOMAIOI_dissolved_senate
-					}
-				}
-			}
-			custom_description = {
-				text = RHOMAIOI_senate_need_more_support
-				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
-			}
-		}
-	}
-
-	on_accept = {
-		scope:actor = {
-			every_relation = {
-				type = RHOMAIOI_relproedros
-				remove_relation_RHOMAIOI_relproedros= scope:actor
-				hidden_effect = { scope:actor = { remove_relation_RHOMAIOI_relproedros = prev } }
-				add_opinion = {
-					target = scope:actor
-					modifier = fired_from_council_opinion
-				}
-			}
-			set_relation_RHOMAIOI_relproedros = scope:recipient
-		}
-	}
-
-	cost = {
-		gold = {
-			value = {
-				add = 50
-				if = {
-					limit = {
-						scope:actor = { exists = cp:RHOMAIOI_councillor_proedros } # Costs more to demote an existing Eparch
-					}
-					add = 100
-				}
-			}
-		}
-	}
-
-	auto_accept = yes
-
-	ai_potential = {
-		is_at_war = no
-		NOT = {
-			has_trait = forgiving
-		}
-	}
-
-	ai_targets = {
-		ai_recipients = dynasty
-		max = 20
-	}
-
-	ai_frequency = 96
-
-	ai_will_do = {
-		base = 0
-
-		modifier = {
-			add = 100
-			scope:recipient = {
-				NOT = {
-					OR = {
-						has_relation_rival = scope:actor
-						has_relation_nemesis = scope:actor
-					}
-				}
-			}
-		}
-
-		modifier = {
-			add = -1000
-			scope:recipient = {
-				OR = {
-					has_trait = inbred
-					has_trait = intellect_bad_3
-					has_trait = incapable
-				}
-			}
-		}
-	}
-}
+# RHOMAIOI_make_eparch_interaction = {
+# 	category = interaction_category_RHOMAIOI
+# 	interface_priority = 60
+
+# 	desc = RHOMAIOI_make_eparch_interaction_desc
+
+# 	is_shown = {
+# 		NOT = { scope:recipient = scope:actor }
+# 		scope:actor.faith = scope:recipient.faith
+# 		scope:actor.culture = scope:recipient.culture
+
+# 		scope:actor = {
+# 			OR = {
+# 				has_title = title:e_byzantium
+# 				has_title = title:e_roman_empire
+# 			}
+# 			NOT = { has_relation_RHOMAIOI_releparch = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relpatrikia = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relquaestor = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relhetaeriarch = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relproedros = scope:recipient }
+# 		}
+
+# 		scope:recipient = {
+# 			is_adult = yes
+# 			OR = {
+# 				scope:actor.faith = { NOT = { has_doctrine = doctrine_gender_male_dominated } }
+# 				is_male = yes
+# 			}
+# 		}
+# 	}
+
+# 	is_valid_showing_failures_only = {
+# 		scope:actor = {
+# 			gold >= 50
+# 		}
+# 		scope:recipient = {
+# 			is_diplomatically_available = yes
+# 			liege_or_court_owner = scope:actor
+# 		}
+
+# 		custom_description = {
+# 			scope:recipient.top_liege = scope:actor.top_liege
+# 			text = "same_realm_as"
+# 		}
+
+# 		trigger_if = { # Not enough Senate Support
+# 			limit = {
+# 				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
+# 				NOT = {  # Has dismantled the senate
+# 					is_target_in_global_variable_list = {
+# 						name = unavailable_unique_decisions
+# 						target = flag:flag_RHOMAIOI_dissolved_senate
+# 					}
+# 				}
+# 			}
+# 			custom_description = {
+# 				text = RHOMAIOI_senate_need_more_support
+# 				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
+# 			}
+# 		}
+# 	}
+
+# 	on_accept = {
+# 		scope:actor = {
+# 			every_relation = {
+# 				type = RHOMAIOI_releparch
+# 				remove_relation_RHOMAIOI_releparch = scope:actor
+# 				hidden_effect = { scope:actor = { remove_relation_RHOMAIOI_releparch = prev } }
+# 				add_opinion = {
+# 					target = scope:actor
+# 					modifier = fired_from_council_opinion
+# 				}
+# 			}
+# 			set_relation_RHOMAIOI_releparch = scope:recipient
+# 		}
+# 	}
+
+# 	cost = {
+# 		gold = {
+# 			value = {
+# 				add = 50
+# 				if = {
+# 					limit = {
+# 						scope:actor = { exists = cp:RHOMAIOI_councillor_eparch } # Costs more to demote an existing Eparch
+# 					}
+# 					add = 100
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	auto_accept = yes
+
+# 	ai_potential = {
+# 		is_at_war = no
+# 		NOT = {
+# 			has_trait = forgiving
+# 		}
+# 	}
+
+# 	ai_targets = {
+# 		ai_recipients = dynasty
+# 		max = 20
+# 	}
+
+# 	ai_frequency = 96
+
+# 	ai_will_do = {
+# 		base = 0
+
+# 		modifier = {
+# 			add = 100
+# 			scope:recipient = {
+# 				NOT = {
+# 					OR = {
+# 						has_relation_rival = scope:actor
+# 						has_relation_nemesis = scope:actor
+# 					}
+# 				}
+# 			}
+# 		}
+
+# 		modifier = {
+# 			add = -1000
+# 			scope:recipient = {
+# 				OR = {
+# 					has_trait = inbred
+# 					has_trait = intellect_bad_3
+# 					has_trait = incapable
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+# RHOMAIOI_make_patrikia_interaction = {
+# 	category = interaction_category_RHOMAIOI
+# 	interface_priority = 60
+
+# 	desc = RHOMAIOI_make_patrikia_interaction_desc
+
+# 	is_shown = {
+# 		NOT = { scope:recipient = scope:actor }
+# 		scope:actor.faith = scope:recipient.faith
+# 		scope:actor.culture = scope:recipient.culture
+
+# 		scope:actor = {
+# 			OR = {
+# 				has_title = title:e_byzantium
+# 				has_title = title:e_roman_empire
+# 			}
+# 			NOT = { has_relation_RHOMAIOI_releparch = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relpatrikia = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relquaestor = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relhetaeriarch = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relproedros = scope:recipient }
+# 		}
+
+# 		scope:recipient = {
+# 			is_adult = yes
+# 			is_female = yes
+# 		}
+# 	}
+
+# 	is_valid_showing_failures_only = {
+# 		scope:actor = {
+# 			gold >= 50
+# 		}
+# 		scope:recipient = {
+# 			is_diplomatically_available = yes
+# 			liege_or_court_owner = scope:actor
+# 			NOT = { is_spouse_of = scope:actor }
+# 		}
+
+# 		custom_description = {
+# 			scope:recipient.top_liege = scope:actor.top_liege
+# 			text = "same_realm_as"
+# 		}
+
+# 		trigger_if = { # Not enough Senate Support
+# 			limit = {
+# 				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
+# 				NOT = {  # Has dismantled the senate
+# 					is_target_in_global_variable_list = {
+# 						name = unavailable_unique_decisions
+# 						target = flag:flag_RHOMAIOI_dissolved_senate
+# 					}
+# 				}
+# 			}
+# 			custom_description = {
+# 				text = RHOMAIOI_senate_need_more_support
+# 				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
+# 			}
+# 		}
+# 	}
+
+# 	on_accept = {
+# 		scope:actor = {
+# 			every_relation = {
+# 				type = RHOMAIOI_relpatrikia
+# 				remove_relation_RHOMAIOI_relpatrikia = scope:actor
+# 				hidden_effect = { scope:actor = { remove_relation_RHOMAIOI_relpatrikia = prev } }
+# 				add_opinion = {
+# 					target = scope:actor
+# 					modifier = fired_from_council_opinion
+# 				}
+# 			}
+# 			set_relation_RHOMAIOI_relpatrikia = scope:recipient
+# 		}
+# 	}
+
+# 	cost = {
+# 		gold = {
+# 			value = {
+# 				add = 50
+# 				if = {
+# 					limit = {
+# 						scope:actor = { exists = cp:RHOMAIOI_councillor_patrikia } # Costs more to demote an existing Eparch
+# 					}
+# 					add = 100
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	auto_accept = yes
+
+# 	ai_potential = {
+# 		is_at_war = no
+# 		NOT = {
+# 			has_trait = forgiving
+# 		}
+# 	}
+
+# 	ai_targets = {
+# 		ai_recipients = dynasty
+# 		max = 20
+# 	}
+
+# 	ai_frequency = 96
+
+# 	ai_will_do = {
+# 		base = 0
+
+# 		modifier = {
+# 			add = 100
+# 			scope:recipient = {
+# 				NOT = {
+# 					OR = {
+# 						has_relation_rival = scope:actor
+# 						has_relation_nemesis = scope:actor
+# 					}
+# 				}
+# 			}
+# 		}
+
+# 		modifier = {
+# 			add = -1000
+# 			scope:recipient = {
+# 				OR = {
+# 					has_trait = inbred
+# 					has_trait = intellect_bad_3
+# 					has_trait = incapable
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+# RHOMAIOI_make_quaestor_interaction = {
+# 	category = interaction_category_RHOMAIOI
+# 	interface_priority = 60
+
+# 	desc = RHOMAIOI_make_quaestor_interaction_desc
+
+# 	is_shown = {
+# 		NOT = { scope:recipient = scope:actor }
+# 		scope:actor.faith = scope:recipient.faith
+# 		scope:actor.culture = scope:recipient.culture
+
+# 		scope:actor = {
+# 			OR = {
+# 				has_title = title:e_byzantium
+# 				has_title = title:e_roman_empire
+# 			}
+# 			NOT = { has_relation_RHOMAIOI_releparch = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relpatrikia = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relquaestor = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relhetaeriarch = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relproedros = scope:recipient }
+# 		}
+
+# 		scope:recipient = {
+# 			is_adult = yes
+# 			OR = {
+# 				scope:actor.faith = { NOT = { has_doctrine = doctrine_gender_male_dominated } }
+# 				is_male = yes
+# 			}
+# 		}
+# 	}
+
+# 	is_valid_showing_failures_only = {
+# 		scope:actor = {
+# 			gold >= 50
+# 		}
+# 		scope:recipient = {
+# 			is_diplomatically_available = yes
+# 			liege_or_court_owner = scope:actor
+# 			NOT = { has_trait = eunuch }
+# 		}
+
+# 		custom_description = {
+# 			scope:recipient.top_liege = scope:actor.top_liege
+# 			text = "same_realm_as"
+# 		}
+
+# 		trigger_if = { # Not enough Senate Support
+# 			limit = {
+# 				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
+# 				NOT = {  # Has dismantled the senate
+# 					is_target_in_global_variable_list = {
+# 						name = unavailable_unique_decisions
+# 						target = flag:flag_RHOMAIOI_dissolved_senate
+# 					}
+# 				}
+# 			}
+# 			custom_description = {
+# 				text = RHOMAIOI_senate_need_more_support
+# 				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
+# 			}
+# 		}
+# 	}
+
+# 	on_accept = {
+# 		scope:actor = {
+# 			every_relation = {
+# 				type = RHOMAIOI_relquaestor
+# 				remove_relation_RHOMAIOI_relquaestor = scope:actor
+# 				hidden_effect = { scope:actor = { remove_relation_RHOMAIOI_relquaestor = prev } }
+# 				add_opinion = {
+# 					target = scope:actor
+# 					modifier = fired_from_council_opinion
+# 				}
+# 			}
+# 			set_relation_RHOMAIOI_relquaestor = scope:recipient
+# 		}
+# 	}
+
+# 	cost = {
+# 		gold = {
+# 			value = {
+# 				add = 50
+# 				if = {
+# 					limit = {
+# 						scope:actor = { exists = cp:RHOMAIOI_councillor_quaestor } # Costs more to demote an existing Eparch
+# 					}
+# 					add = 100
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	auto_accept = yes
+
+# 	ai_potential = {
+# 		is_at_war = no
+# 		NOT = {
+# 			has_trait = forgiving
+# 		}
+# 	}
+
+# 	ai_targets = {
+# 		ai_recipients = dynasty
+# 		max = 20
+# 	}
+
+# 	ai_frequency = 96
+
+# 	ai_will_do = {
+# 		base = 0
+
+# 		modifier = {
+# 			add = 100
+# 			scope:recipient = {
+# 				NOT = {
+# 					OR = {
+# 						has_relation_rival = scope:actor
+# 						has_relation_nemesis = scope:actor
+# 					}
+# 				}
+# 			}
+# 		}
+
+# 		modifier = {
+# 			add = -1000
+# 			scope:recipient = {
+# 				OR = {
+# 					has_trait = inbred
+# 					has_trait = intellect_bad_3
+# 					has_trait = incapable
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+# RHOMAIOI_make_hetaeriarch_interaction = {
+# 	category = interaction_category_RHOMAIOI
+# 	interface_priority = 60
+
+# 	desc = RHOMAIOI_make_hetaeriarch_interaction_desc
+
+# 	is_shown = {
+# 		NOT = { scope:recipient = scope:actor }
+
+# 		scope:actor = {
+# 			OR = {
+# 				has_title = title:e_byzantium
+# 				has_title = title:e_roman_empire
+# 			}
+# 			NOT = { has_relation_RHOMAIOI_releparch = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relpatrikia = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relquaestor = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relhetaeriarch = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relproedros = scope:recipient }
+# 		}
+
+# 		scope:recipient = {
+# 			is_adult = yes
+# 			can_be_knight_trigger = { ARMY_OWNER = scope:actor }
+# 		}
+# 	}
+
+# 	is_valid_showing_failures_only = {
+# 		NOT = { scope:recipient.culture_group = scope:actor.culture_group }
+# 		scope:actor = {
+# 			gold >= 50
+# 		}
+# 		scope:recipient = {
+# 			is_diplomatically_available = yes
+# 			liege_or_court_owner = scope:actor
+# 		}
+
+# 		custom_description = {
+# 			scope:recipient.top_liege = scope:actor.top_liege
+# 			text = "same_realm_as"
+# 		}
+
+# 		trigger_if = { # Not enough Senate Support
+# 			limit = {
+# 				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
+# 				NOT = {  # Has dismantled the senate
+# 					is_target_in_global_variable_list = {
+# 						name = unavailable_unique_decisions
+# 						target = flag:flag_RHOMAIOI_dissolved_senate
+# 					}
+# 				}
+# 			}
+# 			custom_description = {
+# 				text = RHOMAIOI_senate_need_more_support
+# 				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
+# 			}
+# 		}
+# 	}
+
+# 	on_accept = {
+# 		scope:actor = {
+# 			every_relation = {
+# 				type = RHOMAIOI_relhetaeriarch
+# 				remove_relation_RHOMAIOI_relhetaeriarch = scope:actor
+# 				hidden_effect = { scope:actor = { remove_relation_RHOMAIOI_relhetaeriarch = prev } }
+# 				add_opinion = {
+# 					target = scope:actor
+# 					modifier = fired_from_council_opinion
+# 				}
+# 			}
+# 			set_relation_RHOMAIOI_relhetaeriarch = scope:recipient
+# 		}
+# 	}
+
+# 	cost = {
+# 		gold = {
+# 			value = {
+# 				add = 50
+# 				if = {
+# 					limit = {
+# 						scope:actor = { exists = cp:RHOMAIOI_councillor_hetaeriarch } # Costs more to demote an existing Eparch
+# 					}
+# 					add = 100
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	auto_accept = yes
+
+# 	ai_potential = {
+# 		is_at_war = no
+# 		NOT = {
+# 			has_trait = forgiving
+# 		}
+# 	}
+
+# 	ai_targets = {
+# 		ai_recipients = dynasty
+# 		max = 20
+# 	}
+
+# 	ai_frequency = 96
+
+# 	ai_will_do = {
+# 		base = 0
+
+# 		modifier = {
+# 			add = 100
+# 			scope:recipient = {
+# 				NOT = {
+# 					OR = {
+# 						has_relation_rival = scope:actor
+# 						has_relation_nemesis = scope:actor
+# 					}
+# 				}
+# 			}
+# 		}
+
+# 		modifier = {
+# 			add = -1000
+# 			scope:recipient = {
+# 				OR = {
+# 					has_trait = inbred
+# 					has_trait = intellect_bad_3
+# 					has_trait = incapable
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+# RHOMAIOI_make_proedros_interaction = {
+# 	category = interaction_category_RHOMAIOI
+# 	interface_priority = 60
+
+# 	desc = RHOMAIOI_make_proedros_interaction_desc
+
+# 	is_shown = {
+# 		NOT = { scope:recipient = scope:actor }
+
+# 		scope:actor = {
+# 			OR = {
+# 				has_title = title:e_byzantium
+# 				has_title = title:e_roman_empire
+# 			}
+# 			NOT = { has_relation_RHOMAIOI_releparch = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relpatrikia = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relquaestor = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relhetaeriarch = scope:recipient }
+# 			NOT = { has_relation_RHOMAIOI_relproedros = scope:recipient }
+# 		}
+
+# 		scope:recipient = {
+# 			is_adult = yes
+# 			has_trait = eunuch
+# 		}
+# 	}
+
+# 	is_valid_showing_failures_only = {
+# 		scope:actor = {
+# 			gold >= 50
+# 		}
+# 		scope:recipient = {
+# 			is_diplomatically_available = yes
+# 			liege_or_court_owner = scope:actor
+# 			is_landed = no
+# 		}
+
+# 		custom_description = {
+# 			scope:recipient.top_liege = scope:actor.top_liege
+# 			text = "same_realm_as"
+# 		}
+
+# 		trigger_if = { # Not enough Senate Support
+# 			limit = {
+# 				scope:actor = { RHOMAIOI_senator_support_check_trigger = no }
+# 				NOT = {  # Has dismantled the senate
+# 					is_target_in_global_variable_list = {
+# 						name = unavailable_unique_decisions
+# 						target = flag:flag_RHOMAIOI_dissolved_senate
+# 					}
+# 				}
+# 			}
+# 			custom_description = {
+# 				text = RHOMAIOI_senate_need_more_support
+# 				scope:actor = { RHOMAIOI_senator_support_check_trigger = yes }
+# 			}
+# 		}
+# 	}
+
+# 	on_accept = {
+# 		scope:actor = {
+# 			every_relation = {
+# 				type = RHOMAIOI_relproedros
+# 				remove_relation_RHOMAIOI_relproedros= scope:actor
+# 				hidden_effect = { scope:actor = { remove_relation_RHOMAIOI_relproedros = prev } }
+# 				add_opinion = {
+# 					target = scope:actor
+# 					modifier = fired_from_council_opinion
+# 				}
+# 			}
+# 			set_relation_RHOMAIOI_relproedros = scope:recipient
+# 		}
+# 	}
+
+# 	cost = {
+# 		gold = {
+# 			value = {
+# 				add = 50
+# 				if = {
+# 					limit = {
+# 						scope:actor = { exists = cp:RHOMAIOI_councillor_proedros } # Costs more to demote an existing Eparch
+# 					}
+# 					add = 100
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	auto_accept = yes
+
+# 	ai_potential = {
+# 		is_at_war = no
+# 		NOT = {
+# 			has_trait = forgiving
+# 		}
+# 	}
+
+# 	ai_targets = {
+# 		ai_recipients = dynasty
+# 		max = 20
+# 	}
+
+# 	ai_frequency = 96
+
+# 	ai_will_do = {
+# 		base = 0
+
+# 		modifier = {
+# 			add = 100
+# 			scope:recipient = {
+# 				NOT = {
+# 					OR = {
+# 						has_relation_rival = scope:actor
+# 						has_relation_nemesis = scope:actor
+# 					}
+# 				}
+# 			}
+# 		}
+
+# 		modifier = {
+# 			add = -1000
+# 			scope:recipient = {
+# 				OR = {
+# 					has_trait = inbred
+# 					has_trait = intellect_bad_3
+# 					has_trait = incapable
+# 				}
+# 			}
+# 		}
+# 	}
+# }
