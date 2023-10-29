@@ -884,327 +884,327 @@ window = {
 	############################################
 	############################################
 	window = {
-	  name = "senate_view"
-	  parentanchor = center
-	  size = { 1300 950 }
-	  position = { -650 0}
-	  layer = windows_layer
-	  visible = "[And(GetVariableSystem.HasValue( 'senate_open', 'true' ), GetScriptedGui('RHOMAIOI_update_senator_list').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
+		name = "senate_view"
+		parentanchor = center
+		size = { 1300 950 }
+		position = { -650 0}
+		layer = windows_layer
+		visible = "[And(GetVariableSystem.HasValue( 'senate_open', 'true' ), GetScriptedGui('RHOMAIOI_update_senator_list').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
 
-	  using = Window_Background
-	  using = Window_Decoration
+		using = Window_Background
+		using = Window_Decoration
 
-	  vbox = {
-	    using = Window_Margins
+		vbox = {
+			using = Window_Margins
 
-	    header_pattern = {
-	      layoutpolicy_horizontal = expanding
+			header_pattern = {
+				layoutpolicy_horizontal = expanding
 
-	      blockoverride "header_text"
-	      {
-	        text = "[Localize('RHOMAIOI_senate_tab_name_header')]"
-	      }
+				blockoverride "header_text"
+				{
+					text = "[Localize('RHOMAIOI_senate_tab_name_header')]"
+				}
 
-	      blockoverride "button_close"
-	      {
-	        onclick = "[GetVariableSystem.Toggle( 'senate_open')]"
-	      }
-	    }
+				blockoverride "button_close"
+				{
+					onclick = "[GetVariableSystem.Toggle( 'senate_open')]"
+				}
+			}
 
-	    hbox = {
-	      layoutpolicy_horizontal = expanding
-	      layoutpolicy_vertical = expanding
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
 
-	      widget = {
-	        layoutpolicy_horizontal = expanding
-	        layoutpolicy_vertical = expanding
+				widget = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
 
-	        vbox = {
-	          spacing = 10
+					vbox = {
+						spacing = 10
 
-	          divider = {
-	            layoutpolicy_horizontal = expanding
-	          }
+						divider = {
+							layoutpolicy_horizontal = expanding
+						}
 
-	          vbox = {
-	            name = "upperhouse"
-	            layoutpolicy_horizontal = expanding
-	            spacing = 15
+						vbox = {
+							name = "upperhouse"
+							layoutpolicy_horizontal = expanding
+							spacing = 15
 
-	            text_label_center = {
-	              text = "[RHOMAIOI_consistorium|E]"
-	              using = Font_Size_Medium
-	              default_format = "#high"
-	            }
+							text_label_center = {
+								text = "[RHOMAIOI_consistorium|E]"
+								using = Font_Size_Medium
+								default_format = "#high"
+							}
 
-	            background = {
-	              texture = "gfx/interface/illustrations/event_scenes/temple.dds"
-	              margin = { 0 0 }
-	              fittype = centercrop
-	              alpha = 0.8
+							background = {
+								texture = "gfx/interface/illustrations/event_scenes/temple.dds"
+								margin = { 0 0 }
+								fittype = centercrop
+								alpha = 0.8
 
-	              using = Mask_Rough_Edges
-	            }
+								using = Mask_Rough_Edges
+							}
 
-	            hbox = {
-	              name = "consistorium_grid"
-	              spacing = 70
+							hbox = {
+								name = "consistorium_grid"
+								spacing = 70
 
-	              dynamicgridbox = {
-	                datamodel = "[GetPlayer.MakeScope.GetList('RHOMAIOI_senate_consistorium_list')]"
-	                layoutpolicy_horizontal = expanding
-	                layoutpolicy_vertical = expanding
-	                datamodel_wrap = 7
-	                flipdirection = yes
+								dynamicgridbox = {
+									datamodel = "[GetPlayer.MakeScope.GetList('RHOMAIOI_senate_consistorium_list')]"
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+									datamodel_wrap = 7
+									flipdirection = yes
 
-	                item = {
-	                  portrait_shoulders = {
-	                    datacontext = "[Scope.GetCharacter]"
-	                    size = { 160 180 }
+									item = {
+										portrait_shoulders = {
+											datacontext = "[Scope.GetCharacter]"
+											size = { 160 180 }
 
-	                    background = {
-	                      using = Background_Area
-	                    }
-	                  }
-	                }
-	              }
-	            }
-	          }
+											background = {
+											using = Background_Area
+											}
+										}
+									}
+								}
+						}
+					}
 
-	          divider = {
-	            layoutpolicy_horizontal = expanding
-	          }
+					divider = {
+						layoutpolicy_horizontal = expanding
+					}
 
 
-	          vbox = {
-	            layoutpolicy_horizontal = expanding
-	            layoutpolicy_vertical = expanding
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
 
-	            background = {
-	              texture = "gfx/interface/illustrations/event_scenes_frontend/RHOMAIOI_senate.dds"
-	              margin = { 0 0 }
-	              fittype = centercrop
-	              alpha = 0.5
+					background = {
+						texture = "gfx/interface/illustrations/event_scenes_frontend/RHOMAIOI_senate.dds"
+						margin = { 0 0 }
+						fittype = centercrop
+						alpha = 0.5
 
-	              using = Mask_Rough_Edges
-	            }
+						using = Mask_Rough_Edges
+					}
 
-	            hbox = {
-	              layoutpolicy_horizontal = expanding
+					hbox = {
+						layoutpolicy_horizontal = expanding
 
-	              text_label_center = {
-	                text = "[RHOMAIOI_senate_populists|E]"
-	              }
+						text_label_center = {
+							text = "[RHOMAIOI_senate_populists|E]"
+						}
 
-	              text_label_center = {
-	                text = "[RHOMAIOI_senate_loyalists|E]"
-	              }
+						text_label_center = {
+							text = "[RHOMAIOI_senate_loyalists|E]"
+						}
 
-	              text_label_center = {
-	                text = "[RHOMAIOI_senate_republicanists|E]"
-	              }
-	            }
+						text_label_center = {
+							text = "[RHOMAIOI_senate_republicanists|E]"
+						}
+					}
 
-	            scrollbox = {
-	              name = "lowerhouse"
-	              parentanchor = top
-	              layoutpolicy_vertical = expanding
-	              layoutpolicy_horizontal = expanding
+					scrollbox = {
+						name = "lowerhouse"
+						parentanchor = top
+						layoutpolicy_vertical = expanding
+						layoutpolicy_horizontal = expanding
 
-	              blockoverride "scrollbox_margins" {}
+						blockoverride "scrollbox_margins" {}
 
-	              blockoverride "scrollbox_content"
-	              {
-	                spacing = 20
-	                margin = { 0 20 }
+						blockoverride "scrollbox_content"
+						{	
+							spacing = 20
+							margin = { 0 20 }
 
-	                hbox = {
-	                  layoutpolicy_horizontal = expanding
-	                  layoutpolicy_vertical = expanding
-	                  spacing = 0
+							hbox = {
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+							spacing = 0
 
-	                  vbox = {
-	                    layoutpolicy_vertical = expanding
+							vbox = {
+								layoutpolicy_vertical = expanding
 
-	                    dynamicgridbox = { # Populists
-	                      datamodel = "[GetPlayer.MakeScope.GetList('RHOMAIOI_senate_populists')]"
-	                      layoutpolicy_horizontal = expanding
-	                      layoutpolicy_vertical = expanding
-	                      datamodel_wrap = 3
-	                      flipdirection = yes
+								dynamicgridbox = { # Populists
+									datamodel = "[GetPlayer.MakeScope.GetList('RHOMAIOI_senate_populists')]"
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+									datamodel_wrap = 3
+									flipdirection = yes
 
-	                      item = {
-	                        portrait_shoulders = {
-	                          datacontext = "[Scope.GetCharacter]"
+									item = {
+										portrait_shoulders = {
+											datacontext = "[Scope.GetCharacter]"
 
-	                          icon = {
-	                            visible = "[GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End ) ]"
-	                            size = { 25 25 }
-	                            parentanchor = bottom|right
-	                            texture = "gfx/interface/hud/toast_bg_good.dds"
-	                            tooltip = "RHOMAIOI_senate_supporting_tooltip"
-	                          }
+											icon = {
+												visible = "[GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End ) ]"
+												size = { 25 25 }
+												parentanchor = bottom|right
+												texture = "gfx/interface/hud/toast_bg_good.dds"
+												tooltip = "RHOMAIOI_senate_supporting_tooltip"
+											}
 
-	                          icon = {
-	                            visible = "[Not(GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End )) ]"
-	                            size = { 25 25 }
-	                            parentanchor = bottom|right
-	                            texture = "gfx/interface/hud/toast_bg_bad.dds"
-	                            tooltip = "RHOMAIOI_senate_opposing_tooltip"
-	                          }
-	                        }
-	                      }
-	                    }
-	                  }
+											icon = {
+												visible = "[Not(GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End )) ]"
+												size = { 25 25 }
+												parentanchor = bottom|right
+												texture = "gfx/interface/hud/toast_bg_bad.dds"
+												tooltip = "RHOMAIOI_senate_opposing_tooltip"
+											}
+										}
+									}
+								}
+							}
 
-	                  divider = {
-	                    layoutpolicy_vertical = expanding
-	                  }
+							divider = {
+								layoutpolicy_vertical = expanding
+							}
 
-	                  vbox = {
-	                    layoutpolicy_vertical = expanding
+							vbox = {
+								layoutpolicy_vertical = expanding
 
-	                    dynamicgridbox = { # Loyalists
-	                      datamodel = "[GetPlayer.MakeScope.GetList('RHOMAIOI_senate_loyalists')]"
-	                      layoutpolicy_horizontal = expanding
-	                      layoutpolicy_vertical = expanding
-	                      datamodel_wrap = 3
-	                      flipdirection = yes
+								dynamicgridbox = { # Loyalists
+									datamodel = "[GetPlayer.MakeScope.GetList('RHOMAIOI_senate_loyalists')]"
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+									datamodel_wrap = 3
+									flipdirection = yes
 
-	                      item = {
-	                        portrait_shoulders = {
-	                          datacontext = "[Scope.GetCharacter]"
+									item = {
+										portrait_shoulders = {
+											datacontext = "[Scope.GetCharacter]"
 
-	                          icon = {
-	                            visible = "[GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End ) ]"
-	                            size = { 25 25 }
-	                            parentanchor = bottom|right
-	                            texture = "gfx/interface/hud/toast_bg_good.dds"
-	                            tooltip = "RHOMAIOI_senate_supporting_tooltip"
-	                          }
+											icon = {
+												visible = "[GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End ) ]"
+												size = { 25 25 }
+												parentanchor = bottom|right
+												texture = "gfx/interface/hud/toast_bg_good.dds"
+												tooltip = "RHOMAIOI_senate_supporting_tooltip"
+											}
 
-	                          icon = {
-	                            visible = "[Not(GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End )) ]"
-	                            size = { 25 25 }
-	                            parentanchor = bottom|right
-	                            texture = "gfx/interface/hud/toast_bg_bad.dds"
-	                            tooltip = "RHOMAIOI_senate_opposing_tooltip"
-	                          }
-	                        }
-	                      }
-	                    }
-	                  }
+											icon = {
+												visible = "[Not(GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End )) ]"
+												size = { 25 25 }
+												parentanchor = bottom|right
+												texture = "gfx/interface/hud/toast_bg_bad.dds"
+												tooltip = "RHOMAIOI_senate_opposing_tooltip"
+											}
+										}
+									}
+								}
+							}
 
-	                  divider = {
-	                    layoutpolicy_vertical = expanding
-	                  }
+							divider = {
+								layoutpolicy_vertical = expanding
+							}
 
-	                  vbox = {
-	                    layoutpolicy_vertical = expanding
+							vbox = {
+								layoutpolicy_vertical = expanding
 
-	                    dynamicgridbox = { # Republicanists
-	                      datamodel = "[GetPlayer.MakeScope.GetList('RHOMAIOI_senate_republicanists')]"
-	                      layoutpolicy_horizontal = expanding
-	                      layoutpolicy_vertical = expanding
-	                      datamodel_wrap = 3
-	                      flipdirection = yes
+								dynamicgridbox = { # Republicanists
+									datamodel = "[GetPlayer.MakeScope.GetList('RHOMAIOI_senate_republicanists')]"
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+									datamodel_wrap = 3
+									flipdirection = yes
 
-	                      item = {
-	                        portrait_shoulders = {
-	                          datacontext = "[Scope.GetCharacter]"
+									item = {
+										portrait_shoulders = {
+											datacontext = "[Scope.GetCharacter]"
 
-	                          icon = {
-	                            visible = "[GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End ) ]"
-	                            size = { 25 25 }
-	                            parentanchor = bottom|right
-	                            texture = "gfx/interface/hud/toast_bg_good.dds"
-	                            tooltip = "RHOMAIOI_senate_supporting_tooltip"
-	                          }
+											icon = {
+												visible = "[GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End ) ]"
+												size = { 25 25 }
+												parentanchor = bottom|right
+												texture = "gfx/interface/hud/toast_bg_good.dds"
+												tooltip = "RHOMAIOI_senate_supporting_tooltip"
+											}
 
-	                          icon = {
-	                            visible = "[Not(GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End )) ]"
-	                            size = { 25 25 }
-	                            parentanchor = bottom|right
-	                            texture = "gfx/interface/hud/toast_bg_bad.dds"
-	                            tooltip = "RHOMAIOI_senate_opposing_tooltip"
-	                          }
-	                        }
-	                      }
-	                    }
-	                  }
-	                }
-	              }
-	            }
-	          }
+											icon = {
+												visible = "[Not(GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End )) ]"
+												size = { 25 25 }
+												parentanchor = bottom|right
+												texture = "gfx/interface/hud/toast_bg_bad.dds"
+												tooltip = "RHOMAIOI_senate_opposing_tooltip"
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 
-	          hbox = {
-	            name = "footer_area"
-	            layoutpolicy_horizontal = expanding
+				hbox = {
+					name = "footer_area"
+					layoutpolicy_horizontal = expanding
 
-	            textbox = {
-	              text_single = {
-	                position = { 5 -5 }
-	                visible = "[EqualTo_string(GetPlayer.GetTopLiege.GetActiveLawInGroupWithFlag( 'realm_law' ).GetNameNoTooltip, Localize('crown_authority_3'))]"
-	                text = "[Localize('RHOMAIOI_senate_power_is_curbed')]"
-	              }
-	              text_single = {
-	                position = { 5 -5 }
-	                visible = "[EqualTo_string(GetPlayer.GetTopLiege.GetActiveLawInGroupWithFlag( 'realm_law' ).GetNameNoTooltip, Localize('crown_authority_2'))]"
-	                text = "[Localize('RHOMAIOI_senate_power_is_weak')]"
-	              }
-	              text_single = {
-	                position = { 5 -5 }
-	                visible = "[EqualTo_string(GetPlayer.GetTopLiege.GetActiveLawInGroupWithFlag( 'realm_law' ).GetNameNoTooltip, Localize('crown_authority_1'))]"
-	                text = "[Localize('RHOMAIOI_senate_power_is_average')]"
-	              }
-	              text_single = {
-	                position = { 5 -5 }
-	                visible = "[EqualTo_string(GetPlayer.GetTopLiege.GetActiveLawInGroupWithFlag( 'realm_law' ).GetNameNoTooltip, Localize('crown_authority_0'))]"
-	                text = "[Localize('RHOMAIOI_senate_power_is_strong')]"
-	              }
-	            }
+					textbox = {
+						text_single = {
+							position = { 5 -5 }
+							visible = "[EqualTo_string(GetPlayer.GetTopLiege.GetActiveLawInGroupWithFlag( 'realm_law' ).GetNameNoTooltip, Localize('crown_authority_3'))]"
+							text = "[Localize('RHOMAIOI_senate_power_is_curbed')]"
+						}
+						text_single = {
+							position = { 5 -5 }
+							visible = "[EqualTo_string(GetPlayer.GetTopLiege.GetActiveLawInGroupWithFlag( 'realm_law' ).GetNameNoTooltip, Localize('crown_authority_2'))]"
+							text = "[Localize('RHOMAIOI_senate_power_is_weak')]"
+						}
+						text_single = {
+							position = { 5 -5 }
+							visible = "[EqualTo_string(GetPlayer.GetTopLiege.GetActiveLawInGroupWithFlag( 'realm_law' ).GetNameNoTooltip, Localize('crown_authority_1'))]"
+							text = "[Localize('RHOMAIOI_senate_power_is_average')]"
+						}
+						text_single = {
+							position = { 5 -5 }
+							visible = "[EqualTo_string(GetPlayer.GetTopLiege.GetActiveLawInGroupWithFlag( 'realm_law' ).GetNameNoTooltip, Localize('crown_authority_0'))]"
+							text = "[Localize('RHOMAIOI_senate_power_is_strong')]"
+						}
+					}
 
-	            vbox = {
-	              parentanchor = hcenter
-	              layoutpolicy_horizontal = expanding
-	              progressbar_standard = {
-	                datacontext = "[GetPlayer.MakeScope]"
-	                name = "loyalty"
-	                size = { 240 25 }
-	                min = 0
-	                max = "[IntToFloat(GetDataModelSize(Scope.GetList('RHOMAIOI_senate_list_of_all_current_senators')))]"
-	                value = "[IntToFloat(GetDataModelSize(Scope.GetList('RHOMAIOI_senate_list_of_supporters')))]"
+							vbox = {
+								parentanchor = hcenter
+								layoutpolicy_horizontal = expanding
+								progressbar_standard = {
+									datacontext = "[GetPlayer.MakeScope]"
+									name = "loyalty"
+									size = { 240 25 }
+									min = 0
+									max = "[IntToFloat(GetDataModelSize(Scope.GetList('RHOMAIOI_senate_list_of_all_current_senators')))]"
+									value = "[IntToFloat(GetDataModelSize(Scope.GetList('RHOMAIOI_senate_list_of_supporters')))]"
 
-	                text_single = {
-	                  parentanchor = top|hcenter
-	                  position = { 0 -2 }
-	                  text = "[RHOMAIOI_senate_approval|E]: [GetDataModelSize(Scope.GetList('RHOMAIOI_senate_list_of_supporters'))] / [GetDataModelSize(Scope.GetList('RHOMAIOI_senate_list_of_all_current_senators'))]"
-	                }
-	              }
-	            }
+									text_single = {
+										parentanchor = top|hcenter
+										position = { 0 -2 }
+										text = "[RHOMAIOI_senate_approval|E]: [GetDataModelSize(Scope.GetList('RHOMAIOI_senate_list_of_supporters'))] / [GetDataModelSize(Scope.GetList('RHOMAIOI_senate_list_of_all_current_senators'))]"
+									}
+								}
+							}
 
-	            vbox = {
-	              button_decision_entry = {
-	                name = "abolish_senate"
-	                datacontext = "[GetDecisionWithKey( 'RHOMAIOI_dissolve_senate' )]"
-	                onclick = "[OpenDecisionDetailView( Decision.Self )]"
-	                onclick = "[GetVariableSystem.Toggle( 'senate_open' )]"
+							vbox = {
+								button_decision_entry = {
+									name = "abolish_senate"
+									datacontext = "[GetDecisionWithKey( 'RHOMAIOI_dissolve_senate' )]"
+									onclick = "[OpenDecisionDetailView( Decision.Self )]"
+									onclick = "[GetVariableSystem.Toggle( 'senate_open' )]"
 
-	                size = { 250 40 }
+									size = { 250 40 }
 
-	                blockoverride "size_illustration" {
-	                  size = { 250 38 }
-	                }
+									blockoverride "size_illustration" {
+										size = { 250 38 }
+									}
 
-	                blockoverride "deb_illustration" {
-	                  visible = no
-	                }
-	              }
-	            }
-	          }
-	        }
-	      }
-	    }
-	  }
+									blockoverride "deb_illustration" {
+										visible = no
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
