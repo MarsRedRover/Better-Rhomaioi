@@ -148,7 +148,7 @@ RHOMAIOI_update_senator_list = {
 					}
 				}
 			}
-			else_if {
+			else_if = {
 				limit = { is_in_list = RHOMAIOI_senate_list_of_supporters }
 				root = {
 					remove_list_variable = {

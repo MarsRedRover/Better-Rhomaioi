@@ -1,0 +1,170 @@
+###################
+# Generic effects that are used for basic opinion gain etc.
+###################
+
+co-emperorship_revoked_court_position_effect = {
+	scope:employee = {
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					modifier = courtly_court_position_opinion
+					target = scope:liege
+				}
+			}
+			remove_opinion = {
+				modifier = courtly_court_position_opinion
+				target = scope:liege
+			}
+		}
+		add_opinion = {
+			modifier = revoked_court_position_opinion
+			target = scope:liege
+			opinion = -80
+		}
+	}
+}
+
+
+################
+# EFFECTS FOR SPECIFIC COURT POSITIONS
+################
+
+# JUNIOR CO-EMPEROR
+court_junior_co-emperor_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+	scope:liege = {
+		primary_title = {
+			save_scope_as = basileus_title
+		}
+	}
+	scope:employee = {
+		add_pressed_claim = scope:basileus_title
+	}
+}
+court_junior_co-emperor_title_revoked_effect = {
+	co-emperorship_revoked_court_position_effect = yes
+}
+court_junior_co-emperor_title_invalidated_effect = {
+	basic_invalidated_court_position_effect = yes
+}
+
+# CAESAR
+court_caesar_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_caesar_title_revoked_effect = {
+	basic_revoked_court_position_effect = yes
+}
+court_caesar_title_invalidated_effect = {
+	basic_invalidated_court_position_effect = yes
+}
+
+# DESPOT
+court_despot_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_despot_title_revoked_effect = {
+	basic_revoked_court_position_effect = yes
+}
+court_despot_title_invalidated_effect = {
+	basic_invalidated_court_position_effect = yes
+}
+
+# SEBASTOKRATOR
+court_sebastokrator_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_sebastokrator_title_revoked_effect = {
+	basic_revoked_court_position_effect = yes
+}
+court_sebastokrator_title_invalidated_effect = {
+	basic_invalidated_court_position_effect = yes
+}
+
+# KOUROPALATES
+court_kouropalates_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_kouropalates_title_revoked_effect = {
+	basic_revoked_court_position_effect = yes
+}
+court_kouropalates_title_invalidated_effect = {
+	basic_invalidated_court_position_effect = yes
+}
+
+# ANTHYPATOS
+court_anthypatos_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_anthypatos_title_revoked_effect = {
+	basic_revoked_court_position_effect = yes
+}
+court_anthypatos_title_invalidated_effect = {
+	basic_invalidated_court_position_effect = yes
+}
+
+# AUGUSTA
+court_augusta_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_augusta_title_revoked_effect = {
+	basic_revoked_court_position_effect = yes
+}
+court_augusta_title_invalidated_effect = {
+	basic_invalidated_court_position_effect = yes
+}
+
+# ZOSTE PATRIKIA
+court_zoste_patrikia_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_zoste_patrikia_title_revoked_effect = {
+	basic_revoked_court_position_effect = yes
+}
+court_zoste_patrikia_title_invalidated_effect = {
+	basic_invalidated_court_position_effect = yes
+}
+
+# EPARCH
+court_eparch_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_eparch_title_revoked_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_eparch_title_invalidated_effect = {
+	basic_gained_court_position_effect = yes
+}
+
+# QUAESTOR
+court_quaestor_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_quaestor_title_revoked_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_quaestor_title_invalidated_effect = {
+	basic_gained_court_position_effect = yes
+}
+
+# GREAT HETAERIARCH
+court_great_hetaeriarch_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_great_hetaeriarch_title_revoked_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_great_hetaeriarch_title_invalidated_effect = {
+	basic_gained_court_position_effect = yes
+}
+
+# PROEDROS
+court_proedros_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_proedros_title_revoked_effect = {
+	basic_gained_court_position_effect = yes
+}
+court_proedros_title_invalidated_effect = {
+	basic_gained_court_position_effect = yes
+}
