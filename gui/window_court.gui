@@ -1187,8 +1187,8 @@ window = {
 								button_decision_entry = {
 									name = "abolish_senate"
 									datacontext = "[GetDecisionWithKey( 'RHOMAIOI_dissolve_senate' )]"
-									onclick = "[OpenDecisionDetailView( Decision.Self )]"
 									onclick = "[GetVariableSystem.Toggle( 'senate_open' )]"
+									onclick = "[OpenGameViewData('decision_detail', Decision.Self)]"
 
 									size = { 250 40 }
 
