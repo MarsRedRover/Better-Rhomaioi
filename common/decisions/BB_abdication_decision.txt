@@ -1,0 +1,62 @@
+﻿BB_abdicate_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+
+	major = yes
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		is_adult = yes
+		has_government = RHOMAIOI_imperial_government
+		OR = {
+			has_trait = infirm
+			has_trait = cancer
+			has_trait = leper
+			has_trait = blind
+			has_trait = disfigured
+			has_trait = impotent
+			has_trait = wounded_3
+			has_trait = impotent
+			has_trait = incapable
+			has_trait = maimed
+		}
+	}
+
+	is_valid = {
+		OR = {
+			has_title = title:e_byzantium
+			has_title = title:e_roman_empire
+		}
+		AND = {
+			exists = primary_heir
+			primary_heir = {
+				dynasty = root.dynasty
+				# is_child_of = root
+				has_court_position = junior_co-emperor_court_position
+			}
+			primary_title = {
+				any_title_heir = {
+					is_child_of = root
+				}
+			}
+		}	
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		custom_tooltip = BB_abdicate_decision_effect_tooltip
+		depose = yes
+	}
+
+	# Player decision only
+	ai_check_interval = 0
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}

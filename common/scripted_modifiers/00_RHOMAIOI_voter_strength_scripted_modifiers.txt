@@ -628,4 +628,9 @@ RHOMAIOI_elector_voting_strength_byzantine_elective_modifier = {
 			}
 		}
 	}
+	modifier = { #Despotes gain increased voting power
+		add = 15
+		# desc = tooltip_imperial_vote_strength_roman_diplomacy
+		has_court_position = despot_court_position
+	}
 }

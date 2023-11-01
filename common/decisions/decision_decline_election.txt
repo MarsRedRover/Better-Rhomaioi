@@ -1,0 +1,46 @@
+﻿decline_election_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = no
+	ai_check_interval = 0
+
+	is_shown = {
+		has_government = RHOMAIOI_imperial_government
+		is_ai = no
+		NOT = { has_trait = decline_election }
+	}
+
+	is_valid = {
+		NOT = { has_trait = decline_election }
+	}
+
+	effect = {
+		add_trait = decline_election
+	}
+
+	ai_potential = {
+		always = no
+	}
+}
+
+accept_election_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = no
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ai = no
+		has_trait = decline_election
+	}
+
+	is_valid = {
+		has_trait = decline_election
+	}
+
+	effect = {
+		remove_trait = decline_election
+	}
+
+	ai_potential = {
+		always = no
+	}
+}

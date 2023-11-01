@@ -1,0 +1,4 @@
+﻿# let's other mods check whether this mod is currently enabled
+# to prevent errors in your mod, create a file that starts with 99_ and add is_decline_elections_active = { always = no }
+
+is_decline_elections_active = { always = yes }

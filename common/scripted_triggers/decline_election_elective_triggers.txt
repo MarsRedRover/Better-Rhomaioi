@@ -1,0 +1,14 @@
+﻿has_unelectable_trait_trigger = {
+	OR = {
+		has_trait = disinherited
+		has_trait = eunuch
+		has_trait = crusader_king #Avoid realm merging after Crusade.
+		has_trait = devoted
+		has_trait = order_member
+		AND = {
+			has_trait = bastard #If landed, he might still be electable on the grounds of being an Elector.
+			is_ruler = no
+		}
+		has_trait = decline_election
+	}
+}

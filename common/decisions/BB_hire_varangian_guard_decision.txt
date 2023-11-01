@@ -1,0 +1,67 @@
+﻿BB_hire_varangian_guard = {
+	picture = "gfx/interface/illustrations/decisions/fp1_decision_forge_jomsvikings.dds"
+
+	desc = BB_hire_varangian_guard_desc
+	selection_tooltip = BB_hire_varangian_guard_tooltip
+
+	cooldown = { days = 730 }
+
+	ai_check_interval = 60
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		OR = {
+			primary_title = title:e_byzantium
+			primary_title = title:e_roman_empire
+		}
+		has_government = RHOMAIOI_imperial_government
+	}
+
+	is_valid = {
+		# is_in_civil_war = no
+		# is_defender_in_war = yes
+		is_at_war_as_defender = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		OR = {
+			primary_title = title:e_byzantium
+			primary_title = title:e_roman_empire
+			# vassal_contract_has_flag = RHOMAIOI_has_exarch_contract
+		}
+	}
+
+	cost = {
+		gold = 150
+		prestige = 125
+	}
+
+	effect = {
+		# add_character_flag = RHOMAIOI_already_raised_troops
+		spawn_army = {
+			# levies = 150
+			# has_fp1_dlc_trigger = yes
+			men_at_arms = {
+				type = huscarl
+				men = { 
+					add = 300 
+				}
+			}
+			inheritable = no
+			uses_supply = yes
+			location = capital_province
+			name = "Varangian Guard Host"
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}

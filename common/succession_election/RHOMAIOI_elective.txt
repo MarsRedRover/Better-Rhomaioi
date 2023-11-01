@@ -57,13 +57,14 @@ RHOMAIOI_elective = {
 			}
 			add = 50 # Same effect as born in the purple
 		}
-		
-		# FIX WHEN DONE WITH POSITION
-		# modifier = {
-		# 	add = 100
-		# 	desc = tooltip_imperial_vote_strength_elector_caesar
-		# 	scope:candidate = {has_relation_RHOMAIOI_caesar = scope:title.holder}
-		# }
+		# Kaisar 
+		modifier = {
+			#desc = tooltip_feudal_elector_vote_born_in_the_purple
+			scope:candidate = {
+				has_court_position = caesar_court_position
+			}
+			add = 25 # 50% effect as born in the purple
+		}		
 	}
 	
 	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.

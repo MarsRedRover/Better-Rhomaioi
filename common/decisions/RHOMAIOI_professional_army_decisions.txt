@@ -50,7 +50,7 @@
 				type = cataphract
 				stacks = {
 					every_vassal_or_below = {
-						add = 0.5
+						add = 0.3
 					}
 				}
 			}

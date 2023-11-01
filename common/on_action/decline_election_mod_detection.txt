@@ -1,0 +1,24 @@
+﻿# This file is for mod detection purposes only.
+
+on_game_start = {
+	on_actions = {
+		decline_election_on_game_start
+	}
+}
+
+decline_election_on_game_start = {
+	effect = {
+		set_global_variable = {
+			name = decline_election_mod_active
+			value = yes
+		}
+
+		# Suppress error logs
+		if = {
+			limit = {
+				exists = global_var:decline_election_mod_active
+			}
+			# Do nothing
+		}
+	}
+}

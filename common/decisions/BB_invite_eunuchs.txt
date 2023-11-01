@@ -1,5 +1,5 @@
-﻿better_basileus_invite_varangians_decision = {
-	picture = "gfx/interface/illustrations/decisions/fp1_decision_forge_jomsvikings.dds"
+﻿BB_invite_eunuchs = {
+	picture = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
 	
 	is_shown = {
 		OR = {
@@ -12,11 +12,11 @@
 
 	cooldown = { days = 1095 }
 	
-	desc = better_basileus_invite_varangians_decision_desc
+	desc = BB_invite_eunuchs_decision_desc
 
 	effect = {
 		trigger_event = {
-			id = better_basileus_invite_varangians.0001
+			id = BB_invite_eunuchs.0001
 		}
 	}
 

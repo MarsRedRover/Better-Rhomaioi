@@ -1,0 +1,4 @@
+﻿# '99_' at the beginning of the file causes its triggers to be replaced by triggers with the same name that are located in files starting with '_'
+# these values exist to be overwritten by other mods to enable compatibility checks and prevent error.log entries
+
+# e.g.: is_historicinvasions_active = { always = no }

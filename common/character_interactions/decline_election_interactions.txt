@@ -1,0 +1,43 @@
+﻿decline_election_remove_claim_interaction = {
+	category = interaction_category_diplomacy
+	desc = decline_election_remove_claim_interaction_desc
+	icon = forgiving
+	
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	common_interaction = no
+
+	target_type = title
+	target_filter = recipient_domain_titles
+
+	is_shown = {
+		#NOT = { scope:actor = scope:recipient }
+		scope:actor = {
+			is_ai = no
+			has_trait = decline_election
+		}
+		scope:recipient = {
+			is_landed = yes
+			any_held_title = {
+				scope:actor = {
+					has_claim_on = prev
+				}
+			}
+		}
+	}
+
+	can_be_picked_title = {
+		exists = scope:target
+		scope:actor = {
+			has_claim_on = scope:target
+		}
+	}
+	
+	auto_accept = yes
+	
+	on_accept = {
+		scope:actor = {
+			remove_claim = scope:target
+		}
+	}
+}
