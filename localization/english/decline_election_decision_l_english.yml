@@ -1,0 +1,9 @@
+﻿l_english:
+ decline_election_decision:0 "Decline Elections"
+ decline_election_decision_desc:0 "This decision grants your character a trait that makes them unavailable for title elections.\nYou may also renounce your claims using a diplomacy character interaction."
+ decline_election_decision_confirm:0 "Just leave me at peace!"
+ decline_election_decision_tooltip:0 "Decline any title elections."
+ accept_election_decision:0 "Accept Elections"
+ accept_election_decision_desc:0 "This decision makes your character lose the trait that makes them unavailable for title elections.\nYou may no longer renounce your claims using a diplomacy character interaction."
+ accept_election_decision_confirm:0 "Please, vote for me again!"
+ accept_election_decision_tooltip:0 "Stop declining every title election."

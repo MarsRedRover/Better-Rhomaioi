@@ -1,11 +1,18 @@
 ﻿l_english:
+# Decisions
  better_basileus_invite_varangians_decision:0 "Recruit Varangians"
  better_basileus_invite_varangians_decision_desc:0 "I will ask around to see if there are any men who may be interested in serving me as my commander"
- better_basileus_invite_varangians_decision_tooltip:0 "I will be introduced to a [courtier|E] and see whether they are worthy of joining my court."
+ better_basileus_invite_varangians_decision_tooltip:0 "I will be introduced to a [commander|E] and see whether they are worthy of joining my court."
  better_basileus_invite_varangians_decision_confirm:0 "Let's meet them!"
  better_basileus_invite_varangians.0001.title:0 "A New Commander?"
- better_basileus_invite_varangians.0001.desc:0 "I have been introduced to a grizzled veteran who goes by the name of [target.GetFullName]. I am in need of talented military commanders at my court - is he what I am looking for?"
+ better_basileus_invite_varangians.0001.desc:0 "I have been introduced to a grizzled veterans who are looking for promotions. I am in need of talented military commanders at my court - is there one I am looking for?"
  better_basileus_invite_varangians.0001.a:0 "[target1.GetFirstName] is welcome here!"
  better_basileus_invite_varangians.0001.b:0 "[target2.GetFirstName] looks like the pick!"
  better_basileus_invite_varangians.0001.c:0 "[target3.GetFirstName] seems to be qualified!"
  better_basileus_invite_varangians.0001.d:0 "None of them seem to be fit for a promotion!"
+
+ BB_hire_varangian_guard:0 "Scramble the Varangians!"
+ BB_hire_varangian_guard_desc:0 "Hire a small regiment from the Varangian Guard to help deal with martial matters."
+ BB_hire_varangian_guard_tooltip:0 "Hire some varangians"
+ BB_hire_varangian_guard_confirm:0 "To War!"
+ BB_hire_varangian_guard_effect_tooltip:0 "A small regiment of Varangians will be raised."

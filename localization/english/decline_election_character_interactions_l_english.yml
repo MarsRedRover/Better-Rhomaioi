@@ -1,0 +1,5 @@
+﻿l_english:
+ decline_election_remove_claim_interaction:0 "Renounce Claim"
+ decline_election_remove_claim_interaction_desc:0 "You may renounce a claim of yours in order to prevent claimant factions from targeting you."
+
+ NOT_I_HAVE_CLAIM_TRIGGER:0 "You do not have a claim on this title."

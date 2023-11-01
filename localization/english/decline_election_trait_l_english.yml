@@ -1,0 +1,5 @@
+﻿l_english:
+ trait_decline_election:0 "Declines Elections"
+ trait_decline_election_desc:0 "This person refuses any title that passes onto them via election."
+ trait_decline_election_character_desc:0 "[ROOT.GetCharacter.GetTitledFirstNameNoTooltip] won't accept any title that passes onto them via election."
+ trait_decline_election_tooltip:0 "Declines any title elections."
