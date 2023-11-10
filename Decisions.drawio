@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-11-10T20:57:14.516Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="Jfst__TYPLRNU4yCOOgN" version="22.1.0" type="github">
+<mxfile host="app.diagrams.net" modified="2023-11-10T21:17:08.418Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="aKGLhEJ2pgBRKoACJUXF" version="22.1.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2261" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2603" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -31,8 +31,8 @@
         <mxCell id="AzHufuIv4rGmuMpHbdiP-3" value="Reclaim Justinian Borders" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-600" y="385" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="AzHufuIv4rGmuMpHbdiP-4" value="Current_Date &amp;gt;= 879&lt;br&gt;&lt;br&gt;Holds e_Byzantium&lt;br&gt;&lt;br&gt;Gold 500" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="550" y="65" width="120" height="110" as="geometry" />
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-4" value="Current_Date &amp;gt;= 879 &amp;amp; Current_Date &amp;lt; 1066&lt;br&gt;&lt;br&gt;Holds e_Byzantium&lt;br&gt;&lt;br&gt;Gold 500" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="550" y="37.5" width="120" height="165" as="geometry" />
         </mxCell>
         <mxCell id="AzHufuIv4rGmuMpHbdiP-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-7" target="AzHufuIv4rGmuMpHbdiP-11">
           <mxGeometry relative="1" as="geometry" />
@@ -97,6 +97,9 @@
         <mxCell id="AzHufuIv4rGmuMpHbdiP-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-33" target="AzHufuIv4rGmuMpHbdiP-35">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-55" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-33" target="AzHufuIv4rGmuMpHbdiP-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="AzHufuIv4rGmuMpHbdiP-33" value="Restore Roman Empire" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-600" y="510" width="120" height="60" as="geometry" />
         </mxCell>
@@ -106,8 +109,11 @@
         <mxCell id="AzHufuIv4rGmuMpHbdiP-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-39" target="AzHufuIv4rGmuMpHbdiP-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-39" target="AzHufuIv4rGmuMpHbdiP-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="AzHufuIv4rGmuMpHbdiP-39" value="Reclaim Balkan territories" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-600" y="230" width="120" height="60" as="geometry" />
+          <mxGeometry x="-480" y="230" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="AzHufuIv4rGmuMpHbdiP-44" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-42" target="AzHufuIv4rGmuMpHbdiP-43">
           <mxGeometry relative="1" as="geometry" />
@@ -115,11 +121,53 @@
         <mxCell id="AzHufuIv4rGmuMpHbdiP-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-42" target="AzHufuIv4rGmuMpHbdiP-39">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-48" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-42" target="AzHufuIv4rGmuMpHbdiP-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-42" target="AzHufuIv4rGmuMpHbdiP-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="AzHufuIv4rGmuMpHbdiP-42" value="Humiliate Bulgars" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-600" y="90" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="AzHufuIv4rGmuMpHbdiP-43" value="Current_Date &amp;lt; 1066" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-43" value="Current_Date &amp;lt; 1066&lt;br&gt;&lt;br&gt;Doesn&#39;t have territory Bulgaria" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-320" y="80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-46" value="Current_Date &amp;lt;= 1066&lt;br&gt;&lt;br&gt;Doesn&#39;t have territory Balkans&lt;br&gt;" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-320" y="205" width="120" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-52" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-49" target="AzHufuIv4rGmuMpHbdiP-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-49" target="AzHufuIv4rGmuMpHbdiP-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-49" value="Establish foothold in Syria-Coele" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-720" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-51" value="Current_Date &amp;lt;= 1066&lt;br&gt;&lt;br&gt;Doesn&#39;t have territory in Syria-Coele" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-947" y="205" width="120" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-57" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-54" target="AzHufuIv4rGmuMpHbdiP-56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-59" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-54" target="AzHufuIv4rGmuMpHbdiP-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-54" value="Expand Borders into Mesopotamia" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-600" y="650" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-56" value="Has title e_Roman_Empire" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-320" y="640" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-61" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-58" target="AzHufuIv4rGmuMpHbdiP-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-58" value="Expand Borders into Persia" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-600" y="790" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-60" value="Current_Date &amp;gt;= 1066" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-320" y="780" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
