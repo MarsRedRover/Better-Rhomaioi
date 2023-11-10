@@ -1,5 +1,5 @@
-<mxfile host="app.diagrams.net" modified="2023-11-10T21:46:26.107Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="wQRaFeFwPb5Z06dPiC0q" version="22.1.0" type="github" pages="3">
-  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+<mxfile host="app.diagrams.net" modified="2023-11-10T21:48:49.552Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="bp_Yn3jm_8SrCL_6n2Id" version="22.1.0" type="github" pages="3">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Goals">
     <mxGraphModel dx="3401" dy="1067" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -82,7 +82,7 @@
         <mxCell id="AzHufuIv4rGmuMpHbdiP-49" value="Establish foothold in Syria-Coele" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-720" y="230" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="AzHufuIv4rGmuMpHbdiP-51" value="Current_Date &amp;lt;= 1066&lt;br&gt;&lt;br&gt;Doesn&#39;t have territory in Syria-Coele" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="AzHufuIv4rGmuMpHbdiP-51" value="Current_Date &amp;lt;= 1066&lt;br&gt;&lt;br&gt;Doesn&#39;t have territory Syria-Coele" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-947" y="205" width="120" height="110" as="geometry" />
         </mxCell>
         <mxCell id="AzHufuIv4rGmuMpHbdiP-57" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-54" target="AzHufuIv4rGmuMpHbdiP-56">
@@ -130,7 +130,7 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="-CGKq0AT_HAJnBicVUGe" name="Page-2">
+  <diagram id="-CGKq0AT_HAJnBicVUGe" name="Varangian Guard">
     <mxGraphModel dx="1674" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
@@ -210,7 +210,7 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="iq9gMnsiVy3mtxQ3IHMk" name="Page-3">
+  <diagram id="iq9gMnsiVy3mtxQ3IHMk" name="Roads">
     <mxGraphModel dx="505" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
