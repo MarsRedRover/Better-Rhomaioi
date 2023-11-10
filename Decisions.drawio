@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-11-10T21:48:49.552Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="bp_Yn3jm_8SrCL_6n2Id" version="22.1.0" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-11-10T21:50:01.765Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="hIjIwk79i-oHvovkm4wF" version="22.1.0" type="github" pages="3">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Goals">
     <mxGraphModel dx="3401" dy="1067" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -147,8 +147,8 @@
         <mxCell id="GgaYVCj2-dRIJuSwjw5W-4" value="Form the Varangian Guard" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="1">
           <mxGeometry x="340" y="100" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="GgaYVCj2-dRIJuSwjw5W-5" value="Current_Date &amp;gt;= 879 &amp;amp; Current_Date &amp;lt; 1066&lt;br&gt;&lt;br&gt;Holds e_Byzantium&lt;br&gt;&lt;br&gt;Gold 500" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="1">
-          <mxGeometry x="550" y="37.5" width="120" height="165" as="geometry" />
+        <mxCell id="GgaYVCj2-dRIJuSwjw5W-5" value="Current_Date &amp;gt;= 879 &amp;amp; Current_Date &amp;lt; 1066&lt;br&gt;&lt;br&gt;Gold 500" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="550" y="63.75" width="120" height="112.5" as="geometry" />
         </mxCell>
         <mxCell id="GgaYVCj2-dRIJuSwjw5W-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="GgaYVCj2-dRIJuSwjw5W-14" target="GgaYVCj2-dRIJuSwjw5W-15">
           <mxGeometry relative="1" as="geometry" />
