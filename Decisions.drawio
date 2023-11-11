@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-11-11T17:02:35.632Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="Euv7NT5km3DHGQPnfTjg" version="22.1.0" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-11-11T17:52:47.632Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="CZH6ztX7ysf3AAqNREce" version="22.1.0" type="github" pages="2">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Goals">
     <mxGraphModel dx="4570" dy="1067" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -49,7 +49,12 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="zqfukfDFm8s2hV_vIhuo-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-33" target="zqfukfDFm8s2hV_vIhuo-24">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-540" y="950" />
+              <mxPoint x="-1450" y="950" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="AzHufuIv4rGmuMpHbdiP-33" value="Restore Roman Empire" style="whiteSpace=wrap;html=1;rounded=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-600" y="510" width="120" height="60" as="geometry" />
@@ -326,12 +331,6 @@
         <mxCell id="xvBwaV-0SH2-mo29iPKQ-33" value="Restore Roman Province of Dacia" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-1380" y="1000" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="zqfukfDFm8s2hV_vIhuo-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-35" target="zqfukfDFm8s2hV_vIhuo-12">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="xvBwaV-0SH2-mo29iPKQ-35" value="Restore Roman Province of Raetia &amp;amp; Noricum" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-1510" y="1000" width="120" height="60" as="geometry" />
-        </mxCell>
         <mxCell id="xvBwaV-0SH2-mo29iPKQ-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-33" target="xvBwaV-0SH2-mo29iPKQ-23" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-530" y="580" as="sourcePoint" />
@@ -349,16 +348,6 @@
             <Array as="points">
               <mxPoint x="-540" y="950" />
               <mxPoint x="-1320" y="950" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="xvBwaV-0SH2-mo29iPKQ-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-33" target="xvBwaV-0SH2-mo29iPKQ-35" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-530" y="580" as="sourcePoint" />
-            <mxPoint x="-1310" y="1010" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="-540" y="950" />
-              <mxPoint x="-1450" y="950" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -393,9 +382,6 @@
         <mxCell id="zqfukfDFm8s2hV_vIhuo-10" value="k_Wallachia becomes dejure k_Dacia, Duchies d_Temes, d_Transylvania, d_Bihar become dejure under k_Dacia" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-1380" y="1130" width="120" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="zqfukfDFm8s2hV_vIhuo-12" value="" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-1510" y="1130" width="120" height="80" as="geometry" />
-        </mxCell>
         <mxCell id="zqfukfDFm8s2hV_vIhuo-14" value="Restore dejure borders of k_Africa if changed, k_Africa becomes k_Africa_and_Tripolitana" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-1640" y="1130" width="120" height="130" as="geometry" />
         </mxCell>
@@ -421,10 +407,10 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="zqfukfDFm8s2hV_vIhuo-24" value="Restore Roman Province of Italia" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-600" y="1000" width="120" height="60" as="geometry" />
+          <mxGeometry x="-1510" y="1000" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="zqfukfDFm8s2hV_vIhuo-26" value="Kingdom k_Romagna becomes dejure of k_Italy" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-600" y="1130" width="120" height="80" as="geometry" />
+          <mxGeometry x="-1510" y="1130" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="zqfukfDFm8s2hV_vIhuo-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zqfukfDFm8s2hV_vIhuo-28" target="zqfukfDFm8s2hV_vIhuo-34">
           <mxGeometry relative="1" as="geometry" />
