@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-11-11T05:11:16.441Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="N4ObCzA6-mMeoiPij4W5" version="22.1.0" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-11-11T17:02:35.632Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="Euv7NT5km3DHGQPnfTjg" version="22.1.0" type="github" pages="2">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Goals">
     <mxGraphModel dx="4570" dy="1067" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -47,6 +47,9 @@
               <mxPoint x="-670" y="950" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-33" target="zqfukfDFm8s2hV_vIhuo-24">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="AzHufuIv4rGmuMpHbdiP-33" value="Restore Roman Empire" style="whiteSpace=wrap;html=1;rounded=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-600" y="510" width="120" height="60" as="geometry" />
@@ -144,6 +147,30 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-54" target="zqfukfDFm8s2hV_vIhuo-28">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-420" y="980" />
+              <mxPoint x="-260" y="980" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-54" target="zqfukfDFm8s2hV_vIhuo-30">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-420" y="1100" />
+              <mxPoint x="-260" y="1100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AzHufuIv4rGmuMpHbdiP-54" target="zqfukfDFm8s2hV_vIhuo-36">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-420" y="1220" />
+              <mxPoint x="-260" y="1220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="AzHufuIv4rGmuMpHbdiP-54" value="Expand Borders into Mesopotamia" style="whiteSpace=wrap;html=1;rounded=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-480" y="650" width="120" height="60" as="geometry" />
         </mxCell>
@@ -216,23 +243,49 @@
         <mxCell id="xvBwaV-0SH2-mo29iPKQ-14" value="Title e_HRE exists" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-160" y="375" width="120" height="80" as="geometry" />
         </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-18" target="zqfukfDFm8s2hV_vIhuo-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="xvBwaV-0SH2-mo29iPKQ-18" value="Restore Roman Province of Hispania" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-1770" y="1000" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-21" target="zqfukfDFm8s2hV_vIhuo-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-21" target="zqfukfDFm8s2hV_vIhuo-42">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-960" y="1340" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="xvBwaV-0SH2-mo29iPKQ-21" value="Restore Roman Province of Gaul" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-990" y="1000" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-23" target="zqfukfDFm8s2hV_vIhuo-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="xvBwaV-0SH2-mo29iPKQ-23" value="Restore Roman Province of Britannia" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-1250" y="1000" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-24" target="zqfukfDFm8s2hV_vIhuo-0">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="xvBwaV-0SH2-mo29iPKQ-24" value="Restore Roman Province of Mauretania" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-730" y="1000" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-25" target="zqfukfDFm8s2hV_vIhuo-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="xvBwaV-0SH2-mo29iPKQ-25" value="Restore Roman Province of Africa &amp;amp; Tripolitana" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-1640" y="1000" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-26" target="zqfukfDFm8s2hV_vIhuo-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="xvBwaV-0SH2-mo29iPKQ-26" value="Restore Roman Province of Syria" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-1120" y="1000" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-27" target="zqfukfDFm8s2hV_vIhuo-2">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="xvBwaV-0SH2-mo29iPKQ-27" value="Restore Roman Province of Judea &amp;amp; Arabia" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-860" y="1000" width="120" height="60" as="geometry" />
@@ -267,8 +320,14 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-33" target="zqfukfDFm8s2hV_vIhuo-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="xvBwaV-0SH2-mo29iPKQ-33" value="Restore Roman Province of Dacia" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-1380" y="1000" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-35" target="zqfukfDFm8s2hV_vIhuo-12">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="xvBwaV-0SH2-mo29iPKQ-35" value="Restore Roman Province of Raetia &amp;amp; Noricum" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-1510" y="1000" width="120" height="60" as="geometry" />
@@ -312,6 +371,90 @@
               <mxPoint x="-1580" y="950" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-0" value="Kingdom k_Maghreb, k_Tahert become dejure of k_Mauretania" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-730" y="1130" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-2" value="Duchies d_Sinai, d_Palestine, d_Outremer_Jordan, d_Urdunn become dejure of k_Judea_and_Arabia" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-860" y="1130" width="120" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-4" value="k_Brittany becomes dejure of k_France, Duchies d_Upper_Burgundy, d_Transjurania become dejure under k_France" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-990" y="1130" width="120" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-6" value="Restore dejure borders of k_Syria if changed" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1120" y="1130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-23" target="zqfukfDFm8s2hV_vIhuo-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-8" value="Duchies d_Northumbria, d_Lancaster, d_Mercia, d_Deira become dejure under k_Britannia_Inferior" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1250" y="1130" width="120" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-10" value="k_Wallachia becomes dejure k_Dacia, Duchies d_Temes, d_Transylvania, d_Bihar become dejure under k_Dacia" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1380" y="1130" width="120" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-12" value="" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1510" y="1130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-14" value="Restore dejure borders of k_Africa if changed, k_Africa becomes k_Africa_and_Tripolitana" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1640" y="1130" width="120" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-18" target="zqfukfDFm8s2hV_vIhuo-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xvBwaV-0SH2-mo29iPKQ-18" target="zqfukfDFm8s2hV_vIhuo-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-16" value="Duchies d_Mursiyyah, d_Valencia, d_Saraqustah, d_Barcelona, d_Mallorca, d_Castille, d_Navarra, d_Viscaya, d_Cantabria, d_Leon, d_Portucale, d_Galicia become dejure under k_Tarraconensis" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1770" y="1130" width="120" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-18" value="Duchies d_Cornwall, d_Wessex, d_Kent, d_Essex, d_East_Anglia, d_Deubarth, d_Powys, d_Gwynedd become dejure under k_Britannia_Superior" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1250" y="1300" width="120" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-20" value="Duchies d_Cordoba, d_Granada, d_Isbiliyyah become dejure under k_Betica" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-2030" y="1130" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-22" value="Duchies d_Al-Gharb, d_Baya, d_Coimbra, d_Batalyaws become dejure under k_Lusitania" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1900" y="1130" width="120" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zqfukfDFm8s2hV_vIhuo-24" target="zqfukfDFm8s2hV_vIhuo-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-24" value="Restore Roman Province of Italia" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-600" y="1000" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-26" value="Kingdom k_Romagna becomes dejure of k_Italy" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-600" y="1130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zqfukfDFm8s2hV_vIhuo-28" target="zqfukfDFm8s2hV_vIhuo-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-28" value="Annex Carpathia" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-320" y="1010" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zqfukfDFm8s2hV_vIhuo-30" target="zqfukfDFm8s2hV_vIhuo-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-30" value="Assert dominance over Crimea" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-320" y="1130" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-32" value="Hold d_Crimea for 30 years&lt;br&gt;&lt;br&gt;Becomes dejure Byzantium/RE" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-160" y="1095" width="120" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-34" value="Title k_Dacia exists" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-160" y="1010" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zqfukfDFm8s2hV_vIhuo-36" target="zqfukfDFm8s2hV_vIhuo-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-36" value="Decimate Muslim invaders" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-320" y="1250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-38" value="Duchies d_Shammar, d_Hashimid, d_Mecca exist under Islamic rule" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-160" y="1237.5" width="120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="zqfukfDFm8s2hV_vIhuo-42" value="Duchies d_Viennois, d_Provence become dejure under k_Aquitaine" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-990" y="1322.5" width="120" height="107.5" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
