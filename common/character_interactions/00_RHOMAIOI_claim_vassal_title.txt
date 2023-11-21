@@ -4,6 +4,7 @@
 	target_type = title
 	target_filter = recipient_domain_titles
 	ignores_pending_interaction_block = yes
+	icon = debug_take_title
 
 	is_shown = {
 		NOT = { scope:recipient = scope:actor }
