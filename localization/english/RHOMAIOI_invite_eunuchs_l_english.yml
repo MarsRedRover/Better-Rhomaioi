@@ -1,0 +1,11 @@
+﻿l_english:
+# Decisions
+ BB_invite_eunuchs:0 "Search for trustworthy eunuchs"
+ BB_invite_eunuchs_desc:0 "I will ask around to see if there are any men who may be interested in serving me as my parakoimomenos"
+ BB_invite_eunuchs_tooltip:0 "I will be introduced to a eunuch and see whether they are trustworthy enough of joining my court."
+ BB_invite_eunuchs_confirm:0 "Let's meet them!"
+ BB_invite_eunuchs.0001.title:0 "A New Parakoimomenos?"
+ BB_invite_eunuchs.0001.desc:0 "I have been introduced to two court eunuchs who are looking for promotions. I am in need of trustworthy spymasters at my court - are any of them the one I am looking for?"
+ BB_invite_eunuchs.0001.a:0 "[target1.GetFirstName] is welcome here!"
+ BB_invite_eunuchs.0001.b:0 "[target2.GetFirstName] looks like the pick!"
+ BB_invite_eunuchs.0001.c:0 "Neither of them are trustworthy!"

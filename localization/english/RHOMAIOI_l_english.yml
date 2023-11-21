@@ -27,7 +27,12 @@
  RHOMAIOI_roman_culture.004.desc:0 "In a landmark speech in Rome, the Emperor of the Romans has proclaimed the beginning of the Roman Renaissance. From this day forward the culture of the old days will be reborn and begin to spread across the Empire and continent anew."
  RHOMAIOI_roman_culture.004.a:0 "Pathetic Greeks."
 
-
+ # Groups
+ # rhomaioi_group:0 "Roman"
+ # rhomaioi_group_collective_noun:1 "Romans"
+ rhomaioi:0 "Roman"
+ rhomaioi_prefix:0 "Romano"
+ rhomaioi_collective_noun:1 "Romans"
 
  # Decisions
  RHOMAIOI_restore_roman_empire_decision:0 "Restore the Roman Empire"
@@ -69,6 +74,8 @@
  innovation_RHOMAIOI_komnenian_army:0 "Komnenian Restoration"
  innovation_RHOMAIOI_komnenian_army_desc:0 "The Empire is dying. For more than a thousand years have we kept the light, and to maintain it for another millennium we must learn from our enemies and adapt. Our men must become braver, our equipment stronger and our armies more efficient, even if it comes at the cost of manpower and prosperity - for it is the fate of the entire world that rests in our noble hands."
  RHOMAIOI_disables_normal_maa_komnenian:0 "Loses access to regular [men_at_arms|E] units. Existing regiments will not disband."
+ innovation_RHOMAIOI_legionnaires:0 "Legionnaires"
+ innovation_RHOMAIOI_legionnaires_desc:0 "Just as we have restored the Roman empire, so too shall restore the structure of the old Roman legion and its feared elite troops!"
 
  # Game Concepts
  game_concept_RHOMAIOI_imperial:0 "Imperial Autocracy"
@@ -121,6 +128,8 @@
  RHOMAIOI_skoutatoi_flavor:0 "#F The most well-equipped infantrymen of the Empire are known for their large shields and their spartan discipline in battle.#!"
  RHOMAIOI_cheirosiphon:0 "Cheirosiphōn"
  RHOMAIOI_cheirosiphon_flavor:0 "#F It took much effort for the Empire to be able to employ #high Greek Fire#! as a land weapon, but the result was a machine capable of much destruction.#!"
+ RHOMAIOI_praetorian:0 "Palatini"
+ RHOMAIOI_praetorian_flavor:0 "#F The best of the best, Palatini are elite Roman soldiers who serve the Emperor directly.#!"
 
  # Contracts
  RHOMAIOI_special_contract:0 "Special Administration System"
