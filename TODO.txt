@@ -1,5 +1,0 @@
-Add checks for RHOMAIOI_government_type.txt "flag = government_is_imperial_autocracy"
-Balance Imperial Army Tagmata Decision
-Update modify contracts
-Support for custom characters
-FIX HIRE VARANGIANS NOT BEING MARTIAL
