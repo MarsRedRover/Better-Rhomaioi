@@ -10,7 +10,7 @@ RHOMAIOI_adoption_interaction = {
 		NOT = { scope:recipient = scope:actor }
 		scope:actor.faith = scope:recipient.faith
 		scope:actor.culture = scope:recipient.culture
-
+		
 		scope:actor = {
 			is_dynast = yes
 			OR = {

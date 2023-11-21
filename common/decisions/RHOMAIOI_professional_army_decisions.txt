@@ -45,15 +45,23 @@
 	effect = {
 		add_character_flag = RHOMAIOI_already_raised_troops
 		spawn_army = {
-			levies = 150
+			men_at_arms = {
+				type = levies
+				stacks = {
+					every_vassal_or_below = {
+						add = 0.25
+					}
+				}
+			}
 			men_at_arms = {
 				type = cataphract
 				stacks = {
 					every_vassal_or_below = {
-						add = 0.3
+						add = 0.05
 					}
 				}
 			}
+			
 			inheritable = no
 			uses_supply = yes
 			location = capital_province

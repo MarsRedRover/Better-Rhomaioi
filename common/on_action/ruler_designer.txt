@@ -1,0 +1,51 @@
+﻿# Root = New character after being made
+on_ruler_designer_finished = {
+	effect = {
+		# Don't fire marriage notification events.
+		if = {
+			limit = { faith = { has_doctrine_parameter = marriage_event } }
+			add_character_flag = ignore_marriage_event
+		}
+		# Do we need to fire a regency for this character?
+		if = {
+			limit = {
+				OR = {
+					is_adult = no
+					is_incapable = yes
+				}
+			}
+			add_to_global_variable_list = {
+				name = rd_chars_needing_regencies
+				target = root
+			}
+		}
+		# If your capital on game start is Mecca, you get the Hajjaj trait (since you can't Hajj to your capital)
+		if = {
+			limit = {
+				this = title:b_makka.county.holder
+				faith = { has_doctrine_parameter = mandatory_hajj }
+				NOT = { has_trait = hajjaj }
+			}
+			# Have some Hajjaj
+			add_trait = hajjaj
+		}
+		
+		### RHOMAIOI ###
+		if = {
+			limit = { exists = title:e_byzantium.holder }
+				title:e_byzantium.holder = {
+				every_vassal_or_below = {
+						limit = {
+					vassal_contract_has_modifiable_obligations = yes
+					}
+					vassal_contract_decrease_obligation_level = feudal_government_taxes
+					vassal_contract_decrease_obligation_level = feudal_government_levies
+					change_government = RHOMAIOI_imperial_government
+				}
+				change_government = RHOMAIOI_imperial_government
+				add_realm_law = crown_authority_3
+				}
+				title:e_byzantium = { add_title_law = RHOMAIOI_elective_succession_law }
+		}
+	}
+}

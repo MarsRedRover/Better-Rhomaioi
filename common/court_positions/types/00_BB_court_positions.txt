@@ -1,4 +1,5 @@
 ﻿# BYZANTINE POSITIONS
+# RHOMAIOI_junior_co-emperor_court_position
 # despot_court_position
 # sebastokrator_court_position
 # caesar_court_position
@@ -302,7 +303,7 @@ junior_co-emperor_court_position = {
 
 						employs_court_position = junior_co-emperor_court_position
 						any_court_position_holder = {
-					        type = junior_co-emperor_court_position
+					        type = RHOMAIOI_junior_co-emperor_court_position
 							exists = dynasty
 							house = prev.house
 						}
@@ -342,26 +343,26 @@ junior_co-emperor_court_position = {
 
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
-		aptitude_level_1 = {
+		terrible = {
 			monthly_court_grandeur_change_mult = 0.10
 			monthly_prestige = 0.1
 		}
-		aptitude_level_2 = {
+		poor = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.10
 			monthly_prestige = 0.2
 		}
-		aptitude_level_3 = {
+		average = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.15
 			monthly_prestige = 0.4
 		}
-		aptitude_level_4 = {
+		good = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.20
 			monthly_prestige = 0.7
 		}
-		aptitude_level_5 = {
+		excellent = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.25
 			monthly_prestige = 1
@@ -427,7 +428,7 @@ junior_co-emperor_court_position = {
 		# 	# Less likely to hire an additional one if you're already employing one
 		# 	if = {
 		# 		limit = {
-		# 			employs_court_position = junior_co-emperor_court_position
+		# 			employs_court_position = RHOMAIOI_junior_co-emperor_court_position
 		# 		}
 		# 		add = -2000
 		# 	}
@@ -723,32 +724,37 @@ caesar_court_position = {
 
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
-		# aptitude_level_1 = {
-		# 	monthly_court_grandeur_change_mult = 0.10
-		# }
-		# aptitude_level_2 = {
-		# 	court_grandeur_baseline_add = 1
-		# 	monthly_court_grandeur_change_mult = 0.10
-		# }
-		# aptitude_level_3 = {
-		# 	court_grandeur_baseline_add = 1
-		# 	monthly_court_grandeur_change_mult = 0.15
-		# }
-		# aptitude_level_4 = {
-		# 	court_grandeur_baseline_add = 2
-		# 	monthly_court_grandeur_change_mult = 0.20
-		# }
-		# aptitude_level_5 = {
-		# 	court_grandeur_baseline_add = 2
-		# 	monthly_court_grandeur_change_mult = 0.25
-		# }
+		terrible = {
+			monthly_court_grandeur_change_mult = 0.10
+			monthly_prestige = 0.05
+		}
+		poor = {
+			court_grandeur_baseline_add = 1
+			monthly_court_grandeur_change_mult = 0.10
+			monthly_prestige = 0.10
+		}
+		average = {
+			court_grandeur_baseline_add = 1
+			monthly_court_grandeur_change_mult = 0.15
+			monthly_prestige = 0.15
+		}
+		good = {
+			court_grandeur_baseline_add = 2
+			monthly_court_grandeur_change_mult = 0.20
+			monthly_prestige = 0.20
+		}
+		excellent = {
+			court_grandeur_baseline_add = 2
+			monthly_court_grandeur_change_mult = 0.25
+			monthly_prestige = 0.25
+		}
 	}
 
-	# custom_employer_modifier_description = court_despot_employer_custom_effect_description
+	# custom_employer_modifier_description = court_caesar_employer_custom_effect_description
 
 	modifier = {
 		monthly_prestige = minor_court_position_prestige_salary
-		diplomacy = 1
+		diplomacy = 3
 		intrigue = 1
 		# martial = 1
 	}
@@ -795,7 +801,7 @@ caesar_court_position = {
 						is_child_of = scope:liege
 						# is_primary_heir_of = scope:liege
 					}
-					add = 100
+					add = 200
 				}
 			}
 		}
@@ -1114,24 +1120,29 @@ despot_court_position = {
 
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
-		aptitude_level_1 = {
+		terrible = {
 			monthly_court_grandeur_change_mult = 0.10
+			monthly_prestige = 0.05
 		}
-		aptitude_level_2 = {
+		poor = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.10
+			monthly_prestige = 0.10
 		}
-		aptitude_level_3 = {
+		average = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.15
+			monthly_prestige = 0.15
 		}
-		aptitude_level_4 = {
+		good = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.20
+			monthly_prestige = 0.20
 		}
-		aptitude_level_5 = {
+		excellent = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.25
+			monthly_prestige = 0.25
 		}
 	}
 
@@ -1495,24 +1506,29 @@ sebastokrator_court_position = {
 
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
-		aptitude_level_1 = {
+		terrible = {
 			monthly_court_grandeur_change_mult = 0.10
+			monthly_prestige = 0.05
 		}
-		aptitude_level_2 = {
+		poor = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.10
+			monthly_prestige = 0.10
 		}
-		aptitude_level_3 = {
+		average = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.15
+			monthly_prestige = 0.15
 		}
-		aptitude_level_4 = {
+		good = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.20
+			monthly_prestige = 0.20
 		}
-		aptitude_level_5 = {
+		excellent = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.25
+			monthly_prestige = 0.25
 		}
 	}
 
@@ -1877,24 +1893,29 @@ kouropalates_court_position = {
 
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
-		aptitude_level_1 = {
+		terrible = {
 			monthly_court_grandeur_change_mult = 0.10
+			monthly_prestige = 0.05
 		}
-		aptitude_level_2 = {
+		poor = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.10
+			monthly_prestige = 0.10
 		}
-		aptitude_level_3 = {
+		average = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.15
+			monthly_prestige = 0.15
 		}
-		aptitude_level_4 = {
+		good = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.20
+			monthly_prestige = 0.20
 		}
-		aptitude_level_5 = {
+		excellent = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.25
+			monthly_prestige = 0.25
 		}
 	}
 
@@ -2281,24 +2302,29 @@ anthypatos_court_position = {
 
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
-		aptitude_level_1 = {
+		terrible = {
 			monthly_court_grandeur_change_mult = 0.10
+			monthly_prestige = 0.05
 		}
-		aptitude_level_2 = {
+		poor = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.10
+			monthly_prestige = 0.10
 		}
-		aptitude_level_3 = {
+		average = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.15
+			monthly_prestige = 0.15
 		}
-		aptitude_level_4 = {
+		good = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.20
+			monthly_prestige = 0.20
 		}
-		aptitude_level_5 = {
+		excellent = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.25
+			monthly_prestige = 0.25
 		}
 	}
 
@@ -2612,22 +2638,22 @@ augusta_court_position = {
 
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
-		aptitude_level_1 = {
+		terrible = {
 			dread_baseline_add = 5
 		}
-		aptitude_level_2 = {
+		poor = {
 			court_grandeur_baseline_add = 1
 			dread_baseline_add = 5
 		}
-		aptitude_level_3 = {
+		average = {
 			court_grandeur_baseline_add = 1
 			dread_baseline_add = 10
 		}
-		aptitude_level_4 = {
+		good = {
 			court_grandeur_baseline_add = 2
 			dread_baseline_add = 10
 		}
-		aptitude_level_5 = {
+		excellent = {
 			court_grandeur_baseline_add = 2
 			dread_baseline_add = 15
 		}
@@ -2926,22 +2952,22 @@ zoste_patrikia_court_position = {
 
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
-		aptitude_level_1 = {
+		terrible = {
 			hostile_scheme_resistance_add = 1
 		}
-		aptitude_level_2 = {
+		poor = {
 			court_grandeur_baseline_add = 1
 			hostile_scheme_resistance_add = 2
 		}
-		aptitude_level_3 = {
+		average = {
 			court_grandeur_baseline_add = 1
 			hostile_scheme_resistance_add = 5
 		}
-		aptitude_level_4 = {
+		good = {
 			court_grandeur_baseline_add = 2
 			hostile_scheme_resistance_add = 7
 		}
-		aptitude_level_5 = {
+		excellent = {
 			court_grandeur_baseline_add = 2
 			hostile_scheme_resistance_add = 10
 		}
@@ -3274,30 +3300,30 @@ eparch_court_position = {
 
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
-		aptitude_level_1 = {
+		terrible = {
 			monthly_court_grandeur_change_mult = 0.10
 			domain_limit = 1
 			domain_tax_mult = 0.01
 		}
-		aptitude_level_2 = {
+		poor = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.10
 			domain_limit = 1
 			domain_tax_mult = 0.01
 		}
-		aptitude_level_3 = {
+		average = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.15
 			domain_limit = 2
 			domain_tax_mult = 0.02
 		}
-		aptitude_level_4 = {
+		good = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.20
 			domain_limit = 2
 			domain_tax_mult = 0.02
 		}
-		aptitude_level_5 = {
+		excellent = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.25
 			domain_limit = 3
@@ -3580,26 +3606,26 @@ quaestor_court_position = {
 
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
-		aptitude_level_1 = {
+		terrible = {
 			monthly_court_grandeur_change_mult = 0.10
 			vassal_limit = 3
 		}
-		aptitude_level_2 = {
+		poor = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.10
 			vassal_limit = 3
 		}
-		aptitude_level_3 = {
+		average = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.15
 			vassal_limit = 8
 		}
-		aptitude_level_4 = {
+		good = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.20
 			vassal_limit = 8
 		}
-		aptitude_level_5 = {
+		excellent = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.25
 			vassal_limit = 12
@@ -3888,26 +3914,26 @@ great_hetaeriarch_court_position = {
 
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
-		aptitude_level_1 = {
+		terrible = {
 			monthly_court_grandeur_change_mult = 0.10
 			mercenary_hire_cost_mult = -0.1
 		}
-		aptitude_level_2 = {
+		poor = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.10
 			mercenary_hire_cost_mult = -0.1
 		}
-		aptitude_level_3 = {
+		average = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.15
 			mercenary_hire_cost_mult = -0.2
 		}
-		aptitude_level_4 = {
+		good = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.20
 			mercenary_hire_cost_mult = -0.2
 		}
-		aptitude_level_5 = {
+		excellent = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.25
 			mercenary_hire_cost_mult = -0.3
@@ -4283,29 +4309,29 @@ proedros_court_position = {
 
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
-		aptitude_level_1 = {
+		terrible = {
 			monthly_court_grandeur_change_mult = 0.10
 			long_reign_bonus_mult = 0.1
 		}
-		aptitude_level_2 = {
+		poor = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.10
 			short_reign_duration_mult = -0.1
 			long_reign_bonus_mult = 0.1
 		}
-		aptitude_level_3 = {
+		average = {
 			court_grandeur_baseline_add = 1
 			monthly_court_grandeur_change_mult = 0.15
 			short_reign_duration_mult = -0.1
 			long_reign_bonus_mult = 0.2
 		}
-		aptitude_level_4 = {
+		good = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.20
 			short_reign_duration_mult = -0.2
 			long_reign_bonus_mult = 0.2
 		}
-		aptitude_level_5 = {
+		excellent = {
 			court_grandeur_baseline_add = 2
 			monthly_court_grandeur_change_mult = 0.25
 			short_reign_duration_mult = -0.3
@@ -4664,22 +4690,22 @@ proedros_court_position = {
 
 # 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 # 	scaling_employer_modifiers = {
-# 		aptitude_level_1 = {
+# 		terrible = {
 # 			monthly_court_grandeur_change_mult = 0.10
 # 		}
-# 		aptitude_level_2 = {
+# 		poor = {
 # 			court_grandeur_baseline_add = 1
 # 			monthly_court_grandeur_change_mult = 0.10
 # 		}
-# 		aptitude_level_3 = {
+# 		average = {
 # 			court_grandeur_baseline_add = 1
 # 			monthly_court_grandeur_change_mult = 0.15
 # 		}
-# 		aptitude_level_4 = {
+# 		good = {
 # 			court_grandeur_baseline_add = 2
 # 			monthly_court_grandeur_change_mult = 0.20
 # 		}
-# 		aptitude_level_5 = {
+# 		excellent = {
 # 			court_grandeur_baseline_add = 2
 # 			monthly_court_grandeur_change_mult = 0.25
 # 		}
@@ -5037,22 +5063,22 @@ proedros_court_position = {
 
 # 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 # 	scaling_employer_modifiers = {
-# 		aptitude_level_1 = {
+# 		terrible = {
 # 			monthly_court_grandeur_change_mult = 0.10
 # 		}
-# 		aptitude_level_2 = {
+# 		poor = {
 # 			court_grandeur_baseline_add = 1
 # 			monthly_court_grandeur_change_mult = 0.10
 # 		}
-# 		aptitude_level_3 = {
+# 		average = {
 # 			court_grandeur_baseline_add = 1
 # 			monthly_court_grandeur_change_mult = 0.15
 # 		}
-# 		aptitude_level_4 = {
+# 		good = {
 # 			court_grandeur_baseline_add = 2
 # 			monthly_court_grandeur_change_mult = 0.20
 # 		}
-# 		aptitude_level_5 = {
+# 		excellent = {
 # 			court_grandeur_baseline_add = 2
 # 			monthly_court_grandeur_change_mult = 0.25
 # 		}
@@ -5410,22 +5436,22 @@ proedros_court_position = {
 
 # 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 # 	scaling_employer_modifiers = {
-# 		aptitude_level_1 = {
+# 		terrible = {
 # 			monthly_court_grandeur_change_mult = 0.10
 # 		}
-# 		aptitude_level_2 = {
+# 		poor = {
 # 			court_grandeur_baseline_add = 1
 # 			monthly_court_grandeur_change_mult = 0.10
 # 		}
-# 		aptitude_level_3 = {
+# 		average = {
 # 			court_grandeur_baseline_add = 1
 # 			monthly_court_grandeur_change_mult = 0.15
 # 		}
-# 		aptitude_level_4 = {
+# 		good = {
 # 			court_grandeur_baseline_add = 2
 # 			monthly_court_grandeur_change_mult = 0.20
 # 		}
-# 		aptitude_level_5 = {
+# 		excellent = {
 # 			court_grandeur_baseline_add = 2
 # 			monthly_court_grandeur_change_mult = 0.25
 # 		}

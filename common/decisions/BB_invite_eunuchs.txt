@@ -12,7 +12,7 @@
 
 	cooldown = { days = 1095 }
 	
-	desc = BB_invite_eunuchs_decision_desc
+	desc = BB_invite_eunuchs_desc
 
 	effect = {
 		trigger_event = {

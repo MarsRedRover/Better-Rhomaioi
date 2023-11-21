@@ -242,7 +242,8 @@ RHOMAIOI_restore_roman_culture_decision = {
 	effect = {
 		hidden_effect = {
 			# Generate a list of counties we want to flip to the new culture.
-			title:k_romagna = {
+			# title:k_romagna = {
+			title:d_latium = {
 				every_in_de_jure_hierarchy = {
 					limit = { tier = tier_county}
 					add_to_list = RHOMAIOI_roman_counties
@@ -270,7 +271,7 @@ RHOMAIOI_restore_roman_culture_decision = {
 				merge_cultures_in_region_effect = {
 					OLD_CULTURE_1 = culture:greek
 					OLD_CULTURE_2 = culture:italian
-					NEW_CULTURE = culture:roman
+					NEW_CULTURE = culture:rhomaioi
 					REGION = ghw_region_italy
 				}
 			}
@@ -279,7 +280,7 @@ RHOMAIOI_restore_roman_culture_decision = {
 			save_scope_as = RHOMAIOI_roman_restorer
 			culture:greek = {save_scope_as = old_culture_1}
 			culture:italian = {save_scope_as = old_culture_2}
-			culture:roman = {
+			culture:rhomaioi = {
 				get_all_innovations_from = scope:old_culture_1
 				get_all_innovations_from = scope:old_culture_2
 				save_scope_as = new_culture
@@ -319,7 +320,7 @@ RHOMAIOI_restore_roman_culture_decision = {
 		}
 
 		# Player changes culture
-		set_culture = culture:roman
+		set_culture = culture:rhomaioi
 		add_character_flag = converted_culture_this_lifetime
 		add_character_flag = RHOMAIOI_character_restored_roman_culture
 		hidden_effect = {
@@ -341,7 +342,7 @@ RHOMAIOI_restore_roman_culture_decision = {
 							culture = culture:italian
 						}
 					}
-					set_culture = culture:roman
+					set_culture = culture:rhomaioi
 				}
 			}
 		}

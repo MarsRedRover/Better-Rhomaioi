@@ -53,6 +53,11 @@ has_partition_succession_realm_law_trigger = {
 		has_realm_law = confederate_partition_succession_law
 		has_realm_law = partition_succession_law
 		has_realm_law = high_partition_succession_law
+		has_realm_law = clan_antagonistic_partition_succession_law
+		has_realm_law = clan_competitive_partition_succession_law
+		has_realm_law = clan_impassive_partition_succession_law
+		has_realm_law = clan_friendly_partition_succession_law
+		has_realm_law = clan_harmonious_partition_succession_law
 	}
 }
 
@@ -67,10 +72,9 @@ realm_law_use_tribal_authority = {
 
 can_have_confederate_partition_succession_law_trigger = {
 	OR = {
-		has_government = feudal_government
-		has_government = tribal_government
-		has_government = clan_government
-		has_government = RHOMAIOI_imperial_government
+		government_has_flag = government_is_feudal
+		government_has_flag = government_is_tribal
+		government_has_flag = government_is_imperial_autocracy
 	}
 }
 
@@ -104,9 +108,8 @@ can_have_partition_succession_law_trigger = {
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
 		OR = {
-			has_government = feudal_government
-			has_government = clan_government
-			has_government = RHOMAIOI_imperial_government
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_imperial_autocracy
 		}
 	}
 }
@@ -139,16 +142,15 @@ can_have_high_partition_succession_law_trigger = {
 		limit = {
 			NOT = { 
 				culture = { has_cultural_parameter = can_enact_high_partition_succession_law }
-				}
+			}
 		}
 		culture = { has_innovation = innovation_heraldry }
 	}
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
 		OR = {
-			has_government = feudal_government
-			has_government = clan_government
-			has_government = RHOMAIOI_imperial_government
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_imperial_autocracy
 		}
 	}
 }
@@ -175,9 +177,9 @@ can_have_single_heir_succession_law_trigger = {
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
 		OR = {
-			has_government = feudal_government
-			has_government = clan_government
-			has_government = RHOMAIOI_imperial_government
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_clan
+			government_has_flag = government_is_imperial_autocracy
 		}
 	}
 }
@@ -203,9 +205,9 @@ can_have_single_heir_youngest_succession_law_trigger = {
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
 		OR = {
-			has_government = feudal_government
-			has_government = clan_government
-			has_government = RHOMAIOI_imperial_government
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_clan
+			government_has_flag = government_is_imperial_autocracy
 		}
 	}
 }
@@ -246,9 +248,9 @@ can_have_single_heir_dynasty_house_trigger = {
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
 		OR = {
-			has_government = feudal_government
-			has_government = clan_government
-			has_government = RHOMAIOI_imperial_government
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_clan
+			government_has_flag = government_is_imperial_autocracy
 		}
 	}
 }

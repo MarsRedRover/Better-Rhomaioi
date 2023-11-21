@@ -41,19 +41,46 @@
 
 	effect = {
 		# add_character_flag = RHOMAIOI_already_raised_troops
-		spawn_army = {
-			# levies = 150
-			# has_fp1_dlc_trigger = yes
-			men_at_arms = {
-				type = huscarl
-				men = { 
-					add = 300 
+		if = { # Spawn army with Northern Lords
+			limit = { has_fp1_dlc_trigger = yes }
+			spawn_army = {
+				# levies = 150
+				# has_fp1_dlc_trigger = yes
+				men_at_arms = {
+					type = huscarl
+					men = { 
+						add = 100
+					}
 				}
+				men_at_arms = {
+					type = varangian_veterans
+					men = { 
+						add = 200
+					}
+				}
+				inheritable = no
+				uses_supply = yes
+				location = capital_province
+				name = "Varangian Guard"
 			}
-			inheritable = no
-			uses_supply = yes
-			location = capital_province
-			name = "Varangian Guard Host"
+		}
+		# Spawn army without DLC
+		else = { # Spawn army with Northern Lords
+			# limit = { has_fp1_dlc_trigger = no } 
+			spawn_army = {
+				# levies = 150
+				# has_fp1_dlc_trigger = yes
+				men_at_arms = {
+					type = huscarl
+					men = { 
+						add = 300
+					}
+				}
+				inheritable = no
+				uses_supply = yes
+				location = capital_province
+				name = "Varangian Guard Host"
+			}
 		}
 	}
 

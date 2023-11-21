@@ -1,6 +1,7 @@
 ﻿@RHOMAIOI_innovation_theme = "gfx/interface/icons/culture_innovations/innovation_RHOMAIOI_theme_system.dds"
 @RHOMAIOI_innovation_pronoia = "gfx/interface/icons/culture_innovations/innovation_RHOMAIOI_pronoia_system.dds"
 @RHOMAIOI_innovation_komnenian = "gfx/interface/icons/culture_innovations/innovation_RHOMAIOI_komnenian_army.dds"
+@RHOMAIOI_special_maa_02 = "gfx/interface/icons/culture_innovations/innovation_special_maa_02.dds"
 
 innovation_RHOMAIOI_theme_system = {
 	group = culture_group_regional
@@ -72,7 +73,8 @@ innovation_RHOMAIOI_komnenian_army = {
 		tax_mult = -0.25
 	}
 
-	unlock_maa = cataphract
+	# Mars: Why did Markellus or Ramos make this early medieval?
+	# unlock_maa = cataphract
 	unlock_maa = RHOMAIOI_peltast
 	unlock_maa = RHOMAIOI_psiloi
 	unlock_maa = RHOMAIOI_koursores
@@ -84,4 +86,19 @@ innovation_RHOMAIOI_komnenian_army = {
 
 	flag = global_regional
 	flag = high_medieval_era_regional
+}
+
+innovation_RHOMAIOI_legionnaires = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @RHOMAIOI_special_maa_02
+
+	potential = {
+		this = culture:rhomaioi
+	}
+
+	unlock_maa = RHOMAIOI_praetorian
+
+	flag = global_maa
+	flag = tribal_era_regional
 }

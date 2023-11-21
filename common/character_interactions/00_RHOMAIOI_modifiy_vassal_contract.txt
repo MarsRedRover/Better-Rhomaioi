@@ -14,14 +14,14 @@
 	is_shown = {
 		scope:recipient = {
 			NOT = { this = scope:actor }
-			has_government = RHOMAIOI_imperial_government
+			government_has_flag = government_is_imperial_autocracy
 			exists = liege
 			liege = scope:actor
 			is_ruler = yes
 			vassal_contract_has_modifiable_obligations = yes
 		}
 		scope:actor = {
-			has_government = RHOMAIOI_imperial_government
+			government_has_flag = government_is_imperial_autocracy
 		}
 	}
 
@@ -85,7 +85,7 @@
 				}
 				trigger_else = {} # Otherwise we're fine!
 			}
-		}		
+		}
 	}
 
 	auto_accept = yes
@@ -161,7 +161,7 @@
 						is_diff_faith_or_culture_trigger = {
 							CHAR = scope:recipient
 							STATUS = involved
-							STRUGGLE_TYPE = iberian_struggle
+							# STRUGGLE_TYPE = iberian_struggle
 						}
 						any_character_struggle = {
 							involvement = involved
@@ -210,7 +210,7 @@
 						always = scope:hook
 					}
 					use_hook = scope:recipient
-					add_achievement_flag = { FLAG = achievement_fine_print_flag }
+					add_achievement_flag_effect = { FLAG = achievement_fine_print_flag }
 				}
 
 				scope:recipient = {
@@ -232,10 +232,19 @@
 			}
 		}
 		# If there's a diarch involved, and they called in their change, that gets flagged.
-		diarch_changed_own_contract_effect = yes	
+		diarch_changed_own_contract_effect = yes
 	}
 
 	send_option = {
+        is_valid = {
+            scope:actor = {
+                has_usable_hook = scope:recipient
+            }
+        }
+        flag = hook
+        localization = SCHEME_HOOK
+    }
+    send_option = {             
 		is_shown = {
 			scope:recipient = {
 				diarch ?= scope:actor
@@ -279,30 +288,31 @@ RHOMAIOI_vassal_modify_vassal_contract_interaction = {
 	force_notification = yes
 	notification_text = MODIFY_VASSAL_CONTRACT_NOTIFICATION_TO_LIEGE
 	
+	# Remove comments for 1.11.0.1 fix
 	redirect = {
 		# need to reverse the role for the UI to work properly
-		scope:recipient = {
-			save_scope_as = secondary_recipient
-		}
+		# scope:recipient = {
+		# 	save_scope_as = secondary_recipient
+		# }
 		scope:actor = {
 			save_scope_as = recipient
 		}
 
-		scope:secondary_recipient = {
-			save_scope_as = actor
-		}
+		# scope:secondary_recipient = {
+		# 	save_scope_as = actor
+		# }
 	}
 
 	is_shown = {
-		scope:actor = {
+		scope:recipient = {
 			is_independent_ruler = no
-			NOT = { this = scope:recipient }
-			has_government = RHOMAIOI_imperial_government
+			NOT = { this = scope:actor }
+			government_has_flag = government_is_imperial_autocracy
 			liege = scope:actor
 			vassal_contract_has_modifiable_obligations = yes
 		}
 		scope:actor = {
-			has_government = RHOMAIOI_imperial_government
+			government_has_flag = government_is_imperial_autocracy
 		}
 	}
 
@@ -311,6 +321,7 @@ RHOMAIOI_vassal_modify_vassal_contract_interaction = {
 		NOT = { scope:recipient = { is_at_war_with = scope:actor } }
 	}
 
+	# This causes crashing
 	can_send = {
 		trigger_if = { #If you're blocked we don't want to show anything else
 			limit = {
@@ -339,7 +350,7 @@ RHOMAIOI_vassal_modify_vassal_contract_interaction = {
 				# Cannot change more than three things at once
 				custom_description = {
 					text = "vassal_modify_vassal_contract_obligation_change_limit"
-				value = RHOMAIOI_count_total_obligation_changes
+                    value = RHOMAIOI_count_total_obligation_changes
 					list_size:changed_obligations <= max_contract_changes
 				}
 			}
@@ -377,12 +388,12 @@ RHOMAIOI_vassal_modify_vassal_contract_interaction = {
 				}
 			}
 		}
-				# If there's a diarch involved, and they called in their change, that gets flagged.
+		# If there's a diarch involved, and they called in their change, that gets flagged.
 		diarch_changed_own_contract_effect = yes
 
 		hidden_effect = {
 			# Struggle Catalysts
-			## We work these out first so they're not invalidated by the actual effect block.
+			We work these out first so they're not invalidated by the actual effect block.
 			if = {
 				limit = {
 					catalyst_granted_powerful_diff_faith_vassal_religious_protection_preliminary_trigger = { CHAR = scope:recipient }
@@ -420,7 +431,7 @@ RHOMAIOI_vassal_modify_vassal_contract_interaction = {
 						is_diff_faith_or_culture_trigger = {
 							CHAR = scope:recipient
 							STATUS = involved
-							STRUGGLE_TYPE = iberian_struggle
+							# STRUGGLE_TYPE = iberian_struggle
 						}
 						any_character_struggle = {
 							involvement = involved
@@ -497,7 +508,7 @@ RHOMAIOI_ai_only_liege_modify_vassal_contract_interaction = {
 		scope:actor = {
 			is_ai = yes
 			has_usable_hook = scope:recipient
-			has_government = RHOMAIOI_imperial_government
+			government_has_flag = government_is_imperial_autocracy
 		}
 		scope:recipient = {
 			NOT = { this = scope:actor }
@@ -509,9 +520,9 @@ RHOMAIOI_ai_only_liege_modify_vassal_contract_interaction = {
 			is_ruler = yes
 			vassal_contract_can_be_modified_trigger = yes
 			does_ai_liege_in_vassal_contract_desire_obligation_change = yes
-			has_government = RHOMAIOI_imperial_government
+			government_has_flag = government_is_imperial_autocracy
 		}
-		scope:recipient = { is_diplomatically_available = yes }
+		scope:recipient = { is_busy_in_events_localised = yes }
 		NOT = { scope:actor = { is_at_war_with = scope:recipient } }
 	}
 
@@ -573,7 +584,7 @@ RHOMAIOI_ai_only_vassal_modify_vassal_contract_interaction = {
 			has_usable_hook = scope:recipient
 			vassal_contract_can_be_modified_trigger = yes
 			does_ai_vassal_in_vassal_contract_desire_obligation_change = yes
-			has_government = RHOMAIOI_imperial_government
+			government_has_flag = government_is_imperial_autocracy
 		}
 		scope:recipient = {
 			NOT = { this = scope:actor }
@@ -581,9 +592,9 @@ RHOMAIOI_ai_only_vassal_modify_vassal_contract_interaction = {
 			NOT = {
 				has_strong_hook = scope:actor
 			}
-			has_government = RHOMAIOI_imperial_government
+			government_has_flag = government_is_imperial_autocracy
 		}
-		scope:recipient = { is_diplomatically_available = yes }
+		scope:recipient = { is_busy_in_events_localised = yes }
 		NOT = { scope:actor = { is_at_war_with = scope:recipient } }
 	}
 
