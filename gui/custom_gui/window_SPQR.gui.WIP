@@ -1,0 +1,2517 @@
+######################################################
+##################### INTRIGUE #######################
+######################################################
+
+window = {
+	name = "SPQR_window"
+	parentanchor = top|right
+	layer = windows_layer
+	movable = no
+	datacontext = "[GetScriptedGui('SPQR_gui_toggle')]"
+	datacontext = "[GetPlayer.MakeScope]"
+	datacontext = "[GetVariableSystem]"
+	visible = "[GetVariableSystem.Exists( 'SPQR_gui_toggle' )]"
+
+	using = Window_Size_MainTab
+
+	state = {
+		name = _show
+		using = Animation_FadeIn_Quick
+		using = Sound_WindowShow_Standard
+		using = Window_Position_MainTab
+
+		# on_start = "[SPQRWindow.SetTab( 'ShowClaimants' )]"
+		on_start = "[GetVariableSystem.Set( 'SPQR_tab', 'rome' )]"
+	}
+
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Quick
+		using = Sound_WindowHide_Standard
+		using = Window_Position_MainTab_Hide
+	}
+
+	widget = {
+		name = "sidebar_background_right"
+		# visible = "[And(IsRightWindowOpen, Not(IsGameViewOpen('struggle')))]"
+		visible = "[GetVariableSystem.Exists( 'SPQR_gui_toggle' )]"
+		parentanchor = top|right
+		using = Window_Size_MainTab
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+			position_x = 0
+		}
+
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+			position_x = 40
+		}
+
+		widget = {
+			parentanchor = right
+			position = { 10 0 }
+			size = { 60 100% }
+
+			background = {
+				using = Background_Area_Dark
+				margin = { 0 5 }
+				margin_right = 5
+
+				using = Mask_Rough_Edges
+			}
+
+			background = {
+				using = Background_Area_Dark
+				margin = { 0 5 }
+				margin_right = 5
+
+				using = Mask_Rough_Edges
+			}
+
+			icon = {
+				parentanchor = right
+				size = { 60 100% }
+				position = { 12 0 }
+				scale = 1.04
+
+				texture = "gfx/interface/colors/white.dds"
+				color = { 0.2 0.2 0.21 0.5 }
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/patterns/mask_pattern_01_vertical.dds"
+					spriteType = corneredtiled
+					blend_mode = alphamultiply
+					texture_density = 0.7
+				}
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_clouds.dds"
+					blend_mode = alphamultiply
+					spriteType = corneredTiled
+					alpha = 0.5
+				}
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_scratches.dds"
+					blend_mode = alphamultiply
+					spriteType = corneredTiled
+				}
+
+				icon = {
+					parentanchor = right
+					widgetanchor = right|vcenter
+					size = { 100% 600}
+					position = { 0 340 }
+					texture = "gfx/interface/colors/white.dds"
+					alpha = 0.7
+					color = { 0.1 0.1 0.1 1 }
+
+					modify_texture = {
+						name = "mask"
+						texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick_vertical.dds"
+						spriteType = Corneredstretched
+						blend_mode = alphamultiply
+					}
+				}
+			}
+		}
+
+		margin_widget = {
+			size = { 100% 100% }
+			margin_right = 40
+
+			using = Window_Background
+
+			blockoverride "bg_margins"
+			{
+				margin_right = -35
+				margin_left = -23
+			}
+		}
+	}
+
+	margin_widget = {
+		size = { 100% 100% }
+		margin = { 0 26 }
+		margin_right = 13
+
+		widget = {
+			size = { 100% 100% }
+
+			### WINDOW CONTENT
+			vbox = {
+				using = Window_Margins
+
+				##### HEADER NO LIEGE TEXT #####
+				header_with_picture = {
+					layoutpolicy_horizontal = expanding
+					minimumsize = { 0 180 }
+
+					blockoverride "header_text" {
+						# text = "[GetPlayer.GetPrimaryTitle.GetNameNoTooltip|U]"
+						text = "THE_ROMAN_EMPIRE"
+					}
+
+					blockoverride "size" {
+						size = { 100% 198 }
+					}
+
+					blockoverride "illustration_texture" {
+						# texture = "gfx/interface/illustrations/window_headers/header_my_realm.dds"
+						texture = "gfx\interface\illustrations\decisions\RHOMAIOI_decision_imperial_autocracy.dds"
+					}
+
+					blockoverride "button_close"
+					{
+						onclick = "[SPQRWindow.Close]"
+						onclick = "[VariableSystem.Toggle( 'SPQR_gui_toggle' )]"
+					}
+
+					# vbox = {
+					# 	margin_top = 42
+					# 	margin_bottom = 10
+
+					# 	hbox = {
+					# 		spacing = 20
+
+					# 		text_single = {
+					# 			name = "realm_type"
+					# 			text = "MY_REALM_WINDOW_TYPE"
+					# 		}
+
+					# 		text_single = {
+					# 			text = "REALM_WINDOW_SIZE"
+					# 			tooltip = "REALM_WINDOW_SIZE_TT"
+					# 		}
+					# 	}
+
+					# 	spacer = {
+					# 		visible = "[GetPlayer.HasLiege]"
+					# 		layoutpolicy_vertical = expanding
+					# 	}
+
+					# 	hbox = {
+					# 		layoutpolicy_horizontal = expanding
+					# 		margin_top = 12
+					# 		margin_left = 10
+					# 		margin_right = 10
+					# 		spacing = 15
+
+					# 		hbox = {
+					# 			name = "crown_authority"
+					# 			datamodel = "[MyRealmWindow.GetRealmLaws]"
+
+					# 			item = {
+					# 				vbox = {
+					# 					layoutpolicy_vertical = expanding
+					# 					datacontext = "[GuiLawGroup.GetLawGroup]"
+					# 					visible = "[And( GuiLawGroup.GetLawGroup.HasFlag( 'realm_law' ), GuiLawGroup.IsAvailable )]"
+					# 					spacing = 3
+
+					# 					text_label_center = {
+					# 						visible = "[Not(GetPlayer.HasLiege)]"
+					# 						text = "[LawGroup.GetName]"
+					# 					}
+
+					# 					hbox = {
+					# 						margin_left = 5
+					# 						layoutpolicy_horizontal = expanding
+
+					# 						text_label_left = {
+					# 							visible = "[GetPlayer.HasLiege]"
+					# 							layoutpolicy_horizontal = expanding
+					# 							text = "[LawGroup.GetName]"
+					# 							margin_left = 10
+					# 						}
+					# 					}
+
+					# 					hbox = {
+					# 						datamodel = "[GuiLawGroup.GetLaws]"
+					# 						visible = "[Not(GetPlayer.HasLiege)]"
+
+					# 						background = {
+					# 							texture = "gfx/lines/line_lifestyles_unavailable.dds"
+					# 							margin = { -8 -12 }
+					# 							tintcolor = { 0.7 0.5 0.25 1 }
+					# 						}
+
+					# 						item = {
+					# 							icon_button_decorative = {
+					# 								datacontext = "[GuiLaw.GetLaw]"
+					# 								size = { 60 60 }
+					# 								enabled = "[Or(GuiLaw.CanEnact, GuiLaw.IsEnacted)]"
+					# 								down = "[GuiLaw.IsEnacted]"
+					# 								alwaystransparent = "[GuiLaw.IsEnacted]"
+					# 								onclick = "[GuiLaw.Enact]"
+					# 								tooltipwidget = { pass_law_tooltip = {} }
+					# 								using = tooltip_below
+
+					# 								icon_button_decorative = {
+					# 									size = { 54 54 }
+					# 									parentanchor = center
+					# 									alwaystransparent = yes
+					# 								}
+
+					# 								button_icon = {
+					# 									visible = "[Not(GuiLaw.IsEnacted)]"
+					# 									texture = "[Law.GetIcon]"
+					# 									parentanchor = center
+					# 									size = { 42 42 }
+					# 									alwaystransparent = yes
+					# 								}
+
+					# 								icon = {
+					# 									visible = "[And( GuiLaw.IsEnacted , Not( GuiLaw.CanEnact ) )]"
+					# 									texture = "[Law.GetIcon]"
+					# 									parentanchor = center
+					# 									size = { 42 42 }
+					# 									alwaystransparent = yes
+
+					# 									using = Master_Button_Modify_Texture
+
+					# 									blockoverride "master_color_frame" {
+					# 										frame = 2
+					# 									}
+					# 								}
+					# 							}
+					# 						}
+					# 					}
+
+					# 					hbox = {
+					# 						datamodel = "[GuiLawGroup.GetLaws]"
+					# 						visible = "[GetPlayer.HasLiege]"
+					# 						margin_left = 8
+
+					# 						background = {
+					# 							texture = "gfx/lines/line_lifestyles_unavailable.dds"
+					# 							margin = { -16 -12 }
+					# 							tintcolor = { 0.7 0.5 0.25 1 }
+					# 						}
+
+					# 						item = {
+					# 							icon_button_decorative = {
+					# 								datacontext = "[GuiLaw.GetLaw]"
+					# 								size = { 50 50 }
+					# 								enabled = "[Or(GuiLaw.CanEnact, GuiLaw.IsEnacted)]"
+					# 								down = "[GuiLaw.IsEnacted]"
+					# 								alwaystransparent = "[GuiLaw.IsEnacted]"
+					# 								onclick = "[GuiLaw.Enact]"
+					# 								tooltipwidget = { pass_law_tooltip = {} }
+					# 								using = tooltip_below
+
+					# 								icon_button_decorative = {
+					# 									size = { 44 44 }
+					# 									parentanchor = center
+					# 									alwaystransparent = yes
+					# 								}
+
+					# 								button_icon = {
+					# 									visible = "[Not(GuiLaw.IsEnacted)]"
+					# 									texture = "[Law.GetIcon]"
+					# 									parentanchor = center
+					# 									size = { 32 32 }
+					# 									alwaystransparent = yes
+					# 								}
+
+					# 								icon = {
+					# 									visible = "[And( GuiLaw.IsEnacted , Not( GuiLaw.CanEnact ) )]"
+					# 									texture = "[Law.GetIcon]"
+					# 									parentanchor = center
+					# 									size = { 42 42 }
+					# 									alwaystransparent = yes
+
+					# 									using = Master_Button_Modify_Texture
+
+					# 									blockoverride "master_color_frame" {
+					# 										frame = 2
+					# 									}
+					# 								}
+					# 							}
+					# 						}
+					# 					}
+					# 				}
+					# 			}
+					# 		}
+
+					# 		## LIEGE INFO
+					# 		vbox = {
+					# 			name = "liege"
+					# 			layoutpolicy_horizontal = expanding
+					# 			layoutpolicy_vertical = expanding
+					# 			datacontext = "[MyRealmWindow.GetCharacter.GetLiege]"
+					# 			visible = "[GetPlayer.HasLiege]"
+
+					# 			text_label_left = {
+					# 				text = "MY_REALM_WINDOW_MY_LIEGE"
+					# 				layoutpolicy_horizontal = expanding
+					# 				margin_left = 2
+					# 			}
+
+					# 			expand = {}
+
+					# 			vbox = {
+					# 				layoutpolicy_horizontal = expanding
+
+					# 				text_single = {
+					# 					layoutpolicy_horizontal = expanding
+					# 					text = "[Character.GetUIName]"
+					# 					autoresize = no
+					# 					align = left
+					# 					max_width = 330
+					# 				}
+
+					# 				hbox = {
+					# 					layoutpolicy_horizontal = expanding
+
+					# 					widget = {
+					# 						size = { 30 25 }
+
+					# 						button_icon_highlight = {
+					# 							datacontext = "[Character.GetActiveLawInGroupWithFlag( 'realm_law' )]"
+					# 							size = { 35 35 }
+					# 							parentanchor = center
+					# 							texture = "[Law.GetIcon]"
+					# 							tooltipwidget = { general_law_tooltip = {} }
+					# 							using = tooltip_ws
+					# 						}
+					# 					}
+
+					# 					text_single = {
+					# 						text = "[Character.GetGovernment.GetName]"
+					# 					}
+
+					# 					expand = {}
+					# 				}
+					# 			}
+
+					# 			expand = {}
+					# 		}
+					# 	}
+
+					# 	expand = {}
+					# }
+
+					# widget = {
+					# 	visible = "[GetPlayer.HasLiege]"
+					# 	allow_outside = yes
+					# 	size = { 55 80	}
+
+					# 	coa_realm_small_crown = {
+					# 		parentanchor = top|hcenter
+					# 		position = { 10 5 }
+					# 	}
+					# }
+
+					# widget = {
+					# 	visible = "[Not(GetPlayer.HasLiege)]"
+					# 	allow_outside = yes
+					# 	size = { 89 98 }
+
+					# 	coa_realm_big_crown = {
+					# 		parentanchor = top|hcenter
+					# 		position = { 5 5 }
+					# 	}
+					# }
+				}
+
+				### Close claimants view button
+				button_standard = {
+					# name = "open_future_diarchy_tutorial_uses_this"
+					# name = "RHOMAIOI_SPQR_CLAIMANTS"
+					layoutpolicy_horizontal = expanding
+					size = { 0 60 }
+					
+					# onclick = "[ToggleGameViewData( 'diarchy', GetPlayer.GetID )]"
+					# onclick = "[MyRealmWindow.SendButtonClickedTelemetry( 'diarchy' )]"
+					
+					datacontext = "[GetVariableSystem]"
+					down = "[GetVariableSystem.Exists('window_SPQR')]"
+					onclick = "[VariableSystem.Toggle( 'SPQR_claimant_gui_toggle' )]"
+
+					# tooltip = "DIARCHY_WINDOW_OPEN_TOOLTIP"
+					tooltip = "RHOMAIOI_SPQR_WINDOW_OPEN_TOOLTIP"
+
+					hbox = {
+						# datacontext = "[Character.GetDiarchy]"
+						layoutpolicy_horizontal = expanding
+						
+						margin = { 15 0 }
+						
+						icon_flat_standard = {
+							size = { 50 50 }
+							texture = "gfx\interface\icons\faction_type\claimant_faction.dds"
+
+							blockoverride "master_color_frame" {
+								frame = 1
+							}
+						}
+
+						vbox = {
+							margin_left = 15
+
+							text_single = {
+								layoutpolicy_horizontal = expanding
+								alwaystransparent = yes
+								text = "[MyRealmWindow.GetDiarchLabel]"
+								align = left|nobaseline
+								max_width = 480
+							}
+
+							text_single = {
+								# visible = "[Diarchy.IsValid]"
+								visible = yes
+								layoutpolicy_horizontal = expanding
+								alwaystransparent = yes
+								
+								# text = "MY_REALM_WINDOW_ACTIVE_DIARCHY"
+								text = "RHOMAIOI_SPQR_CLOSE_CLAIMANTS"
+								align = left|nobaseline
+								max_width = 480
+							}
+
+							# text_single = {
+							# 	visible = "[Not( Diarchy.IsValid )]"
+							# 	layoutpolicy_horizontal = expanding
+							# 	alwaystransparent = yes
+								
+							# 	# text = "MY_REALM_WINDOW_STATUS_INACTIVE_DIARCHY"
+							# 	align = left|nobaseline
+							# 	max_width = 480
+							# }
+						}
+
+						expand = {}
+
+					}
+					
+					window = {
+						name = "SPQR_claimant_window"
+						# parentanchor = top|left
+						layer = window_layer
+						movable = yes
+						datacontext = "[GetVariableSystem]"
+						visible = "[GetVariableSystem.Exists( 'SPQR_claimant_gui_toggle' )]"
+						# visible = no
+						allow_outside = yes
+						size = {1100 800}
+
+						using = Window_Position_CharacterList_Small
+						using = Window_Background
+						using = Window_Decoration
+						using = Window_Movable
+						# using = Window_Margin
+
+						position = { -825 300 }
+
+						state = {
+							name = _show
+							using = Animation_FadeIn_Quick
+							using = Sound_WindowShow_Standard
+						}
+					
+						state = {
+							name = _hide
+							using = Animation_FadeOut_Quick
+							using = Sound_WindowHide_Standard
+						}
+
+						vbox = {
+							datacontext = "[DiarchyWindow.GetDiarchyOwner]"
+							datacontext = "[Character.GetDiarchy]"
+							layoutpolicy_vertical = expanding
+							layoutpolicy_horizontal = expanding
+							# margin_top = -685
+							# parentanchor = top
+					
+							using = Window_Margins
+					
+							header_pattern = {
+								
+								layoutpolicy_horizontal = expanding							
+					
+								blockoverride "header_text"
+								{
+									text = "SPQR_CLOSE_CLAIMANTS_SMALL_GUI"
+								}
+					
+								blockoverride "button_close"
+								{
+									onclick = "[VariableSystem.Toggle( 'SPQR_claimant_gui_toggle' )]"
+								}
+							}
+
+							# hbox = {
+							# 	name = "your_liege_buttons"
+							# 	visible = "[And(Not( DiarchyWindow.GetCharacter.IsIndependentRuler ), Not(DiarchyWindow.IsAvailableDiarchsShown))]"
+							# 	layoutpolicy_horizontal = expanding
+					
+							# 	button_tab = {
+							# 		name = "your_regent_tab_tutorial_uses_this"
+							# 		layoutpolicy_horizontal = expanding
+					
+							# 		text = "DIARCHY_WINDOW_YOUR_TAB"
+					
+							# 		onclick = "[DiarchyWindow.SetYourDiarchyTab]"
+							# 		down = "[DiarchyWindow.IsYourDiarchyShown]"
+					
+							# 	}
+					
+							# 	button_tab = {
+							# 		name = "liege_tab_tutorial_uses_this"
+							# 		visible = "[Not( DiarchyWindow.GetCharacter.IsIndependentRuler )]"
+							# 		layoutpolicy_horizontal = expanding
+					
+							# 		text = "DIARCHY_WINDOW_LIEGE_TAB"
+					
+							# 		onclick = "[DiarchyWindow.SetLiegeDiarchyTab]"
+							# 		down = "[DiarchyWindow.IsLiegeDiarchyShown]"
+							# 	}
+							# }
+					
+							hbox = {
+								# visible = "[Not(DiarchyWindow.IsAvailableDiarchsShown)]"
+								visible = yes
+								datacontext = "[GetIllustration( 'character_view_bg' )]"
+								layoutpolicy_horizontal = expanding
+					
+								background =  {
+									texture = "[Illustration.GetTexture( DiarchyWindow.GetDisplayedDiarch.MakeScope )]"
+									fittype = centercrop
+									using = Mask_Rough_Edges
+									alpha = 0.8
+								}
+					
+								portrait_regency = {
+									name = "regency_portrait_tutorial_uses_this"
+									datacontext = "[DiarchyWindow.GetDisplayedDiarch]"
+					
+									flowcontainer = {
+										direction = vertical
+										parentanchor = bottom|left
+										position = { 8 -8 }
+					
+										flowcontainer = {
+											name = "mandates_tutorial_uses_this"
+											datamodel = "[DiarchyWindow.GetAvailableMandates]"
+											direction = vertical
+					
+											item = {
+												widget_mandate_button = {
+													enabled = "[DiarchyWindow.CanChangeMandate]"
+												}
+											}
+										}
+					
+										text_label_left = {
+											text = "[mandates|E]"
+											max_width = 134
+										}
+									}
+					
+					
+								}
+					
+								vbox = {
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+					
+									vbox = {
+										layoutpolicy_horizontal = expanding
+					
+										background = {
+											using = Background_Area_Dark
+					
+											modify_texture = {
+												texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick.dds"
+												blend_mode = alphamultiply
+											}
+										}
+					
+										text_label_center = {
+											visible = "[Diarchy.IsValid]"
+											layoutpolicy_horizontal = expanding
+					
+											text = "DIARCHY_WINDOW_STATUS_ACTIVE_DIARCHY"
+											max_width = 340
+										}
+					
+										text_label_center = {
+											visible = "[Not( Diarchy.IsValid )]"
+											layoutpolicy_horizontal = expanding
+					
+											text = "DIARCHY_WINDOW_STATUS_INACTIVE_DIARCHY"
+										}
+									}
+					
+									expand = {}
+					
+									vbox = {
+										name = "scales_of_power_area_tutorial_uses_this"
+										layoutpolicy_horizontal = expanding
+					
+										margin = { 16 0 }
+										margin_top = 8
+										margin_bottom = 16
+					
+										background = {
+											using = Background_Area_Dark
+										}
+					
+										vbox = {
+											layoutpolicy_horizontal = expanding
+											spacing = 4
+					
+											hbox = {
+												layoutpolicy_horizontal = expanding
+												spacing = 4
+					
+												expand = {}
+					
+												icon = {
+													name = "scales_of_power_icon"
+													size = { 30 30 }
+													texture = "gfx/interface/icons/scale_of_power.dds"
+												}
+					
+												text_label_left = {
+													text = "[scales_of_power|E]"
+												}
+					
+												expand = {}
+											}
+					
+											spacer = { #need to account for the rhombus shapes on the scales of power not being considered part of its size
+												size = {0 8}
+											}
+					
+											margin_widget = {
+												name = "scales_of_power_bar"
+												datacontext = "[DiarchyWindow.GetAlternativePowerLevels]"
+												size = { 318 15 }
+												allow_outside = yes
+					
+												hbox_complex_bar_progress_next = {
+													layoutpolicy_horizontal = expanding
+					
+													blockoverride "texture_empty" {
+														texture = "gfx/interface/progressbars/progress_red.dds"
+													}
+					
+													tooltip = "DIARCHY_WINDOW_SCALES_OF_POWER_CURRENT_TOOLTIP"
+													using = tooltip_se
+												}
+					
+												hbox_complex_bar_levels = {
+													layoutpolicy_horizontal = expanding
+					
+													blockoverride "marker" {
+														widget = {
+															parentanchor = center
+															size = { 0 40 }
+															allow_outside = yes
+					
+															visible = "[DiarchyWindow.IsVisiblePowerLevel( ComplexBarItem.GetValue )]"
+					
+															### Glow on current level animation
+															icon = {
+																name = "highlight_current_level"
+																visible = "[DiarchyWindow.IsCurrentPowerLevel( ComplexBarItem.GetValue )]"
+																parentanchor = center
+																size = { 65 65 }
+					
+																texture = "gfx/interface/window_roco_grandeur/pin_highlight.dds"
+					
+																state = {
+																	name = _show
+																	using = Animation_Curve_Default
+																	alpha = 0.6
+																}
+					
+																state = {
+																	name = _hide
+																	using = Animation_Curve_Default
+																	alpha = 0
+																}
+					
+																state = {
+																	name = "a"
+																	next = "b"
+																	trigger_on_create = yes
+																	alpha = 0.6
+					
+																	modify_texture = {
+																		name = "glow_1"
+																		rotate_uv = 0
+																	}
+					
+																	modify_texture = {
+																		name = "glow_2"
+																		rotate_uv = 0
+																	}
+																}
+					
+																state = {
+																	name = "b"
+																	next = "a"
+																	duration = 7
+					
+																	modify_texture = {
+																		name = "glow_1"
+																		rotate_uv = 360
+																	}
+					
+																	modify_texture = {
+																		name = "glow_2"
+																		rotate_uv = 360
+																	}
+																}
+					
+																modify_texture = {
+																	name = "glow_1"
+																	texture = "gfx/interface/component_masks/mask_glow.dds"
+																	blend_mode = alphamultiply
+																}
+					
+																modify_texture = {
+																	name = "glow_2"
+																	texture = "gfx/interface/component_masks/mask_glow.dds"
+																	blend_mode = alphamultiply
+																	mirror = horizontal
+																}
+															}
+					
+															icon = {
+																visible = "[DiarchyWindow.IsCurrentPowerLevel( ComplexBarItem.GetValue )]"
+																parentanchor = center
+																size = { 45 45 }
+					
+																texture = "gfx/interface/window_regency/regency_level_bg.dds"
+					
+																tooltip = "DIARCHY_WINDOW_SCALES_OF_POWER_LEVEL_TOOLTIP"
+																using = tooltip_se
+															}
+					
+															icon = {
+																visible = "[Not(DiarchyWindow.IsCurrentPowerLevel( ComplexBarItem.GetValue ))]"
+																parentanchor = center
+																size = { 35 35 }
+					
+																texture = "gfx/interface/window_regency/regency_level_bg_inactive.dds"
+					
+																tooltip = "DIARCHY_WINDOW_SCALES_OF_POWER_LEVEL_TOOLTIP"
+																using = tooltip_se
+															}
+					
+															text_single = {
+																visible = "[DiarchyWindow.IsCurrentPowerLevel( ComplexBarItem.GetValue )]"
+																parentanchor = center
+					
+																text = "[DiarchyWindow.GetLevelForSwing( ComplexBarItem.GetValue )]"
+																default_format = "#high"
+																align = nobaseline
+					
+															}
+					
+															text_single = {
+																visible = "[Not(DiarchyWindow.IsCurrentPowerLevel( ComplexBarItem.GetValue ))]"
+																parentanchor = center
+					
+																text = "[DiarchyWindow.GetLevelForSwing( ComplexBarItem.GetValue )]"
+																align = nobaseline
+					
+															}
+														}
+													}
+												}
+											}
+					
+											spacer = { #need to account for the rhombus shapes on the scales of power not being considered part of its size
+												size = {0 8}
+											}
+					
+											text_multi = {
+												layoutpolicy_horizontal = expanding
+					
+												text = "DIARCHY_WINDOW_SCALES_OF_POWER_HELP"
+												default_format = "#I"
+												align = center
+												autoresize = yes
+												min_width = 346
+												max_width = 346
+											}
+					
+											button_swing_scales = {
+												datacontext = "[DiarchyWindow.GetDisplayedDiarch]"
+												visible = "[And( DiarchyWindow.GetDiarchyOwner.IsLocalPlayer, Character.IsPlayerInteractionShown( 'swing_scales_currency_interaction' ) )]"
+											}
+					
+											button_swing_scales = {
+												datacontext = "[DiarchyWindow.GetDiarchyOwner]"
+												visible = "[And( Not( Character.IsLocalPlayer ), Character.IsPlayerInteractionShown( 'swing_scales_currency_interaction' ) )]"
+											}
+										}
+									}
+					
+								}
+							}
+
+							vbox = {
+								scrollbar_vertical = {
+									
+								}
+							}
+					
+							# hbox = {
+							# 	layoutpolicy_horizontal = expanding
+							# 	minimumsize = { -1 102 }
+					
+							# 	margin = { 16 8 }
+					
+							# 	background = {
+							# 		using = Background_Area_Dark
+							# 	}
+					
+							# 	vbox = {
+							# 		datacontext = "[DiarchyWindow.GetDisplayedDiarch]"
+							# 		layoutpolicy_horizontal = expanding
+					
+							# 		hbox = {
+							# 			layoutpolicy_horizontal = expanding
+							# 			spacing = 8
+					
+							# 			button_round = {
+							# 				name = "view_available_diarchs_tutorial_uses_this"
+							# 				visible = "[And( DiarchyWindow.CanDesignateDiarch, Not( DiarchyWindow.IsAvailableDiarchsShown ) )]"
+					
+							# 				onclick = "[DiarchyWindow.ToggleAvailableDiarchs]"
+							# 				enabled = "[Not( DiarchyWindow.IsDesignateDiarchOnCooldown )]"
+					
+							# 				tooltip = "DIARCHY_WINDOW_DIARCH_SELECTION_TOOLTIP"
+					
+							# 				button_replace = {
+							# 					parentanchor = center
+							# 					alwaystransparent = yes
+							# 				}
+							# 			}
+					
+							# 			button_back = {
+							# 				visible = "[And( DiarchyWindow.CanDesignateDiarch, DiarchyWindow.IsAvailableDiarchsShown )]"
+							# 				onclick = "[DiarchyWindow.ToggleAvailableDiarchs]"
+							# 				enabled = "[Not( DiarchyWindow.IsDesignateDiarchOnCooldown )]"
+							# 				tooltip = "DIARCHY_WINDOW_BACK_TOOLTIP"
+							# 				shortcut = "go_back"
+							# 				shortcut = "go_back_2"
+							# 				shortcut = "go_back_3"
+							# 			}
+					
+							# 			vbox = {
+							# 				layoutpolicy_horizontal = expanding
+					
+							# 				hbox = {
+							# 					layoutpolicy_horizontal = expanding
+					
+							# 					text_single = {
+							# 						layoutpolicy_horizontal = expanding
+					
+							# 						text = "[DiarchyWindow.GetDiarchLabel]"
+							# 						max_width = 300
+							# 					}
+					
+							# 					expand = {}
+					
+							# 					widget = {
+							# 						size = { 230 20 }
+							# 						allow_outside = yes
+					
+							# 						hbox = {
+							# 							parentanchor = center
+							# 							allow_outside = yes
+					
+							# 							hbox_diarch_succession_score = {
+					
+							# 								blockoverride "breakdown_datacontext"
+							# 								{
+							# 									datacontext = "[DiarchyWindow.GetDisplayedDiarch]"
+							# 								}
+					
+							# 								blockoverride "succession_score"
+							# 								{
+							# 									text = "[DiarchyWindow.GetDisplayedSuccessionScore]"
+							# 								}
+							# 							}
+					
+							# 							hbox_skills_grid = {
+							# 								blockoverride "skills_datamodel"
+							# 								{
+							# 									datamodel = "[DiarchyWindow.GetSkills]"
+							# 								}
+							# 							}
+							# 						}
+							# 					}
+							# 				}
+					
+							# 				hbox = {
+							# 					layoutpolicy_horizontal = expanding
+					
+							# 					text_single = {
+							# 						layoutpolicy_horizontal = expanding
+					
+							# 						text = "[DiarchyWindow.GetDisplayedDiarch.GetUIName|U]"
+							# 						max_width = 300
+							# 						default_format = "#high"
+							# 					}
+					
+							# 					expand = {}
+					
+							# 					text_aptitude_label = {
+							# 						align = right
+					
+							# 						blockoverride "breakdown_datacontext"
+							# 						{
+							# 							datacontext = "[DiarchyWindow.GetDisplayedDiarch]"
+							# 						}
+							# 					}
+							# 				}
+					
+							# 				hbox = {
+							# 					layoutpolicy_horizontal = expanding
+					
+							# 					text_loyalty_label = {
+							# 						blockoverride "breakdown_datacontext"
+							# 						{
+							# 							datacontext = "[DiarchyWindow.GetDisplayedDiarch]"
+							# 						}
+							# 					}
+					
+							# 					expand = {}
+					
+							# 					hbox = {
+							# 						spacing = 5
+							# 						datacontext = "[DiarchyWindow.GetDisplayedDiarch]"
+					
+							# 						icon = {
+							# 							name = "inactive_diarchy_warning"
+							# 							visible = "[And( Not( Diarchy.IsValid ), Not( StringIsEmpty( DiarchyWindow.GetModifierDescription( Character.Self ) ) ) )]"
+							# 							size = { 21 21 }
+					
+							# 							texture = "gfx/interface/icons/symbols/icon_alert.dds"
+					
+							# 							tooltip = "DIARCHY_WINDOW_BENEFITS_INACTIVE_DIARCHY"
+							# 						}
+					
+							# 						icon = {
+							# 							name = "indisposed_diarch_warning"
+							# 							visible = "[And( And( Diarchy.IsValid, Not( DiarchyWindow.GetDisplayedDiarch.IsDiarchAble ) ), Not( StringIsEmpty( DiarchyWindow.GetModifierDescription( Character.Self ) ) ) )]"
+							# 							size = { 21 21 }
+					
+							# 							texture = "gfx/interface/icons/symbols/icon_cross.dds"
+					
+							# 							tooltip = "DIARCHY_WINDOW_BENEFITS_DIARCH_INDISPOSED"
+							# 						}
+					
+							# 						text_single = {
+							# 							layoutpolicy_horizontal = expanding
+							# 							visible = "[And( DiarchyWindow.IsYourDiarchyShown, Not( StringIsEmpty( DiarchyWindow.GetModifierDescription( Character.Self ) ) ) )]"
+					
+							# 							text = "DIARCHY_WINDOW_LIEGE_BENEFITS"
+							# 							align = left|nobaseline
+							# 							max_width = 240
+							# 						}
+					
+							# 						text_single = {
+							# 							layoutpolicy_horizontal = expanding
+							# 							visible = "[And( DiarchyWindow.IsLiegeDiarchyShown, Not( StringIsEmpty( DiarchyWindow.GetModifierDescription( Character.Self ) ) ) )]"
+					
+							# 							text = "DIARCHY_WINDOW_DIARCH_BENEFITS"
+							# 							align = left|nobaseline
+							# 							max_width = 260
+							# 						}
+							# 					}
+							# 				}
+							# 			}
+							# 		}
+							# 	}
+							# }
+					
+							# vbox = {
+							# 	visible = "[Not(DiarchyWindow.IsAvailableDiarchsShown)]"
+							# 	layoutpolicy_horizontal = expanding
+							# 	layoutpolicy_vertical = expanding
+					
+							# 	margin = { 8 8 }
+					
+							# 	background = {
+							# 		using = Background_Area_With_Header
+							# 	}
+					
+							# 	background = {
+							# 		texture = "gfx/interface/illustrations/window_headers/header_my_realm.dds"
+							# 		alpha = 0.5
+							# 		fittype = centercrop
+					
+							# 		margin_top = -32
+					
+							# 		using = Mask_Rough_Edges
+							# 	}
+					
+							# 	text_single = {
+							# 		visible = "[Not(DiarchyWindow.IsAvailableDiarchsShown)]"
+							# 		layoutpolicy_horizontal = expanding
+					
+							# 		text = "DIARCHY_WINDOW_SUCCESSION"
+							# 		align = nobaseline
+					
+							# 		margin = { 8 0 }
+							# 	}
+					
+							# 	expand = {}
+					
+							# 	fixedgridbox = {
+							# 		name = "regent_succession_tutorial_uses_this"
+							# 		visible = "[Not(DiarchyWindow.IsAvailableDiarchsShown)]"
+					
+							# 		datamodel = "[DiarchyWindow.GetDiarchySuccession]"
+							# 		addcolumn = 150
+							# 		addrow = 160
+							# 		flipdirection = yes
+							# 		maxhorizontalslots = 4
+					
+							# 		item = {
+							# 			widget = {
+							# 				datacontext = "[DiarchySuccessor.GetCharacter]"
+							# 				size = { 150 160 }
+					
+							# 				vbox = {
+							# 					portrait_head = {}
+					
+							# 					hbox = {
+							# 						layoutpolicy_horizontal = expanding
+							# 						spacing = 4
+					
+							# 						expand = {}
+					
+							# 						icon = {
+							# 							texture = "gfx/interface/icons/loyalty.dds"
+							# 							size = { 30 30 }
+							# 							framesize = { 60 60 }
+							# 							frame = "[Character.GetDiarchLoyaltyIconFrame]"
+					
+							# 							tooltipwidget = {
+							# 								diarch_loyalty_breakdown_tooltip = {
+							# 									blockoverride "header_text" {
+							# 										text = "DIARCHY_WINDOW_DIARCH_LOYALTY"
+							# 									}
+							# 								}
+							# 							}
+							# 						}
+					
+							# 						vbox = {
+							# 							layoutpolicy_vertical = expanding
+							# 							margin = { 0 8 }
+					
+							# 							divider_light = {
+							# 								layoutpolicy_vertical = expanding
+							# 							}
+							# 						}
+					
+							# 						hbox_diarch_succession_score = {
+							# 							blockoverride "succession_score"
+							# 							{
+							# 								text = "[DiarchySuccessor.GetScore]"
+							# 							}
+							# 						}
+					
+							# 						expand = {}
+							# 					}
+							# 				}
+							# 			}
+							# 		}
+							# 	}
+					
+							# 	expand = {}
+					
+							# 	widget = {
+							# 		visible = "[And( Diarchy.IsValid, DiarchyWindow.IsYourDiarchyShown)]"
+							# 		size = { 622 50 }
+					
+							# 		hbox = {
+							# 			layoutpolicy_horizontal = expanding
+					
+							# 			background = {
+							# 				using = Background_Area
+							# 				margin = { 8 8 }
+							# 			}
+					
+							# 			button_primary = {
+							# 				name = "end_diarchy_tutorial_uses_this"
+							# 				datacontext = "[DiarchyWindow.GetDisplayedDiarch]"
+							# 				size = { 300 36 }
+					
+							# 				enabled = "[Character.IsPlayerInteractionValid( DiarchyWindow.GetEndInteractionName )]"
+							# 				onclick = "[Character.OpenPlayerInteraction( DiarchyWindow.GetEndInteractionName )]"
+					
+							# 				text = DIARCHY_WINDOW_END_DIARCHY
+					
+							# 				tooltip = "[Character.GetPlayerInteractionTooltip( DiarchyWindow.GetEndInteractionName )]"
+					
+							# 				icon = {
+							# 					position = { 4 4 }
+							# 					size = { 30 30 }
+					
+							# 					texture = "[GetCharacterInteraction( DiarchyWindow.GetEndInteractionName ).GetIcon]"
+							# 				}
+							# 			}
+							# 		}
+							# 	}
+					
+							# 	widget = {
+							# 		visible = "[And( DiarchyWindow.GetDisplayedDiarch.IsLocalPlayer, Character.IsPlayerInteractionShown( 'diarch_entrench_regency_interaction' ) )]"
+							# 		size = { 622 50 }
+					
+							# 		hbox = {
+							# 			layoutpolicy_horizontal = expanding
+					
+							# 			background = {
+							# 				using = Background_Area
+							# 				margin = { 8 8 }
+							# 			}
+					
+							# 			button_standard = {
+							# 				name = "entrench_regency"
+							# 				datacontext = "[DiarchyWindow.GetDiarchyOwner]"
+							# 				size = { 300 36 }
+					
+							# 				onclick = "[Character.OpenPlayerInteraction( 'diarch_entrench_regency_interaction' )]"
+							# 				enabled = "[Character.IsPlayerInteractionValid( 'diarch_entrench_regency_interaction' )]"
+					
+							# 				text = "[Character.GetPlayerInteractionName( 'diarch_entrench_regency_interaction' )]"
+					
+							# 				tooltip = "[Character.GetPlayerInteractionTooltip( 'diarch_entrench_regency_interaction' )]"
+					
+							# 				icon = {
+							# 					position = { 4 4 }
+							# 					size = { 30 30 }
+							# 					texture = "[GetCharacterInteraction( 'diarch_entrench_regency_interaction' ).GetIcon]"
+							# 				}
+							# 			}
+							# 		}
+							# 	}
+							# }
+					
+							# vbox_character_list = {
+							# 	datacontext = "[DiarchyWindow.GetAvailableDiarchs]"
+							# 	visible = "[DiarchyWindow.IsAvailableDiarchsShown]"
+							# 	layoutpolicy_horizontal = expanding
+							# 	layoutpolicy_vertical = expanding
+							# 	minimumsize = { -1 420 }
+					
+							# 	blockoverride "container_implementation" {
+							# 		fixedgridbox = {
+							# 			name = "characters_grid"
+							# 			datamodel = "[CharacterSelectionList.GetList]"
+							# 			visible = "[Not( CharacterSelectionList.IsBuildingList )]"
+							# 			layoutpolicy_horizontal = expanding
+							# 			addcolumn = 604
+							# 			addrow = 122
+					
+							# 			item = {
+							# 				widget_diarch_candidate_item = {
+							# 					datacontext = "[CharacterListItem.GetCharacter]"
+							# 					size = { 604 122 }
+							# 				}
+							# 			}
+							# 		}
+							# 	}
+							# }
+						}
+
+						# window_character_filter = {
+						# 	datacontext = "[DiarchyWindow.GetAvailableDiarchs]"
+						# 	visible_at_creation = no
+					
+						# 	blockoverride "addition_filter" {
+					
+						# 		vbox_filter_group = {
+						# 			datacontext = "[CharacterSelectionList.GetCategory('politics_filter_category')]"
+						# 			layoutpolicy_horizontal = expanding
+					
+						# 			blockoverride "filters" {
+						# 				filter_item = {
+						# 					datacontext = "[CharacterSelectionList.GetFilter('ruler_filter')]"
+						# 					layoutpolicy_horizontal = expanding
+						# 				}
+					
+						# 				filter_item = {
+						# 					datacontext = "[CharacterSelectionList.GetFilter('vassal_stance_filter')]"
+						# 					layoutpolicy_horizontal = expanding
+						# 				}
+					
+						# 				filter_item = {
+						# 					layoutpolicy_horizontal = expanding
+						# 					datacontext = "[CharacterSelectionList.GetFilter('dynasty_filter')]"
+						# 				}
+						# 			}
+						# 		}
+					
+						# 		vbox_filter_group = {
+						# 			layoutpolicy_horizontal = expanding
+						# 			datacontext = "[CharacterSelectionList.GetCategory('personal_filter_category')]"
+					
+						# 			blockoverride "filters" {
+						# 				filter_item = {
+						# 					layoutpolicy_horizontal = expanding
+						# 					datacontext = "[CharacterSelectionList.GetFilter('religion_filter')]"
+						# 				}
+						# 				filter_item = {
+						# 					layoutpolicy_horizontal = expanding
+						# 					datacontext = "[CharacterSelectionList.GetFilter('culture_filter')]"
+						# 				}
+						# 				filter_item = {
+						# 					layoutpolicy_horizontal = expanding
+						# 					datacontext = "[CharacterSelectionList.GetFilter('hook_filter')]"
+						# 				}
+						# 				filter_item = {
+						# 					layoutpolicy_horizontal = expanding
+						# 					datacontext = "[CharacterSelectionList.GetFilter('gender_filter')]"
+						# 				}
+						# 				filter_item = {
+						# 					layoutpolicy_horizontal = expanding
+						# 					datacontext = "[CharacterSelectionList.GetFilter('health_filter')]"
+						# 				}
+						# 				filter_item = {
+						# 					layoutpolicy_horizontal = expanding
+						# 					datacontext = "[CharacterSelectionList.GetFilter('imprisoned_filter')]"
+						# 				}
+						# 			}
+						# 		}
+						# 	}
+						# }
+					}
+				}
+
+				hbox = {
+					# name = "vassals_succession_tabs"
+					name = "SPQR_succession_tabs"
+					layoutpolicy_horizontal = expanding
+
+					button_tab = {
+						# name = "tutorial_highlight_domain_tab"
+						name = "SPQR_rome_tab"
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						# down = "[MyRealmWindow.IsShowingDomain]"
+						# down = "[SPQRWindow.IsShowingClaimants]"
+
+						# onclick = "[MyRealmWindow.ShowDomain]"
+						# onclick = "[MyRealmWindow.SendTabClickedTelemetry( 'domain' )]"
+						# onclick = "[SPQRWindow.ShowClaimants]"
+						# onclick = "[SPQRWindow.SendTabClickedTelemetry( 'claimants' )]"
+						datacontext = "[GetVariableSystem]"
+						down = "[GetVariableSystem.Exists('window_SPQR')]"
+						onclick = "[GetVariableSystem.Set( 'SPQR_tab', 'rome' )]"
+
+						# text = "MY_REALM_WINDOW_DOMAIN_TAB"
+						text = "SPQR_WINDOW_ROME_TAB"
+					}
+
+					button_tab = {
+						name = "SPQR_families_tab"
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						# down = "[MyRealmWindow.IsShowingVassals]"
+
+						# onclick = "[MyRealmWindow.ShowVassals]"
+						# onclick = "[MyRealmWindow.SendTabClickedTelemetry( 'vassals' )]"
+
+						datacontext = "[GetVariableSystem]"
+						down = "[GetVariableSystem.Exists('window_SPQR')]"
+						onclick = "[GetVariableSystem.Set( 'SPQR_tab', 'families' )]"
+
+						text = "SPQR_WINDOW_FAMILIES_TAB"
+					}
+
+					button_tab = {
+						name = "SPQR_varangian_tab"
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						# down = "[MyRealmWindow.IsShowingSuccession]"
+
+						# onclick = "[MyRealmWindow.ShowSuccession]"
+						# onclick = "[MyRealmWindow.SendTabClickedTelemetry( 'succession' )]"
+						datacontext = "[GetVariableSystem]"
+						down = "[GetVariableSystem.Exists('window_SPQR')]"
+						onclick = "[GetVariableSystem.Set( 'SPQR_tab', 'varangian' )]"
+
+						text = "SPQR_WINDOW_VARANGIAN_TAB"
+					}
+				}
+
+				### ROME TAB
+				vbox = {
+					name = "tab_SPQR_rome"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					# visible = "[MyRealmWindow.IsShowingDomain]"
+					# visible = "[SPQRWindow.IsShowingClaimants]"
+					datacontext = "[GetPlayer.MakeScope]"
+					datacontext = "[GetVariableSystem]"
+					visible = "[GetVariableSystem.HasValue( 'SPQR_tab', 'rome' )]"
+					# visible = yes
+
+					using = Animation_Tab_Switch
+
+					scrollbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+
+						blockoverride "scrollbox_content" {
+							widget = {
+								name = "imperial_authority_widget"
+								size = { 0 60 }
+								layoutpolicy_horizontal = expanding
+								# tooltip = "[FactionItem.GetPowerTooltip]"
+		
+								text_single = {
+									parentanchor = hcenter
+									position = { 0 0 }
+									text = "RHOMAIOI_IMPERIAL_AUTHORITY"
+									using = Font_Size_Medium
+								}
+								
+								text_single = {
+									parentanchor =  top|right
+									position = { -3 0 }
+									# text = "[FactionItem.GetPower|%0V]"
+									text = "AUTH_VALUE"
+									default_format = "#high"
+								}
+
+								text_single = {
+									parentanchor =  top|right
+									position = { -3 25 }
+									# size = { 0 0 }
+									# text = "[FactionItem.GetPower|%0V]"
+									text = "YR_CHNG"
+									default_format = "#low"
+									fontsize = 13
+									size = { 0 12 }
+								}
+
+								widget = {
+									name = "progressbar_imperial_authority"
+									size = { 100% 30 }
+									position = { 0 50 }
+		
+									progressbar_red = {
+										# visible = "[And( FactionItem.IsPowerThresholdVisible, Not(FactionItem.HasEnoughPower))]"
+										visible = yes
+										size = { 100% 25 }
+										position = { 0 1 }
+										max = 1
+										# value = "[FactionItem.GetPowerPushPercentage]"
+										value = 1
+										noprogresstexture = "gfx/interface/progressbars/progress_blue_bg.dds"
+									}
+		
+									progressbar_red = {
+										# visible = "[Or( Not( FactionItem.IsPowerThresholdVisible), FactionItem.HasEnoughPower )]"
+										visible = yes
+										size = { 100% 25 }
+										position = { 0 1 }
+										max = 1
+										# value = "[FactionItem.GetPowerPushPercentage]"
+										value = 0.2
+										noprogresstexture = "gfx/interface/progressbars/progress_blue_bg.dds"
+									}
+		
+									container = {
+										# visible = "[FactionItem.IsPowerThresholdVisible]"
+										visible = yes
+										widgetanchor = top|hcenter
+										# position = "[FactionItem.GetPowerThresholdPosition]"
+										position = { 105 0 }
+										alwaystransparent = yes
+		
+										icon = {
+											parentanchor = top|hcenter
+											alwaystransparent = yes
+											texture = "gfx/interface/window_factions/faction_progress_threshold.dds"
+										}
+									}
+								}
+							}
+
+							widget = {
+								name = "imperial_stability_widget"
+								size = { 0 60 }
+								layoutpolicy_horizontal = expanding
+								# tooltip = "[FactionItem.GetPowerTooltip]"
+		
+								text_single = {
+									parentanchor = hcenter
+									position = { 0 30 }
+									text = "RHOMAIOI_IMPERIAL_STABILITY"
+									using = Font_Size_Medium
+								}
+
+								text_single = {
+									parentanchor = hcenter
+									position = { 0 60 }
+									text = "RHOMAIOI_IMPERIAL_STABILITY_SHOW"
+									using = Font_Size_small
+								}
+							}
+
+							widget = {
+								size = { 260 285 }
+								
+								# using = Portrait_Background_Glows
+								# datacontext = "[Character.HasLandedTitle('e_byzantium')]"
+								visible = yes 
+
+								portrait_button = {
+									# PLACEHOLDERR UNTIL DATACONTEXT FINISHED
+									datacontext = "[Scope.GetCharacter]"
+									# datacontext = "[Scope.Title.GetHolder('e_byzantium')]"
+									parentanchor = bottom|hcenter
+									size = { 240 330 }
+									position = { 0 40 }
+									using = portrait_base
+						
+									block "portrait_texture" {
+										portrait_texture = "[Character.GetPortrait('environment_body', 'camera_body', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+									}
+									block "mask" {
+										mask = "gfx/portraits/portrait_mask_body.dds"
+									}
+									effectname = "NoHighlight"
+						
+									block "prison" {
+										highlight_icon = {
+											name = "prison_bars"
+											visible = "[Character.IsImprisoned]"
+											visible_at_creation = no
+											size = { 100% 100% }
+											effectname = "NoHighlight"
+											texture = "gfx/portraits/portrait_prison_body.dds"
+						
+											modify_texture = {
+												name = "mask"
+												texture = "gfx/portraits/portrait_mask_body.dds"
+												spriteType = Corneredstretched
+												blend_mode = alphamultiply
+											}
+										}
+									}
+						
+									block "portrait_button" {}
+								}
+
+								block "portrait_icons" {
+									portrait_status_icons = {
+										parentanchor = bottom|left
+										position = { 60 -5 }
+										scale = 0.85
+						
+										background = {
+											using = Background_Area_Dark
+											margin = { 3 3 }
+											alpha = 0.8
+										}
+									}
+								}
+						
+								block "coa" {
+									coa_realm_medium_crown = {
+										visible = "[Character.HasLandedTitles]"
+										parentanchor = bottom|left
+										position = { -2 4 }
+									}
+								}
+						
+								block "opinion_box"
+								{
+									portrait_opinion = {
+										parentanchor = bottom|hcenter
+										block "position_portrait_opinion_body" {
+											position = { 0 -2 }
+										}
+									}
+								}
+						
+								#portrait unknown glow
+								button = {
+									name = "portrait_unknown_body_glow"
+									parentanchor = center
+									position = { 0 -15 }
+									gfxtype = framedbuttongfx
+									effectname = "NoHighlight"
+									texture = "gfx/portraits/unknown_portraits/button_unknown_small.dds"
+									size = { 240 330 }
+									framesize = { 564 780 }
+									upframe = 1
+									overframe = 2
+						
+									block "glow_visible" {
+						
+										visible = "[Not(Character.IsValid)]"
+						
+									}
+						
+									block "glow_flip" {}
+						
+									block "onclick" {}
+						
+								}
+						
+								#portrait unknown glow
+								# button = {
+								# 	name = "portrait_unknown_basileus_glow"
+								# 	# visible = "[Not(Character.IsValid)]"
+								# 	# visible = no
+								# 	parentanchor = center
+								# 	position = { 2 -37 }
+								# 	gfxtype = framedbuttongfx
+								# 	effectname = "NoHighlight"
+								# 	texture = "gfx/portraits/unknown_portraits/button_unknown_small.dds"
+								# 	size = { 239 312 }
+								# 	framesize = { 564 780 }
+								# 	upframe = 1
+								# 	overframe = 2
+						
+								# 	block "glow_visible" {
+						
+								# 		visible = "[Not(Character.IsValid)]"
+						
+								# 	}
+						
+								# 	block "onclick" {}
+								# }
+							}
+
+							button_standard = {
+								size = { 50% 20% }
+								# visible = SET THIS TO HOLDER OF E_BYZANTIUM & E_ROMAN_EMPIRE
+								text_single = {
+									parentanchor = center
+									text = "SPQR_VIEW_DECISIONS"
+									using = Font_Size_small
+								}
+
+								datacontext = "[GetVariableSystem]"
+								# down = "[GetVariableSystem.Exists('window_SPQR')]"
+								onclick = "[VariableSystem.Toggle( 'SPQR_decisions_gui_toggle' )]"
+							}
+
+							button_standard = {
+								size = { 50% 18% }
+								
+								# visible = SET THIS TO HOLDER OF E_BYZANTIUM & E_ROMAN_EMPIRE
+								text_single = {
+									parentanchor = center
+									text = "SPQR_VIEW_EDICTS"
+									using = Font_Size_small
+								}
+
+								datacontext = "[GetVariableSystem]"
+								# down = "[GetVariableSystem.Exists('window_SPQR')]"
+								onclick = "[VariableSystem.Toggle( 'SPQR_edicts_gui_toggle' )]"
+							}
+						}
+					}
+				}
+
+				### FAMILIES TAB
+				vbox = {
+					name = "tab_families"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					# visible = "[MyRealmWindow.IsShowingVassals]"
+					# visible = no
+					visible = "[GetVariableSystem.HasValue( 'SPQR_tab', 'families' )]"
+
+					state = {
+						name = _show
+						using = Animation_FadeIn_Quick
+					}
+
+					state = {
+						name = _hide
+						alpha = 0
+					}
+
+					scrollbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+
+						blockoverride "scrollbox_content" {
+							button_standard = {
+								size = { 500 100 }
+								
+								# visible = SET THIS TO HOLDER OF E_BYZANTIUM & E_ROMAN_EMPIRE
+								text_single = {
+									parentanchor = center
+									text = "SPQR_VIEW_FAMILIES"
+									using = Font_Size_small
+								}
+		
+								datacontext = "[GetVariableSystem]"
+								# down = "[GetVariableSystem.Exists('window_SPQR')]"
+								onclick = "[VariableSystem.Toggle( 'SPQR_families_gui_toggle' )]"
+							}
+
+
+						}
+					}			
+
+					# hbox = {
+					# 	name = "vassal_filters_container"
+					# 	margin = { 0 4 }
+					# 	layoutpolicy_horizontal = expanding
+
+					# 	dropdown_menu_standard = {
+					# 		name = "government_filters_dropdown"
+
+					# 		blockoverride "dropdown_properties"
+					# 		{
+					# 			datamodel = "[MyRealmWindow.GetGovernmentTypeFilters]"
+
+					# 			onselectionchanged = "[MyRealmWindow.SelectActiveGovernmentTypeFilter]"
+					# 			selectedindex = "[MyRealmWindow.GetActiveGovernmentTypeFilterIndex]"
+					# 		}
+
+					# 		blockoverride "dropdown_active_item_properties"
+					# 		{
+					# 			text = "MRW_GOVERNMENT_FILTER"
+					# 			tooltip = "MRW_GOVERNMENT_FILTER_DROPDOWN_TT"
+					# 		}
+
+					# 		blockoverride "dropdown_item_properties"
+					# 		{
+					# 			text = "MRW_GOVERNMENT_FILTER"
+					# 			tooltip = "MRW_GOVERNMENT_FILTER_TT"
+					# 		}
+					# 	}
+
+					# 	dropdown_menu_standard = {
+					# 		name = "vassal_stance_filters_dropdown"
+
+					# 		blockoverride "dropdown_properties"
+					# 		{
+					# 			datamodel = "[MyRealmWindow.GetVassalStanceFilters]"
+
+					# 			onselectionchanged = "[MyRealmWindow.SelectActiveVassalStanceFilter]"
+					# 			selectedindex = "[MyRealmWindow.GetActiveVassalStanceFilterIndex]"
+					# 		}
+
+					# 		blockoverride "dropdown_active_item_properties"
+					# 		{
+					# 			text = "MRW_VASSAL_STANCE_FILTER"
+					# 			tooltip = "MRW_VASSAL_STANCE_FILTER_DROPDOWN_TT"
+					# 		}
+
+					# 		blockoverride "dropdown_item_properties"
+					# 		{
+					# 			text = "MRW_VASSAL_STANCE_FILTER"
+					# 			tooltip = "MRW_VASSAL_STANCE_FILTER_TT"
+					# 		}
+					# 	}
+					# }
+
+					# text_single = {
+					# 	name = "government_filter_label"
+					# 	margin_bottom = 10
+
+					# 	visible = "[MyRealmWindow.HasActiveGovernmentTypeFilter]"
+					# 	text = "[MyRealmWindow.GetActiveGovernmentTypeFilter.GetVassalsLabel]"
+					# }
+
+					# scrollbox = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	layoutpolicy_vertical = expanding
+
+					# 	blockoverride "scrollbox_margins" {
+					# 		margin = { 4 4 }
+					# 	}
+
+					# 	blockoverride "scrollbox_content"
+					# 	{
+					# 		visible = "[GreaterThan_int32( MyRealmWindow.GetVassalCount, '(int32)0' )]"
+
+					# 		fixedgridbox = {
+					# 			layoutpolicy_horizontal = expanding
+					# 			datacontext = "[MyRealmWindow.GetPowerfulVassals]"
+					# 			datamodel = "[CharacterSelectionList.GetList]"
+					# 			visible = "[Not(CharacterSelectionList.IsBuildingList)]"
+					# 			addcolumn = 545
+					# 			addrow = 190
+					# 			setitemsizefromcell = yes
+
+					# 			item = {
+					# 				widget_vassal_list_item = {
+					# 					datacontext = "[CharacterListItem.GetCharacter]"
+					# 					datacontext = "[MyRealmWindow.GetVassalInfo( Character.Self )]"
+					# 					datacontext = "[MyRealmWindowVassalItem.GetContract]"
+
+					# 					blockoverride "feudal_contract_button_round"
+					# 					{
+					# 						onclick = "[MyRealmWindow.SendButtonClickedTelemetry( 'vassal_contract' )]"
+					# 					}
+
+					# 					blockoverride "vassal_portrait"
+					# 					{
+					# 						portrait_shoulders = {}
+					# 					}
+					# 				}
+					# 			}
+					# 		}
+
+					# 		fixedgridbox = {
+					# 			layoutpolicy_horizontal = expanding
+					# 			datacontext = "[MyRealmWindow.GetRegularVassals]"
+					# 			datamodel = "[CharacterSelectionList.GetList]"
+					# 			visible = "[Not(CharacterSelectionList.IsBuildingList)]"
+					# 			addcolumn = 545
+					# 			addrow = 190
+					# 			setitemsizefromcell = yes
+
+					# 			item = {
+					# 				widget_vassal_list_item = {
+					# 					datacontext = "[CharacterListItem.GetCharacter]"
+					# 					datacontext = "[MyRealmWindow.GetVassalInfo( Character.Self )]"
+					# 					datacontext = "[MyRealmWindowVassalItem.GetContract]"
+					# 				}
+					# 			}
+					# 		}
+					# 		expand = {}
+					# 	}
+
+					# 	vbox = {
+					# 		visible = "[EqualTo_int32( MyRealmWindow.GetVassalCount, '(int32)0' )]"
+					# 		text_single = {
+					# 			text = "NO_VASSALS_TO_DISPLAY"
+					# 			default_format = "#weak"
+					# 		}
+					# 	}
+					# }
+
+					# vbox = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	margin = { 16 16 }
+
+					# 	vbox = {
+					# 		layoutpolicy_horizontal = expanding
+					# 		margin = { 8 4 }
+					# 		spacing = 4
+
+					# 		background = {
+					# 			using = Background_Area
+					# 			margin_bottom = 8
+					# 			margin_top = 4
+					# 		}
+
+					# 		hbox = {
+					# 			layoutpolicy_horizontal = expanding
+					# 			margin = { 8 0 }
+
+					# 			text_single = {
+					# 				default_format = "#high"
+					# 				text = "MY_REALM_WINDOW_VASSAL_OPINION"
+					# 				max_width = 170
+					# 				tooltip = "MY_REALM_WINDOW_VASSAL_OPINION_TT"
+					# 			}
+
+					# 			expand = {}
+
+					# 			hbox = {
+					# 				tooltip = "[GetPlayer.GetDreadBreakdown]"
+
+					# 				icon = {
+					# 					name = "dread_icon"
+					# 					size = { 30 30 }
+					# 					texture = "gfx/interface/icons/icon_dread.dds"
+					# 				}
+
+					# 				text_single = {
+					# 					name = "dread_name"
+					# 					text = "[dread|E]: [GetPlayer.GetDread|0]"
+					# 					default_format = "#high"
+					# 					max_width = 90
+					# 				}
+					# 			}
+
+					# 			expand = {}
+
+					# 			hbox = {
+					# 				name = "tutorial_highlight_vassal_limit"
+					# 				spacing = 4
+									
+					# 				tooltip = "[Character.GetVassalLimitTooltip]"
+
+					# 				background = {
+					# 					visible = "[GreaterThan_int32( Character.GetNumVassalsTowardsLimit, Character.GetVassalLimit )]"
+					# 					using = Status_Bad
+					# 				}
+
+					# 				icon = {
+					# 					size = { 30 30 }
+					# 					texture = "gfx/interface/icons/icon_vassal.dds"
+					# 				}
+
+					# 				text_single = {
+					# 					text = "MY_REALM_WINDOW_VASSAL_LIMIT"
+					# 					max_width = 130
+					# 				}
+
+					# 				text_single = {
+					# 					text = "MY_REALM_WINDOW_VASSAL_LIMIT_VALUE"
+					# 					max_width = 50
+					# 				}
+					# 			}
+					# 		}
+
+					# 		hbox = {
+					# 			layoutpolicy_horizontal = expanding
+					# 			margin = { 8 0 }
+
+					# 			text_single = {
+					# 				margin_bottom = 4
+					# 				text = MY_REALM_WINDOW_VASSAL_STANCES
+					# 			}
+
+					# 			spacing = 8
+								
+					# 			hbox = {
+					# 				datamodel = "[GetAllVassalStances]"
+					# 				spacing = 8
+									
+					# 				item = {
+					# 					hbox = {
+					# 						visible = "[NotEqualTo_int32( MyRealmWindow.GetNumVassalsWithStance( VassalStance.Self ), '(int32)0' )]"
+											
+					# 						text_single = {
+					# 							margin_bottom = 4
+					# 							margin_right = 4
+					# 							margin_left = 4
+					# 							using = Background_Area_Border
+					# 							text = "MY_REALM_WINDOW_VASSAL_STANCE_COUNT"
+					# 							tooltip = "MY_REALM_WINDOW_VASSAL_STANCE_COUNT_TT"
+					# 						}
+					# 					}
+					# 				}
+					# 			}
+
+					# 			expand = {}
+					# 		}
+					# 	}
+					# }
+				}
+
+				### VARANGIAN TAB
+				vbox = {
+					name = "tab_varangian"
+					visible = "[GetVariableSystem.HasValue( 'SPQR_tab', 'varangian' )]"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+
+					state = {
+						name = _show
+						using = Animation_FadeIn_Quick
+					}
+
+					state = {
+						name = _hide
+						alpha = 0
+					}
+
+					scrollbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+
+						blockoverride "scrollbox_content" {
+							widget = {
+								### TEST
+								scope = character
+								is_valid = {
+									current_date > 1000.1.1
+								}
+								visible = "[GetScriptedGui('tab_varangian').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+								###
+								
+								name = "placeholder_established"
+								size = { 0 60 }
+								layoutpolicy_horizontal = expanding
+
+								# This doesn't work, how to fix???
+								# limit = { current_date < 867.1.1 }
+								text_single = {
+									# if = { current_date > 867.1.1 }
+									# visible = yes
+									parentanchor = center
+									position = { 0 0 }
+									text = "CURRENT_DATE"
+									# text = "DATE"
+									using = Font_Size_Medium
+								}
+							}
+						}
+					}
+				}
+
+				# vbox = {
+				# 	visible = "[Or( MyRealmWindow.IsShowingDomain, MyRealmWindow.IsShowingVassals)]"
+				# 	layoutpolicy_horizontal = expanding
+				# 	margin = { 15 5 }
+				# 	margin_bottom = 15
+				# 	spacing = 8
+
+				# 	hbox = {
+				# 		visible = "[MyRealmWindow.IsShowingDomain]"
+				# 		tooltip = "[GetPlayer.GetDomainLimitTooltip]"
+				# 		spacing = 2
+
+				# 		text_single = {
+				# 			text = "[SelectLocalization(MyRealmWindow.IsOverDomainLimit, 'MY_REALM_WINDOW_DOMAIN_LIMIT_WARNING', 'MY_REALM_WINDOW_DOMAIN_LIMIT')]"
+				# 		}
+
+				# 		icon = {
+				# 			size = { 35 35 }
+				# 			texture = "gfx/interface/icons/icon_domain.dds"
+				# 		}
+
+				# 		text_single = {
+				# 			text = "[SelectLocalization(MyRealmWindow.IsOverDomainLimit, 'MY_REALM_WINDOW_DOMAIN_LIMIT_VALUE_WARNING', 'MY_REALM_WINDOW_DOMAIN_LIMIT_VALUE')]"
+				# 		}
+				# 	}
+
+				# 	vbox = {
+				# 		layoutpolicy_horizontal = expanding
+				# 		margin = { 80 0 }
+
+				# 		background = {
+				# 			using = Background_Area
+				# 			margin = { -65 0 }
+				# 			margin_bottom = 8
+				# 			margin_top = 3
+				# 		}
+
+				# 		hbox = {
+				# 			margin_bottom = 5
+				# 			layoutpolicy_horizontal = expanding
+
+				# 			expand = {
+				# 				minimumsize = { 150 0 }
+				# 			}
+
+				# 			text_single = {
+				# 				text = "MY_REALM_WINDOW_TAXES"
+				# 				min_width = 100
+				# 				max_width = 100
+				# 				align = right
+				# 			}
+
+				# 			text_single = {
+				# 				text = "MY_REALM_WINDOW_LEVIES"
+				# 				minimumsize = { 100 0 }
+				# 				maximumsize = { 100 40 }
+				# 				align = right
+				# 			}
+				# 		}
+
+				# 		divider_light = {
+				# 			layoutpolicy_horizontal = expanding
+				# 		}
+
+				# 		hbox = {
+				# 			name = "domain_income_row"
+				# 			layoutpolicy_horizontal = expanding
+
+				# 			background = {
+				# 				visible = "[MyRealmWindow.IsShowingDomain]"
+				# 				using = Status_Highlight
+				# 			}
+
+				# 			flowcontainer = {
+				# 				spacing = 5
+
+				# 				text_single = {
+				# 					layoutpolicy_horizontal = expanding
+				# 					text = "MY_REALM_WINDOW_FROM_HOLDINGS"
+				# 					align = bottom
+				# 				}
+
+				# 				warning_icon = {
+				# 					visible = "[MyRealmWindow.IsOverDomainLimit]"
+				# 					size = { 25 25 }
+				# 					tooltip = "[Character.GetDomainLimitTooltip]"
+				# 				}
+				# 			}
+
+				# 			expand = {}
+
+				# 			text_single = {
+				# 				datacontext = "[MyRealmWindow.GetDomainIncome]"
+				# 				text = "[ValueBreakdown.GetValue]"
+				# 				min_width = 100
+				# 				max_width = 100
+				# 				align = right
+
+				# 				tooltipwidget = {
+				# 					widget_gold_breakdown_tooltip = {
+				# 						blockoverride "income"
+				# 						{
+				# 							visible = no
+				# 						}
+				# 					}
+				# 				}
+				# 			}
+
+				# 			text_single = {
+				# 				datacontext = "[MyRealmWindow.GetDomainLevy]"
+				# 				text = "[ValueBreakdown.GetValue]"
+				# 				minimumsize = { 100 0 }
+				# 				align = right
+				# 				tooltipwidget = {
+				# 					widget_gold_breakdown_tooltip = {
+				# 						blockoverride "income"
+				# 						{
+				# 							visible = no
+				# 						}
+				# 					}
+				# 				}
+				# 			}
+				# 		}
+
+				# 		hbox = {
+				# 			name = "vassals_income_row"
+				# 			layoutpolicy_horizontal = expanding
+
+				# 			background = {
+				# 				visible = "[MyRealmWindow.IsShowingVassals]"
+				# 				using = Status_Highlight
+				# 			}
+
+				# 			flowcontainer = {
+				# 				spacing = 5
+
+				# 				text_single = {
+				# 					layoutpolicy_horizontal = expanding
+				# 					text = "MY_REALM_WINDOW_FROM_VASSALS"
+				# 					align = bottom
+				# 				}
+
+				# 				warning_icon = {
+				# 					visible = "[GreaterThan_int32( Character.GetNumVassalsTowardsLimit, Character.GetVassalLimit )]"
+				# 					size = { 25 25 }
+				# 					tooltip = "[Character.GetVassalLimitTooltip]"
+				# 				}
+				# 			}
+
+				# 			expand = {}
+
+				# 			text_single = {
+				# 				datacontext = "[MyRealmWindow.GetVassalsIncome]"
+				# 				text = "[ValueBreakdown.GetValue]"
+				# 				min_width = 100
+				# 				max_width = 100
+				# 				align = right
+
+				# 				tooltipwidget = {
+				# 					widget_gold_breakdown_tooltip = {
+				# 						blockoverride "income"
+				# 						{
+				# 							visible = no
+				# 						}
+				# 					}
+				# 				}
+				# 			}
+
+				# 			text_single = {
+				# 				datacontext = "[MyRealmWindow.GetVassalsLevy]"
+				# 				text = "[ValueBreakdown.GetValue]"
+				# 				min_width = 100
+				# 				max_width = 100
+				# 				align = right
+
+				# 				tooltipwidget = {
+				# 					widget_gold_breakdown_tooltip = {
+				# 						blockoverride "income"
+				# 						{
+				# 							visible = no
+				# 						}
+				# 					}
+				# 				}
+				# 			}
+				# 		}
+
+				# 		hbox = {
+				# 			layoutpolicy_horizontal = expanding
+				# 			visible = "[GetPlayer.HasLiege]"
+
+				# 			text_single = {
+				# 				layoutpolicy_horizontal = expanding
+				# 				text = "MY_REALM_WINDOW_FROM_TO_LIEGE"
+				# 			}
+
+				# 			text_single = {
+				# 				datacontext = "[MyRealmWindow.GetIncomeTax]"
+				# 				text = "[ValueBreakdown.GetValue]"
+				# 				min_width = 100
+				# 				max_width = 100
+				# 				align = right
+
+				# 				tooltipwidget = {
+				# 					my_realm_window_contribution_tooltip = {
+				# 						datacontext = "[MyRealmWindow.GetCharacter]"
+				# 						blockoverride "contribution_tooltip_header"
+				# 						{
+				# 							text = "MRW_TT_TAXES_TO_MY_LIEGE"
+				# 						}
+				# 						blockoverride "contribution_tooltip_content_suffix" {}
+				# 					}
+				# 				}
+				# 			}
+
+				# 			text_single = {
+				# 				datacontext = "[MyRealmWindow.GetLevyTax]"
+				# 				text = "[ValueBreakdown.GetValue]"
+				# 				min_width = 100
+				# 				max_width = 100
+				# 				align = right
+
+				# 				tooltipwidget = {
+				# 					my_realm_window_contribution_tooltip = {
+				# 						datacontext = "[MyRealmWindow.GetCharacter]"
+				# 						blockoverride "contribution_tooltip_header"
+				# 						{
+				# 							text = "MRW_TT_LEVIES_TO_MY_LIEGE"
+				# 						}
+				# 						blockoverride "contribution_tooltip_content_suffix" {}
+				# 					}
+				# 				}
+				# 			}
+				# 		}
+
+				# 		hbox = {
+				# 			name = "vassal_contract"
+				# 			datacontext = "[MyRealmWindow.GetCharacter.GetLiege]"
+				# 			datacontext = "[MyRealmWindow.GetCharacter.GetVassalContract]"
+				# 			visible = "[Character.IsPlayerInteractionShown('vassal_modify_vassal_contract_interaction')]"
+				# 			margin_left = 3
+				# 			spacing = 10
+
+				# 			button_replace = {
+				# 				enabled = "[Character.IsPlayerInteractionValid('vassal_modify_vassal_contract_interaction')]"
+				# 				onclick = "[Character.OpenPlayerInteraction('vassal_modify_vassal_contract_interaction')]"
+				# 				tooltip = "[Character.GetPlayerInteractionTooltip('vassal_modify_vassal_contract_interaction')]"
+				# 			}
+
+				# 			text_single = {
+				# 				visible = "[VassalContract.UsesObligationLevels]"
+				# 				layoutpolicy_horizontal = expanding
+				# 				align = center
+				# 				text = "MY_REALM_WINDOW_MY_OBLIGATIONS"
+				# 			}
+
+				# 			vassal_contract_not_default_icon = {}
+				# 		}
+				# 	}
+				# }
+			}
+		}
+	}
+
+	window = {
+		name = "SPQR_decisions_window"
+		# parentanchor = left|center
+		layer = windows_layer
+		movable = yes
+		datacontext = "[GetVariableSystem]"
+		visible = "[GetVariableSystem.Exists( 'SPQR_decisions_gui_toggle' )]"
+		# visible = no
+		allow_outside = yes
+		size = {500 500}
+
+		using = Window_Position_CharacterList_Small
+		using = Window_Background
+		using = Window_Decoration
+		using = Window_Movable
+		# using = Window_Margin
+
+		position = { -750 0 }
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+			using = Sound_WindowShow_Standard
+		}
+	
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+			using = Sound_WindowHide_Standard
+		}
+
+		vbox = {
+			using = Window_Margins
+
+			header_pattern = {
+				layoutpolicy_horizontal = expanding
+
+				blockoverride "header_text"
+				{
+					# text = "[Localize('RHOMAIOI_senate_tab_name_header')]"
+				}
+
+				blockoverride "button_close"
+				{
+					onclick = "[VariableSystem.Toggle( 'SPQR_decisions_gui_toggle' )]"
+				}
+			}
+		}
+	}
+
+	window = {
+		name = "SPQR_edicts_window"
+		# parentanchor = left|center
+		layer = windows_layer
+		movable = yes
+		datacontext = "[GetVariableSystem]"
+		visible = "[GetVariableSystem.Exists( 'SPQR_edicts_gui_toggle' )]"
+		# visible = no
+		allow_outside = yes
+		size = {500 500}
+
+		using = Window_Position_CharacterList_Small
+		using = Window_Background
+		using = Window_Decoration
+		using = Window_Movable
+		# using = Window_Margin
+
+		position = { -750 0 }
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+			using = Sound_WindowShow_Standard
+		}
+	
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+			using = Sound_WindowHide_Standard
+		}
+
+		vbox = {
+			using = Window_Margins
+
+			header_pattern = {
+				layoutpolicy_horizontal = expanding
+
+				blockoverride "header_text"
+				{
+					# text = "[Localize('RHOMAIOI_senate_tab_name_header')]"
+				}
+
+				blockoverride "button_close"
+				{
+					onclick = "[VariableSystem.Toggle( 'SPQR_edicts_gui_toggle' )]"
+				}
+			}
+		}
+	}
+
+	window = {
+		name = "SPQR_families_window"
+		size = { 580 90% }
+		resizable = no
+		focuspolicy = click
+		visible = "[GetVariableSystem.Exists( 'SPQR_families_gui_toggle' )]"
+		# visible = "[GetVariableSystem.HasValue( 'dynasty_view_expand', 'houses' )]"
+		datacontext = "[DynastyHouseView.GetDynastyHouse.GetDynasty]"
+
+		# attachto = {
+		# 	widgetid = "dynasty_house_view"
+		# 	inherit_visibility = no
+		# }
+
+		using = Window_Movable
+		using = Window_Background
+		using = Window_Decoration
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+			position_x = -600
+			on_start = "[GetVariableSystem.Set( 'houses_list_open', 'true'  )]"
+		}
+
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+			position_x = -580
+			on_start = "[GetVariableSystem.Clear( 'houses_list_open' )]"
+		}
+
+		vbox = {
+			using = Window_Margins
+
+			header_pattern = {
+				layoutpolicy_horizontal = expanding
+
+				blockoverride "header_text"
+				{
+					text = "DYNASTY_VIEW_HOUSES"
+				}
+
+				blockoverride "button_close"
+				{
+					onclick = "[VariableSystem.Toggle( 'SPQR_families_gui_toggle' )]"
+				}
+			}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				margin_left = 10
+				margin_right = 20
+				margin_top = 5
+				spacing = 5
+
+				dropdown_menu_standard =
+				{
+					blockoverride "dropdown_properties"
+					{
+						datamodel = "[DynastyHouseView.GetOrderOptions]"
+						onselectionchanged = "[DynastyHouseView.SortHouses]"
+						selectedindex = "[DynastyHouseView.GetSortSelectedIndex]"
+					}
+
+					blockoverride "dropdown_active_item_properties"
+					{
+						text = "[HouseOrderOption.GetName]"
+					}
+
+					blockoverride "dropdown_item_properties"
+					{
+						text = "[HouseOrderOption.GetName]"
+					}
+
+				}
+
+				expand = {}
+			}
+
+			scrollbox = {
+				name = "houses"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				blockoverride "scrollbox_content"
+				{
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						datamodel = "[DynastyHouseView.GetDynastyHouses]"
+
+						item = {
+							button_standard_hover = {
+								visible = "[DynastyHouse.HasBeenFounded]"
+								layoutpolicy_horizontal = expanding
+								size = { 0 120 }
+
+								onclick = "[PdxGuiTriggerAllAnimations('house_view_refresh')]"
+								onclick = "[DefaultOnHouseCoatOfArmsClick(DynastyHouse.GetID)]"
+
+								vbox = {
+									hbox = {
+										layoutpolicy_horizontal = expanding
+										spacing = 10
+										margin = { 5 10 }
+
+										coa_house_medium = {}
+
+										vbox = {
+											layoutpolicy_horizontal = expanding
+
+											hbox = {
+												layoutpolicy_horizontal = expanding
+
+												text_single = {
+													layoutpolicy_horizontal = expanding
+													text = "[DynastyHouse.GetBaseNameNoTooltip]"
+													default_format = "#high"
+													align = nobaseline
+													fontsize_min = 14
+													autoresize = no
+													using = Font_Size_Medium
+												}
+
+												expand = {}
+
+												text_single = {
+													visible = "[DynastyHouse.IsFoundingHouse]"
+													text = "HOUSE_LIST_FOUNDING"
+													default_format = "#weak"
+													align = nobaseline
+												}
+
+												text_single = {
+													visible = "[Not(DynastyHouse.IsFoundingHouse)]"
+													text = "HOUSE_LIST_CADET"
+													align = nobaseline
+												}
+											}
+
+											text_single = {
+												layoutpolicy_horizontal = expanding
+												text = HOUSE_LIST_HEAD
+												max_width = 365
+												fontsize_min = 14
+												align = nobaseline
+											}
+
+											spacer = {
+												size = { 10 10 }
+											}
+
+											text_single = {
+												layoutpolicy_horizontal = expanding
+												text = "HOUSE_LIST_MEMBERS"
+											}
+
+											hbox = {
+												layoutpolicy_horizontal = expanding
+
+												text_single = {
+													layoutpolicy_horizontal = expanding
+													text = "HOUSE_LIST_FOUNDATION"
+													default_format = "#weak"
+												}
+												text_single = {
+													text = "HOUSE_LIST_HEAD_MAX_MILITARY_STRENGTH"
+													tooltip = "HOUSE_LIST_MILITARY_STRENGTH_TT"
+													align = right
+												}
+											}
+										}
+									}
+
+									divider_light = {
+										layoutpolicy_horizontal = expanding
+										minimumsize = { 0 3 }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+######################################################
+################ TYPES AND TEMPLATES #################
+######################################################

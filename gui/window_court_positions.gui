@@ -151,9 +151,9 @@ types CourtPositionTypes
 				}
 
 				# TODO: Variable for council_window_l_english.yml
-				text_label_center = {
-					text = "RHOMAIOI_COUNCIL_WINDOW_IMPERIAL_COUNCIL"
-				}
+				# text_label_center = {
+				# 	text = "RHOMAIOI_COUNCIL_WINDOW_IMPERIAL_COUNCIL"
+				# }
 
 				## Co-Emperor
 				# hbox = {
@@ -255,21 +255,21 @@ types CourtPositionTypes
 						layoutpolicy_horizontal = expanding
 
 						button_icon = {
-						name = "tab_senate"
-						visible = "[GetScriptedGui('RHOMAIOI_update_senator_list').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						parentanchor = vcenter
-						size = { 80 80 }
-						texture = "gfx/interface/icons/traits/senator.dds"
+							name = "tab_senate"
+							visible = "[GetScriptedGui('RHOMAIOI_update_senator_list').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							parentanchor = vcenter
+							size = { 80 80 }
+							texture = "gfx/interface/icons/traits/senator.dds"
 
-						onclick = "[GetVariableSystem.Toggle( 'senate_open' )]"
-						onclick = "[GetScriptedGui('RHOMAIOI_update_senator_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) ]"
-						down = "[GetVariableSystem.HasValue( 'senate_open', 'true' )]"
+							onclick = "[GetVariableSystem.Toggle( 'senate_open' )]"
+							onclick = "[GetScriptedGui('RHOMAIOI_update_senator_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) ]"
+							down = "[GetVariableSystem.HasValue( 'senate_open', 'true' )]"
 
-						tooltip = "RHOMAIOI_senate_button"
-						using = tooltip_ws
+							tooltip = "RHOMAIOI_senate_button"
+							using = tooltip_ws
 						}
 					}
-					}
+				}
 
 					## Eparch
 					# hbox = {
