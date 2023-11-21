@@ -1,0 +1,403 @@
+﻿#Events related to the Marshal's tasks
+
+namespace = RHOMAIOI_senator_task
+
+RHOMAIOI_senator_task.0001 = { # PLacing the events here increases mod compatibility, since you don't have to use on_actions
+	type = character_event
+	hidden = yes
+	trigger = {
+		is_ruler = yes
+	}
+	immediate = {
+		ordered_living_character = {
+			limit = { has_character_flag = RHOMAIOI_is_member_of_consistorium }
+			order_by = age
+			max = 7
+			add_to_temporary_list = possible_issuing_senators
+		}
+		random_in_list = {
+			list = possible_issuing_senators
+			limit = { has_character_flag = RHOMAIOI_is_member_of_consistorium }
+			save_scope_as = RHOMAIOI_issuing_senator
+		}
+		random_list = {
+			75 = { }  # Does nothing
+			4 = { trigger_event = { id = RHOMAIOI_senator_task.0010 } } # Increase Prestige (minor)
+			4 = { trigger_event = { id = RHOMAIOI_senator_task.0020 } } # Decreases Prestige (minor)
+			1 = { trigger_event = { id = RHOMAIOI_senator_task.0030 } } # Spawns an Army (major)
+			3 = { trigger_event = { id = RHOMAIOI_senator_task.0040 } } # Adds Dread (medium)
+			3 = { trigger_event = { id = RHOMAIOI_senator_task.0050 } } # Adds a Hook (major)
+			4 = { trigger_event = { id = RHOMAIOI_senator_task.0060 } } # Adds Stress (medium)
+			3 = { trigger_event = { id = RHOMAIOI_senator_task.0070 } } # Releases a Prisoner (ok) (medium)
+			2 = { trigger_event = { id = RHOMAIOI_senator_task.0080 } } # Ends Alliance (ok) (medium)
+			1 = { trigger_event = { id = RHOMAIOI_senator_task.0090 } } # Adds Tyranny (major)
+		}
+	}
+}
+
+RHOMAIOI_senator_task.0010 = { # Increases Prestige
+	hidden = yes
+
+	trigger = {
+		top_liege = { NOT = { has_realm_law = crown_authority_3 } }
+		exists = scope:RHOMAIOI_issuing_senator
+		scope:RHOMAIOI_issuing_senator = {
+			opinion = {
+				target = root
+				value > 0
+			}
+		}
+	}
+
+	immediate = {
+		scope:RHOMAIOI_issuing_senator = {
+			save_scope_as = active_councillor
+		}
+		set_variable = {
+			name = RHOMAIOI_had_senator_task_side_effect
+			value = yes
+			days = 180
+		}
+
+		send_interface_message = {
+			type = RHOMAIOI_event_senate
+			title = RHOMAIOI_senator_task.0010.notification
+			desc = RHOMAIOI_senator_task.0010.notification_tooltip
+
+			right_icon = scope:RHOMAIOI_issuing_senator
+			tooltip = RHOMAIOI_senate_notification_tooltip
+
+			add_prestige = 150
+		}
+	}
+}
+
+RHOMAIOI_senator_task.0020 = { # Decreases Prestige
+	hidden = yes
+
+	trigger = {
+		top_liege = { NOT = { has_realm_law = crown_authority_3 } }
+		exists = scope:RHOMAIOI_issuing_senator
+		scope:RHOMAIOI_issuing_senator = {
+			opinion = {
+				target = root
+				value < 0
+			}
+		}
+	}
+
+	immediate = {
+		scope:RHOMAIOI_issuing_senator = {
+			save_scope_as = active_councillor
+		}
+		set_variable = {
+			name = RHOMAIOI_had_senator_task_side_effect
+			value = yes
+			days = 180
+		}
+
+		send_interface_message = {
+			type = RHOMAIOI_event_senate
+			title = RHOMAIOI_senator_task.0020.notification
+			desc = RHOMAIOI_senator_task.0020.notification_tooltip
+
+			right_icon = scope:RHOMAIOI_issuing_senator
+			tooltip = RHOMAIOI_senate_notification_tooltip
+
+			add_prestige = -150
+		}
+	}
+}
+
+RHOMAIOI_senator_task.0030 = { # Spawns an Army
+	hidden = yes
+
+	trigger = {
+		top_liege = { has_realm_law = crown_authority_0 }
+		exists = scope:RHOMAIOI_issuing_senator
+		scope:RHOMAIOI_issuing_senator = {
+			opinion = {
+				target = root
+				value >= 50
+			}
+		}
+	}
+
+	immediate = {
+		scope:RHOMAIOI_issuing_senator = {
+			save_scope_as = active_councillor
+		}
+		set_variable = {
+			name = RHOMAIOI_had_senator_task_side_effect
+			value = yes
+			days = 180
+		}
+
+		send_interface_message = {
+			type = RHOMAIOI_event_senate
+			title = RHOMAIOI_senator_task.0030.notification
+			desc = RHOMAIOI_senator_task.0030.notification_tooltip
+
+			right_icon = scope:RHOMAIOI_issuing_senator
+			tooltip = RHOMAIOI_senate_notification_tooltip
+
+			spawn_army = {
+				men_at_arms = {
+					type = house_guard
+					stacks = {
+						value = 1
+						every_vassal_or_below = { add = 0.1 }
+					}
+				}
+				inheritable = no
+				uses_supply = yes
+				location = capital_province
+				name = "Akritai"
+			}
+		}
+	}
+}
+
+RHOMAIOI_senator_task.0040 = { # Adds Dread
+	hidden = yes
+
+	trigger = {
+		top_liege = { NOT = { has_realm_law = crown_authority_3 } }
+		top_liege = { NOT = { has_realm_law = crown_authority_2 } }
+		exists = scope:RHOMAIOI_issuing_senator
+		scope:RHOMAIOI_issuing_senator = {
+			has_dread_level_towards = {
+				target = root
+				level >= 1
+			}
+		}
+	}
+
+	immediate = {
+		scope:RHOMAIOI_issuing_senator = {
+			save_scope_as = active_councillor
+		}
+		set_variable = {
+			name = RHOMAIOI_had_senator_task_side_effect
+			value = yes
+			days = 180
+		}
+
+		send_interface_message = {
+			type = RHOMAIOI_event_senate
+			title = RHOMAIOI_senator_task.0040.notification
+			desc = RHOMAIOI_senator_task.0040.notification_tooltip
+
+			right_icon = scope:RHOMAIOI_issuing_senator
+			tooltip = RHOMAIOI_senate_notification_tooltip
+
+			add_dread = 30
+		}
+	}
+}
+
+RHOMAIOI_senator_task.0050 = { # Adds a Hook
+	hidden = yes
+
+	trigger = {
+		top_liege = { has_realm_law = crown_authority_0 }
+		exists = scope:RHOMAIOI_issuing_senator
+		scope:RHOMAIOI_issuing_senator = {
+			opinion = {
+				target = root
+				value < 30
+			}
+		}
+	}
+
+	immediate = {
+		scope:RHOMAIOI_issuing_senator = {
+			save_scope_as = active_councillor
+		}
+		set_variable = {
+			name = RHOMAIOI_had_senator_task_side_effect
+			value = yes
+			days = 180
+		}
+
+		send_interface_message = {
+			type = RHOMAIOI_event_senate
+			title = RHOMAIOI_senator_task.0050.notification
+			desc = RHOMAIOI_senator_task.0050.notification_tooltip
+
+			right_icon = scope:RHOMAIOI_issuing_senator
+			tooltip = RHOMAIOI_senate_notification_tooltip
+
+			random_vassal = {
+				add_hook = {
+					target = root
+					type = manipulation_hook
+				}
+			}
+		}
+	}
+}
+
+RHOMAIOI_senator_task.0060 = { # Adds Stress
+	hidden = yes
+
+	trigger = {
+		top_liege = { NOT = { has_realm_law = crown_authority_3 } }
+		top_liege = { NOT = { has_realm_law = crown_authority_2 } }
+		exists = scope:RHOMAIOI_issuing_senator
+		scope:RHOMAIOI_issuing_senator = {
+			opinion = {
+				target = root
+				value < 50
+			}
+		}
+	}
+
+	immediate = {
+		scope:RHOMAIOI_issuing_senator = {
+			save_scope_as = active_councillor
+		}
+
+		set_variable = {
+			name = RHOMAIOI_had_senator_task_side_effect
+			value = yes
+			days = 180
+		}
+
+		send_interface_message = {
+			type = RHOMAIOI_event_senate
+			title = RHOMAIOI_senator_task.0060.notification
+			desc = RHOMAIOI_senator_task.0060.notification_tooltip
+
+			right_icon = scope:active_councillor
+			tooltip = RHOMAIOI_senate_notification_tooltip
+
+			add_stress = 15
+		}
+	}
+}
+
+RHOMAIOI_senator_task.0070 = { # Releases a Prisoner
+	hidden = yes
+
+	trigger = {
+		top_liege = { NOT = { has_realm_law = crown_authority_3 } }
+		top_liege = { NOT = { has_realm_law = crown_authority_2 } }
+		exists = scope:RHOMAIOI_issuing_senator
+		any_prisoner = { days_in_prison > 1 }
+		scope:RHOMAIOI_issuing_senator = {
+			opinion = {
+				target = root
+				value < 30
+			}
+		}
+	}
+
+	immediate = {
+		scope:RHOMAIOI_issuing_senator = {
+			save_scope_as = active_councillor
+		}
+		set_variable = {
+			name = RHOMAIOI_had_senator_task_side_effect
+			value = yes
+			days = 180
+		}
+
+		send_interface_message = {
+			type = RHOMAIOI_event_senate
+			title = RHOMAIOI_senator_task.0070.notification
+			desc = RHOMAIOI_senator_task.0070.notification_tooltip
+
+			right_icon = scope:RHOMAIOI_issuing_senator
+			tooltip = RHOMAIOI_senate_notification_tooltip
+
+			random_prisoner = {
+				release_from_prison = yes
+			}
+		}
+	}
+}
+
+RHOMAIOI_senator_task.0080 = { # Ends Alliance
+	hidden = yes
+
+	trigger = {
+		top_liege = { NOT = { has_realm_law = crown_authority_3 } }
+		top_liege = { NOT = { has_realm_law = crown_authority_2 } }
+		exists = scope:RHOMAIOI_issuing_senator
+		any_ally = {
+			is_allied_to = root
+			NOT = { is_spouse_of = root }
+		}
+		scope:RHOMAIOI_issuing_senator = {
+			opinion = {
+				target = root
+				value < -20
+			}
+		}
+	}
+
+	immediate = {
+		scope:RHOMAIOI_issuing_senator = {
+			save_scope_as = active_councillor
+		}
+		random_ally = {
+			limit = { NOT = { is_spouse_of = root } }
+			save_scope_as = RHOMAIOI_senate_alliance
+		}
+		set_variable = {
+			name = RHOMAIOI_had_senator_task_side_effect
+			value = yes
+			days = 180
+		}
+
+		send_interface_message = {
+			type = RHOMAIOI_event_senate
+			title = RHOMAIOI_senator_task.0080.notification
+			desc = RHOMAIOI_senator_task.0080.notification_tooltip
+
+			right_icon = scope:RHOMAIOI_issuing_senator
+			tooltip = RHOMAIOI_senate_notification_tooltip
+
+			break_alliance = scope:RHOMAIOI_senate_alliance
+		}
+	}
+}
+
+RHOMAIOI_senator_task.0090 = { # Adds Tyranny
+	hidden = yes
+
+	trigger = {
+		top_liege = { has_realm_law = crown_authority_0 }
+		exists = scope:RHOMAIOI_issuing_senator
+		tyranny > 0
+		scope:RHOMAIOI_issuing_senator = {
+			opinion = {
+				target = root
+				value < -20
+			}
+		}
+	}
+
+	immediate = {
+		scope:RHOMAIOI_issuing_senator = {
+			save_scope_as = active_councillor
+		}
+		set_variable = {
+			name = RHOMAIOI_had_senator_task_side_effect
+			value = yes
+			days = 180
+		}
+
+		send_interface_message = {
+			type = RHOMAIOI_event_senate
+			title = RHOMAIOI_senator_task.0090.notification
+			desc = RHOMAIOI_senator_task.0090.notification_tooltip
+
+			right_icon = scope:RHOMAIOI_issuing_senator
+			tooltip = RHOMAIOI_senate_notification_tooltip
+
+			add_tyranny = 50
+		}
+	}
+}

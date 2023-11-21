@@ -1,0 +1,58 @@
+﻿
+namespace = RHOMAIOI_senate_dissolution
+
+#Player dismantles the senate
+RHOMAIOI_senate_dissolution.0001 = {
+	type = character_event
+	title = RHOMAIOI_senate_dissolution.0001.t
+	desc = RHOMAIOI_senate_dissolution.0001.desc
+	theme = realm
+	left_portrait = {
+		character = scope:scoped_emperor
+		animation = personality_honorable
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		save_scope_as = scoped_emperor
+	}
+
+	option = {
+		name = RHOMAIOI_senate_dissolution.0001.a
+		set_nickname_effect = { NICKNAME = nick_RHOMAIOI_autokrator }
+		# Send narrative fluff to other players (if any).
+		every_player = {
+			limit = {
+				NOT = { this = root }
+				is_within_diplo_range = { CHARACTER = root }
+			}
+			trigger_event = RHOMAIOI_senate_dissolution.0002
+		}
+	}
+}
+
+# Players informed of AI dismantling the senate
+RHOMAIOI_senate_dissolution.0002 = {
+	type = character_event
+	title = RHOMAIOI_senate_dissolution.0002.t
+	desc = RHOMAIOI_senate_dissolution.0002.desc
+	theme = realm
+	left_portrait = {
+		character = scope:scoped_emperor
+		animation = personality_honorable
+	}
+
+	immediate = {
+		#Same-faith non-empire tier rulers are over-awed.
+		if = {
+			limit = { faith = scope:scoped_emperor.faith }
+			play_music_cue = "mx_cue_epic_sacral_moment"
+		}
+		#Otherwise, this is a tacit statement of imperial threat.
+		else = { play_music_cue = "mx_cue_combat_2" }
+	}
+
+	option = {
+		name = RHOMAIOI_senate_dissolution.0001.a
+	}
+}
