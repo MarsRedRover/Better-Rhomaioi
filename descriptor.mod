@@ -1,4 +1,4 @@
-version="0.1.2"
+version="0.1.1a"
 tags={
 	"Historical"
 	"Balance"
@@ -7,5 +7,5 @@ tags={
 }
 picture="thumbnail.png"
 name="Better Rhomaioi"
-supported_version="1.11.0.1"
+supported_version="1.10.*"
 remote_file_id="3059564451"
