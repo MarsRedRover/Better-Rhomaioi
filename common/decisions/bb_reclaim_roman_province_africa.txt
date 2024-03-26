@@ -1,0 +1,87 @@
+﻿restore_roman_province_of_africa = {
+	title = "Restore Roman Province of Africa Proconsularis"
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	sort_order = integer
+	desc = "Africa Proconsularis was one of the longest standing Roman Provinces of the entire Empire. Due to the lack of major enemies to the South and the relative peace held up, it was able to prosper and grow without fear for the better part of 600 years. It took the Vandals to travel from Germania through to Southern Gaul and then land in Africa via Boat for the Province to fall. It is time to fully reclaim the old Borders of Africa Proconsularis!"
+	selection_tooltip = "Planning and Preparation for the Restoration of the Roman Province of Africa Proconsularis"
+	major = yes
+	confirm_text = "Africa Invicta!"
+
+	#ai_check_interval = 40
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		primary_title = title:e_roman_empire
+
+		title:k_africa = {
+			holder = {
+				NOR = { 
+					is_vassal_or_below_of = title:e_roman_empire.holder 
+					this = title:e_roman_empire.holder
+				}
+			}
+		}
+
+		house = {
+			NOT = {
+				has_house_modifier = restore_africa_proconsularis
+			}
+			}
+		
+
+		OR = { 
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_republic
+			government_has_flag = government_is_clan
+			}
+	}
+
+	is_valid = {
+		prestige_level >= 4
+		has_primary_title = title:e_roman_empire
+		completely_controls_region = custom_north_africa
+		completely_controls_region = custom_egypt
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+
+		OR = {
+			religion = { is_in_family = rf_abrahamic }
+			religion = religion:hellenism_religion
+			culture = { has_cultural_pillar = heritage_latin }
+			culture = { has_cultural_pillar = heritage_byzantine }
+		}
+	}
+
+	effect = {
+		add_prestige = 250
+		add_piety = 150
+		dynasty = { add_dynasty_prestige = 100}
+
+		house = {
+			add_house_modifier = {
+				modifier = restore_africa_proconsularis
+				years = 25
+			}
+		}
+
+		custom_tooltip = "You gain a Casus Belli to claim the respective Region"
+
+	}
+
+	cost = {
+		gold = 150
+	}
+
+	#ai_potential = {
+	#	always = yes
+	 #}
+
+	 #ai_will_do = {
+	#	base = 100
+	 #}
+}

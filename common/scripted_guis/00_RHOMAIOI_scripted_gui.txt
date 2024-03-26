@@ -230,3 +230,27 @@ RHOMAIOI_update_senator_list = {
 		}
 	}
 }
+
+RHOMAIOI_varangian_not_founded = {
+	scope = character
+
+	is_valid = {
+		AND = {
+			current_date < 988.1.1
+			game_start_date = 867.1.1
+		}
+	}
+
+	# MAKE FUNCTION TO CHECK IF FOUNDED
+}
+
+RHOMAIOI_varangian_founded = {
+	scope = character
+
+	is_valid = {
+		AND = {
+			current_date > 1066.1.1
+			game_start_date = 1066.9.15
+		}
+	}
+}

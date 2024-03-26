@@ -1,0 +1,3 @@
+RHOMAIOI_base_authority_increase = {
+	value = 2.5
+}

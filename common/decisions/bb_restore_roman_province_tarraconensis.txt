@@ -1,0 +1,110 @@
+restore_roman_province_of_tarraconensis = {
+	title = "Restore Roman Province of Tarraconensis"
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	sort_order = integer
+	desc = "X"
+	selection_tooltip = "Planning and Preparation for the Restoration of the Roman Province of Tarraconensis"
+	major = yes
+	confirm_text = "Tarraconensis Invicta!"
+
+	#ai_check_interval = 40
+
+	is_shown = {
+		is_ruler = yes
+		is_landed =yes
+		primary_title = title:e_roman_empire
+
+		completely_controls_region = custom_tarraconensis
+
+		title:d_toledo = {
+			holder = {
+				OR = { 
+					is_vassal_or_below_of = title:e_roman_empire.holder 
+					this = title:e_roman_empire.holder
+				}
+			}
+		}
+
+		NOT = {
+			title:d_castilla = {
+				de_jure_liege = title:k_valencia
+			}
+		}
+		
+		OR = { 
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_republic
+			government_has_flag = government_is_clan
+			}
+	}
+
+	is_valid = {
+		prestige_level >= 4
+		has_primary_title = title:e_roman_empire
+		completely_controls_region = custom_iberia
+		completely_controls_region = custom_tarraconensis
+
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+
+		OR = {
+			religion = { is_in_family = rf_abrahamic }
+			religion = religion:hellenism_religion
+			culture = { has_cultural_pillar = heritage_latin }
+			culture = { has_cultural_pillar = heritage_byzantine }
+		}
+	}
+
+	effect = {
+		add_prestige = 250
+		add_piety = 150
+		dynasty = { add_dynasty_prestige = 100}
+
+		title:d_toledo = {
+			set_de_jure_liege_title = title:k_valencia
+		}
+		title:d_barcelona = {
+			set_de_jure_liege_title = title:k_valencia
+		}
+		title:d_navarra = {
+			set_de_jure_liege_title = title:k_valencia
+		}
+		title:d_viscaya = {
+			set_de_jure_liege_title = title:k_valencia
+		}
+		title:d_cantabria = {
+			set_de_jure_liege_title = title:k_valencia
+		}
+		title:d_asturias = {
+			set_de_jure_liege_title = title:k_valencia
+		}
+		title:d_leon = {
+			set_de_jure_liege_title = title:k_valencia
+		}
+		title:d_porto = {
+			set_de_jure_liege_title = title:k_valencia
+		}
+		title:d_galicia = {
+			set_de_jure_liege_title = title:k_valencia
+		}
+		title:d_castilla = {
+			set_de_jure_liege_title = title:k_valencia
+		}
+	}
+
+	cost = {
+		gold = 50
+	}
+
+	#ai_potential = {
+	#	always = yes
+	 #}
+
+	 #ai_will_do = {
+	#	base = 100
+	 #}
+}

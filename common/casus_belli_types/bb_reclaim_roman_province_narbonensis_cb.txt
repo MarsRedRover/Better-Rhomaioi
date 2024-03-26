@@ -1,0 +1,226 @@
+reclaim_roman_province_of_tarraconensis_cb = {
+	icon = county_conquest_cb
+	group = conquest
+
+	combine_into_one = yes
+	should_show_war_goal_subview = yes
+	mutually_exclusive_titles = {
+		always = no
+	}
+
+	attacker_score_from_occupation_scale = 150
+	attacker_score_from_battles_scale = 150
+	defender_score_from_battles_scale = 150
+
+	allowed_for_character = {
+		has_primary_title = title:e_roman_empire
+		house = {
+			has_house_modifier = restore_aquitania_narbonensis
+		}
+	}
+
+	allowed_against_character = {
+		scope:attacker = {
+			ALL_FALSE = {
+				top_liege = scope:defender.top_liege
+				liege = scope:defender
+			}
+		}
+	}
+
+	target_titles = all
+	target_title_tier = all
+	target_de_jure_regions_above = yes
+	ignore_effect = change_title_holder
+
+	valid_to_start = {
+		scope:target = {
+			tier = tier_county
+			title_province = { geographical_region = custom_aquitania_narbonensis }
+		}
+	}
+
+		should_invalidate = {
+			NOT = {
+				any_in_list = {
+					list = target_titles
+					any_in_de_jure_hierarchy = {
+						tier = tier_county
+						holder = {
+							OR = {
+								this = scope:defender
+								target_is_liege_or_above = scope:defender
+							}
+						}
+					}
+				}
+			}
+		}
+	
+		on_invalidated = {
+		}
+	
+		cost = {
+			piety = {
+				add = common_cb_impious_piety_cost
+				value = 0
+				multiply = common_cb_piety_cost_multiplier
+			}
+			prestige = {
+				value = 250
+				multiply = common_cb_prestige_cost_multiplier
+				}
+			}
+		
+		on_declaration = {
+			on_declared_war = yes
+		}
+
+		on_victory_desc = "Reclaimation of Aquitania Narbonensis is completed!"
+
+		on_victory = {
+			scope:attacker = {
+				show_pow_release_message_effect = yes
+			}
+
+			scope:attacker = {
+				accolade_attacker_war_end_glory_gain_med_effect = yes
+			}
+
+			create_title_and_vassal_change = {
+				type = conquest
+				save_scope_as = change
+				add_claim_on_loss = yes
+			}
+
+			every_in_list = {
+				list = target_titles
+				custom_tooltip = RELIGIOUS_CB_TITLE
+				conquest_cb_title_transfer = {
+					RELIGIOUS_WAR = yes
+				}
+				}
+
+				every_in_list = {
+					list = titles_taken
+					change_title_holder = {
+						holder = scope:attacker
+						change = scope:change
+						take_baronies = yes
+					}
+				}
+
+				resolve_title_and_vassal_change = scope:change
+
+				every_in_list = {
+					list = target_titles
+					scope:attacker = {
+						add_prestige_experience = minor_prestige_value
+					}
+				}
+		
+				# Allies on both sides get full prestige value for helping in the war, based on their war participation.
+				modify_allies_of_participants_fame_values = {
+					WINNER = scope:attacker
+					FAME_BASE = minor_prestige_value
+					IS_RELIGIOUS_WAR = no
+					WINNER_ALLY_FAME_SCALE = 1
+					LOSER_ALLY_FAME_SCALE = 1
+				}
+		
+				# Truce
+				add_truce_attacker_victory_effect = yes
+		
+				# FP1: note the victory for future memorialisation via stele (if applicable).
+				scope:attacker = { fp1_remember_recent_conquest_victory_effect = yes }
+		}
+
+			on_white_peace_desc = "The Years of War have stripped our Nations bare of Men and Value. We have agreed to a ceasefire, though it may not last eternally."
+
+			on_white_peace = {
+				scope:attacker = { show_pow_release_message_effect = yes }
+				# Prestige loss for the attacker
+				scope:attacker = {
+					add_prestige = {
+						value = minor_prestige_value
+						multiply = -1.0
+					}
+				}
+		
+				# Allies on both sides get full prestige value for helping in the war, based on their war participation.
+				modify_allies_of_participants_fame_values = {
+					WINNER = scope:attacker # not important as the scales are identical
+					FAME_BASE = minor_prestige_value
+					IS_RELIGIOUS_WAR = no
+					WINNER_ALLY_FAME_SCALE = 1
+					LOSER_ALLY_FAME_SCALE = 1
+				}
+		
+				add_truce_white_peace_effect = yes
+			}
+
+			on_defeat_desc = "Conquest has failed! Dark Days are ahead!"
+
+			on_defeat = {
+				scope:attacker = { show_pow_release_message_effect = yes }
+		
+				#EP2 accolade glory gain for winning against higher ranked enemy
+				scope:defender = { accolade_defender_war_end_glory_gain_low_effect = yes }
+		
+				# Prestige loss for the attacker
+				scope:attacker = {
+					pay_short_term_gold_reparations_effect = {
+						GOLD_VALUE = 2
+					}
+					add_prestige = {
+						value = medium_prestige_value
+						multiply = -1.0
+					}
+				}
+		
+				# Prestige for Defender
+				scope:defender = {
+					add_prestige_war_defender_effect = {
+						PRESTIGE_VALUE = medium_prestige_value
+					}
+				}
+		
+				# Allies on both sides get full prestige value for helping in the war, based on their war participation.
+				modify_allies_of_participants_fame_values = {
+					WINNER = scope:defender
+					FAME_BASE = minor_prestige_value
+					IS_RELIGIOUS_WAR = no
+					WINNER_ALLY_FAME_SCALE = 1
+					LOSER_ALLY_FAME_SCALE = 1
+				}
+		
+				add_truce_attacker_defeat_effect = yes
+		
+				scope:attacker = {
+					save_temporary_scope_as = loser
+				}
+				on_lost_aggression_war_discontent_loss = yes
+			}
+
+		on_invalidated_desc = "Conquest has invalidated."
+
+		transfer_behavior = transfer
+
+		attacker_allies_inherit = yes
+		defender_allies_inherit = yes
+
+		war_name = "Reclaimation of Aquitania Narbonensis"
+		war_name_base = "Reclaimation of Aquitania Narbonensis"
+		cb_name = "Roman Conquest"
+
+		interface_priority = 80
+
+		use_de_jure_wargoal_only = yes
+
+		attacker_wargoal_percentage = 0.8
+	
+		max_defender_score_from_occupation = 150
+		max_attacker_score_from_occupation = 150
+
+		#max_ai_diplo_distance_to_title = 500
+	}

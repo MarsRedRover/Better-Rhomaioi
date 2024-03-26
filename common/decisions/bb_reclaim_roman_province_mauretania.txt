@@ -1,0 +1,88 @@
+reclaim_roman_province_of_mauretania = {
+	title = "Reclaim Roman Province of Mauretania"
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	sort_order = integer
+	desc = "Mauretania, too, was one of the longest standing Roman Provinces of the entire Empire. Due to the lack of major enemies to the South and the relative peace held up, it was able to prosper and grow without fear for the better part of 600 years. It took the Vandals to travel from Germania through to Southern Gaul and then land in Northern Africa via Boat for the Province to fall. It is time to fully reclaim the old Borders of Mauretania!"
+	selection_tooltip = "Planning and Preparation for the Restoration of the Roman Province of Mauretania"
+	major = yes
+	confirm_text = "Mauretania Invicta!"
+
+	#ai_check_interval = 40
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		primary_title = title:e_roman_empire
+
+		house = {
+			NOT = {
+				has_house_modifier = restore_mauretania
+			}
+		}
+
+		title:d_fes = {
+			holder = {
+				NOT = {
+					this = title:e_roman_empire.holder
+					is_vassal_or_below_of = title:e_roman_empire.holder
+				}
+			}
+		}
+		
+
+		OR = { 
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_republic
+			government_has_flag = government_is_clan
+			}
+	}
+
+	is_valid = {
+		prestige_level >= 4
+		has_primary_title = title:e_roman_empire
+		completely_controls = title:c_ceuta
+		completely_controls_region = custom_north_africa
+		completely_controls_region = custom_egypt
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+
+		OR = {
+			religion = { is_in_family = rf_abrahamic }
+			religion = religion:hellenism_religion
+			culture = { has_cultural_pillar = heritage_latin }
+			culture = { has_cultural_pillar = heritage_byzantine }
+		}
+	}
+
+	effect = {
+		add_prestige = 250
+		add_piety = 150
+		dynasty = { add_dynasty_prestige = 100}
+
+		house = {
+			add_house_modifier = {
+				modifier = restore_mauretania
+				years = 25
+			}
+		}
+
+		custom_tooltip = "You gain a Casus Belli to claim the respective Region"
+
+	}
+
+	cost = {
+		gold = 250
+	}
+
+	#ai_potential = {
+	#	always = yes
+	 #}
+
+	 #ai_will_do = {
+	#	base = 100
+	 #}
+}

@@ -1,0 +1,111 @@
+﻿restore_roman_province_of_judea_and_arabia = {
+	title = "Restore Roman Province of Judea and Arabia Petraea"
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	sort_order = integer
+	desc = "The Area around the Duchies of Jerusalem and Sinai has been Subject to administrative Restructuring more then four times, most recently during the provincial Restructuring of Syria Palestina into Palestina Prima, Palestina Secunda and Palestina Salutaris. Restructure is needed once more, to simplify the process of ruling this Area."
+	selection_tooltip = "Planning and Preparation for the Restoration of the Roman Province of Palestina"
+	major = yes
+	confirm_text = "Palestina Invicta!"
+
+	#ai_check_interval = 40
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		primary_title = title:e_roman_empire
+
+			title:d_medina = {
+				NOT = {
+					de_jure_liege = title:k_jerusalem
+				}
+			}
+			title:d_mecca = {
+				NOT = {
+					de_jure_liege = title:k_jerusalem
+				}
+			}
+			title:d_shammar = {
+				NOT = {
+					de_jure_liege = title:k_jerusalem
+				}
+			}
+	
+		OR = { 
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_republic
+			government_has_flag = government_is_clan
+			}
+	}
+
+	is_valid = {
+		prestige_level >= 4
+		has_primary_title = title:e_roman_empire
+		completely_controls_region = custom_syrian_coast
+		completely_controls_region = custom_egypt 
+		completely_controls = title:k_jerusalem
+
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+
+		OR = {
+			religion = { is_in_family = rf_abrahamic }
+			religion = religion:hellenism_religion
+			culture = { has_cultural_pillar = heritage_latin }
+			culture = { has_cultural_pillar = heritage_byzantine }
+		}
+	}
+
+	effect = {
+		add_prestige = 250
+		add_piety = 150
+		dynasty = { add_dynasty_prestige = 100 }
+
+		title:d_sinai = {
+			set_de_jure_liege_title = title:k_jerusalem
+		}
+
+		if = {
+			limit = {
+				title:d_shammar.holder = {
+					is_vassal_or_below_of = title:e_roman_empire.holder
+				}
+				title:d_medina.holder = {
+					is_vassal_or_below_of = title:e_roman_empire.holder
+				}
+				title:d_mecca.holder = {
+					is_vassal_or_below_of = title:e_roman_empire.holder
+				}
+			}
+			title:d_shammar = {
+				set_de_jure_liege_title = title:k_jerusalem
+			}
+			title:d_medina = {
+				set_de_jure_liege_title = title:k_jerusalem
+			}
+			title:d_mecca = {
+				set_de_jure_liege_title = title:k_jerusalem
+			}
+		}
+		
+		else_if = {
+			limit = { }
+			custom_tooltip = "If the Duchies of Mecca, Shammar and Medina are under your rule, they will become De Jure of the Kingdom of Jerusalem."
+		}
+	}
+
+	cost = {
+		gold = { 50 }
+	}
+
+	#ai_potential = {
+	#	always = yes
+	 #}
+
+	 #ai_will_do = {
+	#	base = 100
+	 #}
+}

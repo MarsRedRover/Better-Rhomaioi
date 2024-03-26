@@ -1,0 +1,139 @@
+﻿decimate_muslim_invaders = {
+	title = "Decimate Muslim Invaders"
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	desc = "For to long have the Muslim Incursions overrun our Borders and taken what is rightfully ours. Having rid the Syrian Coast and Egyptian Provinces from their Incursion, even having taken some of their heartland, the Province of Mesopotamia, it is time to rid their holiest of Sites from them, as they have done many a time to us."
+	sort_order = integer
+	selection_tooltip = "Preparation to rid the Muslimic Incursions of their holiest of Sites!"
+	major = yes
+	confirm_text = "Death to the Followers of Muhammad"
+
+	#ai_check_interval = 40
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		primary_title = title:e_roman_empire
+
+		house = {
+			has_house_modifier = mesopotamia_conquered
+		}
+
+		AND = {
+			calc_true_if = { 
+				amount >= 2
+				title:c_mecca = {
+					holder.religion = religion:islam_religion
+					holder = {
+						NAND = { 
+							is_vassal_or_below_of = title:e_roman_empire.holder 
+							this = title:e_roman_empire.holder
+						}
+					}
+				}
+				title:c_medina = {
+					holder.religion = religion:islam_religion
+					holder = {
+						NAND = { 
+							is_vassal_or_below_of = title:e_roman_empire.holder 
+							this = title:e_roman_empire.holder
+						}
+					}
+				}
+				title:c_tabuk = {
+					holder.religion = religion:islam_religion
+					holder = {
+						NAND = { 
+							is_vassal_or_below_of = title:e_roman_empire.holder 
+							this = title:e_roman_empire.holder
+						}
+					}
+				}
+			}
+		}
+		OR = { 
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_republic
+			government_has_flag = government_is_clan
+			}
+	}
+	
+	is_valid = {
+		prestige_level >= 3
+		has_primary_title = title:e_roman_empire
+		completely_controls_region = custom_syria_coele
+		completely_controls_region = custom_syrian_coast
+		completely_controls_region = custom_egypt
+
+		AND = {
+			calc_true_if = { 
+				amount >= 2
+				title:c_mecca = {
+					holder.religion = religion:islam_religion
+				}
+				title:c_medina = {
+					holder.religion = religion:islam_religion
+				}
+				title:c_tabuk = {
+					holder.religion = religion:islam_religion
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+
+		OR = {
+			religion = { is_in_family = rf_abrahamic }
+			religion = religion:hellenism_religion
+			culture = { has_cultural_pillar = heritage_latin }
+			culture = { has_cultural_pillar = heritage_byzantine }
+		}
+	}
+
+	effect = {
+		add_prestige = 250
+		add_piety = 150
+		dynasty = { add_dynasty_prestige = 100 }
+
+		hidden_effect = {
+			faith:ashari = {
+				change_fervor = { 
+					value = { 
+						value = fervor 
+						multiply = -1 
+					}
+					desc = fervor_zero
+				}
+				change_fervor = { 
+					value = 20 
+					desc = fervor_twenty
+				}
+			}
+		}
+
+		house = {
+			add_house_modifier = {
+				modifier = decimate_muslim_invaders
+				years = 20
+			}
+		}
+
+		custom_tooltip = "The Ash'ari Fervor will be set to 20"
+		custom_tooltip = "You will gain a Special Casus Belli for the respective Region"
+	}
+
+	cost = {
+		gold = { 250 }
+	}
+
+	#ai_potential = {
+	#	always = yes
+	 #}
+
+	 #ai_will_do = {
+	#	base = 100
+	 #}
+}

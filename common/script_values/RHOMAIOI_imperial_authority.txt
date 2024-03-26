@@ -1,0 +1,39 @@
+﻿RHOMAIOI_imperial_authority_min = 0
+RHOMAIOI_imperial_authority_max = 1000
+
+RHOMAIOI_imperial_authority_low = 200
+RHOMAIOI_imperial_authority_normal = 500
+RHOMAIOI_imperial_authority_high = 800
+
+RHOMAIOI_imperial_authority_decay_delta = {
+	value = {
+		value = RHOMAIOI_imperial_authority_decay_delta_base
+	}
+	# add = {}
+}
+
+RHOMAIOI_imperial_authority_decay_from_fervor = {
+	# value = 
+}
+
+RHOMAIOI_imperial_authority_decay_from_authority = {}
+
+RHOMAIOI_imperial_authority_decay_from_minor = {}
+
+RHOMAIOI_imperial_authority_decay_from_incapable = {}
+
+RHOMAIOI_imperial_authority_decay_from_female_rule = {}
+
+RHOMAIOI_imperial_authority_decay_from_court_grandeur = {}
+
+RHOMAIOI_imperial_authority_decay_from_debt = {}
+
+RHOMAIOI_imperial_authority_decay_from_cultural_unity = {}
+
+RHOMAIOI_imperial_authority_decay_from_cultural_disunity = {}
+
+RHOMAIOI_imperial_authority_decay_from_manpower = {}
+
+RHOMAIOI_imperial_authority_decay_from_wars = {}
+
+# RHOMAIOI_imperial_authority_decay_from_health = {}

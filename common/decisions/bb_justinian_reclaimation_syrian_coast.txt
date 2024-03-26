@@ -1,0 +1,85 @@
+restore_justinian_borders_syrian_coast = {
+	title = "Justinian Reclaimation I - Syrian Coastline"
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	sort_order = integer
+	desc = "Under Emperor Justinian I. (Byzantine Emperor from 08/01/527 to 11/14/565) the Byzantine Empire saw it's furthest border reach post the split of the united Roman Empire. Reaching from Anatolia, Bulgaria and Illyricum through the Entirety of Italy, along the shores of the Mediterranean Sea in Egypt, Africa and even engulfing parts of Spain. It would be an impossible task to hold onto those territories, causing the Empire to lose most of its Gains within the next two decades."
+	selection_tooltip = "The first Decree over the Restoration of Justinian Borders"
+	major = yes
+	confirm_text = "Reclaim Jerusalem and the Syrian Coast!"
+
+	#ai_check_interval = 120
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		primary_title = title:e_byzantium
+		house = { 
+			AND = { 
+				has_house_modifier = illyricum_conquered
+				has_house_modifier = syria_coele_conquered
+			}
+			NOT = {
+				OR = {
+					has_house_modifier = syrian_coast_conquest
+					has_house_modifier = syrian_coast_conquered
+				}
+			}
+		}
+		OR = { 
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_republic
+			government_has_flag = government_is_clan
+		}
+	}
+
+	is_valid = {
+		prestige_level >= 3
+		completely_controls = title:d_krete
+		completely_controls = title:d_cyprus
+		completely_controls = title:d_cilicia
+		completely_controls = title:c_byzantion
+		has_primary_title = title:e_byzantium
+		completely_controls_region = custom_syria_coele
+		completely_controls_region = custom_balkan_territories
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+
+		OR = {
+			religion = { is_in_family = rf_abrahamic }
+			religion = religion:hellenism_religion
+			culture = { has_cultural_pillar = heritage_latin }
+			culture = { has_cultural_pillar = heritage_byzantine }
+		}
+	 }
+
+	 effect = {
+		add_prestige = 500
+		add_piety = 250
+		dynasty = { add_dynasty_prestige = 250 }
+		
+		house = {
+			add_house_modifier = {
+			modifier = syrian_coast_conquest
+			years = 30
+		}}
+
+		custom_tooltip = "You gain a Casus Belli to claim the respective Region"
+		
+	 }
+
+	 cost = {
+		gold = { 300 }
+	 }
+
+	 #ai_potential = {
+	#	always = yes
+	 #}
+
+	 #ai_will_do = {
+	#	base = 100
+	 #}
+}

@@ -20,182 +20,249 @@ RHOMAIOI_roman_culture.001 = {
 	option = {
 		name = RHOMAIOI_roman_culture.001.a
 		set_nickname_effect = { NICKNAME = nick_RHOMAIOI_the_roman }
+		
+		culture:rhomaioi = {
+			# Byzantine Heritage
+			change_cultural_acceptance = {
+				target = culture:greek
+				value = 80
+				desc = cultural_acceptance_historical_relations
+			}
+			change_cultural_acceptance = {
+				target = culture:alan
+				value = 30
+				desc = cultural_acceptance_historical_relations
+			}
+			change_cultural_acceptance = {
+				target = culture:armenian
+				value = 40
+				desc = cultural_acceptance_historical_relations
+			}
+			change_cultural_acceptance = {
+				target = culture:georgian
+				value = 40
+				desc = cultural_acceptance_historical_relations
+			}
+			change_cultural_acceptance = {
+				target = culture:syriac
+				value = 50
+				desc = cultural_acceptance_historical_relations
+			}
+			# Latin heritage
+			change_cultural_acceptance = {
+				target = culture:italian
+				value = 100
+				desc = cultural_acceptance_historical_relations
+			}
+			change_cultural_acceptance = {
+				target = culture:cisalpine
+				value = 60
+				desc = cultural_acceptance_historical_relations
+			}
+			change_cultural_acceptance = {
+				target = culture:sardinian
+				value = 60
+				desc = cultural_acceptance_historical_relations
+			}
+			change_cultural_acceptance = {
+				target = culture:lombard
+				value = 50
+				desc = cultural_acceptance_historical_relations
+			}
+			change_cultural_acceptance = {
+				target = culture:sicilian
+				value = 70
+				desc = cultural_acceptance_historical_relations
+			}
+		}
 	}
 }
 
 #Greeks and Italians (including vassals) in Italy learn of the restoration, and get a chance to embrace
-RHOMAIOI_roman_culture.002 = {
-	type = character_event
-	title = RHOMAIOI_roman_culture.002.t
-	desc = RHOMAIOI_roman_culture.002.desc
-	theme = culture_change
-	immediate = {
-		play_music_cue = "mx_cue_epic_sacral_moment"
-	}
+# RHOMAIOI_roman_culture.002 = {
+# 	type = character_event
+# 	title = RHOMAIOI_roman_culture.002.t
+# 	desc = RHOMAIOI_roman_culture.002.desc
+# 	theme = culture_change
+# 	immediate = {
+# 		play_music_cue = "mx_cue_epic_sacral_moment"
+# 	}
 
-	option = { #Embrace the old imperial ways as well
-		name = RHOMAIOI_roman_culture.002.a
-		trigger = {
-			culture = culture:greek
-			culture = culture:italian
-		}
-		convert_family_culture_and_notify_vassals_effect = {
-			CONVERTER = scope:converter
-			OLD_CULTURE_1 = culture:greek
-			OLD_CULTURE_2 = culture:italian
-			NEW_CULTURE = culture:roman
-		}
-		stress_impact = {
-			stubborn = medium_stress_impact_gain
-		}
-		ai_chance = {
-			base = 20
-			modifier = { #I will follow the emperor
-				add = 200
-				primary_title = { target_is_de_facto_liege_or_above = title:e_roman_empire }
-			}
-			modifier = {
-				add = 80
-				any_held_title = {
-					tier = tier_county
-					culture = culture:roman
-				}
-			}
-			modifier = {
-				add = 100
-				is_landed = yes
-				capital_province.culture = culture:roman
-			}
-			modifier = { #More likely if controlling a hellenic province or being hellenic
-				add = 80
-				any_held_title = {
-					tier = tier_county
-					faith.religion = faith:hellenic_pagan.religion
-				}
-			}
-			modifier = {
-				add = 100
-				is_landed = yes
-				faith.religion = faith:hellenic_pagan.religion
-			}
-			modifier = { #Stubborn people dont like to convert
-				factor = 0.2
-				has_trait = stubborn
-			} 
-			modifier = { #I dont want follow the ways of another realm
-				factor = 0.2
-				NOT = {
-					primary_title = { target_is_de_facto_liege_or_above = title:e_roman_empire }
-				}
-			}
-		}
-	}
-	option = { #Cool but I like my culture better
-		name = RHOMAIOI_roman_culture.002.b
-		ai_chance = {
-			base = 40
-			modifier = {
-				factor = 2
-				has_trait = stubborn
-			}
-		}
-	}
-}
+# 	option = { #Embrace the old imperial ways as well
+# 		name = RHOMAIOI_roman_culture.002.a
+# 		trigger = {
+# 			culture = culture:greek
+# 			culture = culture:italian
+# 		}
+# 		convert_family_culture_and_notify_vassals_effect = {
+# 			CONVERTER = scope:converter
+# 			OLD_CULTURE_1 = culture:greek
+# 			OLD_CULTURE_2 = culture:italian
+# 			NEW_CULTURE = culture:roman
+# 		}
+# 		# new_culture_created_vassal_conversion_effect = {
+# 		# 	CONVERTER = scope:converter
+# 		# 	OLD_CULTURE_1 = culture:greek
+# 		# 	OLD_CULTURE_2 = culture:italian
+# 		# 	NEW_CULTURE = culture:roman
+# 		# }
+# 		# 1.11 test
+# 		# new_culture_created_vassal_conversion_effect = {
+# 		# 	CONVERTEE = scope:recipient
+# 		# 	CONVERTER = scope:actor
+# 		# 	CULTURE = scope:actor.culture
+# 		# }
+# 		stress_impact = {
+# 			stubborn = medium_stress_impact_gain
+# 		}
+# 		ai_chance = {
+# 			base = 20
+# 			modifier = { #I will follow the emperor
+# 				add = 200
+# 				primary_title = { target_is_de_facto_liege_or_above = title:e_roman_empire }
+# 			}
+# 			modifier = {
+# 				add = 80
+# 				any_held_title = {
+# 					tier = tier_county
+# 					culture = culture:roman
+# 				}
+# 			}
+# 			modifier = {
+# 				add = 100
+# 				is_landed = yes
+# 				capital_province.culture = culture:roman
+# 			}
+# 			modifier = { #More likely if controlling a hellenic province or being hellenic
+# 				add = 80
+# 				any_held_title = {
+# 					tier = tier_county
+# 					faith.religion = faith:hellenic_pagan.religion
+# 				}
+# 			}
+# 			modifier = {
+# 				add = 100
+# 				is_landed = yes
+# 				faith.religion = faith:hellenic_pagan.religion
+# 			}
+# 			modifier = { #Stubborn people dont like to convert
+# 				factor = 0.2
+# 				has_trait = stubborn
+# 			} 
+# 			modifier = { #I dont want follow the ways of another realm
+# 				factor = 0.2
+# 				NOT = {
+# 					primary_title = { target_is_de_facto_liege_or_above = title:e_roman_empire }
+# 				}
+# 			}
+# 		}
+# 	}
+# 	option = { #Cool but I like my culture better
+# 		name = RHOMAIOI_roman_culture.002.b
+# 		ai_chance = {
+# 			base = 40
+# 			modifier = {
+# 				factor = 2
+# 				has_trait = stubborn
+# 			}
+# 		}
+# 	}
+# }
 
-#Other Greek/Italian Vassals of the Emperor learn of the restoration, and get a chance to embrace
-RHOMAIOI_roman_culture.003 = {
-	type = character_event
-	title = RHOMAIOI_roman_culture.003.t
-	desc = RHOMAIOI_roman_culture.003.desc
-	theme = culture_change
-	immediate = {
-		play_music_cue = "mx_cue_epic_sacral_moment"
-	}
+# #Other Greek/Italian Vassals of the Emperor learn of the restoration, and get a chance to embrace
+# RHOMAIOI_roman_culture.003 = {
+# 	type = character_event
+# 	title = RHOMAIOI_roman_culture.003.t
+# 	desc = RHOMAIOI_roman_culture.003.desc
+# 	theme = culture_change
+# 	immediate = {
+# 		play_music_cue = "mx_cue_epic_sacral_moment"
+# 	}
 
-	option = { #Follow my liege to the old imperial ways as well
-	name = RHOMAIOI_roman_culture.003.a
-	trigger = {
-		culture = culture:greek
-		culture = culture:italian
-	}
-	convert_family_culture_and_notify_vassals_effect = {
-		CONVERTER = scope:converter
-		OLD_CULTURE_1 = culture:greek
-		OLD_CULTURE_2 = culture:italian
-		NEW_CULTURE = culture:roman
-	}
-	stress_impact = {
-		stubborn = medium_stress_impact_gain
-	}
-	ai_chance = {
-		base = 20
-		modifier = { #I may follow the emperor
-			add = 40
-			primary_title = { target_is_de_facto_liege_or_above = title:e_roman_empire }
-		}
-		modifier = {
-			add = 40
-			any_held_title = {
-				tier = tier_county
-				culture = culture:greek
-			}
-		}
-		modifier = {
-			add = 60
-			is_landed = yes
-			capital_province.culture = culture:greek
-		}
-		modifier = {
-			add = 80
-			any_held_title = {
-				tier = tier_county
-				culture = culture:roman
-			}
-		}
-		modifier = {
-			add = 100
-			is_landed = yes
-			capital_province.culture = culture:roman
-		}
-		modifier = { #More likely if controlling a hellenic province or being hellenic
-			add = 80
-			any_held_title = {
-				tier = tier_county
-				faith.religion = faith:hellenic_pagan.religion
-			}
-		}
-		modifier = {
-			add = 100
-			is_landed = yes
-			faith.religion = faith:hellenic_pagan.religion
-		}
-		modifier = { #Stubborn people dont like to convert
-			factor = 0.2
-			has_trait = stubborn
-		}
-	}
-}
-	option = { #Cool but I like my culture better
-		name = RHOMAIOI_roman_culture.003.b
-		ai_chance = {
-			base = 80
-			modifier = {
-				factor = 2
-				has_trait = stubborn
-			}
-		}
-	}
-}
-#Everyone else learns of the restoration
-RHOMAIOI_roman_culture.004 = {
-	type = character_event
-	title = RHOMAIOI_roman_culture.004.t
-	desc = RHOMAIOI_roman_culture.004.desc
-	theme = culture_change
-	immediate = {
-		play_music_cue = "mx_cue_epic_sacral_moment"
-	}
-	option = {
-		name = RHOMAIOI_roman_culture.004.a #Pathetic Greeks
-	}
-}
+# 	option = { #Follow my liege to the old imperial ways as well
+# 	name = RHOMAIOI_roman_culture.003.a
+# 	trigger = {
+# 		culture = culture:greek
+# 		culture = culture:italian
+# 	}
+# 	convert_family_culture_and_notify_vassals_effect = {
+# 		CONVERTER = scope:converter
+# 		OLD_CULTURE_1 = culture:greek
+# 		OLD_CULTURE_2 = culture:italian
+# 		NEW_CULTURE = culture:roman
+# 	}
+# 	stress_impact = {
+# 		stubborn = medium_stress_impact_gain
+# 	}
+# 	ai_chance = {
+# 		base = 20
+# 		modifier = { #I may follow the emperor
+# 			add = 40
+# 			primary_title = { target_is_de_facto_liege_or_above = title:e_roman_empire }
+# 		}
+# 		modifier = {
+# 			add = 40
+# 			any_held_title = {
+# 				tier = tier_county
+# 				culture = culture:greek
+# 			}
+# 		}
+# 		modifier = {
+# 			add = 60
+# 			is_landed = yes
+# 			capital_province.culture = culture:greek
+# 		}
+# 		modifier = {
+# 			add = 80
+# 			any_held_title = {
+# 				tier = tier_county
+# 				culture = culture:roman
+# 			}
+# 		}
+# 		modifier = {
+# 			add = 100
+# 			is_landed = yes
+# 			capital_province.culture = culture:roman
+# 		}
+# 		modifier = { #More likely if controlling a hellenic province or being hellenic
+# 			add = 80
+# 			any_held_title = {
+# 				tier = tier_county
+# 				faith.religion = faith:hellenic_pagan.religion
+# 			}
+# 		}
+# 		modifier = {
+# 			add = 100
+# 			is_landed = yes
+# 			faith.religion = faith:hellenic_pagan.religion
+# 		}
+# 		modifier = { #Stubborn people dont like to convert
+# 			factor = 0.2
+# 			has_trait = stubborn
+# 		}
+# 	}
+# }
+# 	option = { #Cool but I like my culture better
+# 		name = RHOMAIOI_roman_culture.003.b
+# 		ai_chance = {
+# 			base = 80
+# 			modifier = {
+# 				factor = 2
+# 				has_trait = stubborn
+# 			}
+# 		}
+# 	}
+# }
+# #Everyone else learns of the restoration
+# RHOMAIOI_roman_culture.004 = {
+# 	type = character_event
+# 	title = RHOMAIOI_roman_culture.004.t
+# 	desc = RHOMAIOI_roman_culture.004.desc
+# 	theme = culture_change
+# 	immediate = {
+# 		play_music_cue = "mx_cue_epic_sacral_moment"
+# 	}
+# 	option = {
+# 		name = RHOMAIOI_roman_culture.004.a #Pathetic Greeks
+# 	}
+# }

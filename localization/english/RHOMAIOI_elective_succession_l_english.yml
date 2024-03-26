@@ -1,0 +1,6 @@
+﻿l_english:
+#Imperial Election
+ tooltip_imperial_elector_vote_despot:0 "[candidate.GetSheHe|U] is the Despot: $VALUE|=+0$"
+ tooltip_imperial_elector_vote_caesar:0 "[candidate.GetSheHe|U] is the Kaisar: $VALUE|=+0$"
+ tooltip_imperial_elector_vote_sebastokrator:0 "[candidate.GetSheHe|U] is the Sebastokrator: $VALUE|=+0$"
+ tooltip_imperial_elector_vote_co-emperor:0 "[candidate.GetSheHe|U] is the Junior Co-Emperor: $VALUE|=+0$"

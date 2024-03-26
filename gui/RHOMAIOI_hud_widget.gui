@@ -1,0 +1,210 @@
+widget = {
+	name = "RHOMAIOI_hud_widget"
+	datacontext = "[GetPlayer.MakeScope.GetCharacter]"
+	datacontext = "[AccessLocalPlayerCachedData]"
+	# visible = "[And(GetScriptedGui('RHOMAIOI_SPQR_enable_window_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End), And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), GetPlayer.IsValid), IsDefaultGUIMode)))]"
+	# enabled = "[And(Not(GetPlayer.MakeScope.Var('RHOMAIOI_SPQR_gui_toggle').IsSet), And(GetScriptedGui('RHOMAIOI_SPQR_enable_window_trigger').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End), And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), GetPlayer.IsValid), IsDefaultGUIMode))))]"
+	# enabled = "[Character.GetGovernment.IsType('RHOMAIOI_imperial_government')]"
+	# visible = "[And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), GetPlayer.IsValid), IsDefaultGUIMode))]"
+	
+	visible = "[And(And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), GetPlayer.IsValid), IsDefaultGUIMode)), Not(IsGameViewOpen('struggle')))]"
+
+	# visible = "[And(And(And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), GetPlayer.IsValid), IsDefaultGUIMode)), Not(IsGameViewOpen('struggle')), Not(OpenRoyalCourtView( 'throne' ))))]"
+
+	# parentanchor = right
+	# position = { 4 600 }
+	# size = { 50 50 }
+	parentanchor = top|right
+	position = { 10 605 }
+	size = { 50 470 }
+	layer = middle
+	#using = Window_Size_MainTab
+	#using = Window_Background_Sidebar
+
+	#window_animals = {}
+
+
+	# datacontext = "[GetScriptedGui('PE_gui_convert_old_stories_effect')]"
+	# state = {
+	# 	name = convert_existing_animal_stories
+	# 	trigger_on_create = yes
+	# 	on_start = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+	# }
+
+	#state = {
+	#	name = start_PE_on_actions
+	#	trigger_on_create = yes
+	#	on_start = "[GetScriptedGui('PE_start_on_actions_effect').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+	#}
+
+	# icon = {
+	# 	name = "pets_button_background"
+	# 	visible = "[Not(IsRightWindowOpen)]"
+	# 	size = { 45 45 }
+	# 	# texture = "gfx/interface/skinned/hud_maintab/maintab_animals_bg.dds"
+
+	# 	allow_outside = yes
+
+	# 	state = {
+	# 		name = _show
+	# 		alpha = 1
+	# 		duration = 0.1
+	# 		using = Animation_Curve_Default
+	# 	}
+
+	# 	state = {
+	# 		name = _hide
+	# 		duration = 0.6
+	# 		alpha = 0
+	# 		using = Animation_Curve_Default
+	# 	}
+
+	# 	state = {
+	# 		name = "hud_tab_glow_animals_enter"
+	# 		duration = 0.03
+	# 		using = Animation_Curve_Default
+
+	# 		modify_texture = {
+	# 			name = "glow_courtview1"
+	# 			alpha = 1
+	# 		}
+	# 	}
+
+	# 	state = {
+	# 		name = "hud_tab_glow_animals_leave"
+	# 		duration = 0.1
+	# 		using = Animation_Curve_Default
+
+	# 		modify_texture = {
+	# 			name = "glow_courtview1"
+	# 			alpha = 0
+	# 		}
+	# 	}
+
+	# 	modify_texture = {
+	# 		name = "glow_courtview1"
+	# 		texture = "gfx/interface/skinned/hud_maintab_bg_glow.dds"
+	# 		alpha = 0
+	# 	}
+	# }
+	# e
+	# parentanchor = top|right
+	# position = { 5 105 }
+	# size = { 50 470 }
+	# allow_outside = yes
+
+	widget_hud_main_tab = {
+		# enabled = "[Character.GetGovernment.IsType('RHOMAIOI_imperial_government')]"
+		allow_outside = yes
+		# parentanchor = top|right
+		# position = { 5 105 }
+		# size = { 50 470 }
+		# allow_outside = yes
+
+		tooltipwidget = {
+			using = TooltipWithFakeShortcut
+			blockoverride "shortcut_text"
+			{
+				# text = "[Select_CString( StringIsEmpty(GetScriptedGui('pets_expanded_enable_window_trigger').IsValidTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Localize('ANIMALS_HUD'), GetScriptedGui('pets_expanded_enable_window_trigger').IsValidTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+			}
+		}
+
+		state = {
+			name = _mouse_hierarchy_enter
+			#on_start = "[PdxGuiInterruptThenTriggerAllAnimations('hud_tab_glow_animals_leave','hud_tab_glow_animals_enter')]"
+			# alpha = 1
+		}
+		
+		state = {
+			name = _mouse_hierarchy_leave
+			#on_start = "[PdxGuiInterruptThenTriggerAllAnimations('hud_tab_glow_animals_enter','hud_tab_glow_animals_leave')]"
+			# alpha = 1
+		}
+
+		blockoverride "maintab_button"
+		{
+			texture = "gfx/interface/skinned/hud_maintab/RHOMAIOI_SPQR.dds"
+			datacontext = "[GetVariableSystem]"
+			down = "[GetVariableSystem.Exists('window_SPQR')]"
+			onclick = "[VariableSystem.Toggle( 'SPQR_gui_toggle' )]"
+		}
+	}
+
+	widget_hud_main_tab = {
+		enabled = "[Character.GetGovernment.IsType('RHOMAIOI_imperial_government')]"
+		allow_outside = yes
+		# parentanchor = top|right
+		parentanchor = top|right
+		position = { -5 50 }
+		# size = { 50 470 }
+		# layer = middle
+		# size = { 50 470 }
+		# allow_outside = yes
+
+		tooltipwidget = {
+			using = TooltipWithFakeShortcut
+			blockoverride "shortcut_text"
+			{
+				# text = "[Select_CString( StringIsEmpty(GetScriptedGui('pets_expanded_enable_window_trigger').IsValidTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)), Localize('ANIMALS_HUD'), GetScriptedGui('pets_expanded_enable_window_trigger').IsValidTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+			}
+		}
+
+		state = {
+			name = _mouse_hierarchy_enter
+			#on_start = "[PdxGuiInterruptThenTriggerAllAnimations('hud_tab_glow_animals_leave','hud_tab_glow_animals_enter')]"
+			# alpha = 1
+		}
+		
+		state = {
+			name = _mouse_hierarchy_leave
+			#on_start = "[PdxGuiInterruptThenTriggerAllAnimations('hud_tab_glow_animals_enter','hud_tab_glow_animals_leave')]"
+			# alpha = 1
+		}
+
+		blockoverride "maintab_button"
+		{
+			texture = "gfx/interface/skinned/hud_maintab/RHOMAIOI_senate.dds"
+			# datacontext = "[GetVariableSystem]"
+			# down = "[GetVariableSystem.Exists('window_SPQR')]"
+			# onclick = "[VariableSystem.Toggle( 'SPQR_gui_toggle' )]"
+		}
+	}
+}
+
+### WOK EXAMPLE
+# vbox = {
+#     name = "window_SPQR_start_widget"
+#     layoutpolicy_horizontal = expanding
+#     margin = { 5 0 }
+#     spacing = 10
+
+#     fixedgridbox = {
+#         name = "option_grid"
+#         addcolumn = 490
+#         addrow = 42
+#         datamodel = "[EventWindow.AccessEventWindowData.GetOptions]"
+
+#         item = {
+#             button_event_standard = {
+#                 name = "event_option_button"
+                
+#                 state = {
+#                     name = widget_show
+#                     trigger_on_create = yes
+                    
+#                     # Prevent it from showing
+#                     on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('show')]"        
+#                     on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('_hide')]"    
+					
+#                     # CUSTOM WINDOW, I COMMAND THEE COMETH FORTH!
+#                     on_start = "[ExecuteConsoleCommand('gui.createwidget gui/custom_gui/window_SPQR.gui window_SPQR')]"
+#                     duration = 1 # Needed for.. Reasons?
+
+#                     # Close the window
+#                     on_finish = "[EventOption.Select]"
+# 				}
+#             }
+#         }
+#     }
+#     expand = {}
+# }

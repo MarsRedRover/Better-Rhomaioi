@@ -58,3 +58,7 @@ RHOMAIOI_consistorium = {
 RHOMAIOI_senate_approval = {
 	texture = "gfx/interface/icons/title_status/icon_title_law.dds"
 }
+
+RHOMAIOI_imperial_authority = {}
+
+RHOMAIOI_imperial_authority_change = {} 

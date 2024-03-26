@@ -51,7 +51,7 @@ RHOMAIOI_elective = {
 
 		# Junior Co-Emperor Court Position
 		modifier = {
-			#desc = tooltip_feudal_elector_vote_born_in_the_purple
+			desc = tooltip_imperial_elector_vote_co-emperor
 			scope:candidate = {
 				has_court_position = junior_co-emperor_court_position
 			}
@@ -59,11 +59,27 @@ RHOMAIOI_elective = {
 		}
 		# Kaisar 
 		modifier = {
-			#desc = tooltip_feudal_elector_vote_born_in_the_purple
+			desc = tooltip_imperial_elector_vote_caesar
 			scope:candidate = {
 				has_court_position = caesar_court_position
 			}
 			add = 25 # 50% effect as born in the purple
+		}
+		# Despot
+		modifier = {
+			desc = tooltip_imperial_elector_vote_despot
+			scope:candidate = {
+				has_court_position = despot_court_position
+			}
+			add = 15
+		}
+		# Sebastokrator
+		modifier = {
+			desc = tooltip_imperial_elector_vote_sebastokrator
+			scope:candidate = {
+				has_court_position = sebastokrator_court_position
+			}
+			add = 10 
 		}		
 	}
 	

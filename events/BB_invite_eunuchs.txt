@@ -171,6 +171,8 @@ BB_invite_eunuchs.0001 = {
 					death_reason = death_disappearance
 				}
 			}
+			add_gold = { value = minor_gold_value } 
+			add_prestige = { value = medium_prestige_value } 
 		}
 	}
 }
