@@ -438,17 +438,36 @@ on_game_start = {
 		  	title:e_byzantium.holder = {
 		    	every_vassal_or_below = {
 		      		limit = {
-		        	vassal_contract_has_modifiable_obligations = yes
-		      	}
-		      	vassal_contract_decrease_obligation_level = feudal_government_taxes
-		      	vassal_contract_decrease_obligation_level = feudal_government_levies
-		      	change_government = RHOMAIOI_imperial_government
+		        		vassal_contract_has_modifiable_obligations = yes
+		      		}
+		      		vassal_contract_decrease_obligation_level = RHOMAIOI_imperial_taxes
+		      		vassal_contract_decrease_obligation_level = RHOMAIOI_imperial_levies
+		      		change_government = RHOMAIOI_imperial_government
 		    	}
 		    	change_government = RHOMAIOI_imperial_government
-		    	add_realm_law = crown_authority_3
+		    	add_realm_law = RHOMAIOI_crown_authority_3
 		  	}
 		  	title:e_byzantium = { add_title_law = RHOMAIOI_elective_succession_law }
 		}
+
+		# Basil gains faction modifiers
+		if = {
+			limit = {
+				AND = {
+					current_date < 1066.1.1
+					exists = title:e_byzantium.holder
+				}
+			}
+			title:e_byzantium.holder = {
+				every_vassal = {
+					add_character_flag = {
+						flag = joining_faction_block
+						years = 5
+					}
+				}
+			}
+		}
+
 
 		#Set up Themata and Royal Prerogative.
 		culture:greek = { add_innovation = innovation_RHOMAIOI_theme_system }

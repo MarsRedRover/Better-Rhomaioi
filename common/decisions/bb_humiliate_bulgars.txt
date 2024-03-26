@@ -1,0 +1,86 @@
+humiliate_bulgaria = {
+	title = "Humiliate Bulgars"
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	sort_order = integer
+	desc = "The time has come for Bulgaria to bend the Knee. After the Losses of past centuries, I have decreed to reclaim the lost holds from the bulgarians."
+	selection_tooltip = "I shall reclaim the Bulgarian Holds"
+	major = yes
+	confirm_text = "Reconquesta Bulgaria!"
+	
+	#ai_check_interval = 120
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		primary_title = title:e_byzantium
+		NOT = { primary_title = title:e_hre }
+		NOT = { primary_title = title:e_italy }
+		NOT = {
+			house = { 
+				OR = {
+					has_house_modifier = bulgarian_reconquest
+					has_house_modifier = bulgaria_conquered
+				}
+			}
+		}	
+
+		OR = { 
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_republic
+			government_has_flag = government_is_clan
+		}
+	 }
+
+	 is_valid = {
+		prestige_level >= 2
+		completely_controls = title:d_thrace
+		completely_controls = title:d_strymon
+		completely_controls = title:d_thessalonika
+		completely_controls = title:d_thessaly
+		completely_controls = title:d_aegean_islands
+	 }
+
+	 is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+
+		OR = {
+			religion = { is_in_family = rf_abrahamic }
+			religion = religion:hellenism_religion
+			culture = { has_cultural_pillar = heritage_latin }
+			culture = { has_cultural_pillar = heritage_byzantine }
+		}
+	 }
+
+	 effect = {
+		add_prestige = 250
+		add_piety = 200
+		dynasty = { add_dynasty_prestige = 150 }
+
+		custom_tooltip = "You gain a Casus Belli to claim the respective Region"
+
+		# Add house modifier which unlocks a custom CB. 
+		house = {
+			add_house_modifier = {
+				modifier = bulgarian_reconquest
+				years = 50
+			}
+		}
+		
+
+	 }
+
+	 cost = {
+		gold = { 300 }
+
+	 }
+
+	 #ai_potential = {
+		#always = yes
+	 #}
+
+	 #ai_will_do = {
+	#	base = 100
+	 #}
+	}

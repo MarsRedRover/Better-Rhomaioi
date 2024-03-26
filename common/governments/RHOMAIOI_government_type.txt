@@ -1,9 +1,10 @@
 ﻿RHOMAIOI_imperial_government = {
 	create_cadet_branches = yes
 	rulers_should_have_dynasty = yes
-	dynasty_named_realms = yes
+	dynasty_named_realms = no
 	royal_court = yes
 
+	fallback = 1
 	primary_holding = castle_holding
 	valid_holdings = { city_holding cow_metropolis_holding }
 
@@ -19,8 +20,8 @@
 	}
 
 	vassal_contract = {
-		feudal_government_taxes
-		feudal_government_levies
+		RHOMAIOI_imperial_taxes
+		RHOMAIOI_imperial_levies
 		RHOMAIOI_special_contract
 		religious_rights
 		fortification_rights
@@ -40,6 +41,8 @@
 	}
 
 	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Rhomaioi test for feudal vassalization
+	flag = government_is_feudal
 	flag = government_is_imperial_autocracy
 	color = hsv{ 0.95 0.96 1.00 }
 }

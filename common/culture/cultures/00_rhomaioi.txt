@@ -28,31 +28,31 @@
 	}
 }
 
-greco-roman = {
-	color = { 137 0 157 }
+# greco-roman = {
+# 	color = { 137 0 157 }
 	
-	ethos = ethos_bureaucratic
-	heritage = heritage_byzantine
-	language = language_latin
-	martial_custom = martial_custom_male_only
-	traditions = {
-		tradition_legalistic
-		tradition_roman_legacy
-		tradition_formation_fighting
-		tradition_byzantine_succession
-		tradition_hereditary_hierarchy
-		tradition_formation_fighting
-	}
+# 	ethos = ethos_bureaucratic
+# 	heritage = heritage_byzantine
+# 	language = language_latin
+# 	martial_custom = martial_custom_male_only
+# 	traditions = {
+# 		tradition_legalistic
+# 		tradition_roman_legacy
+# 		tradition_formation_fighting
+# 		tradition_byzantine_succession
+# 		tradition_hereditary_hierarchy
+# 		tradition_formation_fighting
+# 	}
 	
-	# name_list = name_list_greek
-	name_list = { name_list_greek name_list_roman }
+# 	# name_list = name_list_greek
+# 	name_list = { name_list_greek name_list_roman }
 
-	coa_gfx = { byzantine_group_coa_gfx latin_group_coa_gfx western_coa_gfx }
-	building_gfx = { mediterranean_building_gfx }
-	clothing_gfx = { byzantine_clothing_gfx western_clothing_gfx }
-	unit_gfx = { eastern_unit_gfx }
+# 	coa_gfx = { byzantine_group_coa_gfx latin_group_coa_gfx western_coa_gfx }
+# 	building_gfx = { mediterranean_building_gfx }
+# 	clothing_gfx = { byzantine_clothing_gfx western_clothing_gfx }
+# 	unit_gfx = { eastern_unit_gfx }
 	
-	ethnicities = {
-		10 = mediterranean_byzantine
-	}
-}
+# 	ethnicities = {
+# 		10 = mediterranean_byzantine
+# 	}
+# }

@@ -1,0 +1,93 @@
+﻿l_english:
+# Abdication
+ BB_abdicate_decision:0 "Abdication"
+ BB_abdicate_decision_tooltip:0 "Abdicate the imperial throne of Rome to your child."
+ BB_abdicate_decision_desc:0 "You are incapable of ruling the empire and need to pass the crown to your heir"
+ BB_decision_effect_tooltip:0 "Would you like to retire the throne?"
+ BB_decision_confirm:0 "Pass the crown."
+
+# Recruit Varangian Commander
+ better_basileus_invite_varangians_decision:0 "Recruit Varangians"
+ better_basileus_invite_varangians_decision_desc:0 "I will ask around to see if there are any men who may be interested in serving me as my commander"
+ better_basileus_invite_varangians_decision_tooltip:0 "I will be introduced to a [commander|E] and see whether they are worthy of joining my court."
+ better_basileus_invite_varangians_decision_confirm:0 "Let's meet them!"
+ better_basileus_invite_varangians.0001.title:0 "A New Commander?"
+ better_basileus_invite_varangians.0001.desc:0 "I have been introduced to a grizzled veterans who are looking for promotions. I am in need of talented military commanders at my court - is there one I am looking for?"
+ better_basileus_invite_varangians.0001.a:0 "[target1.GetFirstName] is welcome here!"
+ better_basileus_invite_varangians.0001.b:0 "[target2.GetFirstName] looks like the pick!"
+ better_basileus_invite_varangians.0001.c:0 "[target3.GetFirstName] seems to be qualified!"
+ better_basileus_invite_varangians.0001.d:0 "None of them seem to be fit for a promotion!"
+
+# Recruit Eunuch
+ BB_invite_eunuchs:0 "Search for trustworthy eunuchs"
+ BB_invite_eunuchs_desc:0 "I will ask around to see if there are any men who may be interested in serving me as my parakoimomenos"
+ BB_invite_eunuchs_tooltip:0 "I will be introduced to a eunuch and see whether they are trustworthy enough of joining my court."
+ BB_invite_eunuchs_confirm:0 "Let's meet them!"
+ BB_invite_eunuchs.0001.title:0 "A New Parakoimomenos?"
+ BB_invite_eunuchs.0001.desc:0 "I have been introduced to two court eunuchs who are looking for promotions. I am in need of trustworthy spymasters at my court - are any of them the one I am looking for?"
+ BB_invite_eunuchs.0001.a:0 "[target1.GetFirstName] is welcome here!"
+ BB_invite_eunuchs.0001.b:0 "[target2.GetFirstName] looks like the pick!"
+ BB_invite_eunuchs.0001.c:0 "Neither of them are trustworthy!"
+
+# Recruit Varangian Unit
+ BB_hire_varangian_guard:0 "Scramble the Varangians!"
+ BB_hire_varangian_guard_desc:0 "Hire a small regiment from the Varangian Guard to help deal with martial matters."
+ BB_hire_varangian_guard_tooltip:0 "Hire some varangians"
+ BB_hire_varangian_guard_confirm:0 "To War!"
+ BB_hire_varangian_guard_effect_tooltip:0 "A small regiment of Varangians will be raised."
+
+# Restore Roman Culture
+ RHOMAIOI_restore_roman_culture_decision:0 "Proclaim the Roman Renaissance"
+ RHOMAIOI_restore_roman_culture_tooltip:0 "I will restore Roman culture"
+ RHOMAIOI_restore_roman_culture_decision_tooltip:0 "After centuries of darkness, we have restored the Imperial Eagle to its former glory. And now the time has finally come to go back to the roots from which we came. Thus as we have restored the Empire, we shall too return our old ways to the light"
+ RHOMAIOI_restore_roman_culture_decision_effect.tt:0 "Roman culture will begin to spread throughout the Empire"
+ RHOMAIOI_restore_roman_culture_decision_confirm:0 "The Eagle shall regain its wings."
+ RHOMAIOI_roman_culture.001.t:0 "The Roman Renaissance"
+ RHOMAIOI_roman_culture.001.desc:0 "Over the centuries the old Roman culture has dwindled into obscurity. Between the barbarian invasions of Europe and Italia and the collapse of the Western Empire, only the east has retained some sembalance of the old culture of the Romans. In a landmark speech in Rome, besides the Imperial Standard, the Emperor of the Romans [GetPlayer.GetName], has declared the beginning of a new 'Roman Renaissance'. As of today, the old culture shall begin to spread anew across the Empire and even beyond, as it once had reached."
+ RHOMAIOI_roman_culture.001.a:0 "Pax Romana!"
+ RHOMAIOI_roman_culture.002.t:0 "The Roman Renaissance"
+ RHOMAIOI_roman_culture.002.desc:0 "In a landmark speech in Rome, the Emperor of the Romans has proclaimed the beginning of the Roman Renaissance. From this day forward the culture of the old days will be reborn and begin to spread across the Empire and continent anew."
+ RHOMAIOI_roman_culture.002.a:0 "Thus as they have returned to the old ways, so shall we."
+ RHOMAIOI_roman_culture.002.b:0 "The Eagle has regained its wings..."
+ RHOMAIOI_roman_culture.003.t:0 "The Roman Renaissance"
+ RHOMAIOI_roman_culture.003.desc:0 "In a landmark speech in Rome, the Emperor of the Romans has proclaimed the beginning of the Roman Renaissance. From this day forward the culture of the old days will be reborn and begin to spread across the Empire and continent anew."
+ RHOMAIOI_roman_culture.003.a:0 "I Shall follow the Emperor into the old light."
+ RHOMAIOI_roman_culture.003.b:0 "The Emperor does not know all, I shall not follow them"
+ RHOMAIOI_roman_culture.004.t:0 "The Roman Renaissance"
+ RHOMAIOI_roman_culture.004.desc:0 "In a landmark speech in Rome, the Emperor of the Romans has proclaimed the beginning of the Roman Renaissance. From this day forward the culture of the old days will be reborn and begin to spread across the Empire and continent anew."
+ RHOMAIOI_roman_culture.004.a:0 "Pathetic Greeks."
+
+# Restore Roman Empire
+ RHOMAIOI_restore_roman_empire_decision:0 "Restore the Roman Empire"
+ RHOMAIOI_restore_roman_empire_decision_confirm:0 "I will restore the Empire"
+
+# Raise Tagmata
+ RHOMAIOI_raise_tagmatic_troops:0 "Raise the Imperial Army"
+ RHOMAIOI_raise_tagmatic_troops_confirm:0 "En Touto Nika!"
+ RHOMAIOI_raise_tagmatic_troops_tooltip:0 "The Imperial Army shall be raised"
+ RHOMAIOI_raise_tagmatic_troops_desc:0 "In our capital, an army constitued of the most skilled warriors in the entire Roman world awaits our command. The time has come to flock their banners to battle."
+ RHOMAIOI_raise_tagmatic_troops_effect_tooltip:0 "The Imperial Tagmata will be raised."
+
+# Reinstate Imperial Autocracy
+ RHOMAIOI_reinstate_the_imperial_autocracy:0 "Reinstate the Imperial Autocracy"
+ RHOMAIOI_reinstate_the_imperial_autocracy_confirm:0 "Lex lata"
+ RHOMAIOI_reinstate_the_imperial_autocracy_tooltip:0 "The Imperial Autocracy government shall be reinstituted"
+ RHOMAIOI_reinstate_the_imperial_autocracy_desc:0 "No land shall belong to any man. It is only by integrating our territory into the domains of the Empire itself that we will achieve stability."
+ RHOMAIOI_reinstate_the_imperial_autocracy_effect_tooltip:0 "The Imperial Autocracy will be restored and all de jure vassals will be forced to accept it."
+ RHOMAIOI_reinstate_autocracy.0001.title:0 "The Imperial Autocracy government shall be reinstituted"
+ RHOMAIOI_reinstate_autocracy.0001.desc:0 "No land shall belong to any man. It is only by integrating our territory into the domains of the Empire itself that we will achieve stability. A significant and visionary step in the history of the Roman Empire, the restoration of the Imperial Autocracy promises to revive the glories of Rome and usher in a new period of stability, prosperity, and cultural renaissance.\n\nA distinguishing feature of the Roman Empire was the autocracy, whose origins can be traced to the reign of Emperor Augustus and which developed over many centuries to make the Empire a powerful force in the Mediterranean region. The emperor had significant influence both politically and spiritually under this form of government, which was distinguished by a highly centralized authority. This autocracy's restoration will allow the Rome to reclaim its old power and majesty."
+ RHOMAIOI_reinstate_autocracy.0001.a:0 "Gloria Romae!"
+
+# Dissolve Senate
+ RHOMAIOI_dissolve_senate:0 "Dismantle the Senate"
+ RHOMAIOI_dissolve_senate_confirm:0 "All power comes from the Emperor!"
+ RHOMAIOI_dissolve_senate_tooltip:0 "The Senate shall be dismantled"
+ RHOMAIOI_dissolve_senate_desc:0 "Despite the Senate having played a role in our society ever since the founding of Rome, it's grown to become an outdated and obsolete institution. The time has come to formally and permanently put an end to such oligarchy."
+ RHOMAIOI_dissolve_senate_tooltip:0 "The Senate will be dismantled."
+ RHOMAIOI_dissolve_senate_decision_effect_tooltip:0 "[RHOMAIOI_the_senate|E] will be permanently closed, preventing related events from ever firing and allowing [RHOMAIOI_imperial_prerogative|E] interactions to be used without restriction."
+ RHOMAIOI_senate_dissolution.0001.t:0 "The End of an Era"
+ RHOMAIOI_senate_dissolution.0001.desc:0 "The Senate and the People of Rome is no more. While it's true that during its' time in the East [RHOMAIOI_the_senate|E] of [GetPlayer.GetCapitalLocation.GetHolding.GetName] was but a shadow of the former Senatus Romanum, it still played a prestigious role in administration and was known as the oldest institution of the Empire.\n\nBut now, [GetPlayer.GetName] has asserted [GetPlayer.GetHerHis] will - the forum is to be closed and all senators are to surrender their privileges without question or delay.\n\nHenceforth only the [GetPlayer.GetTitleAsNameNoTooltip], and the [GetPlayer.GetTitleAsNameNoTooltip] alone, is to exercise Imperium."
+ RHOMAIOI_senate_dissolution.0001.a:0 "I am the Senate."
+ RHOMAIOI_senate_dissolution.0002.t:0 "The Dissolution of the Senate"
+ RHOMAIOI_senate_dissolution.0002.desc:0 "The Senate and the People of Rome is no more. While it's true that during its' time in the East [RHOMAIOI_the_senate|E] of [scoped_emperor.GetCapitalLocation.GetHolding.GetName] was but a shadow of the former Senatus Romanum, it still played a prestigious role in administration and was known as the oldest institution of the Empire.\n\nBut now, [scoped_emperor.GetHerHis] has asserted his will - the forum is to be closed and all senators are to surrender their privileges without question or delay.\n\nHenceforth only the [scoped_emperor.GetTitleAsNameNoTooltip], and the [scoped_emperor.GetTitleAsNameNoTooltip] alone, is to exercise Imperium."
+ RHOMAIOI_senate_dissolution.0002.a:0 ""Autokrator" at last..."

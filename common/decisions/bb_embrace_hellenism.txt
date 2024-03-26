@@ -1,0 +1,46 @@
+embrace_hellenism = { # NOT COMPLETED
+	title = "Embrace Hellenism"
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	desc = "Help me figure Religious Conversion in Decisions out!"
+	selection_tooltip = "Yes this!"
+	confirm_text = "HELP ME!"
+	sort_order = integer
+	major = yes
+
+	#ai_check_interval = 40
+
+	is_shown = {
+		is_landed = yes
+		is_ruler = yes
+		primary_title = title:e_roman_empire
+	}
+
+	is_valid = {
+		calc_true_if = {
+			amount >=3 
+			completely_controls = title:c_roma
+			completely_controls = title:c_attica
+			completely_controls = title:c_alexandria
+			completely_controls = title:c_tunis
+			completely_controls = title:c_thessalia
+		}
+	}
+
+
+	effect = { #Don't do it this easy. Obviously. Try around with lists and random in list, maybe.
+		add_piety = 5000
+		add_prestige = 650
+		dynasty = { add_dynasty_prestige = 500 }
+		hidden_effect = { 
+			every_realm_county = {
+				set_county_faith = faith:hellenic_pagan
+			}
+			every_courtier_or_guest = {
+				set_character_faith = faith:hellenic_pagan
+			}
+			every_vassal_or_below = {
+				set_character_faith = faith:hellenic_pagan
+			}
+		}
+	}
+}

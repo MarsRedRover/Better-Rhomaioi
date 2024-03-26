@@ -1,0 +1,12 @@
+masterbuilder = {
+	minimum_age = 25
+	category = fame
+	desc = "[ROOT.GetCharacter.GetFirstNameNoTooltip] has mastered the Art of Building."
+	shown_in_ruler_designer = yes	
+	ruler_designer_cost	= 15
+	same_opinion = 40
+	stewardship = 14
+	build_gold_cost = -0.85
+	build_speed = -0.85
+	monthly_stewardship_lifestyle_xp_gain_mult = 0.2
+}

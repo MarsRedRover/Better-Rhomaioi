@@ -1,0 +1,87 @@
+establish_foothold_in_syria = {
+	title = "Establish a Foothold in Syria-Coele"
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	sort_order = integer
+	desc = "After the dreadful loss of our holy city of Antiochia in decades past, it is now time to push back the Abbasid Dynasty and their unrighteous Caliphate from the province of Syria-Coele!"
+	major = yes
+	selection_tooltip = "Reclaim the Province of Syria-Coele and Push back the Abbasid Caliphate!"
+	confirm_text = "Reconquesta Syria-Coele"
+
+	#ai_check_interval = 120
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		primary_title = title:e_byzantium
+		NOT = { 
+			house = {
+				OR = {
+					has_house_modifier = syria_coele_conquest
+					has_house_modifier = syria_coele_conquered
+				}
+			}
+		}
+		
+		OR = { 
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_republic
+			government_has_flag = government_is_clan
+		}
+	}
+	
+	is_valid = {
+		prestige_level >= 2
+		OR = {
+		completely_controls = title:d_cibyrrhaeot
+		completely_controls = title:d_anatolia
+		completely_controls = title:d_cappadocia
+		completely_controls = title:d_charsianon
+		completely_controls = title:d_sebasteia
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+
+		OR = {
+			religion = { is_in_family = rf_abrahamic }
+			religion = religion:hellenism_religion
+			culture = { has_cultural_pillar = heritage_latin }
+			culture = { has_cultural_pillar = heritage_byzantine }
+		}
+	 }
+
+	 effect = {
+		add_prestige = 250
+		add_piety = 400
+
+		custom_tooltip = "You gain a Casus Belli to claim the respective Region"
+
+		dynasty = {
+			add_dynasty_prestige = 150
+		}
+
+		# Add house modifier which unlocks CB or helps to claim those targets during the war started by the decision.
+		house = {
+			add_house_modifier = {
+				modifier = syria_coele_conquest
+				years = 50
+			}
+		}
+	 }
+
+	 cost = {
+		gold = { 300 }
+	 }
+
+	 #ai_potential = {
+		#always = yes
+	 #}
+
+	 #ai_will_do = {
+	#	base = 100
+	 #}
+
+}

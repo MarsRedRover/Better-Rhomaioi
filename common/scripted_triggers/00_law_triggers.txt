@@ -63,7 +63,15 @@ has_partition_succession_realm_law_trigger = {
 
 realm_law_use_crown_authority = {
 	# We separate this out into a different trigger for moddability purposes, per community request: this allows more diverse authority laws to be easily modded in without needing to override 00_realm_laws.txt, and thus for greater inter-mod compatibility.
-	realm_law_use_tribal_authority = no
+	AND = {
+		realm_law_use_tribal_authority = no
+		NOT = { government_has_flag = government_is_imperial_autocracy }
+	}
+}
+
+# RHOMAIOI
+realm_law_use_RHOMAIOI_crown_authority = {
+	government_has_flag = government_is_imperial_autocracy
 }
 
 realm_law_use_tribal_authority = {

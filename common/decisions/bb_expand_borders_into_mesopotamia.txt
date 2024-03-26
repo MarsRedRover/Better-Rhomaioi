@@ -1,0 +1,77 @@
+expand_borders_into_mesopotamia = {
+	title = "Expand Borders into Mesopotamia"
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	sort_order = integer
+	desc = "First reached and integrated into the Roman Empire under Emperor Trajan (98-117), the Province of Mesopotamia would see centuries of contest between Rome, as well as its Sucessor Byzantium, and the Parthian Empire to the East. Partially lost for Decades at a time, it would last be lost in 640 AD to the Muslim Conquests of the Umayyads."
+	selection_tooltip = "Expanding to the East again has been a matter of impossibility for centuries. Not anymore!"
+	major = yes
+	confirm_text = "The Euphrates shall be reached once more!"
+
+	#ai_check_interval = 120
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		primary_title = title:e_roman_empire
+		house = {
+			has_house_modifier = spanish_invasion_conquered
+			NOT = {
+				has_house_modifier = mesopotamia_conquered
+			}
+		}
+		OR = { 
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_republic
+			government_has_flag = government_is_clan
+			}
+	}
+
+	is_valid = {
+		prestige_level >= 3
+		completely_controls = title:d_mesopotamia
+		has_primary_title = title:e_roman_empire
+		completely_controls_region = custom_syria_coele
+		completely_controls_region = custom_syrian_coast
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+
+		OR = {
+			religion = { is_in_family = rf_abrahamic }
+			religion = religion:hellenism_religion
+			culture = { has_cultural_pillar = heritage_latin }
+			culture = { has_cultural_pillar = heritage_byzantine }
+		}
+	}
+
+	effect = {
+		add_prestige = 500
+		add_piety = 250
+		dynasty = {
+			add_dynasty_prestige = 500
+		}
+
+		house = {
+			add_house_modifier = {
+				modifier = mesopotamia_conquest
+				years = 30
+			}
+		}
+		custom_tooltip = "You gain a Casus Belli to claim the respective Region"
+	}
+
+	cost = {
+		gold = { 425 }
+	}
+
+	#ai_potential = {
+	#	always = yes
+	 #}
+
+	 #ai_will_do = {
+	#	base = 100
+	 #}
+}

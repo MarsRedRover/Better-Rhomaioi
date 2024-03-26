@@ -1,0 +1,93 @@
+annex_carpathia = {
+	title = "Annexation of Carpathia"
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	sort_order = integer
+	desc = "The Carpathian Lands are naturally in our Path of Expansion and should be added into the Empire. They would've been a great addition to the Provinces of Moesia Inferior and Dacia of Old, they shall be ruled by the proud Imperial Eagle now!"
+	selection_tooltip = "Expansion has been a rare occasion in recent History, it is Time to enlargen our Empire once again! To War!"
+	major = yes
+	confirm_text = "Carpathia shall be Roman!"
+
+	#ai_check_interval = 40
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		primary_title = title:e_roman_empire
+		#exists = title:k_dacia.holder
+
+		house = {
+			has_house_modifier = mesopotamia_conquered
+		}
+
+		title:k_dacia = {
+			exists = holder
+			holder = { 
+				NAND = {
+					is_vassal_or_below_of = title:e_roman_empire.holder
+					this = title:e_roman_empire.holder
+				}
+			}
+		}
+		
+		house = {
+			NOR = {
+				has_house_modifier = carpathia_conquest
+				has_house_modifier = carpathia_conquered
+			}
+		}
+
+		OR = { 
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_republic
+			government_has_flag = government_is_clan
+			}
+	}
+
+	is_valid = {
+		prestige_level >= 3
+		has_primary_title = title:e_roman_empire
+		completely_controls_region = custom_bulgaria
+		completely_controls_region = custom_balkan_territories
+
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+
+		OR = {
+			religion = { is_in_family = rf_abrahamic }
+			religion = religion:hellenism_religion
+			culture = { has_cultural_pillar = heritage_latin }
+			culture = { has_cultural_pillar = heritage_byzantine }
+		}
+	}
+
+	effect = {
+		add_prestige = 500
+		add_piety = 250
+		dynasty = { add_dynasty_prestige = 250 }
+
+		house = {
+			add_house_modifier = {
+				modifier = carpathia_conquest
+			}
+		}
+
+		custom_tooltip = "You gain a Casus Belli to claim the respective Region"
+
+	}
+
+	cost = {
+		gold = { 250 }
+	}
+
+	#ai_potential = {
+	#	always = yes
+	 #}
+
+	 #ai_will_do = {
+	#	base = 100
+	 #}
+}

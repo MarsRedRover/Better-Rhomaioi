@@ -1,0 +1,51 @@
+reinforce_theodosian_walls = {
+	title = "Reinforce Theodosian Walls"
+	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	sort_order = 80
+	desc = "The double Theodosian Walls, errected by Emperor Theodosius II (402-450) were the primary defenses of the City of Constantinopel (here Byzantion) for over 1000 years and still stand strong to modern date."
+	selection_tooltip = ""
+	confirm_text = "Bigger, Stronger, Higher Walls!"
+	
+
+	is_shown = {
+		primary_title = title:e_byzantium
+		NOT = {
+			title:c_byzantion = {
+				has_county_modifier = reinforce_theodosian_walls
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+		is_at_war = no
+
+		OR = {
+			religion = { is_in_family = rf_abrahamic }
+			religion = religion:hellenism_religion
+			culture = { has_cultural_pillar = heritage_latin }
+			culture = { has_cultural_pillar = heritage_byzantine }
+		}
+	}
+
+	is_valid = {
+		has_primary_title = title:e_byzantium
+		completely_controls = title:c_byzantion
+	}
+
+	effect = {
+		title:c_byzantion = {
+			add_county_modifier = {
+				modifier = reinforce_theodosian_walls
+				years = 20
+			}
+		}
+	}
+
+	cost = {
+		gold = { 100 }
+	}
+
+}

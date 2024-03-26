@@ -43,9 +43,22 @@ on_ruler_designer_finished = {
 					change_government = RHOMAIOI_imperial_government
 				}
 				change_government = RHOMAIOI_imperial_government
-				add_realm_law = crown_authority_3
+				add_realm_law = RHOMAIOI_crown_authority_3
 				}
 				title:e_byzantium = { add_title_law = RHOMAIOI_elective_succession_law }
+		}
+
+		# Faction modifiers
+		if = {
+			limit = { exists = title:e_byzantium.holder}
+			title:e_byzantium.holder = {
+				every_vassal = {
+					add_character_flag = {
+						flag = joining_faction_block
+						years = 5
+					}
+				}
+			}
 		}
 	}
 }

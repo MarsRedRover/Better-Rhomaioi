@@ -1,0 +1,89 @@
+restore_roman_province_of_dacia = {
+	title = "Restore Roman Province of Dacia"
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	sort_order = integer
+	desc = "Dacia as Province has never gained it's full borders. Always was Conquest stopped or problematic due to new enemies arriving on other fronts or Emperors being distracted. Not anymore. It is time to claim what should rightfully be ours!"
+	major = yes
+	selection_tooltip = "Planning and Preparation for the Restoration of the Roman Province of Dacia"
+	confirm_text = "Dacia Invicta!"
+
+	#ai_check_interval = 40
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		primary_title = title:e_roman_empire
+		house = {
+			has_house_modifier = carpathia_conquered
+		}
+
+		title:d_transylvania = {
+			holder = {
+				NOR = { 
+					is_vassal_or_below_of = title:e_roman_empire.holder 
+					this = title:e_roman_empire.holder
+				}
+			}
+		}
+
+		house = {
+			NOT = {
+				has_house_modifier = restore_dacia
+			}
+		}
+
+		OR = { 
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_republic
+			government_has_flag = government_is_clan
+			}
+	}
+
+	is_valid = {
+		prestige_level >= 4
+		has_primary_title = title:e_roman_empire
+		completely_controls_region = custom_carpathia
+		completely_controls_region = custom_bulgaria
+		completely_controls_region = custom_balkan_territories
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+
+		OR = {
+			religion = { is_in_family = rf_abrahamic }
+			religion = religion:hellenism_religion
+			culture = { has_cultural_pillar = heritage_latin }
+			culture = { has_cultural_pillar = heritage_byzantine }
+		}
+	}
+
+	effect = {
+		add_prestige = 250
+		add_piety = 150
+		dynasty = { add_dynasty_prestige = 100 }
+
+		house = {
+			add_house_modifier = {
+				modifier = restore_dacia
+				years = 20
+			}
+		}
+		custom_tooltip = "You will gain a Special Casus Belli for the respective Region"
+		custom_tooltip = "The De Jure of the Kingdom of Dacia will increase after successful Conquest"
+	}
+
+	cost = {
+		gold = { 250 }
+	}
+
+	#ai_potential = {
+	#	always = yes
+	 #}
+
+	 #ai_will_do = {
+	#	base = 100
+	 #}
+}

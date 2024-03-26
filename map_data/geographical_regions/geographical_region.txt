@@ -1,0 +1,366 @@
+#Custom Modded Geographical Regions. Specifically made for custom Cbs for the various paths of rebuilding the Roman Empire.
+
+custom_syria_coele = {
+	duchies = {
+		d_aleppo
+		d_palmyra
+		d_edessa
+		d_antioch
+		d_homs
+	}
+}
+
+custom_balkan_territories = {
+	duchies = {
+		d_duklja
+		d_ragusa
+		d_usora
+		d_rashka
+		d_macva
+		d_syrmia
+		d_bosna
+		d_lower_bosna
+		d_slavonia
+		d_dalmatia
+		d_croatia
+	}
+}
+
+custom_bulgaria = {
+	duchies = {
+		d_philippopolis
+		d_turnovo
+		d_dobrudja
+		d_bulgaria
+		d_vidin
+		d_dyrrachion
+	}
+}
+
+custom_syrian_coast = {
+	duchies = {
+		d_lebanon
+		d_damascus
+		d_urdunn
+		d_amman
+		d_oultrejourdain
+		d_palestine
+	}
+}
+
+custom_egypt = {
+	duchies = {
+		d_sinai 
+		d_delta 
+		d_cairo 
+		d_al-said
+		d_al-wahat
+		d_eastern_desert
+		d_alexandria
+		d_cyrenaica
+	}
+}
+custom_north_africa = {
+	duchies = {
+		d_syrte 
+		d_tripolitania
+		d_gabes
+		d_kairouan
+		d_tunis
+		d_kroumerie
+		d_zab
+		d_bejaia
+		d_alger
+	}
+}
+
+custom_iberia = {
+	duchies = {
+		d_sevilla
+		d_granada
+		d_cordoba
+		d_murcia
+		d_mallorca
+	}
+	counties = {
+		c_alicante
+		c_denia
+		c_ceuta
+	}
+}
+
+custom_lower_italy = {
+	duchies = {
+		d_sicily
+		d_calabria
+		d_salerno
+		d_apulia
+		d_benevento
+		d_capua
+		d_latium
+		d_spoleto
+		d_ancona
+		d_sardinia
+	}
+}
+
+custom_upper_italy = {
+	duchies = {
+		d_toscana
+		d_pisa
+		d_romagna
+		d_genoa
+		d_emilia
+		d_verona
+		d_venice
+		d_friuli
+		d_krain
+		d_istria
+		d_lombardia
+		d_piedmonte
+		d_corsica
+	}
+}
+
+custom_mesopotamia = {
+	duchies = {
+		d_diyarbakr
+		d_diyarrabia
+		d_diyarmudar
+		d_kurdistan
+		d_euphrates
+		d_samarra
+		d_baghdad
+		d_kufa
+		d_wasit
+		d_basra
+	}
+}
+
+custom_persia = {
+	duchies = {
+		d_kermanshah
+		d_khuzestan
+		d_hamadan
+		d_rayy
+		d_isfahan
+		d_fars
+		d_hormuz
+		d_yazd
+		d_kirman
+	}
+}
+
+custom_carpathia = {
+	duchies = {
+		d_oltenia
+		d_transylvanian_alps
+		d_muntenia
+	}
+}
+
+custom_syria = {
+	duchies = {
+		d_edessa
+		d_antioch
+		d_aleppo
+		d_palmyra
+		d_homs
+		d_lebanon
+		d_damascus
+	}
+}
+custom_holy_muslim = {
+	duchies = {
+		d_mecca
+		d_shammar
+		d_medina
+	}
+}
+
+custom_dacia = {
+	duchies = {
+		d_bihar
+		d_transylvania
+		d_temes
+	}
+}
+
+custom_africa_proconsularis = {
+	duchies = {
+		d_kroumerie
+		d_tunis
+		d_kairouan
+		d_gabes
+		d_jerid
+		d_tripolitania
+		d_syrte
+	}
+}
+
+custom_mauretania = {
+	duchies = {
+		d_zab
+		d_tahert
+		d_alger
+		d_bejaia
+		d_tlemcen
+		d_fes
+		d_rif
+	}
+}
+
+custom_baetica = {
+	duchies = {
+		d_sevilla
+		d_cordoba
+		d_granada
+	}
+}
+
+custom_lusitania = {
+	duchies = {
+		d_algarve
+		d_beja
+		d_badajoz
+		d_coimbra
+	}
+}
+
+custom_tarraconensis = {
+	duchies = {
+		d_porto
+		d_galicia
+		d_leon
+		d_asturias
+		d_castilla
+		d_cantabria
+		d_navarra
+		d_viscaya
+		d_aragon
+		d_barcelona
+		d_toledo
+		d_valencia
+		d_murcia
+		d_mallorca
+	}
+}
+
+custom_aquitania_narbonensis = {
+	duchies = { 
+		d_armagnac
+		d_languedoc
+		d_toulouse
+		d_gascogne
+		d_aquitaine
+		d_bourbon
+		d_poitou
+		d_auvergne
+		d_provence
+		d_dauphine
+		d_savoie
+		d_transjurania
+	}
+}
+
+custom_gallia = {
+	duchies = {
+		d_berry
+		d_orleans
+		d_anjou
+		d_normandy
+		d_valois
+		d_champagne
+		d_brittany
+	}
+}
+
+custom_belgica = {
+	duchies = {
+		d_flanders
+		d_brabant
+		d_luxembourg
+		d_julich
+		d_bar
+		d_lower_lorraine
+	}
+}
+
+custom_northern_border_provinces = {
+	duchies = {
+		d_alsace
+		d_swabia
+		d_currezia
+		d_augsburg
+		d_bavaria
+		d_tyrol
+		d_salzburg
+		d_carinthia
+		d_osterreich
+		d_steyermark
+		d_gyor
+		d_somogy
+		d_visegrad
+		d_bacs
+	}
+}
+
+custom_pannonia = {
+	duchies = {
+		d_bacs
+		d_visegrad
+		d_somogy
+		d_gyor
+	}
+}
+
+custom_noricum = {
+	duchies = {
+		d_salzburg
+		d_osterreich
+		d_steyermark
+		d_carinthia
+	}
+}
+
+custom_raetia = {
+	duchies = {
+		d_tyrol
+		d_augsburg
+		d_bavaria
+		d_currezia
+		d_swabia
+	}
+}
+
+custom_germania_superior = {
+	duchies = {
+		d_upper_lorraine
+		d_alsace
+		d_upper_burgundy
+		d_burgundy
+	}
+}
+
+custom_brittania_superior = {
+	duchies = {
+		d_cornwall
+		d_somerset
+		d_bedford
+		d_canterbury
+		d_gloucester
+		d_norfolk
+		d_hereford
+	}
+}
+
+custom_brittania_inferior = {
+	duchies = {
+		d_northumberland
+		d_lancaster
+		d_york
+		d_deheubarth
+		d_gwynedd
+		d_powys
+	}
+}
