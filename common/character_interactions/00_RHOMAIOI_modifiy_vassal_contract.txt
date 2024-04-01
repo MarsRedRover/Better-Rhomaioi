@@ -292,14 +292,14 @@ RHOMAIOI_vassal_modify_vassal_contract_interaction = {
 	redirect = {
 		# need to reverse the role for the UI to work properly
 		# scope:recipient = {
-		# 	save_scope_as = secondary_recipient
+			# save_scope_as = secondary_recipient
 		# }
-		scope:actor = {
-			save_scope_as = recipient
-		}
+		# scope:actor = {
+			# save_scope_as = recipient
+		# }
 
 		# scope:secondary_recipient = {
-		# 	save_scope_as = actor
+			# save_scope_as = actor
 		# }
 	}
 
@@ -393,7 +393,7 @@ RHOMAIOI_vassal_modify_vassal_contract_interaction = {
 
 		hidden_effect = {
 			# Struggle Catalysts
-			We work these out first so they're not invalidated by the actual effect block.
+			# We work these out first so they're not invalidated by the actual effect block.
 			if = {
 				limit = {
 					catalyst_granted_powerful_diff_faith_vassal_religious_protection_preliminary_trigger = { CHAR = scope:recipient }

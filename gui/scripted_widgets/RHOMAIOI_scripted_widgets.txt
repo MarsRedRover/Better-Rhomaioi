@@ -1,2 +1,2 @@
-gui/RHOMAIOI_hud_widget.gui = RHOMAIOI_hud_widget
-gui/custom_gui/window_SPQR.gui = SPQR_window
+#gui/RHOMAIOI_hud_widget.gui = RHOMAIOI_hud_widget
+#gui/custom_gui/window_SPQR.gui = SPQR_window

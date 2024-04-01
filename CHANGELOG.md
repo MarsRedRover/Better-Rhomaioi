@@ -46,3 +46,17 @@ All notable changes will be documented within this file
 	- Fixed 'Imperial Council' showing up for non Byzantine government types
 	- Balanced Imperial Tagmata
 
+## [Version 0.2] - 1.12.4 "Scythe" - 4/01/2023
+
+### Added
+	- Added AI logic for court positions missing them
+	- Added voting candidacy favor for more court positions
+	- Added the following nicknames (based on decisions, yet to come out): "the Bulgar Slayer", "the Turk Slayer", "the Slit-nosed", "the Dung-named", "the Caulker", "the Gladiator", "the Moor", "the Pretender", "Conqueror of the Rhine", "the Spartan", "the Thracian", "the Macedonian", "the Isaurian", "the Purple-born", "the Beast of Rome", "the Sword", "the Plague of Constantinople"
+	- Added decision to reinforce Theodosian walls
+	
+### Changed
+	- Removed Greco-Roman culture
+	
+### Fixed
+	- Balanced 'Usurper' factions on game start, now they will only fire up on start whilst playing as 'Constantine X Doukas' for historical accuracy
+	- Fixed Rhomaioi 'Roman' culture
