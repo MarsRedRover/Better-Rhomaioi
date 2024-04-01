@@ -159,3 +159,164 @@ dismantle_holy_pretender_decision = {
 	#	base = 100
 	#}
 }
+
+# A more lenient decision to convert if your liege is imperial
+convert_to_imperialism_liege_converted_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	major = yes
+	desc = convert_to_imperialism_liege_converted_decision_desc
+
+	ai_check_interval = 36
+
+	is_shown = {
+		government_has_flag = government_is_tribal
+        government_has_flag = government_is_feudal
+        # Will this work properly ?
+        # government_has_flag = government_is_republic
+		liege = {
+			OR = {
+				government_has_flag = government_is_imperial_autocracy
+			}
+		}
+	}
+
+	is_valid = {
+		OR = {
+            has_realm_law = tribal_authority_0
+			has_realm_law = tribal_authority_1
+			has_realm_law = tribal_authority_2
+			has_realm_law = tribal_authority_3
+            has_realm_law = crown_authority_0
+			has_realm_law = crown_authority_1
+			has_realm_law = crown_authority_2
+			has_realm_law = crown_authority_3            
+		}
+		# custom_description = {
+			# text = faith_is_reformed
+			# subject = root
+			# faith = { NOT = { has_doctrine_parameter = unreformed } }
+		# }
+		# custom_description = {
+			# text = recent_conversion_to_tribalism
+			# NOT = { has_character_flag = just_converted_to_tribalism }
+		# }
+	}
+
+	cost = {
+		prestige = 150
+	}
+
+	effect = {
+    # TODO STUFF HERE
+		trigger_event = major_decisions.0001
+		save_scope_as = actor
+		convert_whole_realm_to_imperialism_effect = yes
+		hidden_effect = {
+			every_vassal = {
+				trigger_event = {
+					id = major_decisions.0002
+					days = 3
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+# A decision to imperialize the entire realm
+convert_whole_realm_to_imperialism_decision = {
+# TODO STUFF
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	major = yes
+	desc = convert_whole_realm_to_imperialism_decision_desc
+
+	ai_check_interval = 36
+
+	is_shown = {
+		government_has_flag = government_is_tribal
+        government_has_flag = government_is_feudal
+		OR = {
+			is_independent_ruler = yes
+			AND = {
+				is_independent_ruler = no
+				liege = {
+					NOR = {
+						government_has_flag = government_is_imperial_autocracy
+						# government_has_flag = government_is_clan
+					}
+				}
+			}
+		}
+	}
+
+	is_valid = {
+		has_realm_law = tribal_authority_3
+		custom_description = {
+			text = faith_is_reformed
+			subject = root
+			faith = { NOT = { has_doctrine_parameter = unreformed } }
+		}
+		prestige_level >= 2
+		capital_province.county = {
+			development_level >= convert_to_feudalism_development_requirement
+		}
+
+		custom_description = { #You need to have 70% of all (non-regional/unique) tribal innovations!
+			text = has_all_tribal_innovations
+			subject = root.culture
+			culture = {
+				calc_true_if = {
+					amount >= 9
+					has_innovation = innovation_motte
+					has_innovation = innovation_catapult
+					has_innovation = innovation_barracks
+					has_innovation = innovation_mustering_grounds
+					has_innovation = innovation_bannus
+					has_innovation = innovation_quilted_armor
+					has_innovation = innovation_gavelkind
+					has_innovation = innovation_crop_rotation
+					has_innovation = innovation_city_planning
+					has_innovation = innovation_casus_belli
+					has_innovation = innovation_plenary_assemblies
+					has_innovation = innovation_ledger
+					has_innovation = innovation_development_01
+					has_innovation = innovation_currency_01
+				}
+			}
+		}
+	}
+
+	cost = {
+		prestige = 200
+	}
+
+	effect = {
+		gain_legitimizing_legend_seed_tooltip_effect = yes
+		trigger_event = major_decisions.0001
+		save_scope_as = actor
+		convert_whole_realm_to_feudalism_effect = yes
+		hidden_effect = {
+			every_vassal = {
+				trigger_event = {
+					id = major_decisions.0002
+					days = 3
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		NOT = { has_title = title:e_mongol_empire } #Stop the Mongols from slowing their conquest.
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
