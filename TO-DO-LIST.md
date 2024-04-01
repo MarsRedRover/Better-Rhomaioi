@@ -8,6 +8,7 @@
 	- Roman culture adoption to vassals
 	- My_Realm vassal contract GUI fix
 	- Newly conquered feudal vassals should be able to adopt Imperial Autocracy
+	- Lion Patch decisions 
 [Add]
 	- Byzantine themed music 24 song playlist (Decision & Date based)
 	- Add +4 fort level to Theodosian Walls

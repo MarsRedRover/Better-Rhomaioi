@@ -2,7 +2,7 @@ reinforce_theodosian_walls = {
 	title = "Reinforce Theodosian Walls"
 	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
 	sort_order = 80
-	desc = "The double Theodosian Walls, errected by Emperor Theodosius II (402-450) were the primary defenses of the City of Constantinopel (here Byzantion) for over 1000 years and still stand strong to modern date."
+	desc = "The double Theodosian Walls, errected by Emperor Theodosius II (402-450) were the primary defenses of the City of Constantinople (here Byzantion) for over 1000 years and still stand strong to modern date."
 	selection_tooltip = ""
 	confirm_text = "Bigger, Stronger, Higher Walls!"
 	
