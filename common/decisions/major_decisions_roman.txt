@@ -174,9 +174,9 @@ convert_to_imperialism_liege_converted_decision = {
         # Will this work properly ?
         # government_has_flag = government_is_republic
 		liege = {
-			OR = {
-				government_has_flag = government_is_imperial_autocracy
-			}
+			# OR = {
+			government_has_flag = government_is_imperial_autocracy
+			# }
 		}
 	}
 
@@ -208,13 +208,13 @@ convert_to_imperialism_liege_converted_decision = {
 
 	effect = {
     # TODO STUFF HERE
-		trigger_event = major_decisions.0001
+		trigger_event = RHOMAIOI_major_decisions.0001
 		save_scope_as = actor
 		convert_whole_realm_to_imperialism_effect = yes
 		hidden_effect = {
 			every_vassal = {
 				trigger_event = {
-					id = major_decisions.0002
+					id = RHOMAIOI_major_decisions.0002
 					days = 3
 				}
 			}
@@ -299,13 +299,13 @@ convert_whole_realm_to_imperialism_decision = {
 
 	effect = {
 		gain_legitimizing_legend_seed_tooltip_effect = yes
-		trigger_event = major_decisions.0001
+		trigger_event = RHOMAIOI_major_decisions.0001
 		save_scope_as = actor
-		convert_whole_realm_to_feudalism_effect = yes
+		convert_whole_realm_to_imperialism_effect = yes
 		hidden_effect = {
 			every_vassal = {
 				trigger_event = {
-					id = major_decisions.0002
+					id = RHOMAIOI_major_decisions.0002
 					days = 3
 				}
 			}

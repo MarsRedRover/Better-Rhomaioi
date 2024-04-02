@@ -1,0 +1,58 @@
+RHOMAIOI_major_decisions.0001 = { 
+	type = character_event
+	title = RHOMAIOI_major_decisions.0001.t
+	desc = RHOMAIOI_major_decisions.0001.desc
+	theme = stewardship
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	immediate = {
+		show_as_tooltip = {
+			convert_whole_realm_to_imperialism_effect = yes	
+		}
+		legend_seed_great_deed_dynasty_effect = yes
+		hidden_effect = {
+			every_liege_or_above = {
+				limit = {
+					NOT = { is_independent_ruler = yes }
+				}
+				send_interface_message = {
+					type = event_stewardship_neutral_with_text
+					title = msg_vassal_imperialized
+					desc = msg_vassal_imperialized_desc
+					right_icon = root
+				}
+			}
+		}
+	}
+
+	option = {
+		name = RHOMAIOI_major_decisions.0001.a
+	}
+}
+
+RHOMAIOI_major_decisions.0002 = { 
+	type = letter_event
+	opening = RHOMAIOI_major_decisions.0002.opening
+	desc = RHOMAIOI_major_decisions.0001.desc
+	sender = {
+		character = scope:actor
+		animation = personality_rational
+	}
+
+	immediate = {
+		show_as_tooltip = {
+			if = {
+				limit = { government_has_flag = government_is_clan }
+				change_government = clan_government
+			}
+			else = { change_government = RHOMAIOI_imperial_government }
+		}
+	}
+
+	option = {
+		name = RHOMAIOI_major_decisions.0001.a
+	}
+}
