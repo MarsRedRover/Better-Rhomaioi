@@ -4,7 +4,7 @@ I aim to revive and revitalize the Rhomaioi mod created by Markellus found here 
 Unfortunately Rhomaioi hasn't been updated since 1.3.2, because of this I'll need to build it from the ground up using the mod files as a template.
 
 Better Basileus
-Version 0.1
+Version 0.2
 
 Better Basileus aims to provide extra flavor to playing as a Byzantine Emperor or vassal.
 
