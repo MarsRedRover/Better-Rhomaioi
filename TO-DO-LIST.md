@@ -11,7 +11,6 @@
 	- Lion Patch decisions 
 [Add]
 	- Byzantine themed music 24 song playlist (Decision & Date based)
-	- Add +4 fort level to Theodosian Walls
 	- Varangian Guard unit diversity
 	- Born in the Purple for Roman Empire & culture
 	- Specialized Byzantine events
