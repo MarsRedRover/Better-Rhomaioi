@@ -1,20 +1,44 @@
 ﻿# Requires local_var:<obligation_type> to be set for feudal obligations
 # WHO = Who's contract levels are being checked
+# RHOMAIOI_has_changed_contract_obligation_trigger = {
+# 	$WHO$ = { save_temporary_scope_as = obligation_check }
+# 	custom_description = {
+# 		text = "modify_vassal_contract_select_different_obligation_level"
+# 		OR = {
+# 			local_var:feudal_government_taxes != scope:obligation_check.vassal_contract_obligation_level:feudal_government_taxes
+# 			local_var:feudal_government_levies != scope:obligation_check.vassal_contract_obligation_level:feudal_government_levies
+# 			local_var:RHOMAIOI_special_contract != scope:obligation_check.vassal_contract_obligation_level:RHOMAIOI_special_contract
+# 			local_var:religious_rights != scope:obligation_check.vassal_contract_obligation_level:religious_rights
+# 			local_var:fortification_rights != scope:obligation_check.vassal_contract_obligation_level:fortification_rights
+# 			local_var:coinage_rights != scope:obligation_check.vassal_contract_obligation_level:coinage_rights
+# 			local_var:succession_rights != scope:obligation_check.vassal_contract_obligation_level:succession_rights
+# 			local_var:war_declaration_rights != scope:obligation_check.vassal_contract_obligation_level:war_declaration_rights
+# 			local_var:council_rights != scope:obligation_check.vassal_contract_obligation_level:council_rights
+# 			local_var:title_revocation_rights != scope:obligation_check.vassal_contract_obligation_level:title_revocation_rights
+# 		}
+# 	}
+# }
+
 RHOMAIOI_has_changed_contract_obligation_trigger = {
-	$WHO$ = { save_temporary_scope_as = obligation_check }
-	custom_description = {
-		text = "modify_vassal_contract_select_different_obligation_level"
-		OR = {
-			local_var:feudal_government_taxes != scope:obligation_check.vassal_contract_obligation_level:feudal_government_taxes
-			local_var:feudal_government_levies != scope:obligation_check.vassal_contract_obligation_level:feudal_government_levies
-			local_var:RHOMAIOI_special_contract != scope:obligation_check.vassal_contract_obligation_level:RHOMAIOI_special_contract
-			local_var:religious_rights != scope:obligation_check.vassal_contract_obligation_level:religious_rights
-			local_var:fortification_rights != scope:obligation_check.vassal_contract_obligation_level:fortification_rights
-			local_var:coinage_rights != scope:obligation_check.vassal_contract_obligation_level:coinage_rights
-			local_var:succession_rights != scope:obligation_check.vassal_contract_obligation_level:succession_rights
-			local_var:war_declaration_rights != scope:obligation_check.vassal_contract_obligation_level:war_declaration_rights
-			local_var:council_rights != scope:obligation_check.vassal_contract_obligation_level:council_rights
-			local_var:title_revocation_rights != scope:obligation_check.vassal_contract_obligation_level:title_revocation_rights
+	trigger_if = {
+		limit = { 
+			scope:recipient = { government_has_flag = government_is_imperial_autocracy }
+		}
+		custom_description = {
+			text = "modify_vassal_contract_select_different_obligation_level"
+			list_size = {
+				name = changed_obligations
+				value > 0
+			}
+		}
+	}
+	trigger_else = {
+		custom_description = {
+			text = "modify_non_feudal_vassal_contract_select_different_obligation_level"
+			list_size = {
+				name = changed_obligations
+				value > 0
+			}
 		}
 	}
 }

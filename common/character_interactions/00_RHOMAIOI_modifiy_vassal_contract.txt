@@ -291,16 +291,16 @@ RHOMAIOI_vassal_modify_vassal_contract_interaction = {
 	# Remove comments for 1.11.0.1 fix
 	redirect = {
 		# need to reverse the role for the UI to work properly
-		# scope:recipient = {
-			# save_scope_as = secondary_recipient
-		# }
-		# scope:actor = {
-			# save_scope_as = recipient
-		# }
+		scope:recipient = {
+			save_scope_as = secondary_recipient
+		}
+		scope:actor = {
+			save_scope_as = recipient
+		}
 
-		# scope:secondary_recipient = {
-			# save_scope_as = actor
-		# }
+		scope:secondary_recipient = {
+			save_scope_as = actor
+		}
 	}
 
 	is_shown = {

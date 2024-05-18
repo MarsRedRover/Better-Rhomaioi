@@ -1,274 +1,274 @@
-on_title_gain = {
-	on_actions = {
-		better_rhomaioi_on_illyricum_gain
-		better_rhomaioi_on_lower_italy_gain
-		better_rhomaioi_on_egypt_gain
-		better_rhomaioi_on_upper_italy_gain
-		better_rhomaioi_on_north_africa_gain
-		better_rhomaioi_on_spain_gain
-		better_rhomaioi_on_mesopotamia_gain
-		better_rhomaioi_decimate_muslim_invaders
-		better_rhomaioi_on_persia_gain
-		better_rhomaioi_on_carpathia_gain
-		better_rhomaioi_on_syria_gain
-		better_rhomaioi_on_dacia_gain
-		better_rhomaioi_on_africa_gain
-		better_rhomaioi_on_mauretania_gain
-		better_rhomaioi_on_baetica_gain
-		better_rhomaioi_on_lusitania_gain
-		better_rhomaioi_on_tarraconensis_gain
-		better_rhomaioi_on_aquitania_narbonensis_gain
-	}
-}
-better_rhomaioi_on_illyricum_gain = {
-	trigger = {
-		has_primary_title = title:e_byzantium
-		completely_controls_region = custom_balkan_territories
-	}
-	effect = {
-		house = {
-			remove_house_modifier = illyricum_conquest
-			add_house_modifier = {
-				modifier = illyricum_conquered
-			}
-		}
-	}
-}
+# on_title_gain = {
+# 	on_actions = {
+# 		better_rhomaioi_on_illyricum_gain
+# 		better_rhomaioi_on_lower_italy_gain
+# 		better_rhomaioi_on_egypt_gain
+# 		better_rhomaioi_on_upper_italy_gain
+# 		better_rhomaioi_on_north_africa_gain
+# 		better_rhomaioi_on_spain_gain
+# 		better_rhomaioi_on_mesopotamia_gain
+# 		better_rhomaioi_decimate_muslim_invaders
+# 		better_rhomaioi_on_persia_gain
+# 		better_rhomaioi_on_carpathia_gain
+# 		better_rhomaioi_on_syria_gain
+# 		better_rhomaioi_on_dacia_gain
+# 		better_rhomaioi_on_africa_gain
+# 		better_rhomaioi_on_mauretania_gain
+# 		better_rhomaioi_on_baetica_gain
+# 		better_rhomaioi_on_lusitania_gain
+# 		better_rhomaioi_on_tarraconensis_gain
+# 		better_rhomaioi_on_aquitania_narbonensis_gain
+# 	}
+# }
+# better_rhomaioi_on_illyricum_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_byzantium
+# 		completely_controls_region = custom_balkan_territories
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = illyricum_conquest
+# 			add_house_modifier = {
+# 				modifier = illyricum_conquered
+# 			}
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_lower_italy_gain = {
-	trigger = {
-		has_primary_title = title:e_byzantium
-		completely_controls_region = custom_lower_italy
-	}
-	effect = {
-		house = {
-			remove_house_modifier = lower_italian_holdings_conquest
-			add_house_modifier = {
-				modifier = lower_italian_holdings_conquered
-			}
-		}
-	}
-}
+# better_rhomaioi_on_lower_italy_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_byzantium
+# 		completely_controls_region = custom_lower_italy
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = lower_italian_holdings_conquest
+# 			add_house_modifier = {
+# 				modifier = lower_italian_holdings_conquered
+# 			}
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_egypt_gain = {
-	trigger = {
-		has_primary_title = title:e_byzantium
-		completely_controls_region = custom_egypt
-	}
-	effect = {
-		house = {
-			remove_house_modifier = egypt_conquest
-			add_house_modifier = {
-				modifier = egypt_conquered
-			}
-		}
-	}
-}
+# better_rhomaioi_on_egypt_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_byzantium
+# 		completely_controls_region = custom_egypt
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = egypt_conquest
+# 			add_house_modifier = {
+# 				modifier = egypt_conquered
+# 			}
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_upper_italy_gain = {
-	trigger = {
-		has_primary_title = title:e_byzantium
-		completely_controls_region = custom_upper_italy
-	}
-	effect = {
-		house = {
-			remove_house_modifier = upper_italian_holdings_conquest
-			add_house_modifier = {
-				modifier = upper_italian_holdings_conquered
-			}
-		}
-	}
-}
+# better_rhomaioi_on_upper_italy_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_byzantium
+# 		completely_controls_region = custom_upper_italy
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = upper_italian_holdings_conquest
+# 			add_house_modifier = {
+# 				modifier = upper_italian_holdings_conquered
+# 			}
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_north_africa_gain = {
-	trigger = {
-		has_primary_title = title:e_byzantium
-		completely_controls_region = custom_north_africa
-	}
-	effect = {
-		house = {
-			remove_house_modifier = north_africa_conquest
-			add_house_modifier = {
-				modifier = north_africa_conquered
-			}
-		}
-	}
-}
+# better_rhomaioi_on_north_africa_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_byzantium
+# 		completely_controls_region = custom_north_africa
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = north_africa_conquest
+# 			add_house_modifier = {
+# 				modifier = north_africa_conquered
+# 			}
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_spain_gain = {
-	trigger = {
-		has_primary_title = title:e_byzantium
-		completely_controls_region = custom_iberia
-	}
-	effect = {
-		house = {
-			remove_house_modifier = spanish_invasion_conquest
-			add_house_modifier = {
-				modifier = spanish_invasion_conquered
-			}
-		}
-	}
-}
+# better_rhomaioi_on_spain_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_byzantium
+# 		completely_controls_region = custom_iberia
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = spanish_invasion_conquest
+# 			add_house_modifier = {
+# 				modifier = spanish_invasion_conquered
+# 			}
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_mesopotamia_gain = {
-	trigger = {
-		has_primary_title = title:e_roman_empire
-		completely_controls_region = custom_mesopotamia
-	}
-	effect = {
-		house = {
-			remove_house_modifier = mesopotamia_conquest
-			add_house_modifier = {
-				modifier = mesopotamia_conquered
-			}
-		}
-	}
-}
+# better_rhomaioi_on_mesopotamia_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_roman_empire
+# 		completely_controls_region = custom_mesopotamia
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = mesopotamia_conquest
+# 			add_house_modifier = {
+# 				modifier = mesopotamia_conquered
+# 			}
+# 		}
+# 	}
+# }
 
-better_rhomaioi_decimate_muslim_invaders = {
-	trigger = {
-		has_primary_title = title:e_roman_empire
-		completely_controls_region = custom_holy_muslim
-	}
-	effect = {
-		house = {
-			remove_house_modifier = decimate_muslim_invaders
-		}
-	}
-}
+# better_rhomaioi_decimate_muslim_invaders = {
+# 	trigger = {
+# 		has_primary_title = title:e_roman_empire
+# 		completely_controls_region = custom_holy_muslim
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = decimate_muslim_invaders
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_persia_gain = {
-	trigger = {
-		has_primary_title = title:e_roman_empire
-		completely_controls_region = custom_persia
-	}
-	effect = {
-		house = {
-			remove_house_modifier = persia_conquest
-			add_house_modifier = {
-				modifier = persia_conquered
-			}
-		}
-	}
-}
+# better_rhomaioi_on_persia_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_roman_empire
+# 		completely_controls_region = custom_persia
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = persia_conquest
+# 			add_house_modifier = {
+# 				modifier = persia_conquered
+# 			}
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_carpathia_gain = {
-	trigger = {
-		has_primary_title = title:e_roman_empire
-		completely_controls_region = custom_carpathia
-	}
-	effect = {
-		house = {
-			remove_house_modifier = carpathia_conquest
-			add_house_modifier = {
-				modifier = carpathia_conquered
-			}
-		}
-	}
-}
+# better_rhomaioi_on_carpathia_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_roman_empire
+# 		completely_controls_region = custom_carpathia
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = carpathia_conquest
+# 			add_house_modifier = {
+# 				modifier = carpathia_conquered
+# 			}
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_syria_gain = {
-	trigger = {
-		has_primary_title = title:e_roman_empire
-		completely_controls_region = custom_syria
-	}
-	effect = {
-		house = {
-			remove_house_modifier = reclaim_syria
-		}
-	}
-}
+# better_rhomaioi_on_syria_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_roman_empire
+# 		completely_controls_region = custom_syria
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = reclaim_syria
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_dacia_gain = {
-	trigger = {
-		has_primary_title = title:e_roman_empire
-		completely_controls_region = custom_dacia
-	}
-	effect = {
-		house = {
-			remove_house_modifier = restore_dacia
-		}
+# better_rhomaioi_on_dacia_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_roman_empire
+# 		completely_controls_region = custom_dacia
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = restore_dacia
+# 		}
 
-		title:d_temes = {
-			set_de_jure_liege_title = title:k_dacia
-		}
-		title:d_transylvania = {
-			set_de_jure_liege_title = title:k_dacia
-		}
-		title:d_bihar = {
-			set_de_jure_liege_title = title:k_dacia
-		}
-	}
-}
+# 		title:d_temes = {
+# 			set_de_jure_liege_title = title:k_dacia
+# 		}
+# 		title:d_transylvania = {
+# 			set_de_jure_liege_title = title:k_dacia
+# 		}
+# 		title:d_bihar = {
+# 			set_de_jure_liege_title = title:k_dacia
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_africa_gain = {
-	trigger = {
-		has_primary_title = title:e_roman_empire
-		completely_controls_region = custom_africa_proconsularis
-	}
-	effect = {
-		house = {
-			remove_house_modifier = restore_africa_proconsularis
-		}
-	}
-}
+# better_rhomaioi_on_africa_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_roman_empire
+# 		completely_controls_region = custom_africa_proconsularis
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = restore_africa_proconsularis
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_mauretania_gain = {
-	trigger = {
-		has_primary_title = title:e_roman_empire
-		completely_controls_region = custom_mauretania
-	} 
-	effect = {
-		house = {
-			remove_house_modifier = restore_mauretania
-		}
-	}
-}
+# better_rhomaioi_on_mauretania_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_roman_empire
+# 		completely_controls_region = custom_mauretania
+# 	} 
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = restore_mauretania
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_baetica_gain = {
-	trigger = {
-		has_primary_title = title:e_roman_empire
-		completely_controls_region = custom_baetica
-	}
-	effect = {
-		house = {
-			remove_house_modifier = restore_baetica
-		}
-	}
-}
+# better_rhomaioi_on_baetica_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_roman_empire
+# 		completely_controls_region = custom_baetica
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = restore_baetica
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_lusitania_gain = {
-	trigger = {
-		has_primary_title = title:e_roman_empire
-		completely_controls_region = custom_lusitania
-	}
-	effect = {
-		house = {
-			remove_house_modifier = restore_lusitania
-		}
-	}
-}
+# better_rhomaioi_on_lusitania_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_roman_empire
+# 		completely_controls_region = custom_lusitania
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = restore_lusitania
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_tarraconensis_gain = {
-	trigger = {
-		has_primary_title = title:e_roman_empire
-		completely_controls_region = custom_tarraconensis
-	}
-	effect = {
-		house = {
-			remove_house_modifier = restore_tarraconensis
-		}
-	}
-}
+# better_rhomaioi_on_tarraconensis_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_roman_empire
+# 		completely_controls_region = custom_tarraconensis
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = restore_tarraconensis
+# 		}
+# 	}
+# }
 
-better_rhomaioi_on_aquitania_narbonensis_gain = {
-	trigger = {
-		has_primary_title = title:e_roman_empire
-		completely_controls_region = custom_aquitania_narbonensis
-	}
-	effect = {
-		house = {
-			remove_house_modifier = restore_aquitania_narbonensis
-		}
-	}
-}
+# better_rhomaioi_on_aquitania_narbonensis_gain = {
+# 	trigger = {
+# 		has_primary_title = title:e_roman_empire
+# 		completely_controls_region = custom_aquitania_narbonensis
+# 	}
+# 	effect = {
+# 		house = {
+# 			remove_house_modifier = restore_aquitania_narbonensis
+# 		}
+# 	}
+# }
