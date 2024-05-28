@@ -29,7 +29,6 @@
 * MaA historical accuracy fix
 * RHOMAIOI localization for everything from Better Basileus
 * GUI compatibility 
-* Crown Authority opinion modifiers
 * Nicknames after events
 [Finish]
 * Coronation activity
@@ -43,7 +42,7 @@
 * More court positions
 * Improved AI (Improved voting & court positions)
 * New updated features added (Struggle Add*on Compatch?)
-* Men*at*Arms balancing
+* Men-at-Arms balancing
 * Diarch mechanics & events (Regent events?)
 * Imperial Authority & Senate power system
 * Electoral Declination & Abdication system
