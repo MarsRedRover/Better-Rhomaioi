@@ -54,9 +54,14 @@ All notable changes will be documented within this file
 	- Added the following nicknames (based on decisions, yet to come out): "the Bulgar Slayer", "the Turk Slayer", "the Slit-nosed", "the Dung-named", "the Caulker", "the Gladiator", "the Moor", "the Pretender", "Conqueror of the Rhine", "the Spartan", "the Thracian", "the Macedonian", "the Isaurian", "the Purple-born", "the Beast of Rome", "the Sword", "the Plague of Constantinople"
 	- Added decision to reinforce Theodosian walls
 	- Added RHOMAIOI Imperial Authority & Laws
+	- Added Better Rhomaioi mod wiki [wiki here](https://github.com/MarsRedRover/Better-Rhomaioi/wiki)
+	- Added skills to existing court positions
+	- Added localization to court position effects
 	
 ### Changed
 	- Removed Greco-Roman culture
+	- Removed court position dupes
+	- Court position salaries will now scale in price
 	
 ### Fixed
 	- Balanced 'usurper' factions on game start, now they will only fire up on start whilst playing as 'Constantine X Doukas' for historical accuracy

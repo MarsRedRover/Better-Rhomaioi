@@ -437,7 +437,6 @@ junior_co-emperor_court_position = {
     }
 }
 
-# TODO: FINISH
 caesar_court_position = {
 	max_available_positions = 1
 	category = court_position_category_special
@@ -452,7 +451,7 @@ caesar_court_position = {
 	# How good is this character in this position? root scope is the holder of the court position
 	aptitude = {
 		value = 1
-		# Skill
+		# Skills
 		add = {
 			value = diplomacy
 			multiply = 1.5
@@ -465,7 +464,14 @@ caesar_court_position = {
 			max = 35
 			desc = court_position_skill_intrigue
 		}
-		# Diplomat (Politician)
+		add = {
+			value = martial
+			multiply = 1.15
+			max = 20
+			desc = court_position_skill_martial
+		}
+
+		# Perks
 		if = {
 			limit = { has_perk = diplomat_perk}
 			add = {
@@ -473,7 +479,6 @@ caesar_court_position = {
 			}
 			desc = court_position_diplomat_l_perk
 		}
-		# August
 		if = {
 			limit = { has_perk = august_perk }
 			add = {
@@ -481,7 +486,6 @@ caesar_court_position = {
 			}
 			desc = court_position_august_l_perk
 		}
-		# Patriarch
 		if = {
 			limit = { has_perk = family_man_perk }
 			add = {
@@ -489,7 +493,6 @@ caesar_court_position = {
 			}
 			desc = court_position_family_man_l_perk
 		}
-		# Schemer (Politician)
 		if = {
 			limit = { has_perk = schemer_perk }
 			add = {
@@ -497,7 +500,27 @@ caesar_court_position = {
 			}
 			desc = court_position_schemer_perk
 		}
-		# TODO: ADD MARTIAL & STEWARDSHIP TRAITS???
+		if = {
+			limit = { has_perk = strategist_perk }
+			add = {
+				value = 15
+			}
+			desc = court_position_strategist_l_perk
+		}
+		if = {
+			limit = { has_perk = overseer_perk }
+			add = {
+				value = 15
+			}
+			desc = court_position_overseer_l_perk
+		}
+		if = {
+			limit = { has_perk = gallant_perk }
+			add = {
+				value = 15
+			}
+			desc = court_position_gallant_l_perk
+		}
 
 		# Education
 		if = {
@@ -623,12 +646,6 @@ caesar_court_position = {
 				has_trait = scaly
 				has_trait = albino
 				has_trait = devoted
-				# has_trait = bleeder
-				# has_trait = gout_ridden
-				# has_trait = giant
-				# has_trait = maimed
-				# has_trait = wounded_3
-				# has_trait = clubfooted
 			}
 		}
 	}
@@ -651,30 +668,20 @@ caesar_court_position = {
 				}
 				multiply = 0
 			}
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
 		}
-		# gold = {
-		# 	value = medium_court_position_salary
-		# 	# Set to 0 with Dynasty Perk Inner Circle
-		# 	if = {
-		# 		limit = {
-		# 			exists = dynasty
-		# 			dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
-					
-		# 			employs_court_position = despot_court_position
-		# 			any_court_position_holder = {
-		# 				type = despot_court_position
-		# 				exists = dynasty
-		# 				house = prev.house
-		# 			}
-		# 		}
-		# 		multiply = 0
-		# 	}
-		# }
+
 	}
 
 	salary = {
 		gold = {
-			value = 0.50
+			value = major_court_position_salary
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
@@ -720,7 +727,7 @@ caesar_court_position = {
 		round = no
 	}
 
-	is_powerful_agent = no
+	is_powerful_agent = yes
 
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
@@ -753,10 +760,10 @@ caesar_court_position = {
 	# custom_employer_modifier_description = court_caesar_employer_custom_effect_description
 
 	modifier = {
-		monthly_prestige = minor_court_position_prestige_salary
+		monthly_prestige = major_court_position_prestige_salary
 		diplomacy = 3
 		intrigue = 1
-		# martial = 1
+		martial = 1
 	}
 
 	on_court_position_received = {
@@ -768,24 +775,6 @@ caesar_court_position = {
 	on_court_position_invalidated = {
 		court_caesar_title_invalidated_effect = yes
 	}
-
-	# search_for_courtier = {
-	# 	send_interface_toast = {
-	# 		title = hire_physician_decision
-	# 		custom_tooltip = hire_physician_decision_effect_tooltip
-	# 	}
-	# 	hidden_effect = {
-	# 		add_character_flag = {
-	# 			flag = health_3001_hire_physician_decision_text
-	# 			days = 20
-	# 		}
-	# 	}
-
-	# 	trigger_event = {
-	# 		id = health.3001
-	# 		days = 14
-	# 	}
-	# }
 
 	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
 	candidate_score = {
@@ -809,11 +798,10 @@ caesar_court_position = {
     }
 }
 
-# TODO: FINISH
 despot_court_position = {
 	max_available_positions = 1
 	category = court_position_category_special
-	
+
 	opinion = {
 		value = 15
 	}
@@ -893,7 +881,6 @@ despot_court_position = {
 			}
 			desc = court_position_overseer_perk
 		}
-		# TODO: ADD STEWARDSHIP TRAITS???
 
 		# Education
 		if = {
@@ -1019,12 +1006,6 @@ despot_court_position = {
 				has_trait = scaly
 				has_trait = albino
 				has_trait = devoted
-				# has_trait = bleeder
-				# has_trait = gout_ridden
-				# has_trait = giant
-				# has_trait = maimed
-				# has_trait = wounded_3
-				# has_trait = clubfooted
 			}
 		}
 	}
@@ -1047,30 +1028,19 @@ despot_court_position = {
 				}
 				multiply = 0
 			}
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
 		}
-		# gold = {
-		# 	value = medium_court_position_salary
-		# 	# Set to 0 with Dynasty Perk Inner Circle
-		# 	if = {
-		# 		limit = {
-		# 			exists = dynasty
-		# 			dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
-					
-		# 			employs_court_position = despot_court_position
-		# 			any_court_position_holder = {
-		# 				type = despot_court_position
-		# 				exists = dynasty
-		# 				house = prev.house
-		# 			}
-		# 		}
-		# 		multiply = 0
-		# 	}
-		# }
 	}
 
 	salary = {
 		gold = {
-			value = 1.50
+			value = medium_court_position_salary
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
@@ -1155,8 +1125,6 @@ despot_court_position = {
 		martial = 1
 	}
 
-	#custom_employee_modifier_description = court_physician_employee_custom_effect_description
-
 	on_court_position_received = {
 		court_despot_title_accepted_effect = yes
 	}
@@ -1166,24 +1134,6 @@ despot_court_position = {
 	on_court_position_invalidated = {
 		court_despot_title_invalidated_effect = yes
 	}
-
-	# search_for_courtier = {
-	# 	send_interface_toast = {
-	# 		title = hire_physician_decision
-	# 		custom_tooltip = hire_physician_decision_effect_tooltip
-	# 	}
-	# 	hidden_effect = {
-	# 		add_character_flag = {
-	# 			flag = health_3001_hire_physician_decision_text
-	# 			days = 20
-	# 		}
-	# 	}
-
-	# 	trigger_event = {
-	# 		id = health.3001
-	# 		days = 14
-	# 	}
-	# }
 
 	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
 	candidate_score = {
@@ -1195,7 +1145,6 @@ despot_court_position = {
     }
 }
 
-# TODO: FINISH
 sebastokrator_court_position = {
 	max_available_positions = 1
 	category = court_position_category_royal
@@ -1279,7 +1228,6 @@ sebastokrator_court_position = {
 			}
 			desc = court_position_overseer_perk
 		}
-		# TODO: STEWARDSHIP TRAITS???
 
 		# Education
 		if = {
@@ -1405,12 +1353,6 @@ sebastokrator_court_position = {
 				has_trait = scaly
 				has_trait = albino
 				has_trait = devoted
-				# has_trait = bleeder
-				# has_trait = gout_ridden
-				# has_trait = giant
-				# has_trait = maimed
-				# has_trait = wounded_3
-				# has_trait = clubfooted
 			}
 		}
 	}
@@ -1433,30 +1375,19 @@ sebastokrator_court_position = {
 				}
 				multiply = 0
 			}
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
 		}
-		# gold = {
-		# 	value = medium_court_position_salary
-		# 	# Set to 0 with Dynasty Perk Inner Circle
-		# 	if = {
-		# 		limit = {
-		# 			exists = dynasty
-		# 			dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
-					
-		# 			employs_court_position = despot_court_position
-		# 			any_court_position_holder = {
-		# 				type = despot_court_position
-		# 				exists = dynasty
-		# 				house = prev.house
-		# 			}
-		# 		}
-		# 		multiply = 0
-		# 	}
-		# }
 	}
 
 	salary = {
 		gold = {
-			value = 1
+			value = medium_court_position_salary
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
@@ -1532,16 +1463,11 @@ sebastokrator_court_position = {
 		}
 	}
 
-	# custom_employer_modifier_description = court_despot_employer_custom_effect_description
+	# custom_employer_modifier_description = court_sebastokrator_employer_custom_effect_description
 
 	modifier = {
 		monthly_prestige = minor_court_position_prestige_salary
-		diplomacy = 1
-		intrigue = 1
-		# martial = 1
 	}
-
-	#custom_employee_modifier_description = court_physician_employee_custom_effect_description
 
 	on_court_position_received = {
 		court_sebastokrator_title_accepted_effect = yes
@@ -1553,24 +1479,6 @@ sebastokrator_court_position = {
 		court_sebastokrator_title_invalidated_effect = yes
 	}
 
-	# search_for_courtier = {
-	# 	send_interface_toast = {
-	# 		title = hire_physician_decision
-	# 		custom_tooltip = hire_physician_decision_effect_tooltip
-	# 	}
-	# 	hidden_effect = {
-	# 		add_character_flag = {
-	# 			flag = health_3001_hire_physician_decision_text
-	# 			days = 20
-	# 		}
-	# 	}
-
-	# 	trigger_event = {
-	# 		id = health.3001
-	# 		days = 14
-	# 	}
-	# }
-
 	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
 	candidate_score = {
         value = 150
@@ -1581,7 +1489,6 @@ sebastokrator_court_position = {
     }
 }
 
-# TODO: FINISH
 kouropalates_court_position = {
 	max_available_positions = 1
 	category = court_position_category_royal
@@ -1606,9 +1513,17 @@ kouropalates_court_position = {
 		add = {
 			value = intrigue
 			multiply = 1.25
-			max = 35
+			max = 25
 			desc = court_position_skill_intrigue
 		}
+		add = {
+			value = stewardship
+			multiply = 1.5
+			max = 35
+			desc = court_position_skill_stewardship
+		}
+
+
 		# Diplomat (Politician)
 		if = {
 			limit = { has_perk = diplomat_perk}
@@ -1665,7 +1580,30 @@ kouropalates_court_position = {
 			}
 			desc = court_position_overseer_perk
 		}
-		# TODO: ADD STEWARDSHIP TRAITS???
+		# Avaricious
+		if = {
+			limit = { has_perk = avaricious_perk }
+			add = {
+				value = 15
+			}
+			desc = court_position_avaricious_perk
+		}
+		# Architect
+		if = {
+			limit = { has_perk = architect_perk }
+			add = {
+				value = 25
+			}
+			desc = court_position_architect_perk
+		}
+		# Administrator
+		if = {
+			limit = { has_perk = administrator_perk }
+			add = {
+				value = 30
+			}
+			desc = court_position_administrator_perk
+		}
 
 		# Education
 		if = {
@@ -1820,30 +1758,19 @@ kouropalates_court_position = {
 				}
 				multiply = 0
 			}
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
 		}
-		# gold = {
-		# 	value = medium_court_position_salary
-		# 	# Set to 0 with Dynasty Perk Inner Circle
-		# 	if = {
-		# 		limit = {
-		# 			exists = dynasty
-		# 			dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
-					
-		# 			employs_court_position = despot_court_position
-		# 			any_court_position_holder = {
-		# 				type = despot_court_position
-		# 				exists = dynasty
-		# 				house = prev.house
-		# 			}
-		# 		}
-		# 		multiply = 0
-		# 	}
-		# }
 	}
 
 	salary = {
 		gold = {
-			value = 1
+			value = minor_court_position_salary
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
@@ -1923,12 +1850,7 @@ kouropalates_court_position = {
 
 	modifier = {
 		monthly_prestige = minor_court_position_prestige_salary
-		diplomacy = 1
-		intrigue = 1
-		# martial = 1
 	}
-
-	#custom_employee_modifier_description = court_physician_employee_custom_effect_description
 
 	on_court_position_received = {
 		court_kouropalates_title_accepted_effect = yes
@@ -1940,23 +1862,6 @@ kouropalates_court_position = {
 		court_kouropalates_title_invalidated_effect = yes
 	}
 
-	# search_for_courtier = {
-	# 	send_interface_toast = {
-	# 		title = hire_physician_decision
-	# 		custom_tooltip = hire_physician_decision_effect_tooltip
-	# 	}
-	# 	hidden_effect = {
-	# 		add_character_flag = {
-	# 			flag = health_3001_hire_physician_decision_text
-	# 			days = 20
-	# 		}
-	# 	}
-
-	# 	trigger_event = {
-	# 		id = health.3001
-	# 		days = 14
-	# 	}
-	# }
 
 	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
 	candidate_score = {
@@ -1968,20 +1873,12 @@ kouropalates_court_position = {
     }
 }
 
-# TODO: FINISH
 anthypatos_court_position = {
 	max_available_positions = 2
 	category = court_position_category_common
 	
 	opinion = {
 		value = 5
-	}
-
-	max_available_positions = 1
-	category = court_position_category_royal
-	
-	opinion = {
-		value = 10
 	}
 
 	# How high the aptitude has to be to reach the 5 different modifier levels
@@ -2059,7 +1956,30 @@ anthypatos_court_position = {
 			}
 			desc = court_position_overseer_perk
 		}
-		# TODO: ADD MARTIAL & STEWARDSHIP TRAITS???
+		# Avaricious
+		if = {
+			limit = { has_perk = avaricious_perk }
+			add = {
+				value = 15
+			}
+			desc = court_position_avaricious_perk
+		}
+		# Architect
+		if = {
+			limit = { has_perk = architect_perk }
+			add = {
+				value = 15
+			}
+			desc = court_position_architect_perk
+		}
+		# Administrator
+		if = {
+			limit = { has_perk = administrator_perk }
+			add = {
+				value = 15
+			}
+			desc = court_position_administrator_perk
+		}
 
 		# Education
 		if = {
@@ -2185,12 +2105,6 @@ anthypatos_court_position = {
 				has_trait = scaly
 				has_trait = albino
 				has_trait = devoted
-				# has_trait = bleeder
-				# has_trait = gout_ridden
-				# has_trait = giant
-				# has_trait = maimed
-				# has_trait = wounded_3
-				# has_trait = clubfooted
 			}
 		}
 	}
@@ -2213,30 +2127,19 @@ anthypatos_court_position = {
 				}
 				multiply = 0
 			}
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
 		}
-		# gold = {
-		# 	value = medium_court_position_salary
-		# 	# Set to 0 with Dynasty Perk Inner Circle
-		# 	if = {
-		# 		limit = {
-		# 			exists = dynasty
-		# 			dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
-					
-		# 			employs_court_position = despot_court_position
-		# 			any_court_position_holder = {
-		# 				type = despot_court_position
-		# 				exists = dynasty
-		# 				house = prev.house
-		# 			}
-		# 		}
-		# 		multiply = 0
-		# 	}
-		# }
 	}
 
 	salary = {
 		gold = {
-			value = 1
+			value = medium_court_position_salary
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
@@ -2312,13 +2215,10 @@ anthypatos_court_position = {
 		}
 	}
 
-	# custom_employer_modifier_description = court_despot_employer_custom_effect_description
+	# custom_employer_modifier_description = court_anthypatos_employer_custom_effect_description
 
 	modifier = {
 		monthly_prestige = minor_court_position_prestige_salary
-		diplomacy = 1
-		intrigue = 1
-		# martial = 1
 	}
 
 	#custom_employee_modifier_description = court_physician_employee_custom_effect_description
@@ -2333,24 +2233,6 @@ anthypatos_court_position = {
 		court_anthypatos_title_invalidated_effect = yes
 	}
 
-	# search_for_courtier = {
-	# 	send_interface_toast = {
-	# 		title = hire_physician_decision
-	# 		custom_tooltip = hire_physician_decision_effect_tooltip
-	# 	}
-	# 	hidden_effect = {
-	# 		add_character_flag = {
-	# 			flag = health_3001_hire_physician_decision_text
-	# 			days = 20
-	# 		}
-	# 	}
-
-	# 	trigger_event = {
-	# 		id = health.3001
-	# 		days = 14
-	# 	}
-	# }
-
 	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
 	candidate_score = {
         value = 10
@@ -2361,10 +2243,10 @@ anthypatos_court_position = {
     }
 }
 
-# TODO: FINISH
 augusta_court_position = {
 	max_available_positions = 1
 	category = court_position_category_special
+	skill = intrigue
 	
 	opinion = {
 		value = 30
@@ -2533,30 +2415,19 @@ augusta_court_position = {
 				}
 				multiply = 0
 			}
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
 		}
-		# gold = {
-		# 	value = medium_court_position_salary
-		# 	# Set to 0 with Dynasty Perk Inner Circle
-		# 	if = {
-		# 		limit = {
-		# 			exists = dynasty
-		# 			dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
-					
-		# 			employs_court_position = despot_court_position
-		# 			any_court_position_holder = {
-		# 				type = despot_court_position
-		# 				exists = dynasty
-		# 				house = prev.house
-		# 			}
-		# 		}
-		# 		multiply = 0
-		# 	}
-		# }
 	}
 
 	salary = {
 		gold = {
-			value = 1.50
+			value = minor_court_position_salary
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
@@ -2627,14 +2498,10 @@ augusta_court_position = {
 		}
 	}
 
-	# custom_employer_modifier_description = court_despot_employer_custom_effect_description
-
 	modifier = {
 		monthly_prestige = minor_court_position_prestige_salary
 		intrigue = 3
 	}
-
-	#custom_employee_modifier_description = court_physician_employee_custom_effect_description
 
 	on_court_position_received = {
 		court_augusta_title_accepted_effect = yes
@@ -2646,31 +2513,13 @@ augusta_court_position = {
 		court_augusta_title_invalidated_effect = yes
 	}
 
-	# search_for_courtier = {
-	# 	send_interface_toast = {
-	# 		title = hire_physician_decision
-	# 		custom_tooltip = hire_physician_decision_effect_tooltip
-	# 	}
-	# 	hidden_effect = {
-	# 		add_character_flag = {
-	# 			flag = health_3001_hire_physician_decision_text
-	# 			days = 20
-	# 		}
-	# 	}
-
-	# 	trigger_event = {
-	# 		id = health.3001
-	# 		days = 14
-	# 	}
-	# }
-
 	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
 	candidate_score = {
         value = 10
         add = scope:base_value
         add = court_position_candidate_score_base_value
         add = court_position_candidate_aptitude_value
-		# add = court_position_debt_considerations_value
+		add = court_position_debt_considerations_value
 		scope:liege = {
 			scope:employee = {
 				if = {
@@ -2684,11 +2533,11 @@ augusta_court_position = {
 	}
 }
 
-# TODO: FINISH
 # The Lady of the Circle
 zoste_patrikia_court_position = {
 	max_available_positions = 1
 	category = court_position_category_special
+	skill = intrigue
 	
 	opinion = {
 		value = 30
@@ -2848,29 +2697,11 @@ zoste_patrikia_court_position = {
 				multiply = 0
 			}
 		}
-		# gold = {
-		# 	value = medium_court_position_salary
-		# 	# Set to 0 with Dynasty Perk Inner Circle
-		# 	if = {
-		# 		limit = {
-		# 			exists = dynasty
-		# 			dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
-					
-		# 			employs_court_position = despot_court_position
-		# 			any_court_position_holder = {
-		# 				type = despot_court_position
-		# 				exists = dynasty
-		# 				house = prev.house
-		# 			}
-		# 		}
-		# 		multiply = 0
-		# 	}
-		# }
 	}
 
 	salary = {
 		gold = {
-			value = 1.50
+			value = minor_court_position_salary
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
@@ -2960,24 +2791,6 @@ zoste_patrikia_court_position = {
 		court_zoste_patrikia_title_invalidated_effect = yes
 	}
 
-	# search_for_courtier = {
-	# 	send_interface_toast = {
-	# 		title = hire_physician_decision
-	# 		custom_tooltip = hire_physician_decision_effect_tooltip
-	# 	}
-	# 	hidden_effect = {
-	# 		add_character_flag = {
-	# 			flag = health_3001_hire_physician_decision_text
-	# 			days = 20
-	# 		}
-	# 	}
-
-	# 	trigger_event = {
-	# 		id = health.3001
-	# 		days = 14
-	# 	}
-	# }
-
 	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
 	candidate_score = {
         value = 10
@@ -2988,11 +2801,11 @@ zoste_patrikia_court_position = {
     }
 }
 
-# TODO: FINISH
 # Eparch of the City 
 eparch_court_position = {
 	max_available_positions = 1
 	category = court_position_category_special
+	skill = stewardship
 	
 	opinion = {
 		value = 30
@@ -3143,7 +2956,6 @@ eparch_court_position = {
 			NOR = {
 				has_trait = disfigured
 				has_trait = blind
-				# has_trait = eunuch
 				has_trait = dwarf
 				has_trait = lisping
 				has_trait = inbred
@@ -3151,12 +2963,6 @@ eparch_court_position = {
 				has_trait = scaly
 				has_trait = albino
 				has_trait = devoted
-				# has_trait = bleeder
-				# has_trait = gout_ridden
-				# has_trait = giant
-				# has_trait = maimed
-				# has_trait = wounded_3
-				# has_trait = clubfooted
 			}
 		}
 	}
@@ -3179,30 +2985,19 @@ eparch_court_position = {
 				}
 				multiply = 0
 			}
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
 		}
-		# gold = {
-		# 	value = medium_court_position_salary
-		# 	# Set to 0 with Dynasty Perk Inner Circle
-		# 	if = {
-		# 		limit = {
-		# 			exists = dynasty
-		# 			dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
-					
-		# 			employs_court_position = despot_court_position
-		# 			any_court_position_holder = {
-		# 				type = despot_court_position
-		# 				exists = dynasty
-		# 				house = prev.house
-		# 			}
-		# 		}
-		# 		multiply = 0
-		# 	}
-		# }
 	}
 
 	salary = {
 		gold = {
-			value = 1
+			value = medium_court_position_salary
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
@@ -3283,15 +3078,13 @@ eparch_court_position = {
 		}
 	}
 
-	# custom_employer_modifier_description = court_despot_employer_custom_effect_description
+	custom_employer_modifier_description = court_eparch_employer_custom_effect_description
 
 	modifier = {
 		monthly_prestige = major_court_position_prestige_salary
 		diplomacy = 3
 		stewardship = 3
 	}
-
-	#custom_employee_modifier_description = court_physician_employee_custom_effect_description
 
 	on_court_position_received = {
 		court_eparch_title_accepted_effect = yes
@@ -3303,24 +3096,6 @@ eparch_court_position = {
 		court_eparch_title_invalidated_effect = yes
 	}
 
-	# search_for_courtier = {
-	# 	send_interface_toast = {
-	# 		title = hire_physician_decision
-	# 		custom_tooltip = hire_physician_decision_effect_tooltip
-	# 	}
-	# 	hidden_effect = {
-	# 		add_character_flag = {
-	# 			flag = health_3001_hire_physician_decision_text
-	# 			days = 20
-	# 		}
-	# 	}
-
-	# 	trigger_event = {
-	# 		id = health.3001
-	# 		days = 14
-	# 	}
-	# }
-
 	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
 	candidate_score = {
         value = 10
@@ -3331,11 +3106,11 @@ eparch_court_position = {
 	}
 }
 
-# TODO: FINISH
 # Quaestor of the Sacred Palace
 quaestor_court_position = {
 	max_available_positions = 1
 	category = court_position_category_royal
+	skill = diplomacy
 	
 	opinion = {
 		value = 15
@@ -3457,12 +3232,6 @@ quaestor_court_position = {
 				has_trait = scaly
 				has_trait = albino
 				has_trait = devoted
-				# has_trait = bleeder
-				# has_trait = gout_ridden
-				# has_trait = giant
-				# has_trait = maimed
-				# has_trait = wounded_3
-				# has_trait = clubfooted
 			}
 		}
 	}
@@ -3485,30 +3254,19 @@ quaestor_court_position = {
 				}
 				multiply = 0
 			}
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
 		}
-		# gold = {
-		# 	value = medium_court_position_salary
-		# 	# Set to 0 with Dynasty Perk Inner Circle
-		# 	if = {
-		# 		limit = {
-		# 			exists = dynasty
-		# 			dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
-					
-		# 			employs_court_position = despot_court_position
-		# 			any_court_position_holder = {
-		# 				type = despot_court_position
-		# 				exists = dynasty
-		# 				house = prev.house
-		# 			}
-		# 		}
-		# 		multiply = 0
-		# 	}
-		# }
 	}
 
 	salary = {
 		gold = {
-			value = 2.50
+			value = major_court_position_salary
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
@@ -3584,14 +3342,12 @@ quaestor_court_position = {
 		}
 	}
 
-	# custom_employer_modifier_description = court_despot_employer_custom_effect_description
+	custom_employer_modifier_description = court_quaestor_employer_custom_effect_description
 
 	modifier = {
 		monthly_prestige = major_court_position_prestige_salary
 		diplomacy = 3
 	}
-
-	#custom_employee_modifier_description = court_physician_employee_custom_effect_description
 
 	on_court_position_received = {
 		court_quaestor_title_accepted_effect = yes
@@ -3603,24 +3359,6 @@ quaestor_court_position = {
 		court_quaestor_title_invalidated_effect = yes
 	}
 
-	# search_for_courtier = {
-	# 	send_interface_toast = {
-	# 		title = hire_physician_decision
-	# 		custom_tooltip = hire_physician_decision_effect_tooltip
-	# 	}
-	# 	hidden_effect = {
-	# 		add_character_flag = {
-	# 			flag = health_3001_hire_physician_decision_text
-	# 			days = 20
-	# 		}
-	# 	}
-
-	# 	trigger_event = {
-	# 		id = health.3001
-	# 		days = 14
-	# 	}
-	# }
-
 	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
 	candidate_score = {
         value = 10
@@ -3631,10 +3369,10 @@ quaestor_court_position = {
     }
 }
 
-# TODO: FINISH
 great_hetaeriarch_court_position = {
 	max_available_positions = 1
 	category = court_position_category_royal
+	skill = martial
 	
 	opinion = {
 		value = 15
@@ -3749,12 +3487,6 @@ great_hetaeriarch_court_position = {
 				has_trait = scaly
 				has_trait = albino
 				has_trait = devoted
-				# has_trait = bleeder
-				# has_trait = gout_ridden
-				# has_trait = giant
-				# has_trait = maimed
-				# has_trait = wounded_3
-				# has_trait = clubfooted
 			}
 		}
 	}
@@ -3777,30 +3509,19 @@ great_hetaeriarch_court_position = {
 				}
 				multiply = 0
 			}
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
 		}
-		# gold = {
-		# 	value = medium_court_position_salary
-		# 	# Set to 0 with Dynasty Perk Inner Circle
-		# 	if = {
-		# 		limit = {
-		# 			exists = dynasty
-		# 			dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
-					
-		# 			employs_court_position = despot_court_position
-		# 			any_court_position_holder = {
-		# 				type = despot_court_position
-		# 				exists = dynasty
-		# 				house = prev.house
-		# 			}
-		# 		}
-		# 		multiply = 0
-		# 	}
-		# }
 	}
 
 	salary = {
 		gold = {
-			value = 0.50
+			value = minor_court_position_salary
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
@@ -3876,14 +3597,12 @@ great_hetaeriarch_court_position = {
 		}
 	}
 
-	# custom_employer_modifier_description = court_despot_employer_custom_effect_description
+	custom_employer_modifier_description = court_hetaeriarch_employer_custom_effect_description
 
 	modifier = {
 		monthly_prestige = major_court_position_prestige_salary
 		martial = 5
 	}
-
-	#custom_employee_modifier_description = court_physician_employee_custom_effect_description
 
 	on_court_position_received = {
 		court_great_hetaeriarch_title_accepted_effect = yes
@@ -3895,24 +3614,6 @@ great_hetaeriarch_court_position = {
 		court_great_hetaeriarch_title_invalidated_effect = yes
 	}
 
-	# search_for_courtier = {
-	# 	send_interface_toast = {
-	# 		title = hire_physician_decision
-	# 		custom_tooltip = hire_physician_decision_effect_tooltip
-	# 	}
-	# 	hidden_effect = {
-	# 		add_character_flag = {
-	# 			flag = health_3001_hire_physician_decision_text
-	# 			days = 20
-	# 		}
-	# 	}
-
-	# 	trigger_event = {
-	# 		id = health.3001
-	# 		days = 14
-	# 	}
-	# }
-
 	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
 	candidate_score = {
         value = 10
@@ -3923,11 +3624,11 @@ great_hetaeriarch_court_position = {
     }
 }
 
-# TODO: FINISH
 # First of the Proedros
 proedros_court_position = {
 	max_available_positions = 1
 	category = court_position_category_royal
+	skill = intrigue
 	
 	opinion = {
 		value = 15
@@ -3992,16 +3693,6 @@ proedros_court_position = {
 			}
 			desc = court_position_architect_l_perk
 		}	
-		# # Avaricious
-		# if = {
-		# 	limit = { has_perk = avaricious_perk}
-		# 	add = {
-		# 		value = 10
-		# 	}
-		# 	desc = court_position_avaricious_l_perk
-		# }
-
-		# TODO: ADD MARTIAL & STEWARDSHIP TRAITS???
 
 		# Education
 		if = {
@@ -4050,29 +3741,7 @@ proedros_court_position = {
 				desc = education_stewardship
 			}
 		}
-		# if = {
-		# 	limit = { has_trait = education_martial }
-		# 	add = {
-		# 		value = 4
-		# 		if = {
-		# 			limit = { has_trait = education_martial_2 }
-		# 			add = 4
-		# 		}
-		# 		else_if = {
-		# 			limit = { has_trait = education_martial_3 }
-		# 			add = 8
-		# 		}
-		# 		else_if = {
-		# 			limit = { has_trait = education_martial_4 }
-		# 			add = 12
-		# 		}
-		# 		else_if = {
-		# 			limit = { has_trait = education_martial_5 }
-		# 			add = 22
-		# 		}
-		# 		desc = education_martial
-		# 	}
-		# }
+
 		if = {
 			limit = {
 				has_trait = blind
@@ -4117,24 +3786,6 @@ proedros_court_position = {
 			# TODO: find variables
 			# gender allowed or fully equal succesion = yes
 			# is_close_or_extended_family_of = scope:liege
-			# NOR = {
-			# 	has_trait = disfigured
-			# 	has_trait = blind
-			# 	has_trait = eunuch
-			# 	has_trait = dwarf
-			# 	has_trait = lisping
-			# 	has_trait = inbred
-			# 	has_trait = hunchbacked
-			# 	has_trait = scaly
-			# 	has_trait = albino
-			# 	has_trait = devoted
-			# 	# has_trait = bleeder
-			# 	# has_trait = gout_ridden
-			# 	# has_trait = giant
-			# 	# has_trait = maimed
-			# 	# has_trait = wounded_3
-			# 	# has_trait = clubfooted
-			# }
 		}
 	}
 	
@@ -4156,30 +3807,19 @@ proedros_court_position = {
 				}
 				multiply = 0
 			}
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
 		}
-		# gold = {
-		# 	value = medium_court_position_salary
-		# 	# Set to 0 with Dynasty Perk Inner Circle
-		# 	if = {
-		# 		limit = {
-		# 			exists = dynasty
-		# 			dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
-					
-		# 			employs_court_position = despot_court_position
-		# 			any_court_position_holder = {
-		# 				type = despot_court_position
-		# 				exists = dynasty
-		# 				house = prev.house
-		# 			}
-		# 		}
-		# 		multiply = 0
-		# 	}
-		# }
 	}
 
 	salary = {
 		gold = {
-			value = 0.75
+			value = minor_court_position_salary
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
@@ -4259,15 +3899,13 @@ proedros_court_position = {
 		}
 	}
 
-	# custom_employer_modifier_description = court_despot_employer_custom_effect_description
+	custom_employer_modifier_description = court_proedros_employer_custom_effect_description
 
 	modifier = {
 		monthly_prestige = minor_court_position_prestige_salary
 		diplomacy = 2
 		stewardship = 2
 	}
-
-	#custom_employee_modifier_description = court_physician_employee_custom_effect_description
 
 	on_court_position_received = {
 		court_proedros_title_accepted_effect = yes
@@ -4278,25 +3916,7 @@ proedros_court_position = {
 	on_court_position_invalidated = {
 		court_proedros_title_invalidated_effect = yes
 	}
-
-	# search_for_courtier = {
-	# 	send_interface_toast = {
-	# 		title = hire_physician_decision
-	# 		custom_tooltip = hire_physician_decision_effect_tooltip
-	# 	}
-	# 	hidden_effect = {
-	# 		add_character_flag = {
-	# 			flag = health_3001_hire_physician_decision_text
-	# 			days = 20
-	# 		}
-	# 	}
-
-	# 	trigger_event = {
-	# 		id = health.3001
-	# 		days = 14
-	# 	}
-	# }
-
+	
 	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
 	candidate_score = {
         value = 10
