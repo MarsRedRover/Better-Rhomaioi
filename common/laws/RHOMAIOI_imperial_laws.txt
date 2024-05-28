@@ -461,7 +461,7 @@ RHOMAIOI_vassal_crown_authority = {
 		can_keep = {
 			realm_law_use_RHOMAIOI_vassal_crown_authority = yes 
 			AND = {
-				is_independent_ruler = yes
+				is_independent_ruler = no
 				government_has_flag = government_is_imperial_autocracy
 			}
 		}

@@ -5,8 +5,9 @@
 * Court position localization (Capable & Custom Descriptions)
 * Roman culture adoption to vassals
 * My_Realm vassal contract GUI fix
-* Newly conquered feudal vassals should be able to adopt Imperial Autocracy
-* Lion Patch decisions 
+* Newly conquered feudal vassals should be able to adopt Imperial Autocracy (Fix Markellus decision)
+* Lion Patch decisions
+* Rhomaioi vassal law textures
 [Add]
 * Byzantine themed music 24 song playlist (Decision & Date based)
 * Varangian Guard unit diversity
@@ -58,11 +59,11 @@
 [Glory Reclaimed] _Imperial Revival in Byzantium_
 * Imperial authority & decay system mechanic
 * Reclaim historical imperial territory in your dynasty's restoration
-* ~~Struggle Mod Add*on: The Purple Mantle: The Byzantine's Internal Power Saga~~
+* ~~Struggle Mod Add-on: The Purple Mantle: The Byzantine's Internal Power Saga~~
 
 [Intrigues and Insurrections] _The Byzantine Empire's Turbulent Path_
 * Bureaucracy mechanics
-* Generals, bureaucrats, & un*landed usurpers
+* Generals, bureaucrats, & un-landed usurpers
 * Dynastic loyalties
 * Regent coup rework
 
@@ -80,7 +81,7 @@
 	
 [From Rome to Rhomaioi] _The Continuation of Roman Heritage_
 * Rework of Rhomaioi culture
-* Become more Roman*esque
+* Become more Roman-esque
 * Change the empire's aesthetics
 
 ### [Features Done]
