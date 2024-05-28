@@ -7,7 +7,6 @@
 * My_Realm vassal contract GUI fix
 * Newly conquered feudal vassals should be able to adopt Imperial Autocracy
 * Lion Patch decisions 
-* Vassal my realm authority
 [Add]
 * Byzantine themed music 24 song playlist (Decision & Date based)
 * Varangian Guard unit diversity

@@ -59,7 +59,9 @@ All notable changes will be documented within this file
 	- Removed Greco-Roman culture
 	
 ### Fixed
-	- Balanced 'Usurper' factions on game start, now they will only fire up on start whilst playing as 'Constantine X Doukas' for historical accuracy
+	- Balanced 'usurper' factions on game start, now they will only fire up on start whilst playing as 'Constantine X Doukas' for historical accuracy
+	- Adjusted crown authority opinion modifiers
 	- Fixed Rhomaioi 'Roman' culture
-	- Fixed 867 start date Imperial Authority GUI dupe
+	- Fixed 867 start date imperial authority GUI dupe
 	- Fixed vassal contract count from game update v1.11.0 crashing
+	- Fixed vassal my realm authority
