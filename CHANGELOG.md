@@ -46,7 +46,7 @@ All notable changes will be documented within this file
 	- Fixed 'Imperial Council' showing up for non Byzantine government types
 	- Balanced Imperial Tagmata
 
-## [Version 0.2] - 1.12.5 "Scythe" - 4/01/2023
+## [Version 0.2] - 1.12.5 "Scythe" - 6/30/2024
 
 ### Added
 	- Added AI logic for court positions missing them
