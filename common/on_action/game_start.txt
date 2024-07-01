@@ -440,6 +440,7 @@ on_game_start = {
 		      		limit = {
 		        		vassal_contract_has_modifiable_obligations = yes
 		      		}
+					add_realm_law = RHOMAIOI_vassal_crown_authority_1
 		      		vassal_contract_decrease_obligation_level = RHOMAIOI_imperial_taxes
 		      		vassal_contract_decrease_obligation_level = RHOMAIOI_imperial_levies
 		      		change_government = RHOMAIOI_imperial_government
@@ -469,6 +470,7 @@ on_game_start = {
 		      		limit = {
 		        		vassal_contract_has_modifiable_obligations = yes
 		      		}
+					add_realm_law = RHOMAIOI_vassal_crown_authority_1
 		      		vassal_contract_decrease_obligation_level = RHOMAIOI_imperial_taxes
 		      		vassal_contract_decrease_obligation_level = RHOMAIOI_imperial_levies
 		      		change_government = RHOMAIOI_imperial_government
