@@ -70,3 +70,12 @@ All notable changes will be documented within this file
 	- Fixed 867 start date imperial authority GUI dupe
 	- Fixed vassal contract count from game update v1.11.0 crashing
 	- Fixed vassal my realm authority
+	
+## [Version 0.2.1] - 1.12.5 "Scythe" - 6/30/2024
+
+### Added
+
+### Changed
+
+### Fixed
+	- Removed Lion's unremoved patches to fix compatibility issues
