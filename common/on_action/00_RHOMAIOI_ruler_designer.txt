@@ -9,8 +9,8 @@ on_ruler_designer_finished = {
 						limit = {
 					vassal_contract_has_modifiable_obligations = yes
 					}
-					vassal_contract_decrease_obligation_level = feudal_government_taxes
-					vassal_contract_decrease_obligation_level = feudal_government_levies
+					vassal_contract_decrease_obligation_level = RHOMAIOI_government_taxes
+					vassal_contract_decrease_obligation_level = RHOMAIOI_government_levies
 					change_government = RHOMAIOI_imperial_government
 				}
 				change_government = RHOMAIOI_imperial_government
