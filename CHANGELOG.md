@@ -104,4 +104,5 @@ All notable changes will be documented within this file
 	- Fixed localization for Zoste Patrikia effect description
 	- Fixed legitimacy not being properly applied on game start
 	- Fixed vassal contracts being changeable without required hooks
+	- Fixed skipping realm laws for custom rulers
 	- Updated localization keys for abdication decision

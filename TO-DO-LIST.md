@@ -8,8 +8,6 @@
 * Newly conquered feudal vassals should be able to adopt Imperial Autocracy (Fix Markellus decision)
 * Lion Patch decisions
 * Rhomaioi vassal law textures
-* Skipping realm laws
-* Legitimacy
 [Add]
 * Byzantine themed music 24 song playlist (Decision & Date based)
 * Varangian Guard unit diversity
