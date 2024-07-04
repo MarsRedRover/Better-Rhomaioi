@@ -1,7 +1,12 @@
 ﻿l_english:
- RHOMAIOI_major_decisions.0001.t:0 "Imperial Government Decision"
- RHOMAIOI_major_decisions.0001.desc:0 "You are offered to change your government type to the RHOMAIOI Imperial Government or start a war for independence."
- RHOMAIOI_major_decisions.0001.a:0 "Accept and become part of the Imperial Government"
- RHOMAIOI_major_decisions.0001.a.tt:0 "You will change your government type to the RHOMAIOI Imperial Government."
- RHOMAIOI_major_decisions.0001.b:0 "Refuse and declare independence"
- RHOMAIOI_major_decisions.0001.b.tt:0 "You will start a war for independence against your liege."
+ RHOMAIOI_major_decisions.0001.t:0 "Imperial Government Overhaul"
+ RHOMAIOI_major_decisions.0001.desc:0 "You are initiating an overhaul of your realm's government structure to convert it to the Imperial Government."
+ RHOMAIOI_major_decisions.0001.a:0 "Understood"
+ RHOMAIOI_major_decisions.0002.t:0 "Change to Imperial Government"
+ RHOMAIOI_major_decisions.0002.desc:0 "You are offered to change your government type to the Imperial Government or start a war for independence."
+ RHOMAIOI_major_decisions.0002.a:0 "Accept and become part of the Imperial Government"
+ RHOMAIOI_major_decisions.0002.b:0 "Refuse and declare independence"
+ RHOMAIOI_convert_whole_realm_to_imperialism_decision_desc:0 "This decision allows you to convert your entire realm to the Imperial Government, centralizing your power and authority."
+ RHOMAIOI_convert_whole_realm_to_imperialism_decision_tooltip:0 "Converting your realm to the Imperial Government will require the acceptance of all your vassals. Those who refuse will declare independence."
+ RHOMAIOI_convert_whole_realm_to_imperialism_decision:0 "Convert Realm to Imperialism"
+ RHOMAIOI_convert_whole_realm_to_imperialism_decision_confirm:0 "Convert your vassals to the Imperial Government?

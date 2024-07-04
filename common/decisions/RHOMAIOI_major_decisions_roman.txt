@@ -394,27 +394,35 @@ RHOMAIOI_convert_whole_realm_to_imperialism_decision = {
     ai_check_interval = 36
 
     is_shown = {
-		AND = {
-			is_independent_ruler = yes
-			OR = {
-				has_title = title:e_byzantium
-				has_title = title:e_roman_empire
-			}
-			any_vassal = {
-				NOT = {
-					government_has_flag = government_is_imperial_autocracy
+        AND = {
+            is_independent_ruler = yes
+			government_has_flag = government_is_imperial_autocracy
+            OR = {
+                has_title = title:e_byzantium
+                has_title = title:e_roman_empire
+            }
+            any_vassal = {
+				AND = {
+					OR = {
+						government_has_flag = government_is_clan
+						government_has_flag = government_is_feudal
+						government_has_flag = government_is_tribal
+					}
+					NOT = {
+						government_has_flag = government_is_imperial_autocracy
+					}
 				}
-			}	
-		}
+            }    
+        }
     }
 
     is_valid = {
         has_realm_law = RHOMAIOI_crown_authority_2
         prestige_level >= 2
-		OR = {
-			has_title = title:c_roma
-			has_title = title:c_byzantion
-		}
+        OR = {
+            has_title = title:c_roma
+            has_title = title:c_byzantion
+        }
     }
 
     cost = {
@@ -422,21 +430,8 @@ RHOMAIOI_convert_whole_realm_to_imperialism_decision = {
     }
 
     effect = {
-        gain_legitimizing_legend_seed_tooltip_effect = yes
         trigger_event = RHOMAIOI_major_decisions.0001
         save_scope_as = actor
-        convert_whole_realm_to_imperialism_effect = yes
-        hidden_effect = {
-			scope:actor = {
-				every_vassal = {
-					limit = { NOT = { government_has_flag = government_is_imperial_autocracy } }
-					trigger_event = {
-						id = RHOMAIOI_major_decisions.0002
-						days = 9
-					}
-				}
-			}
-        }
     }
 
     ai_potential = {
