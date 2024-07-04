@@ -90,7 +90,7 @@ All notable changes will be documented within this file
 ### Fixed
 	- MaA stats not being shown in-game
 
-## [Version 0.2.1b] - 1.12.5 "Scythe" - DATE HERE
+## [Version 0.2.1b] - 1.12.5 "Scythe" - 07/04/2024
 
 ### Added
 	- Added icons to Byzantine court positions
