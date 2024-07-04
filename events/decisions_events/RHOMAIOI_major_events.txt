@@ -14,12 +14,12 @@ RHOMAIOI_major_decisions.0001 = {
 		}
 		legend_seed_great_deed_dynasty_effect = yes
 		hidden_effect = {
-			every_liege_or_above = {
+			every_vassal = {
 				limit = {
-					NOT = { is_independent_ruler = yes }
+					NOT = { government = RHOMAIOI_imperial_government }
 				}
 				send_interface_message = {
-					type = event_stewardship_neutral_with_text
+					type = RHOMAIOI_major_decisions.0002
 					title = msg_vassal_imperialized
 					desc = msg_vassal_imperialized_desc
 					right_icon = root
@@ -36,7 +36,7 @@ RHOMAIOI_major_decisions.0001 = {
 RHOMAIOI_major_decisions.0002 = { 
 	type = letter_event
 	opening = RHOMAIOI_major_decisions.0002.opening
-	desc = RHOMAIOI_major_decisions.0001.desc
+	desc = RHOMAIOI_major_decisions.0002.desc
 	sender = {
 		character = scope:actor
 		animation = personality_rational
@@ -45,14 +45,24 @@ RHOMAIOI_major_decisions.0002 = {
 	immediate = {
 		show_as_tooltip = {
 			if = {
-				limit = { government_has_flag = government_is_clan }
-				change_government = clan_government
+				limit = { government = RHOMAIOI_imperial_government }
+				change_government = RHOMAIOI_imperial_government
 			}
 			else = { change_government = RHOMAIOI_imperial_government }
 		}
 	}
 
 	option = {
-		name = RHOMAIOI_major_decisions.0001.a
+		name = RHOMAIOI_major_decisions.0002.a
+	}
+	option = {
+		name = RHOMAIOI_major_decisions.0002.b
+		trigger = { NOT = { government = RHOMAIOI_imperial_government } }
+		effect = {
+			declare_war = {
+				target = scope:root
+				casus_belli = cb_faction_independence
+			}
+		}
 	}
 }
