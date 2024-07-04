@@ -97,6 +97,7 @@ All notable changes will be documented within this file
 	- Changed categories for special "honorific" positions
 
 ### Changed
+	- Rebalanced Tagmata & Levies from decision
 
 ### Fixed
 	- Fixed localization for Zoste Patrikia effect description
