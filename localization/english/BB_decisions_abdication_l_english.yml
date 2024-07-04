@@ -2,5 +2,5 @@
  BB_abdicate_decision:0 "Abdication"
  BB_abdicate_decision_tooltip:0 "Abdicate the imperial throne of Rome to your child."
  BB_abdicate_decision_desc:0 "You are incapable of ruling the empire and need to pass the crown to your heir"
- BB_decision_effect_tooltip:0 "Would you like to retire the throne?"
- BB_decision_confirm:0 "Pass the crown."
+ BB_abdicate_decision_effect_tooltip:0 "Would you like to retire the throne?"
+ BB_abdicate_decision_confirm:0 "Pass the crown."

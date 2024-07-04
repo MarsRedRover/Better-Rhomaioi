@@ -94,6 +94,7 @@ All notable changes will be documented within this file
 
 ### Added
 	- Added icons to Byzantine court positions
+	- Added more compatibility
 	- Changed categories for special "honorific" positions
 
 ### Changed
@@ -103,3 +104,4 @@ All notable changes will be documented within this file
 	- Fixed localization for Zoste Patrikia effect description
 	- Fixed legitimacy not being properly applied on game start
 	- Fixed vassal contracts being changeable without required hooks
+	- Updated localization keys for abdication decision

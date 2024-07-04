@@ -1,5 +1,12 @@
 ﻿# Root = New character after being made
 on_ruler_designer_finished = {
+	on_actions = {
+		RHOMAIOI_on_ruler_designer_finished
+	}
+}
+
+RHOMAIOI_on_ruler_designer_finished = {
+	trigger = {}
 	effect = {		
 		### RHOMAIOI ###
 		if = {
