@@ -1,0 +1,35 @@
+﻿# Root = New character after being made
+on_ruler_designer_finished = {
+	effect = {		
+		### RHOMAIOI ###
+		if = {
+			limit = { exists = title:e_byzantium.holder }
+				title:e_byzantium.holder = {
+				every_vassal_or_below = {
+						limit = {
+					vassal_contract_has_modifiable_obligations = yes
+					}
+					vassal_contract_decrease_obligation_level = feudal_government_taxes
+					vassal_contract_decrease_obligation_level = feudal_government_levies
+					change_government = RHOMAIOI_imperial_government
+				}
+				change_government = RHOMAIOI_imperial_government
+				add_realm_law = RHOMAIOI_crown_authority_3
+				}
+				title:e_byzantium = { add_title_law = RHOMAIOI_elective_succession_law }
+		}
+
+		# Faction modifiers
+		if = {
+			limit = { exists = title:e_byzantium.holder}
+			title:e_byzantium.holder = {
+				every_vassal = {
+					add_character_flag = {
+						flag = joining_faction_block
+						years = 5
+					}
+				}
+			}
+		}
+	}
+}
