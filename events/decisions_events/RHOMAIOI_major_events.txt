@@ -1,97 +1,97 @@
-namespace = RHOMAIOI_major_decisions
+# namespace = RHOMAIOI_major_decisions
 
-# Major event to convert the realm to Imperialism
-RHOMAIOI_major_decisions.0001 = {
-    type = character_event
-    title = RHOMAIOI_major_decisions.0001.t
-    desc = RHOMAIOI_major_decisions.0001.desc
-    is_triggered_only = yes
-    trigger = {
-        is_independent_ruler = yes
-    }
-    immediate = {
-        every_vassal = {
-            limit = {
-                NOR = {
-                    government_has_flag = government_is_imperial_autocracy
-                    government_has_flag = government_is_theocracy
-                    government_has_flag = government_is_republic
-                }
-            }
-            trigger_event = RHOMAIOI_major_decisions.0002
-        }
-    }
-    option = {
-        name = RHOMAIOI_major_decisions.0001.a
-    }
-}
+# # Major event to convert the realm to Imperialism
+# RHOMAIOI_major_decisions.0001 = {
+#     type = character_event
+#     title = RHOMAIOI_major_decisions.0001.t
+#     desc = RHOMAIOI_major_decisions.0001.desc
+#     is_triggered_only = yes
+#     trigger = {
+#         is_independent_ruler = yes
+#     }
+#     immediate = {
+#         every_vassal = {
+#             limit = {
+#                 NOR = {
+#                     government_has_flag = government_is_imperial_autocracy
+#                     government_has_flag = government_is_theocracy
+#                     government_has_flag = government_is_republic
+#                 }
+#             }
+#             trigger_event = RHOMAIOI_major_decisions.0002
+#         }
+#     }
+#     option = {
+#         name = RHOMAIOI_major_decisions.0001.a
+#     }
+# }
 
-# Event triggered for each vassal
-RHOMAIOI_major_decisions.0002 = {
-    type = character_event
-    title = RHOMAIOI_major_decisions.0002.t
-    desc = RHOMAIOI_major_decisions.0002.desc
-    is_triggered_only = yes
-    immediate = {
-        # Immediate actions if any
-    }
-    option = {
-        name = RHOMAIOI_major_decisions.0002.a
-        ai_chance = {
-            base = 75
-            modifier = {
-                add = 50
-                has_trait = trait_loyalist
-            }
-        }
-    }
-    option = {
-        name = RHOMAIOI_major_decisions.0002.b
-        trigger_event = RHOMAIOI_major_decisions.0003
-        ai_chance = {
-            base = 25
-        }
-    }
-}
+# # Event triggered for each vassal
+# RHOMAIOI_major_decisions.0002 = {
+#     type = character_event
+#     title = RHOMAIOI_major_decisions.0002.t
+#     desc = RHOMAIOI_major_decisions.0002.desc
+#     is_triggered_only = yes
+#     immediate = {
+#         # Immediate actions if any
+#     }
+#     option = {
+#         name = RHOMAIOI_major_decisions.0002.a
+#         ai_chance = {
+#             base = 75
+#             modifier = {
+#                 add = 50
+#                 has_trait = trait_loyalist
+#             }
+#         }
+#     }
+#     option = {
+#         name = RHOMAIOI_major_decisions.0002.b
+#         trigger_event = RHOMAIOI_major_decisions.0003
+#         ai_chance = {
+#             base = 25
+#         }
+#     }
+# }
 
-# Event for vassals who refuse to join
-RHOMAIOI_major_decisions.0003 = {
-    type = character_event
-    title = RHOMAIOI_major_decisions.0003.t
-    desc = RHOMAIOI_major_decisions.0003.desc
-    is_triggered_only = yes
-    immediate = {
-        add_to_faction = faction_anti_liege
-    }
-    option = {
-        name = RHOMAIOI_major_decisions.0003.a
-        trigger_event = RHOMAIOI_major_decisions.0004
-        ai_chance = {
-            base = 100
-        }
-    }
-}
+# # Event for vassals who refuse to join
+# RHOMAIOI_major_decisions.0003 = {
+#     type = character_event
+#     title = RHOMAIOI_major_decisions.0003.t
+#     desc = RHOMAIOI_major_decisions.0003.desc
+#     is_triggered_only = yes
+#     immediate = {
+#         add_to_faction = faction_anti_liege
+#     }
+#     option = {
+#         name = RHOMAIOI_major_decisions.0003.a
+#         trigger_event = RHOMAIOI_major_decisions.0004
+#         ai_chance = {
+#             base = 100
+#         }
+#     }
+# }
 
-# Event to unify the vassals who refuse
-RHOMAIOI_major_decisions.0004 = {
-    type = faction_event
-    title = RHOMAIOI_major_decisions.0004.t
-    desc = RHOMAIOI_major_decisions.0004.desc
-    is_triggered_only = yes
-    trigger = {
-        exists = faction_anti_liege
-    }
-    immediate = {
-        faction_anti_liege = {
-            every_faction_member = {
-                add_ally = prev
-            }
-        }
-    }
-    option = {
-        name = RHOMAIOI_major_decisions.0004.a
-        ai_chance = {
-            base = 100
-        }
-    }
-}
+# # Event to unify the vassals who refuse
+# RHOMAIOI_major_decisions.0004 = {
+#     type = faction_event
+#     title = RHOMAIOI_major_decisions.0004.t
+#     desc = RHOMAIOI_major_decisions.0004.desc
+#     is_triggered_only = yes
+#     trigger = {
+#         exists = faction_anti_liege
+#     }
+#     immediate = {
+#         faction_anti_liege = {
+#             every_faction_member = {
+#                 add_ally = prev
+#             }
+#         }
+#     }
+#     option = {
+#         name = RHOMAIOI_major_decisions.0004.a
+#         ai_chance = {
+#             base = 100
+#         }
+#     }
+# }

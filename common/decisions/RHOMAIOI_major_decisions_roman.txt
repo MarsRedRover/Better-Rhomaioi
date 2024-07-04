@@ -386,59 +386,59 @@ RHOMAIOI_restore_roman_culture_decision = {
 # Convert Realm to Imperialism
 ##################################################
 
-RHOMAIOI_convert_whole_realm_to_imperialism_decision = {
-    picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
-    major = yes
-    desc = RHOMAIOI_convert_whole_realm_to_imperialism_decision_desc
+# RHOMAIOI_convert_whole_realm_to_imperialism_decision = {
+#     picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+#     major = yes
+#     desc = RHOMAIOI_convert_whole_realm_to_imperialism_decision_desc
 
-    ai_check_interval = 36
+#     ai_check_interval = 36
 
-    is_shown = {
-        AND = {
-            is_independent_ruler = yes
-			government_has_flag = government_is_imperial_autocracy
-            OR = {
-                has_title = title:e_byzantium
-                has_title = title:e_roman_empire
-            }
-            any_vassal = {
-				AND = {
-					OR = {
-						government_has_flag = government_is_clan
-						government_has_flag = government_is_feudal
-						government_has_flag = government_is_tribal
-					}
-					NOT = {
-						government_has_flag = government_is_imperial_autocracy
-					}
-				}
-            }    
-        }
-    }
+#     is_shown = {
+#         AND = {
+#             is_independent_ruler = yes
+# 			government_has_flag = government_is_imperial_autocracy
+#             OR = {
+#                 has_title = title:e_byzantium
+#                 has_title = title:e_roman_empire
+#             }
+#             any_vassal = {
+# 				AND = {
+# 					OR = {
+# 						government_has_flag = government_is_clan
+# 						government_has_flag = government_is_feudal
+# 						government_has_flag = government_is_tribal
+# 					}
+# 					NOT = {
+# 						government_has_flag = government_is_imperial_autocracy
+# 					}
+# 				}
+#             }    
+#         }
+#     }
 
-    is_valid = {
-        has_realm_law = RHOMAIOI_crown_authority_2
-        prestige_level >= 2
-        OR = {
-            has_title = title:c_roma
-            has_title = title:c_byzantion
-        }
-    }
+#     is_valid = {
+#         has_realm_law = RHOMAIOI_crown_authority_2
+#         prestige_level >= 2
+#         OR = {
+#             has_title = title:c_roma
+#             has_title = title:c_byzantion
+#         }
+#     }
 
-    cost = {
-        prestige = 200
-    }
+#     cost = {
+#         prestige = 200
+#     }
 
-    effect = {
-        trigger_event = RHOMAIOI_major_decisions.0001
-        save_scope_as = actor
-    }
+#     effect = {
+#         trigger_event = RHOMAIOI_major_decisions.0001
+#         save_scope_as = actor
+#     }
 
-    ai_potential = {
-        NOT = { has_title = title:e_mongol_empire } #Stop the Mongols from slowing their conquest.
-    }
+#     ai_potential = {
+#         NOT = { has_title = title:e_mongol_empire } #Stop the Mongols from slowing their conquest.
+#     }
 
-    ai_will_do = {
-        base = 100
-    }
-}
+#     ai_will_do = {
+#         base = 100
+#     }
+# }
