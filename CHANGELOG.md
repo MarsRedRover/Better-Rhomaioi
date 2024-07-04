@@ -89,3 +89,14 @@ All notable changes will be documented within this file
 
 ### Fixed
 	- MaA stats not being shown in-game
+
+## [Version 0.2.1b] - 1.12.5 "Scythe" - DATE HERE
+
+### Added
+	- Added icons to Byzantine court positions
+	- Changed categories for special "honorific" positions
+
+### Changed
+
+### Fixed
+	- Fixed localization for Zoste Patrikia effect description

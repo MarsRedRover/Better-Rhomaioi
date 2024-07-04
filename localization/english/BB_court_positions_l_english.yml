@@ -37,6 +37,7 @@
 
  zoste_patrikia_court_position:0 "Lady of the Circle"
  zoste_patrikia_court_position_desc:1 "The #high zōstē patrikía#!, sometimes referred to as "Mistress of the Robe", is the most proeminent woman in the Empire, serving as chief attendant to the Empress and head of the women's court (which in itself represents a body composed of the wives of all high-ranking officers in the Empire). As such, she holds great prestige and sway over Roman politics, especially by means of intrigue and treachery."
+ court_zoste_patrikia_employer_custom_effect_description:0 "The Lady of the Circle adds protection against [hostile_scheme|E]."
 
  quaestor_court_position:0 "Quaestor of the Sacred Palace"
  quaestor_court_position_desc:1 "The #high quaestor sacri palatii#! is an office that survived the change of times, albeit his role diminished and changed drastically. Currently, the Quaestor is entrusted with drafting imperial laws and all petitions addressed to the Emperor. He also presides over a court of law and holds many juridical functions as the chief legal officer in the realm."
