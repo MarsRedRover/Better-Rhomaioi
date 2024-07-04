@@ -1,68 +1,42 @@
-RHOMAIOI_major_decisions.0001 = { 
-	type = character_event
-	title = RHOMAIOI_major_decisions.0001.t
-	desc = RHOMAIOI_major_decisions.0001.desc
-	theme = stewardship
-	left_portrait = {
-		character = root
-		animation = personality_rational
-	}
+namespace = RHOMAIOI_major_decisions
 
-	immediate = {
-		show_as_tooltip = {
-			convert_whole_realm_to_imperialism_effect = yes	
-		}
-		legend_seed_great_deed_dynasty_effect = yes
-		hidden_effect = {
-			every_vassal = {
-				limit = {
-					NOT = { government = RHOMAIOI_imperial_government }
-				}
-				send_interface_message = {
-					type = RHOMAIOI_major_decisions.0002
-					title = msg_vassal_imperialized
-					desc = msg_vassal_imperialized_desc
-					right_icon = root
-				}
-			}
-		}
-	}
-
-	option = {
-		name = RHOMAIOI_major_decisions.0001.a
-	}
-}
-
-RHOMAIOI_major_decisions.0002 = { 
-	type = letter_event
-	opening = RHOMAIOI_major_decisions.0002.opening
-	desc = RHOMAIOI_major_decisions.0002.desc
-	sender = {
-		character = scope:actor
-		animation = personality_rational
-	}
-
-	immediate = {
-		show_as_tooltip = {
-			if = {
-				limit = { government = RHOMAIOI_imperial_government }
-				change_government = RHOMAIOI_imperial_government
-			}
-			else = { change_government = RHOMAIOI_imperial_government }
-		}
-	}
-
-	option = {
-		name = RHOMAIOI_major_decisions.0002.a
-	}
-	option = {
-		name = RHOMAIOI_major_decisions.0002.b
-		trigger = { NOT = { government = RHOMAIOI_imperial_government } }
-		effect = {
-			declare_war = {
-				target = scope:root
-				casus_belli = cb_faction_independence
-			}
-		}
-	}
+RHOMAIOI_major_decisions.0001 = {
+    type = character_event
+    title = RHOMAIOI_major_decisions.0001.t
+    desc = RHOMAIOI_major_decisions.0001.desc
+    theme = war
+    trigger = {
+        is_vassal = yes
+        NOT = { government_has_flag = government_is_imperial_autocracy }
+    }
+    immediate = {
+        # Immediate actions if any
+    }
+    option = {
+        name = RHOMAIOI_major_decisions.0001.a
+        trigger = {
+            is_ai = no
+        }
+        custom_tooltip = RHOMAIOI_major_decisions.0001.a.tt
+        change_government = RHOMAIOI_imperial_government
+        # Additional effects if needed
+        ai_chance = {
+            base = 75
+            modifier = {
+                add = 50
+                has_trait = trait_loyalist
+            }
+        }
+    }
+    option = {
+        name = RHOMAIOI_major_decisions.0001.b
+        custom_tooltip = RHOMAIOI_major_decisions.0001.b.tt
+        declare_war = {
+            target = root
+            casus_belli = cb_independence
+        }
+        ai_chance = {
+            base = 50
+        }
+    }
 }

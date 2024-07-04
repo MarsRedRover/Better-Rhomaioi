@@ -1,0 +1,7 @@
+﻿l_english:
+ RHOMAIOI_major_decisions.0001.t:0 "Imperial Government Decision"
+ RHOMAIOI_major_decisions.0001.desc:0 "You are offered to change your government type to the RHOMAIOI Imperial Government or start a war for independence."
+ RHOMAIOI_major_decisions.0001.a:0 "Accept and become part of the Imperial Government"
+ RHOMAIOI_major_decisions.0001.a.tt:0 "You will change your government type to the RHOMAIOI Imperial Government."
+ RHOMAIOI_major_decisions.0001.b:0 "Refuse and declare independence"
+ RHOMAIOI_major_decisions.0001.b.tt:0 "You will start a war for independence against your liege."
