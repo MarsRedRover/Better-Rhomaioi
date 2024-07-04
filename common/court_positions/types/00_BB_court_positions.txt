@@ -800,7 +800,7 @@ caesar_court_position = {
 
 despot_court_position = {
 	max_available_positions = 1
-	category = court_position_category_special
+	category = court_position_category_honorific
 
 	opinion = {
 		value = 15
@@ -1147,7 +1147,7 @@ despot_court_position = {
 
 sebastokrator_court_position = {
 	max_available_positions = 1
-	category = court_position_category_royal
+	category = court_position_category_honorifi
 	
 	opinion = {
 		value = 10
@@ -1875,7 +1875,7 @@ kouropalates_court_position = {
 
 anthypatos_court_position = {
 	max_available_positions = 2
-	category = court_position_category_common
+	category = court_position_category_honorific
 	
 	opinion = {
 		value = 5
@@ -3627,7 +3627,7 @@ great_hetaeriarch_court_position = {
 # First of the Proedros
 proedros_court_position = {
 	max_available_positions = 1
-	category = court_position_category_royal
+	category = court_position_category_honorific
 	skill = intrigue
 	
 	opinion = {
