@@ -12,8 +12,6 @@ All notable changes will be documented within this file
 	- Updated Rhomaioi for 1.10.2
 	- Updated Better Basileus 
 	
-### Fixed
-	
 ## [Version 0.1.1b] - 1.10.2 "Quill" - 11/03/2023
 
 ### Added
@@ -23,7 +21,6 @@ All notable changes will be documented within this file
 	- Added eunuch decision c refund
 	- Added modifiers to Caesar/Kaisar court position
 	- Added prestige to court positions missing non Royal Court DLC effects
-### Changed
 
 ### Fixed
 	- Fixed custom characters not having Imperial Autocracy government type
@@ -35,12 +32,14 @@ All notable changes will be documented within this file
 	- Added custom 'Rhomaioi' & 'Greco-Roman' cultures
 	- Added cultural acceptance to Latin & Byzantine heritages for Roman culture
 	- Added icon to Imperial 'seize domain' action
+
 ### Changed
 	- Updated court positions for 1.11.0.1 "Peacock"
 	- Updated widget tab placement for 1.11.0.1 "Peacock"
 	- Updated liege Imperial Obligation contracts for 1.11.0.1 "Peacock"
 	- Palatini MaA are now tribal era
 	- Temporarily removed Vassal=>Liege Imperial Obligations
+
 ### Fixed
 	- Fixed Domain Seizure of cities & limited it to 'revoke title' action
 	- Fixed 'Imperial Council' showing up for non Byzantine government types
@@ -73,16 +72,10 @@ All notable changes will be documented within this file
 	
 ## [Version 0.2.1] - 1.12.5 "Scythe" - 07/02/2024
 
-### Added
-
-### Changed
-
 ### Fixed
 	- Removed Lion's unremoved patches to fix compatibility issues
 
 ## [Version 0.2.1a] - 1.12.5 "Scythe" - 07/03/2024
-
-### Added
 
 ### Changed
 	- Temporarily removed window_menatarms_type_view.gui
@@ -106,3 +99,10 @@ All notable changes will be documented within this file
 	- Fixed vassal contracts being changeable without required hooks
 	- Fixed skipping realm laws for custom rulers
 	- Updated localization keys for abdication decision
+
+## [Version 0.2.2] - 1.12.5 "Scythe" - DATE HERE
+
+### Added
+	- Added uncoronated character modifier to Basileus Basileios on 867 game start
+	- Added coronated character modifier to Constantine X Doukas on 1066 game start
+	- Added uncoronated character modifier to custom rulers on game start

@@ -1,0 +1,49 @@
+# A title is lost by a character
+# root = the old holder
+# scope:title = the title that changes hands
+# scope:new_holder = new holder.
+on_title_lost = {
+    on_actions = { RHOMAIOI_on_title_lost }
+}
+
+# A title is transferred to a new character
+# root = the new holder
+# scope:title = the title that changes hands
+# scope:previous_holder = previous holder. Might be dead
+on_title_gain = {
+    on_actions = { RHOMAIOI_on_title_gain }
+}
+
+RHOMAIOI_on_title_gain = {
+    trigger = {}
+    effect = {
+        # Add uncrowned modifier on title gained
+        if = {
+            limit = {
+                OR = {
+                    scope:title = title:e_byzantium
+                    scope:title = title:e_roman_empire
+                }
+            }
+            root = { add_character_modifier = RHOMAIOI_uncrowned_modifier }
+        }
+    }
+}
+
+RHOMAIOI_on_title_lost = {
+    trigger = {}
+    effect = {
+        # THIS IS NOT WORKING
+        # Remove uncrowned modifier on title gained
+        if = {
+            limit = {
+                any_held_title = {
+                    OR = {
+                        NOT = { this = title:e_byzantium }
+                        NOT = { this = title:e_roman_empire }
+                    }
+                }
+            }
+        }
+    }
+}

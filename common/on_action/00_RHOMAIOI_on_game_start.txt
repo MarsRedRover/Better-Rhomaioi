@@ -71,10 +71,24 @@ RHOMAIOI_set_byzantium_on_game_start = {
 		culture:rhomaioi = { add_innovation = innovation_RHOMAIOI_legionnaires }
 
 		### UNCORONATED MODIFIER ###
+		# Basileus Basileios setup
 		if = {
-			limit = { exists = title:e_byzantium.holder {}
-			title:e_byzantium.holder = {
-				# add
+			limit = { AND = { exists = title:e_byzantium.holder game_start_date = 867.1.1 } }
+			character:1700 = {
+				add_character_modifier = {
+					modifier = RHOMAIOI_uncrowned_modifier
+				}
+			}
+		}
+
+		# Constantine X Doukas setup
+		if = {
+			limit = { AND = { exists = title:e_byzantium.holder game_start_date = 1066.9.15 } }
+			character:1732 = {
+				add_character_modifier = {
+					modifier = RHOMAIOI_crowned_modifier
+					years = 15
+				}
 			}
 		}
 	}

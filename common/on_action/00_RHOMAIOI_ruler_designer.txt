@@ -39,5 +39,16 @@ RHOMAIOI_on_ruler_designer_finished = {
 				}
 			}
 		}
+
+		### UNCORONATED MODIFIER ###
+		# Custom ruler setup
+		if = {
+			limit = { AND = { exists = title:e_byzantium.holder } }
+			title:e_byzantium.holder = {
+				add_character_modifier = {
+					modifier = RHOMAIOI_uncrowned_modifier
+				}
+			}
+		}
 	}
 }

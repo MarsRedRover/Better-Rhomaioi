@@ -1,0 +1,6 @@
+﻿l_english:
+ # MOD_GENERAL_OPINION: "General Opinion"
+ # MOD_VASSAL_OPINION: "Vassal Opinion"
+ # MODIFIER_TIME_LEFT: ""
+ RHOMAIOI_uncrowned_modifier:0 "Uncoronated"
+ RHOMAIOI_crowned_modifier:0 "Coronated"
