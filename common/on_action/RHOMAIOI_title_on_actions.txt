@@ -59,7 +59,7 @@ RHOMAIOI_on_title_lost = {
 RHOMAIOI_on_title_gain_usurpation = {
     trigger = {}
     effect = {      
-        # Add uncrowned modifier on title gained
+        # Add uncrowned modifier on usurpation
         if = {
             limit = {
                 OR = {

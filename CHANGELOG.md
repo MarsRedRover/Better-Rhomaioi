@@ -104,7 +104,7 @@ All notable changes will be documented within this file
 
 ### Added
 <!--- ### TO ADD SOON
-	- Added coronation activity
+	- Added coronation activity for emperors
 -->
 	- Added uncoronated character modifier to Basileus Basileios on 867 game start
 	- Added coronated character modifier to Constantine X Doukas on 1066 game start
