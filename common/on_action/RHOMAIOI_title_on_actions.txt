@@ -14,9 +14,17 @@ on_title_gain = {
     on_actions = { RHOMAIOI_on_title_gain }
 }
 
+# A title is usurped by a character
+# root = the new holder
+# scope:title = the title that changes hands
+# scope:previous_holder = previous holder. Shouldn't be dead
+on_title_gain_usurpation = {
+    on_actions = { RHOMAIOI_on_title_gain_usurpation }
+}
+
 RHOMAIOI_on_title_gain = {
     trigger = {}
-    effect = {
+    effect = {       
         # Add uncrowned modifier on title gained
         if = {
             limit = {
@@ -33,7 +41,6 @@ RHOMAIOI_on_title_gain = {
 RHOMAIOI_on_title_lost = {
     trigger = {}
     effect = {
-        # THIS IS NOT WORKING
         # Remove uncrowned modifier on title gained
         if = {
             limit = {
@@ -44,6 +51,23 @@ RHOMAIOI_on_title_lost = {
                     }
                 }
             }
+            root = { remove_character_modifier = RHOMAIOI_uncrowned_modifier }
+        }
+    }
+}
+
+RHOMAIOI_on_title_gain_usurpation = {
+    trigger = {}
+    effect = {      
+        # Add uncrowned modifier on title gained
+        if = {
+            limit = {
+                OR = {
+                    scope:title = title:e_byzantium
+                    scope:title = title:e_roman_empire
+                }
+            }
+            root = { add_character_modifier = RHOMAIOI_uncrowned_modifier }
         }
     }
 }
