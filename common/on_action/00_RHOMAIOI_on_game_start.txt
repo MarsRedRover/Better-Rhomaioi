@@ -69,6 +69,14 @@ RHOMAIOI_set_byzantium_on_game_start = {
 
 		# Legionnaires given to Roman culture in tribal era
 		culture:rhomaioi = { add_innovation = innovation_RHOMAIOI_legionnaires }
+
+		### UNCORONATED MODIFIER ###
+		if = {
+			limit = { exists = title:e_byzantium.holder {}
+			title:e_byzantium.holder = {
+				# add
+			}
+		}
 	}
 }
 

@@ -11,14 +11,14 @@ RHOMAIOI_defeated_usurpers_modifier = {
 }
 
 RHOMAIOI_uncrowned_modifier = {
-	# Add multiple modifiers?
 	icon = prestige_negative
-	general_opinion = -10
+	vassal_opinion = -10
 	monthly_prestige = -1.0
 }
 
 RHOMAIOI_crowned_modifier = {
 	icon = prestige_positive
 	general_opinion = 10
+	vassal_opinion = 15
 	monthly_prestige = 1.0
 }
