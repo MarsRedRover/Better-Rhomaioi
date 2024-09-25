@@ -1,0 +1,1 @@
+- While having low imperial authority it says that high imperial authority requires limited crown authority.
