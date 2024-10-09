@@ -1,4 +1,4 @@
-annex_carpathia = {
+﻿restore_roman_province_of_baetica_cb = {
 	icon = county_conquest_cb
 	group = conquest
 
@@ -15,7 +15,7 @@ annex_carpathia = {
 	allowed_for_character = {
 		has_primary_title = title:e_roman_empire
 		house = {
-			has_house_modifier = carpathia_conquest
+			has_house_modifier = restore_baetica
 		}
 	}
 
@@ -36,7 +36,7 @@ annex_carpathia = {
 	valid_to_start = {
 		scope:target = {
 			tier = tier_county
-			title_province = { geographical_region = custom_carpathia }
+			title_province = { geographical_region = custom_baetica }
 		}
 	}
 
@@ -76,7 +76,7 @@ annex_carpathia = {
 			on_declared_war = yes
 		}
 
-		on_victory_desc = "The Annexation of Carpathia is completed!"
+		on_victory_desc = "Restoration of Baetica is completed!"
 
 		on_victory = {
 			scope:attacker = {
@@ -209,9 +209,9 @@ annex_carpathia = {
 		attacker_allies_inherit = yes
 		defender_allies_inherit = yes
 
-		war_name = "Annexation of Carpathia"
-		war_name_base = "Annexation of Carpathia"
-		cb_name = "Roman Conquest"
+		war_name = "Restoration of Baetica"
+		war_name_base = "Restoration of Baetica"
+		cb_name = "Roman Reconquest"
 
 		interface_priority = 80
 

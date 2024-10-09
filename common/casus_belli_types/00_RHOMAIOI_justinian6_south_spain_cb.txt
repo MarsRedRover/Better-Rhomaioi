@@ -1,4 +1,4 @@
-reclaim_southern_spain = {
+﻿reclaim_southern_spain = {
 	icon = county_conquest_cb
 	group = conquest
 

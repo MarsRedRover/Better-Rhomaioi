@@ -1,4 +1,4 @@
-decimate_muslim_invaders = {
+﻿decimate_muslim_invaders = {
 	icon = county_conquest_cb
 	group = conquest
 

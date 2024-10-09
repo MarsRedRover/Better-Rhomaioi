@@ -1,4 +1,4 @@
-reclaim_north_africa = {
+﻿annex_carpathia = {
 	icon = county_conquest_cb
 	group = conquest
 
@@ -13,9 +13,9 @@ reclaim_north_africa = {
 	defender_score_from_battles_scale = 150
 
 	allowed_for_character = {
-		has_primary_title = title:e_byzantium
+		has_primary_title = title:e_roman_empire
 		house = {
-			has_house_modifier = north_africa_conquest
+			has_house_modifier = carpathia_conquest
 		}
 	}
 
@@ -36,7 +36,7 @@ reclaim_north_africa = {
 	valid_to_start = {
 		scope:target = {
 			tier = tier_county
-			title_province = { geographical_region = custom_north_africa }
+			title_province = { geographical_region = custom_carpathia }
 		}
 	}
 
@@ -76,7 +76,7 @@ reclaim_north_africa = {
 			on_declared_war = yes
 		}
 
-		on_victory_desc = "Reconquest of the North African Coast is completed!"
+		on_victory_desc = "The Annexation of Carpathia is completed!"
 
 		on_victory = {
 			scope:attacker = {
@@ -209,9 +209,9 @@ reclaim_north_africa = {
 		attacker_allies_inherit = yes
 		defender_allies_inherit = yes
 
-		war_name = "Reconquest of the North African Coast"
-		war_name_base = "Reconquest of the North African Coast"
-		cb_name = "Byzantine Reconquest"
+		war_name = "Annexation of Carpathia"
+		war_name_base = "Annexation of Carpathia"
+		cb_name = "Roman Conquest"
 
 		interface_priority = 80
 

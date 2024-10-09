@@ -109,8 +109,9 @@ All notable changes will be documented within this file
 	- Added various historic and flavor events
 	- Added AI conqueror
 	- Added Byzantine music tracks
-	- Removed outdated Markellus mod assets
--->
+	- Added coronated character modifier to Manuel I Komnenos on 1178 game start
+	- Removed outdated Markellus and Ramos mod assets
+--->
 	- Added uncoronated character modifier to Basileus Basileios on 867 game start
 	- Added coronated character modifier to Constantine X Doukas on 1066 game start
 	- Added uncoronated character modifier to custom rulers on game start

@@ -1,7 +1,7 @@
 ﻿
 namespace = RHOMAIOI_senate_dissolution
 
-#Player dismantles the senate
+# Player dismantles the senate
 RHOMAIOI_senate_dissolution.0001 = {
 	type = character_event
 	title = RHOMAIOI_senate_dissolution.0001.t

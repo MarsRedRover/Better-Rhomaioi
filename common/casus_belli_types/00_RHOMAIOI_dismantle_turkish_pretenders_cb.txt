@@ -1,4 +1,4 @@
-dismantle_turkish_pretenders_cb = {
+﻿dismantle_turkish_pretenders_cb = {
 	icon = county_conquest_cb
 	group = invasion
 

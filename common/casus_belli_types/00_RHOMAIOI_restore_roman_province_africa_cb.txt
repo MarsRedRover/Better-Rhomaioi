@@ -1,4 +1,4 @@
-reclaim_roman_province_of_mauretania_cb = {
+﻿restore_roman_province_of_africa_cb = {
 	icon = county_conquest_cb
 	group = conquest
 
@@ -15,7 +15,7 @@ reclaim_roman_province_of_mauretania_cb = {
 	allowed_for_character = {
 		has_primary_title = title:e_roman_empire
 		house = {
-			has_house_modifier = restore_mauretania
+			has_house_modifier = restore_africa_proconsularis
 		}
 	}
 
@@ -36,7 +36,7 @@ reclaim_roman_province_of_mauretania_cb = {
 	valid_to_start = {
 		scope:target = {
 			tier = tier_county
-			title_province = { geographical_region = custom_mauretania }
+			title_province = { geographical_region = custom_africa_proconsularis }
 		}
 	}
 
@@ -76,7 +76,7 @@ reclaim_roman_province_of_mauretania_cb = {
 			on_declared_war = yes
 		}
 
-		on_victory_desc = "Conquest of Mauretania is completed!"
+		on_victory_desc = "Conquest of Africa is completed!"
 
 		on_victory = {
 			scope:attacker = {
@@ -209,8 +209,8 @@ reclaim_roman_province_of_mauretania_cb = {
 		attacker_allies_inherit = yes
 		defender_allies_inherit = yes
 
-		war_name = "Conquest of Mauretania"
-		war_name_base = "Conquest of Mauretania"
+		war_name = "Conquest of Africa Proconsularis"
+		war_name_base = "Conquest of Africa"
 		cb_name = "Roman Conquest"
 
 		interface_priority = 80

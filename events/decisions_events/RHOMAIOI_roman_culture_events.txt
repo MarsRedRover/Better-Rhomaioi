@@ -1,8 +1,6 @@
 ﻿
 namespace = RHOMAIOI_roman_culture
 
-#Event by Negative-ramos
-#You restored Roman culture, have a cookie!.....Also a cool nickname!
 RHOMAIOI_roman_culture.001 = {
 	type = character_event
 	title = RHOMAIOI_roman_culture.001.t

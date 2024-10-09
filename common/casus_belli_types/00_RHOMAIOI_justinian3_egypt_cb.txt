@@ -1,4 +1,4 @@
-restore_roman_province_of_dacia_cb = {
+﻿reclaim_egyptian_lands = {
 	icon = county_conquest_cb
 	group = conquest
 
@@ -13,9 +13,9 @@ restore_roman_province_of_dacia_cb = {
 	defender_score_from_battles_scale = 150
 
 	allowed_for_character = {
-		has_primary_title = title:e_roman_empire
+		has_primary_title = title:e_byzantium
 		house = {
-			has_house_modifier = restore_dacia
+			has_house_modifier = egypt_conquest
 		}
 	}
 
@@ -36,7 +36,7 @@ restore_roman_province_of_dacia_cb = {
 	valid_to_start = {
 		scope:target = {
 			tier = tier_county
-			title_province = { geographical_region = custom_dacia }
+			title_province = { geographical_region = custom_egypt }
 		}
 	}
 
@@ -76,7 +76,7 @@ restore_roman_province_of_dacia_cb = {
 			on_declared_war = yes
 		}
 
-		on_victory_desc = "Conquest of Dacia is completed!"
+		on_victory_desc = "Reconquest of the Egyptian Holdings is complete! The Ancient Egyptian Cities and Alexandria are ours again!"
 
 		on_victory = {
 			scope:attacker = {
@@ -209,9 +209,9 @@ restore_roman_province_of_dacia_cb = {
 		attacker_allies_inherit = yes
 		defender_allies_inherit = yes
 
-		war_name = "Conquest of Dacia"
-		war_name_base = "Conquest of Dacia"
-		cb_name = "Roman Conquest"
+		war_name = "Reconquest of Egypt"
+		war_name_base = "Reconquest of Egyptian Holdings"
+		cb_name = "Byzantine Reconquest"
 
 		interface_priority = 80
 

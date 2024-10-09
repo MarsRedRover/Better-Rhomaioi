@@ -1,4 +1,4 @@
-reclaim_syrian_coast = {
+﻿reclaim_north_africa = {
 	icon = county_conquest_cb
 	group = conquest
 
@@ -15,7 +15,7 @@ reclaim_syrian_coast = {
 	allowed_for_character = {
 		has_primary_title = title:e_byzantium
 		house = {
-			has_house_modifier = syrian_coast_conquest
+			has_house_modifier = north_africa_conquest
 		}
 	}
 
@@ -36,9 +36,9 @@ reclaim_syrian_coast = {
 	valid_to_start = {
 		scope:target = {
 			tier = tier_county
-			title_province = { geographical_region = custom_syrian_coast }
-			}
+			title_province = { geographical_region = custom_north_africa }
 		}
+	}
 
 		should_invalidate = {
 			NOT = {
@@ -76,7 +76,7 @@ reclaim_syrian_coast = {
 			on_declared_war = yes
 		}
 
-		on_victory_desc = "Reconquest of the Syrian Coastal Holdings is complete. The Coast is ours once more!"
+		on_victory_desc = "Reconquest of the North African Coast is completed!"
 
 		on_victory = {
 			scope:attacker = {
@@ -133,17 +133,6 @@ reclaim_syrian_coast = {
 		
 				# FP1: note the victory for future memorialisation via stele (if applicable).
 				scope:attacker = { fp1_remember_recent_conquest_victory_effect = yes }
-
-			scope:attacker = {
-				hidden_effect = {
-					house = {
-						remove_house_modifier = syrian_coast_conquest
-						add_house_modifier = {
-							modifier = syrian_coast_conquered
-						}
-					}
-				}
-			}
 		}
 
 			on_white_peace_desc = "The Years of War have stripped our Nations bare of Men and Value. We have agreed to a ceasefire, though it may not last eternally."
@@ -220,8 +209,8 @@ reclaim_syrian_coast = {
 		attacker_allies_inherit = yes
 		defender_allies_inherit = yes
 
-		war_name = "Reconquest of the Syrian Coast"
-		war_name_base = "Reconquest of the Syrian Coast"
+		war_name = "Reconquest of the North African Coast"
+		war_name_base = "Reconquest of the North African Coast"
 		cb_name = "Byzantine Reconquest"
 
 		interface_priority = 80

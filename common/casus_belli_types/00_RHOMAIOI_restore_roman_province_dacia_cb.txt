@@ -1,4 +1,4 @@
-expand_into_persia = {
+﻿restore_roman_province_of_dacia_cb = {
 	icon = county_conquest_cb
 	group = conquest
 
@@ -15,7 +15,7 @@ expand_into_persia = {
 	allowed_for_character = {
 		has_primary_title = title:e_roman_empire
 		house = {
-			has_house_modifier = persia_conquest
+			has_house_modifier = restore_dacia
 		}
 	}
 
@@ -36,7 +36,7 @@ expand_into_persia = {
 	valid_to_start = {
 		scope:target = {
 			tier = tier_county
-			title_province = { geographical_region = custom_persia }
+			title_province = { geographical_region = custom_dacia }
 		}
 	}
 
@@ -76,7 +76,7 @@ expand_into_persia = {
 			on_declared_war = yes
 		}
 
-		on_victory_desc = "Conquest of Persia is completed!"
+		on_victory_desc = "Conquest of Dacia is completed!"
 
 		on_victory = {
 			scope:attacker = {
@@ -209,8 +209,8 @@ expand_into_persia = {
 		attacker_allies_inherit = yes
 		defender_allies_inherit = yes
 
-		war_name = "Conquest of Persia"
-		war_name_base = "Conquest of Persia"
+		war_name = "Conquest of Dacia"
+		war_name_base = "Conquest of Dacia"
 		cb_name = "Roman Conquest"
 
 		interface_priority = 80

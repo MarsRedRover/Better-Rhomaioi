@@ -1,4 +1,4 @@
-expand_into_mesopotamia = {
+﻿reclaim_syria = {
 	icon = county_conquest_cb
 	group = conquest
 
@@ -13,9 +13,9 @@ expand_into_mesopotamia = {
 	defender_score_from_battles_scale = 150
 
 	allowed_for_character = {
-		has_primary_title = title:e_roman_empire
+		has_primary_title = title:e_byzantium
 		house = {
-			has_house_modifier = mesopotamia_conquest
+			has_house_modifier = syria_coele_conquest
 		}
 	}
 
@@ -36,9 +36,9 @@ expand_into_mesopotamia = {
 	valid_to_start = {
 		scope:target = {
 			tier = tier_county
-			title_province = { geographical_region = custom_mesopotamia }
+			title_province = { geographical_region = custom_syria_coele }
+			}
 		}
-	}
 
 		should_invalidate = {
 			NOT = {
@@ -76,7 +76,7 @@ expand_into_mesopotamia = {
 			on_declared_war = yes
 		}
 
-		on_victory_desc = "Reconquest of Mesopotamia is completed!"
+		on_victory_desc = "Reconquest of the Syrian Holdings is complete. Syria-Coele is ours once more!"
 
 		on_victory = {
 			scope:attacker = {
@@ -133,6 +133,17 @@ expand_into_mesopotamia = {
 		
 				# FP1: note the victory for future memorialisation via stele (if applicable).
 				scope:attacker = { fp1_remember_recent_conquest_victory_effect = yes }
+
+			scope:attacker = {
+				hidden_effect = {
+					house = {
+						remove_house_modifier = syria_coele_conquest
+						add_house_modifier = {
+							modifier = syria_coele_conquered
+						}
+					}
+				}
+			}
 		}
 
 			on_white_peace_desc = "The Years of War have stripped our Nations bare of Men and Value. We have agreed to a ceasefire, though it may not last eternally."
@@ -209,9 +220,9 @@ expand_into_mesopotamia = {
 		attacker_allies_inherit = yes
 		defender_allies_inherit = yes
 
-		war_name = "Reconquest of Mesopotamia"
-		war_name_base = "Reconquest of Mesopotamia"
-		cb_name = "Roman Reconquest"
+		war_name = "Reconquest of Syria-Coele"
+		war_name_base = "Reconquest of Syria-Coele"
+		cb_name = "Byzantine Reconquest"
 
 		interface_priority = 80
 

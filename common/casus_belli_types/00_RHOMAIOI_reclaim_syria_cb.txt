@@ -1,4 +1,4 @@
-reclaim_province_syria = {
+﻿reclaim_province_syria = {
 	icon = county_conquest_cb
 	group = conquest
 

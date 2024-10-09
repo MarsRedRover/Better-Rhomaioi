@@ -1,4 +1,4 @@
-reclaim_egyptian_lands = {
+﻿reclaim_bulgaria = {
 	icon = county_conquest_cb
 	group = conquest
 
@@ -15,7 +15,7 @@ reclaim_egyptian_lands = {
 	allowed_for_character = {
 		has_primary_title = title:e_byzantium
 		house = {
-			has_house_modifier = egypt_conquest
+			has_house_modifier = bulgarian_reconquest
 		}
 	}
 
@@ -36,9 +36,9 @@ reclaim_egyptian_lands = {
 	valid_to_start = {
 		scope:target = {
 			tier = tier_county
-			title_province = { geographical_region = custom_egypt }
+			title_province = { geographical_region = custom_bulgaria }
+			}
 		}
-	}
 
 		should_invalidate = {
 			NOT = {
@@ -76,7 +76,9 @@ reclaim_egyptian_lands = {
 			on_declared_war = yes
 		}
 
-		on_victory_desc = "Reconquest of the Egyptian Holdings is complete! The Ancient Egyptian Cities and Alexandria are ours again!"
+		on_victory_desc = {
+			desc = "The reconquest of Bulgaria is completed. The Byzantium Armies are triumphant! Now comes the time of Integration."
+			}	
 
 		on_victory = {
 			scope:attacker = {
@@ -133,7 +135,20 @@ reclaim_egyptian_lands = {
 		
 				# FP1: note the victory for future memorialisation via stele (if applicable).
 				scope:attacker = { fp1_remember_recent_conquest_victory_effect = yes }
-		}
+
+				# Remove House-Modifier and Remove ability to use this cb
+				scope:attacker = {
+					hidden_effect = {
+						house = {
+							remove_house_modifier = bulgarian_reconquest
+							add_house_modifier = {
+								modifier = bulgaria_conquered
+								}
+							}
+							}
+						}
+				
+			}
 
 			on_white_peace_desc = "The Years of War have stripped our Nations bare of Men and Value. We have agreed to a ceasefire, though it may not last eternally."
 
@@ -209,8 +224,8 @@ reclaim_egyptian_lands = {
 		attacker_allies_inherit = yes
 		defender_allies_inherit = yes
 
-		war_name = "Reconquest of Egypt"
-		war_name_base = "Reconquest of Egyptian Holdings"
+		war_name = "Reconquesta Bulgaria"
+		war_name_base = "Reconquesta Bulgaria"
 		cb_name = "Byzantine Reconquest"
 
 		interface_priority = 80
