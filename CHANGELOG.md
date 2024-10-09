@@ -100,11 +100,15 @@ All notable changes will be documented within this file
 	- Fixed skipping realm laws for custom rulers
 	- Updated localization keys for abdication decision
 
-## [Version 0.2.2] - 1.13.0.4 "Basileus" - DATE HERE
+## [Version 0.2.2] - 1.13.1 "Basileus" - DATE HERE
 
 ### Added
 <!--- ### TO ADD SOON
 	- Added coronation activity for emperors
+	- Added senatorial mechanics
+	- Added various historic and flavor events
+	- Added AI conqueror
+	- Added Byzantine music tracks
 -->
 	- Added uncoronated character modifier to Basileus Basileios on 867 game start
 	- Added coronated character modifier to Constantine X Doukas on 1066 game start

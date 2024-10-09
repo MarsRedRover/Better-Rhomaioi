@@ -1,4 +1,4 @@
-version="0.2.1b"
+version="0.2.2"
 tags={
 	"Historical"
 	"Balance"
@@ -10,5 +10,5 @@ tags={
 }
 picture="thumbnail.png"
 name="Better Rhomaioi - A Byzantine Empire Mod"
-supported_version="1.13.0.4"
+supported_version="1.13.1"
 remote_file_id="3059564451"
