@@ -1,0 +1,148 @@
+# House Modifiers for CB Setup
+RHOMAIOI_bulgarian_reconquest = {
+	icon = martial_positive
+}
+
+RHOMAIOI_bulgaria_conquered = {
+	icon = martial_positive
+}
+
+RHOMAIOI_syria_coele_conquest = {
+	icon = piety_positive
+}
+
+RHOMAIOI_syria_coele_conquered = {
+	icon = piety_positive
+}
+
+RHOMAIOI_illyricum_conquest = {
+	icon = martial_positive
+}
+
+RHOMAIOI_illyricum_conquered = {
+	icon = martial_positive
+}
+
+RHOMAIOI_syrian_coast_conquest = {
+	icon = martial_positive
+}
+
+RHOMAIOI_syrian_coast_conquered = {
+	icon = martial_positive
+}
+
+RHOMAIOI_lower_italian_holdings_conquest = {
+	icon = martial_positive
+}
+
+RHOMAIOI_lower_italian_holdings_conquered = {
+	icon = martial_positive
+}
+
+RHOMAIOI_egypt_conquest = {
+	icon = piety_positive
+}
+
+RHOMAIOI_egypt_conquered = {
+	icon = piety_positive
+}
+
+RHOMAIOI_upper_italian_holdings_conquest = {
+	icon = martial_positive
+}
+
+RHOMAIOI_upper_italian_holdings_conquered = {
+	icon = martial_positive
+}
+
+RHOMAIOI_north_africa_conquest = {
+	icon = piety_positive
+}
+
+RHOMAIOI_north_africa_conquered = {
+	icon = piety_positive
+}
+
+RHOMAIOI_spanish_invasion_conquest = {
+	icon = martial_positive
+}
+
+RHOMAIOI_spanish_invasion_conquered = {
+	icon = martial_positive
+}
+
+RHOMAIOI_mesopotamia_conquest = {
+	icon = martial_positive
+}
+
+RHOMAIOI_mesopotamia_conquered = {
+	icon = martial_positive
+}
+
+RHOMAIOI_persia_conquest = {
+	icon = piety_positive
+}
+
+RHOMAIOI_persia_conquered = {
+	icon = piety_positive
+}
+
+RHOMAIOI_carpathia_conquest = {
+	icon = martial_positive
+}
+
+RHOMAIOI_carpathia_conquered = {
+	icon = martial_positive
+}
+
+RHOMAIOI_reclaim_syria = {
+	icon = piety_positive
+}
+
+RHOMAIOI_decimate_muslim_invaders = {
+	icon = piety_positive
+}
+
+RHOMAIOI_restore_dacia = {
+	icon = martial_positive
+}
+
+RHOMAIOI_restore_africa_proconsularis = {
+	icon = martial_positive
+}
+
+RHOMAIOI_restore_mauretania = {
+	icon = martial_positive
+}
+
+RHOMAIOI_restore_baetica = {
+	icon = martial_positive
+}
+
+RHOMAIOI_restore_lusitania = {
+	icon = martial_positive
+}
+
+RHOMAIOI_restore_tarraconensis = {
+	icon = martial_positive
+}
+
+RHOMAIOI_restore_aquitania_narbonensis = {
+	icon = martial_positive
+}
+
+RHOMAIOI_restore_gallia = {
+	icon = martial_positive
+}
+
+# County Modifiers
+
+RHOMAIOI_reinforce_theodosian_walls = {
+	icon = county_modifier_development_positive
+	fort_level = 4
+}
+
+RHOMAIOI_rebuild_hadrians_wall = {
+	icon = county_modifier_development_positive
+	fort_level = 2
+}
