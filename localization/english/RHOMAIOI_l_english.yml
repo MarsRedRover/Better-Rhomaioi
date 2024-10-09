@@ -3,9 +3,7 @@
  RHOMAIOI_basilissa:0 "Basilissa"
  RHOMAIOI_imperator:0 "Imperator"
  RHOMAIOI_imperatrix:0 "Imperatrix"
- nick_RHOMAIOI_autokrator:0 "the Autokrator"
- nick_RHOMAIOI_the_roman:0 "the Roman"
- 
+
  # WIP
  RHOMAIOI_restore_roman_culture_decision:0 "Proclaim the Roman Renaissance"
  RHOMAIOI_restore_roman_culture_tooltip:0 "I will restore Roman culture"
