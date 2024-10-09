@@ -1,4 +1,4 @@
-# namespace = RHOMAIOI_major_decisions
+﻿# namespace = RHOMAIOI_major_decisions
 
 # # Major event to convert the realm to Imperialism
 # RHOMAIOI_major_decisions.0001 = {

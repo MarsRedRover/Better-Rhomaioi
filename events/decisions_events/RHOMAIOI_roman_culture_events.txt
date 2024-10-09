@@ -42,7 +42,8 @@ RHOMAIOI_roman_culture.001 = {
 				desc = cultural_acceptance_historical_relations
 			}
 			change_cultural_acceptance = {
-				target = culture:syriac
+				# target = culture:syriac
+				target = culture:assyrian
 				value = 50
 				desc = cultural_acceptance_historical_relations
 			}
