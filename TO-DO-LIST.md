@@ -37,6 +37,8 @@
 * Coronation activity
 [Check]
 * Court positions outside of empire title under Imperial Autocracy
+[Remove]
+* Decisions added to ep3 dlc
 
 ### [Features To Do]
 * Search for trustworthy Parakoimomenos (Chief Eunuch)
